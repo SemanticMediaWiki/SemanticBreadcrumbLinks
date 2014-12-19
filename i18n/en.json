@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"mwjames"
+		]
+	},
+	"sbl-desc": "A [https://semantic-mediawiki.org Semantic MediaWiki] extension to build breadcrumb links from an attributive property filter.",
+	"smw-pa-property-predefined__sbl_parentpage": "\"$1\" is a predefined property (also known as [https://www.semantic-mediawiki.org/wiki/Help:Special_properties special property]) which is used to describe a relationship between a parent and a child page to form a descendant hierarchy for annotated content.",
+	"sbl-property-alias-parentpage": "Has parent page"
+}
