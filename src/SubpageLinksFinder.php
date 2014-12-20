@@ -15,11 +15,6 @@ use Title;
 class SubpageLinksFinder {
 
 	/**
-	 * @var integer
-	 */
-	private $maxDepthOfFinderHierarchy = 2;
-
-	/**
 	 * @var boolean
 	 */
 	private $subpageDiscoverySupportState = true;
@@ -28,15 +23,6 @@ class SubpageLinksFinder {
 	 * @var array
 	 */
 	private $antecedentHierarchyLinks = array();
-
-	/**
-	 * @since 1.0
-	 *
-	 * @param integer $maxDepthOfFinderHierarchy
-	 */
-	public function setMaxDepthForFinderHierarchy( $maxDepthOfFinderHierarchy ) {
-		$this->maxDepthOfFinderHierarchy = $maxDepthOfFinderHierarchy;
-	}
 
 	/**
 	 * @since 1.0
@@ -105,11 +91,6 @@ class SubpageLinksFinder {
 		$iterator = 0;
 
 		foreach ( $subpages as $subpage ) {
-
-			if ( $iterator++ >= $this->maxDepthOfFinderHierarchy ) {
-				break;
-			}
-
 			$this->antecedentHierarchyLinks[] = $subpage;
 		}
 

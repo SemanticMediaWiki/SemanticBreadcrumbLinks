@@ -60,10 +60,8 @@ class HookRegistry {
 
 			$subpageLinksFinder = new SubpageLinksFinder();
 			$subpageLinksFinder->setSubpageDiscoverySupportState( $configuration['useSubpageDiscoveryForFallback'] );
-			$subpageLinksFinder->setMaxDepthForFinderHierarchy( $configuration['maxAntecedentHierarchyMatchDepth'] );
 
 			$hierarchicalLinksFinderByProperty = new HierarchicalLinksFinderByProperty( $store );
-			$hierarchicalLinksFinderByProperty->setMaxDepthForFinderHierarchy( $configuration['maxAntecedentHierarchyMatchDepth'] );
 			$hierarchicalLinksFinderByProperty->tryToFindClosestDescendant( $configuration['tryToFindClosestDescendant'] );
 			$hierarchicalLinksFinderByProperty->setPropertySearchPatternByNamespace( $configuration['propertySearchPatternByNamespace'] );
 

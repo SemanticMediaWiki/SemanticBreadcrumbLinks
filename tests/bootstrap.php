@@ -5,7 +5,7 @@ if ( php_sapi_name() !== 'cli' ) {
 }
 
 if ( is_readable( $autoloaderClassPath = __DIR__ . '/../../SemanticMediaWiki/tests/autoloader.php' ) ) {
-	print( "\nLoading SemanticMediaWiki ...\n" );
+	print( "\Register with SemanticMediaWiki ...\n" );
 } else {
 	die( 'The SemanticMediaWiki test autoloader is not available' );
 }

@@ -1,7 +1,6 @@
 <?php
 
 use SBL\HookRegistry;
-use SBL\PropertyRegistry;
 
 use SMW\ApplicationFactory;
 
@@ -47,9 +46,12 @@ call_user_func( function () {
 		'position' => 'top'
 	);
 
+	// Declare property Id constant
+	define( 'SBL_PROP_PARENTPAGE', 'Has parent page' );
+
 	// Register default settings
 	$GLOBALS['egSBLBreadcrumbTrailStyleClass'] = 'sbl-breadcrumb-trail-light';
-	$GLOBALS['egSBLMaxAntecedentHierarchyMatchDepth'] = 3;
+	$GLOBALS['egSBLPropertySearchPatternByNamespace'] = array();
 
 	$GLOBALS['egSBLTryToFindClosestDescendant'] = true;
 	$GLOBALS['egSBLUseSubpageDiscoveryForFallback'] = true;
@@ -57,19 +59,18 @@ call_user_func( function () {
 	// Finalize registration process
 	$GLOBALS['wgExtensionFunctions'][] = function() {
 
-		$GLOBALS['egSBLPropertySearchPatternByNamespace'] = array(
-			NS_CATEGORY     => array( '_SUBC' ),
-			SMW_NS_PROPERTY => array( '_SUBP' ),
-			NS_MAIN         => array( PropertyRegistry::SBL_PARENTPAGE ),
-			NS_HELP         => array( PropertyRegistry::SBL_PARENTPAGE )
+		$defaultPropertySearchPatternByNamespace = array(
+			NS_CATEGORY     => array( '_SUBC', '_SUBC', '_SUBC' ),
+			SMW_NS_PROPERTY => array( '_SUBP', '_SUBP', '_SUBP' ),
+			NS_MAIN         => array( SBL_PROP_PARENTPAGE, SBL_PROP_PARENTPAGE, SBL_PROP_PARENTPAGE ),
+			NS_HELP         => array( SBL_PROP_PARENTPAGE, SBL_PROP_PARENTPAGE, SBL_PROP_PARENTPAGE )
 		);
 
 		$configuration = array(
 			'breadcrumbTrailStyleClass'  => $GLOBALS['egSBLBreadcrumbTrailStyleClass'],
 			'tryToFindClosestDescendant' => $GLOBALS['egSBLTryToFindClosestDescendant'],
-			'propertySearchPatternByNamespace'    => $GLOBALS['egSBLPropertySearchPatternByNamespace'],
-			'maxAntecedentHierarchyMatchDepth' => $GLOBALS['egSBLMaxAntecedentHierarchyMatchDepth'],
-			'useSubpageDiscoveryForFallback'      => $GLOBALS['egSBLUseSubpageDiscoveryForFallback']
+			'propertySearchPatternByNamespace' => $GLOBALS['egSBLPropertySearchPatternByNamespace'] + $defaultPropertySearchPatternByNamespace,
+			'useSubpageDiscoveryForFallback'   => $GLOBALS['egSBLUseSubpageDiscoveryForFallback']
 		);
 
 		$hookRegistry = new HookRegistry(

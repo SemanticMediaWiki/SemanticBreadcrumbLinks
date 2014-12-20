@@ -22,11 +22,6 @@ class HierarchicalLinksFinderByProperty {
 	private $store;
 
 	/**
-	 * @var integer
-	 */
-	private $maxDepthForHierarchy = 2;
-
-	/**
 	 * @var boolean
 	 */
 	private $findClosestDescendant = true;
@@ -53,15 +48,6 @@ class HierarchicalLinksFinderByProperty {
 	 */
 	public function __construct( $store ) {
 		$this->store = $store;
-	}
-
-	/**
-	 * @since 1.0
-	 *
-	 * @param integer $maxDepthForHierarchy
-	 */
-	public function setMaxDepthForFinderHierarchy( $maxDepthForHierarchy ) {
-		$this->maxDepthForHierarchy = $maxDepthForHierarchy;
 	}
 
 	/**
@@ -138,21 +124,15 @@ class HierarchicalLinksFinderByProperty {
 		return $this->closestDescendantLinks;
 	}
 
-	private function doResolveAntecedentHierarchyRecursively( DIWikiPage $subject, array $propertySearchPattern, RequestOptions $requestOptions, &$currentDepth = 0 ) {
+	private function doResolveAntecedentHierarchyRecursively( DIWikiPage $subject, array $propertySearchPattern, RequestOptions $requestOptions, $currentDepth = 0 ) {
 
 		$dataItem = null;
 
-		if ( $currentDepth >= $this->maxDepthForHierarchy ) {
+		if ( $propertySearchPattern === array() ) {
 			return null;
 		}
 
 		$property = array_shift( $propertySearchPattern );
-
-		// If the last position is reached without defining a new pattern then
-		// use last previous known property as contingency strategy
-		if ( $propertySearchPattern === array() ) {
-			$propertySearchPattern[] = $property;
-		}
 
 		$propertyValues = $this->store->getPropertyValues(
 			$subject,
@@ -179,9 +159,8 @@ class HierarchicalLinksFinderByProperty {
 			return null;
 		}
 
-		$currentDepth++;
-
 		$this->antecedentHierarchyLinks[] = $dataItem;
+		$currentDepth++;
 
 		return $this->doResolveAntecedentHierarchyRecursively(
 			$dataItem,

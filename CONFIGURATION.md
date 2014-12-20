@@ -2,11 +2,6 @@
 
 `$GLOBALS['egSBLBreadcrumbTrailStyleClass']` is used to assign a styling class to the breadcrumb trail.
 
-`$GLOBALS['egSBLMaxAntecedentHierarchyMatchDepth']` specifies the max depth for
-possible antecedents matches (`parent > grandparent > great-grandparent` etc.) that can be found
-relative to the selected page. If multiple parents or children are available for a subject
-then only one of each can be displayed due to the nature of the breadcrumb trail.
-
 `$GLOBALS['egSBLTryToFindClosestDescendant']` if enabled SBL will try to find the closest descendant
 (it will not work for subpages due to missing annotation information).
 
@@ -16,28 +11,55 @@ namespace did not describe a property search strategy (general fallback for thos
 not define a search property).
 
 `$GLOBALS['egSBLPropertySearchPatternByNamespace']` supports an individual search pattern on
-a per namespace basis. If no search pattern is declared for a namespace then the search is disabled.
-It is possible to use user-defined properties (need to be defined as page-type property).
+a per namespace basis. If no search pattern is declared for a namespace then the search is disabled and
+in case `egSBLUseSubpageDiscoveryForFallback` ins enabled, SBL will try to use subpage hierarchy to build
+a breadcrumb trail.
+
+It is also possible to use user-defined properties (need to be defined as page-type property) while the amount
+of properties specified per namespace will be used as maximum depth for possible antecedents matches
+(`parent > grandparent > great-grandparent` etc.) that can be found relative to the current subject.
+If multiple parents or children are available for a subject then only one of each can be displayed
+due to the nature of the breadcrumb trail.
 
 ## Default settings
 
 ```php
 $GLOBALS['egSBLBreadcrumbTrailStyleClass'] = 'sbl-breadcrumb-trail-light';
-$GLOBALS['egSBLMaxAntecedentHierarchyMatchDepth'] = 3;
 
 $GLOBALS['egSBLTryToFindClosestDescendant'] = true;
 $GLOBALS['egSBLUseSubpageDiscoveryForFallback'] = true;
 
 $GLOBALS['egSBLPropertySearchPatternByNamespace'] = array(
-	NS_CATEGORY     => array( '_SUBC' ), // search for sub-categories
-	SMW_NS_PROPERTY => array( '_SUBP' ), // search for sub-properties
 
-	NS_MAIN         => array( PropertyRegistry::SBL_PARENTPAGE ),
-	NS_HELP         => array( PropertyRegistry::SBL_PARENTPAGE )
+	// Search for a three level sub-category hierarchy
+	NS_CATEGORY => array( '_SUBC', '_SUBC', '_SUBC' ),
 
-	// A more elaborated example, SBL first tries to match the category
-	// of a page and then for all succeeding steps tries to match a
-	// sub-category to the category found earlier
-	// NS_MAIN      => array( '_INST', '_SUBC' ),
+	// Search for a three level sub-property hierarchy
+	SMW_NS_PROPERTY => array( '_SUBP', '_SUBP', '_SUBP' ),
+
+	// Search a three level antecedent hierarchy that contain `Has parent page` annotation
+	// which is to follow `parent > grandparent > great-grandparent`
+	NS_MAIN  => array( SBL_PROP_PARENTPAGE, SBL_PROP_PARENTPAGE, SBL_PROP_PARENTPAGE ),
+	NS_HELP  => array( SBL_PROP_PARENTPAGE, SBL_PROP_PARENTPAGE, SBL_PROP_PARENTPAGE )
 );
+```
+
+### Other search strategies
+
+```php
+
+	// Find relationship trough `Has parent page` and if successful
+	// use the input to find a related category (`_INST`)
+	$GLOBALS['egSBLPropertySearchPatternByNamespace'][ NS_MAIN ] = array(
+		SBL_PROP_PARENTPAGE,
+		'_INST'
+	);
+
+	// Match the category of a page and then for all succeeding steps
+	// tries to match the associated sub-category to that category/sub-category
+	$GLOBALS['egSBLPropertySearchPatternByNamespace'][ NS_MAIN ] = array(
+		'_INST',
+		'_SUBC',
+		'_SUBC'
+	);
 ```

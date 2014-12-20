@@ -111,7 +111,6 @@ class HierarchicalLinksFinderByPropertyTest extends \PHPUnit_Framework_TestCase 
 
 		$instance = new HierarchicalLinksFinderByProperty( $store );
 
-		$instance->setMaxDepthForFinderHierarchy( 2 );
 		$instance->tryToFindClosestDescendant( false );
 
 		$instance->setPropertySearchPatternByNamespace(
@@ -145,11 +144,10 @@ class HierarchicalLinksFinderByPropertyTest extends \PHPUnit_Framework_TestCase 
 			->with(
 				$this->equalTo( $subject ),
 				$this->equalTo( DIProperty::newFromUserLabel( 'Bar' ) ) )
-			->will( $this->returnValue( array( new DIWikiPage( 'Foo', NS_MAIN ) ) ) );
+			->will( $this->returnValue( array( $subject ) ) );
 
 		$instance = new HierarchicalLinksFinderByProperty( $store );
 
-		$instance->setMaxDepthForFinderHierarchy( 2 );
 		$instance->tryToFindClosestDescendant( false );
 
 		$instance->setPropertySearchPatternByNamespace(
@@ -182,18 +180,18 @@ class HierarchicalLinksFinderByPropertyTest extends \PHPUnit_Framework_TestCase 
 			->method( 'getPropertyValues' )
 			->will( $this->returnValue( array() ) );
 
-		$store->expects( $this->once() )
+		$store->expects( $this->at( 1 ) )
 			->method( 'getPropertySubjects' )
 			->with(
 				$this->equalTo( $property ),
 				$this->equalTo( $subject ) )
 			->will( $this->returnValue( array(
 				new DIWikiPage( 'Foo', NS_MAIN ),
-				new DIWikiPage( 'Ichi', NS_MAIN ) ) ) );
+				new DIWikiPage( 'Ichi', NS_MAIN ),
+				new DIWikiPage( 'NotBeSelectable', NS_MAIN ) ) ) );
 
 		$instance = new HierarchicalLinksFinderByProperty( $store );
 
-		$instance->setMaxDepthForFinderHierarchy( 2 );
 		$instance->tryToFindClosestDescendant( true );
 
 		$instance->setPropertySearchPatternByNamespace(
@@ -209,6 +207,40 @@ class HierarchicalLinksFinderByPropertyTest extends \PHPUnit_Framework_TestCase 
 		$this->assertEquals(
 			array(
 				new DIWikiPage( 'Ichi', NS_MAIN ) ),
+			$instance->getChildren()
+		);
+	}
+
+	public function testChildSearchForInvalidPropertyType() {
+
+		$subject = new DIWikiPage( 'Foo', NS_MAIN );
+
+		$store = $this->getMockBuilder( '\SMW\Store' )
+			->disableOriginalConstructor()
+			->getMockForAbstractClass();
+
+		$store->expects( $this->atLeastOnce() )
+			->method( 'getPropertyValues' )
+			->will( $this->returnValue( array() ) );
+
+		$store->expects( $this->never() )
+			->method( 'getPropertySubjects' );
+
+		$instance = new HierarchicalLinksFinderByProperty( $store );
+
+		$instance->tryToFindClosestDescendant( true );
+
+		$instance->setPropertySearchPatternByNamespace(
+			array( NS_MAIN => array( '_MDAT' ) )
+		);
+
+		$instance->tryToFindLinksFor( $subject );
+
+		$this->assertEmpty(
+			$instance->getParents()
+		);
+
+		$this->assertEmpty(
 			$instance->getChildren()
 		);
 	}

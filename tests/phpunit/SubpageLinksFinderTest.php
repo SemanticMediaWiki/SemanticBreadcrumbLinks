@@ -41,13 +41,12 @@ class SubpageLinksFinderTest extends \PHPUnit_Framework_TestCase {
 	/**
 	 * @dataProvider titleProvider
 	 */
-	public function testFindParentBreadcrumbs( $title, $depth, $count, $expected ) {
+	public function testFindParentBreadcrumbs( $title,$count, $expected ) {
 
 		$subject = DIWikiPage::newFromTitle( Title::newFromText( $title ) );
 
 		$instance = new SubpageLinksFinder();
 		$instance->setSubpageDiscoverySupportState( true );
-		$instance->setMaxDepthForFinderHierarchy( $depth );
 
 		$this->assertEmpty(
 			$instance->getParents()
@@ -70,14 +69,12 @@ class SubpageLinksFinderTest extends \PHPUnit_Framework_TestCase {
 
 		$provider[] = array(
 			'Foo',
-			3,
 			0,
 			array()
 		);
 
 		$provider[] = array(
 			'Foo/',
-			3,
 			1,
 			array(
 				new DIWikiPage( 'Foo', NS_MAIN )
@@ -86,7 +83,6 @@ class SubpageLinksFinderTest extends \PHPUnit_Framework_TestCase {
 
 		$provider[] = array(
 			'Foo/Bar/Baz',
-			3,
 			2,
 			array(
 				new DIWikiPage( 'Foo/Bar', NS_MAIN ),
@@ -96,12 +92,12 @@ class SubpageLinksFinderTest extends \PHPUnit_Framework_TestCase {
 
 		$provider[] = array(
 			'Foo/Bar/Baz/Yin/Yan',
-			3,
-			3,
+			4,
 			array(
 				new DIWikiPage( 'Foo/Bar/Baz/Yin', NS_MAIN ),
 				new DIWikiPage( 'Foo/Bar/Baz', NS_MAIN ),
-				new DIWikiPage( 'Foo/Bar', NS_MAIN )
+				new DIWikiPage( 'Foo/Bar', NS_MAIN ),
+				new DIWikiPage( 'Foo', NS_MAIN )
 			)
 		);
 

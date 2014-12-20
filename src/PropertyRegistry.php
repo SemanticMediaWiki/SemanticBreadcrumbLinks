@@ -24,7 +24,7 @@ class PropertyRegistry {
 		$propertyDefinitions = array(
 
 			self::SBL_PARENTPAGE => array(
-				'label' => 'Has parent page',
+				'label' => SBL_PROP_PARENTPAGE,
 				'type'  => '_wpg',
 				'alias' => wfMessage( 'sbl-property-alias-parentpage' )->text()
 			)
