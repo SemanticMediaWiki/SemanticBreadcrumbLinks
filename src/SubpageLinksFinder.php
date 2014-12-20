@@ -73,28 +73,17 @@ class SubpageLinksFinder {
 
 	private function buildHierarchicalLinksFromText( $text ) {
 
-		$subpages = array();
-
+		$growinglink = '';
 		$links = explode( '/', $text );
 
+		// Remove the source
 		array_pop( $links );
-
-		$growinglink = '';
 
 		foreach ( $links as $link ) {
 			$growinglink .= $link;
-			$subpages[] = DIWikiPage::newFromTitle( Title::newFromText( $growinglink ) );
+			$this->antecedentHierarchyLinks[] = DIWikiPage::newFromTitle( Title::newFromText( $growinglink ) );
 			$growinglink .= '/';
 		}
-
-		krsort( $subpages );
-		$iterator = 0;
-
-		foreach ( $subpages as $subpage ) {
-			$this->antecedentHierarchyLinks[] = $subpage;
-		}
-
-		krsort( $this->antecedentHierarchyLinks );
 	}
 
 }

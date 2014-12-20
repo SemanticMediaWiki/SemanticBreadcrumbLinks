@@ -67,12 +67,14 @@ class SubpageLinksFinderTest extends \PHPUnit_Framework_TestCase {
 
 	public function titleProvider() {
 
+		#0
 		$provider[] = array(
 			'Foo',
 			0,
 			array()
 		);
 
+		#1
 		$provider[] = array(
 			'Foo/',
 			1,
@@ -81,23 +83,25 @@ class SubpageLinksFinderTest extends \PHPUnit_Framework_TestCase {
 			)
 		);
 
+		#2
 		$provider[] = array(
 			'Foo/Bar/Baz',
 			2,
 			array(
-				new DIWikiPage( 'Foo/Bar', NS_MAIN ),
-				new DIWikiPage( 'Foo', NS_MAIN )
+				new DIWikiPage( 'Foo', NS_MAIN ),
+				new DIWikiPage( 'Foo/Bar', NS_MAIN )
 			)
 		);
 
+		#3
 		$provider[] = array(
 			'Foo/Bar/Baz/Yin/Yan',
 			4,
 			array(
-				new DIWikiPage( 'Foo/Bar/Baz/Yin', NS_MAIN ),
-				new DIWikiPage( 'Foo/Bar/Baz', NS_MAIN ),
+				new DIWikiPage( 'Foo', NS_MAIN ),
 				new DIWikiPage( 'Foo/Bar', NS_MAIN ),
-				new DIWikiPage( 'Foo', NS_MAIN )
+				new DIWikiPage( 'Foo/Bar/Baz', NS_MAIN ),
+				new DIWikiPage( 'Foo/Bar/Baz/Yin', NS_MAIN )
 			)
 		);
 
