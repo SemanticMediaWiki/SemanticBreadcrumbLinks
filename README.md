@@ -47,12 +47,16 @@ If a property can be matched, SBL will generate a breadcrumb trail including dir
 `>` identifies a `Has parent` (or `Is child of`) relationship while `<` indicates
 the closest descendant for a `Is parent of` affinity.
 
-For example, if a subject `Baz` declares a relationship with `Bar` and `Bar` itself specifies
+### Example
+
+`Foo` `>` `Bar` -- `[[Has parent page::Foo]]` `>` `Baz` -- `[[Has parent page::Bar]]`
+
+If a subject `Baz` declares a relationship with `Bar` and `Bar` itself specifies
 a parental relationship with `Foo` then the breadcrumb trail for `Baz` will be resolved as
 `Foo > Bar`. On the other hand, the subject `Bar` will display a `Foo > Bar < Baz` trail
 indicating that `Foo` is a `parent`( `>` ) and `Baz` is a `child` ( `<` ) of `Bar`.
 
-For configuration details, see the [CONFIGURATION.md](https://github.com/SemanticMediaWiki/SemanticBreadcrumbLinks/blob/master/CONFIGURATION.md).
+Additional customizing and setting details can be found in the [configuration](https://github.com/SemanticMediaWiki/SemanticBreadcrumbLinks/blob/master/CONFIGURATION.md) section.
 
 ## Contribution and support
 
