@@ -39,14 +39,6 @@ call_user_func( function () {
 	// Register message files
 	$GLOBALS['wgMessagesDirs'][ 'semanticbreadcrumblinks' ] = __DIR__ . '/i18n';
 
-	// Register classes
-	$GLOBALS[ 'wgAutoloadClasses' ][ 'SBL\PropertyRegistry' ]              = __DIR__ . '/src/PropertyRegistry.php';
-	$GLOBALS[ 'wgAutoloadClasses' ][ 'SBL\HookRegistry' ]                  = __DIR__ . '/src/HookRegistry.php';
-	$GLOBALS[ 'wgAutoloadClasses' ][ 'SBL\HtmlBreadcrumbLinksBuilder' ]    = __DIR__ . '/src/HtmlBreadcrumbLinksBuilder.php';
-	$GLOBALS[ 'wgAutoloadClasses' ][ 'SBL\SkinTemplateOutputModifier' ]    = __DIR__ . '/src/SkinTemplateOutputModifier.php';
-	$GLOBALS[ 'wgAutoloadClasses' ][ 'SBL\SubpageLinksFinder' ]            = __DIR__ . '/src/SubpageLinksFinder.php';
-	$GLOBALS[ 'wgAutoloadClasses' ][ 'SBL\HierarchicalLinksFinderByProperty' ] = __DIR__ . '/src/HierarchicalLinksFinderByProperty.php';
-
 	// Register resource files
 	$GLOBALS['wgResourceModules']['ext.semanticbreadcrumblinks'] = array(
 		'styles' => 'resources/sbl.styles.css',
