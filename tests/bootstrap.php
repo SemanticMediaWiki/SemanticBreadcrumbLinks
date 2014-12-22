@@ -5,11 +5,10 @@ if ( php_sapi_name() !== 'cli' ) {
 }
 
 if ( is_readable( $autoloaderClassPath = __DIR__ . '/../../SemanticMediaWiki/tests/autoloader.php' ) ) {
-	print( "\nSemanticMediaWiki ". SMW_VERSION . " ...\n" );
+	print( "\nSemanticMediaWiki " . SMW_VERSION . " ({$GLOBALS['wgDBtype']}) test autoloader ...\n" );
 } else {
 	die( 'The SemanticMediaWiki test autoloader is not available' );
 }
 
 $autoloader = require $autoloaderClassPath;
-
 $autoloader->addPsr4( 'SBL\\Tests\\', __DIR__ . '/phpunit' );

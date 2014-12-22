@@ -71,7 +71,7 @@ class HierarchicalLinksFinderByPropertyTest extends \PHPUnit_Framework_TestCase 
 
 		$instance = new HierarchicalLinksFinderByProperty( $store );
 
-		$instance->tryToFindClosestDescendant( false );
+		$instance->setFindClosestDescendantState( false );
 		$instance->setPropertySearchPatternByNamespace(
 			array( NS_MAIN => array( 'Bar' ) )
 		);
@@ -111,7 +111,7 @@ class HierarchicalLinksFinderByPropertyTest extends \PHPUnit_Framework_TestCase 
 
 		$instance = new HierarchicalLinksFinderByProperty( $store );
 
-		$instance->tryToFindClosestDescendant( false );
+		$instance->setFindClosestDescendantState( false );
 
 		$instance->setPropertySearchPatternByNamespace(
 			array( NS_MAIN => array( 'Bar', 'Yin' ) )
@@ -148,7 +148,7 @@ class HierarchicalLinksFinderByPropertyTest extends \PHPUnit_Framework_TestCase 
 
 		$instance = new HierarchicalLinksFinderByProperty( $store );
 
-		$instance->tryToFindClosestDescendant( false );
+		$instance->setFindClosestDescendantState( false );
 
 		$instance->setPropertySearchPatternByNamespace(
 			array( NS_MAIN => array( 'Bar', 'Yin' ) )
@@ -192,7 +192,7 @@ class HierarchicalLinksFinderByPropertyTest extends \PHPUnit_Framework_TestCase 
 
 		$instance = new HierarchicalLinksFinderByProperty( $store );
 
-		$instance->tryToFindClosestDescendant( true );
+		$instance->setFindClosestDescendantState( true );
 
 		$instance->setPropertySearchPatternByNamespace(
 			array( NS_MAIN => array( 'Bar' ) )
@@ -228,7 +228,7 @@ class HierarchicalLinksFinderByPropertyTest extends \PHPUnit_Framework_TestCase 
 
 		$instance = new HierarchicalLinksFinderByProperty( $store );
 
-		$instance->tryToFindClosestDescendant( true );
+		$instance->setFindClosestDescendantState( true );
 
 		$instance->setPropertySearchPatternByNamespace(
 			array( NS_MAIN => array( '_MDAT' ) )

@@ -1,16 +1,13 @@
 <?php
 
 use SBL\HookRegistry;
-
 use SMW\ApplicationFactory;
 
 /**
- * This documentation group collects source code files belonging to Semantic
- * Breadcrumb Links.
- *
  * @see https://github.com/SemanticMediaWiki/SemanticBreadcrumbLinks/
  *
  * @defgroup SBL Semantic SemanticBreadcrumb Links
+ * @codeCoverageIgnore
  */
 call_user_func( function () {
 

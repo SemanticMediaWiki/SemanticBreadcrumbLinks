@@ -62,7 +62,7 @@ class HookRegistry {
 			$subpageLinksFinder->setSubpageDiscoverySupportState( $configuration['useSubpageDiscoveryForFallback'] );
 
 			$hierarchicalLinksFinderByProperty = new HierarchicalLinksFinderByProperty( $store );
-			$hierarchicalLinksFinderByProperty->tryToFindClosestDescendant( $configuration['tryToFindClosestDescendant'] );
+			$hierarchicalLinksFinderByProperty->setFindClosestDescendantState( $configuration['tryToFindClosestDescendant'] );
 			$hierarchicalLinksFinderByProperty->setPropertySearchPatternByNamespace( $configuration['propertySearchPatternByNamespace'] );
 
 			$htmlBreadcrumbLinksBuilder = new HtmlBreadcrumbLinksBuilder(

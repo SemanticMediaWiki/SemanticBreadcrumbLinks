@@ -55,7 +55,7 @@ class HierarchicalLinksFinderByProperty {
 	 *
 	 * @param boolean $findClosestDescendant
 	 */
-	public function tryToFindClosestDescendant( $findClosestDescendant ) {
+	public function setFindClosestDescendantState( $findClosestDescendant ) {
 		$this->findClosestDescendant = $findClosestDescendant;
 	}
 
