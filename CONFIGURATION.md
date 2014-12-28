@@ -7,13 +7,12 @@
 
 `$GLOBALS['egSBLUseSubpageDiscoveryForFallback']` if enabled SBL will try to match a hierarchy
 based on the `Foo/Bar/Baz` subpage notation for when a property search returns empty results or a
-namespace did not describe a property search strategy (general fallback for those namespaces that to
-not define a search property).
+namespace did not describe a property search strategy.
 
 `$GLOBALS['egSBLPropertySearchPatternByNamespace']` supports an individual search pattern on
 a per namespace basis. If no search pattern is declared for a namespace then the search is disabled and
-in case `egSBLUseSubpageDiscoveryForFallback` ins enabled, SBL will try to use subpage hierarchy to build
-a breadcrumb trail.
+unless `egSBLUseSubpageDiscoveryForFallback` is enabled, SBL will not try to use a subpage hierarchy
+to build a breadcrumb trail.
 
 It is also possible to use user-defined properties (need to be defined as page-type property) while the amount
 of properties specified per namespace will be used as maximum depth for possible antecedents matches
@@ -37,8 +36,8 @@ $GLOBALS['egSBLPropertySearchPatternByNamespace'] = array(
 	// Search for a three level sub-property hierarchy
 	SMW_NS_PROPERTY => array( '_SUBP', '_SUBP', '_SUBP' ),
 
-	// Search a three level antecedent hierarchy that contain `Has parent page` annotation
-	// which is to follow `parent > grandparent > great-grandparent`
+	// Search for a three level antecedent hierarchy that contains a
+	// `Has parent page` annotation which is to follow `parent > grandparent > great-grandparent`
 	NS_MAIN  => array( SBL_PROP_PARENTPAGE, SBL_PROP_PARENTPAGE, SBL_PROP_PARENTPAGE ),
 	NS_HELP  => array( SBL_PROP_PARENTPAGE, SBL_PROP_PARENTPAGE, SBL_PROP_PARENTPAGE )
 );
@@ -48,7 +47,7 @@ $GLOBALS['egSBLPropertySearchPatternByNamespace'] = array(
 
 ```php
 
-	// Find relationship trough `Has parent page` and if successful
+	// Find a relationship trough a `Has parent page` and if successful
 	// use the input to find a related category (`_INST`)
 	$GLOBALS['egSBLPropertySearchPatternByNamespace'][ NS_MAIN ] = array(
 		SBL_PROP_PARENTPAGE,
@@ -56,7 +55,7 @@ $GLOBALS['egSBLPropertySearchPatternByNamespace'] = array(
 	);
 
 	// Match the category of a page and then for all succeeding steps
-	// tries to match the associated sub-category to that category/sub-category
+	// try to match the associated sub-category to that category/sub-category
 	$GLOBALS['egSBLPropertySearchPatternByNamespace'][ NS_MAIN ] = array(
 		'_INST',
 		'_SUBC',
