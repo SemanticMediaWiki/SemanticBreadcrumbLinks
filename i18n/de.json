@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"kghbln"
+		]
+	},
+	"sbl-desc": "Ermöglicht eine auf sematische Attribute gestütze Anzeige des Navigationsweges",
+	"smw-pa-property-predefined__sbl_parentpage": "„$1“ ist ein systemseitig festgelegtes Attribut [https://www.semantic-mediawiki.org/wiki/Help:Spezialattribute (Spezialattribut)] mit dem der Zusammenhang zwischen über- und untergeordneten Seiten beschrieben und somit eine Seitenhierarchie festgelegt werden kann.",
+	"sbl-property-alias-parentpage": "Hat übergeordnete Seite"
+}
