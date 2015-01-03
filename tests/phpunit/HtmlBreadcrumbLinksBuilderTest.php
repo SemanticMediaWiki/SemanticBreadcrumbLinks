@@ -88,9 +88,15 @@ class HtmlBreadcrumbLinksBuilderTest extends \PHPUnit_Framework_TestCase {
 		);
 
 		$instance->buildBreadcrumbs( \Title::newFromText( __METHOD__) );
+		$instance->setRTLDirectionalityState( false );
 
 		$this->assertInternalType(
 			'string',
+			$instance->getHtml()
+		);
+
+		$this->assertContains(
+			'dir="ltr"',
 			$instance->getHtml()
 		);
 	}

@@ -44,6 +44,11 @@ class HtmlBreadcrumbLinksBuilder {
 	private $breadcrumbTrailStyleClass = 'sbl-breadcrumb-trail-boxed';
 
 	/**
+	 * @var boolean
+	 */
+	private $isRTL = false;
+
+	/**
 	 * @since 1.0
 	 *
 	 * @param HierarchicalLinksFinderByProperty $hierarchicalLinksFinderByProperty
@@ -73,6 +78,15 @@ class HtmlBreadcrumbLinksBuilder {
 	}
 
 	/**
+	 * @since 1.0
+	 *
+	 * @param boolean $isRTL
+	 */
+	public function setRTLDirectionalityState( $isRTL ) {
+		$this->isRTL = $isRTL;
+	}
+
+	/**
 	 * @since  1.0
 	 *
 	 * @param Title $title
@@ -88,7 +102,7 @@ class HtmlBreadcrumbLinksBuilder {
 		$parents = $this->hierarchicalLinksFinderByProperty->getParents();
 		$children = $this->hierarchicalLinksFinderByProperty->getChildren();
 
-		$parents = $this->checkIfSubpageFinderCanBeUsedForFallback(
+		$parents = $this->tryToUseSubpageHierarchyFallback(
 			$subject,
 			$parents
 		);
@@ -111,12 +125,13 @@ class HtmlBreadcrumbLinksBuilder {
 
 		return Html::rawElement( 'div', array(
 			'id'    => 'sbl-breadcrumbs',
-			'class' => $this->breadcrumbTrailStyleClass ),
+			'class' => $this->breadcrumbTrailStyleClass,
+			'dir'   => $this->isRTL ? 'rtl' : 'ltr' ),
 			$this->breadcrumbs
 		);
 	}
 
-	private function checkIfSubpageFinderCanBeUsedForFallback( $subject, $parents ) {
+	private function tryToUseSubpageHierarchyFallback( $subject, $parents ) {
 
 		if ( $parents !== array() || !$this->subpageLinksFinder->canUseSubpageDiscoveryForFallback() ) {
 			return $parents;

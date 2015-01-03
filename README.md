@@ -39,13 +39,13 @@ The recommended way to install Semantic Breadcrumb Links is by using [Composer][
 
 ## Usage
 
-A property search pattern can be specified (by default `Has parent page` as special property is assigned
-to `NS_MAIN`) to find possible relationships between a subject and its antecedents matched
-by a property.
+If a property relation can be matched, SBL will generate a breadcrumb trail including its
+relational directionality where `>` identifies a `Has parent` (or `Is child of`) relationship
+while `<` indicates the closest descendant for a `Is parent of` affinity.
 
-If a property can be matched, SBL will generate a breadcrumb trail including directionality where
-`>` identifies a `Has parent` (or `Is child of`) relationship while `<` indicates
-the closest descendant for a `Is parent of` affinity.
+It is required to specify a property search pattern (by default `Has parent page` is assigned
+as special property to `NS_MAIN`) in order to find relationships between a subject and its
+antecedents.
 
 ### Example
 

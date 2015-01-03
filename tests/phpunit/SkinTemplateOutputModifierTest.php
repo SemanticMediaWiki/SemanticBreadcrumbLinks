@@ -155,6 +155,10 @@ class SkinTemplateOutputModifierTest extends \PHPUnit_Framework_TestCase {
 			->method( 'buildBreadcrumbs' )
 			->will( $this->returnSelf() );
 
+		$language = $this->getMockBuilder( '\Language' )
+			->disableOriginalConstructor()
+			->getMock();
+
 		$title = $this->getMockBuilder( '\Title' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -166,6 +170,10 @@ class SkinTemplateOutputModifierTest extends \PHPUnit_Framework_TestCase {
 		$title->expects( $this->once() )
 			->method( 'isSpecialPage' )
 			->will( $this->returnValue( false ) );
+
+		$title->expects( $this->once() )
+			->method( 'getPageLanguage' )
+			->will( $this->returnValue( $language ) );
 
 		$output = $this->getMockBuilder( '\OutputPage' )
 			->disableOriginalConstructor()

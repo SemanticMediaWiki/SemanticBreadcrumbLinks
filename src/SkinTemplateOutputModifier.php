@@ -69,9 +69,14 @@ class SkinTemplateOutputModifier {
 
 	private function doModifyOutput( OutputPage $output ) {
 
-		$output->prependHTML(
-			$this->htmlBreadcrumbLinksBuilder->buildBreadcrumbs( $output->getTitle() )->getHtml()
+
+		$this->htmlBreadcrumbLinksBuilder->buildBreadcrumbs( $output->getTitle() );
+
+		$this->htmlBreadcrumbLinksBuilder->setRTLDirectionalityState(
+			$output->getTitle()->getPageLanguage()->isRTL()
 		);
+
+		$output->prependHTML( $this->htmlBreadcrumbLinksBuilder->getHtml() );
 
 		return true;
 	}
