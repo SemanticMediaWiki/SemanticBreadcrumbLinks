@@ -11,4 +11,5 @@ if ( is_readable( $autoloaderClassPath = __DIR__ . '/../../SemanticMediaWiki/tes
 }
 
 $autoloader = require $autoloaderClassPath;
-$autoloader->addPsr4( 'SBL\\Tests\\', __DIR__ . '/phpunit' );
+$autoloader->addPsr4( 'SBL\\Tests\\', __DIR__ . '/phpunit/Unit' );
+$autoloader->addPsr4( 'SBL\\Tests\\Integration\\', __DIR__ . '/phpunit/Integration' );
