@@ -19,7 +19,7 @@ class PropertyRegistry {
 	 *
 	 * @return boolean
 	 */
-	public static function register() {
+	public function registerBreadcrumbProperties() {
 
 		$propertyDefinitions = array(
 

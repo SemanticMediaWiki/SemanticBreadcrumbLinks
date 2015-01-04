@@ -72,7 +72,8 @@ call_user_func( function () {
 
 		$hookRegistry = new HookRegistry(
 			ApplicationFactory::getInstance()->getStore(),
-			$configuration
+			$configuration,
+			new \SBL\PropertyRegistry()
 		);
 
 		$hookRegistry->register( $GLOBALS['wgHooks'] );

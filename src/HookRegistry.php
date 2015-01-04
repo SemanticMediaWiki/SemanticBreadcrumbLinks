@@ -25,14 +25,21 @@ class HookRegistry {
 	private $configuration;
 
 	/**
+	 * @var PropertyRegistry
+	 */
+	private $propertyRegistry;
+
+	/**
 	 * @since 1.0
 	 *
 	 * @param Store $store
 	 * @param array $configuration
+	 * @param PropertyRegistry $propertyRegistry
 	 */
-	public function __construct( Store $store, array $configuration ) {
+	public function __construct( Store $store, array $configuration, PropertyRegistry $propertyRegistry ) {
 		$this->store = $store;
 		$this->configuration = $configuration;
+		$this->propertyRegistry = $propertyRegistry;
 	}
 
 	/**
@@ -45,12 +52,13 @@ class HookRegistry {
 		// PHP 5.3
 		$store = $this->store;
 		$configuration = $this->configuration;
+		$propertyRegistry = $this->propertyRegistry;
 
 		/**
 		 * @see https://github.com/SemanticMediaWiki/SemanticMediaWiki/blob/master/docs/technical/hooks.md
 		 */
-		$wgHooks['smwInitProperties'][] = function () {
-			return PropertyRegistry::register();
+		$wgHooks['smwInitProperties'][] = function () use ( $propertyRegistry ) {
+			return $propertyRegistry->registerBreadcrumbProperties();
 		};
 
 		/**
