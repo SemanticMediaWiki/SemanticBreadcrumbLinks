@@ -25,7 +25,7 @@ call_user_func( function () {
 	$GLOBALS[ 'wgExtensionCredits' ][ 'semantic' ][ ] = array(
 		'path'           => __FILE__,
 		'name'           => 'Semantic Breadcrumb Links',
-		'author'         => array( 'mwjames' ),
+		'author'         => array( 'James Hong Kong' ),
 		'url'            => 'https://github.com/SemanticMediaWiki/SemanticBreadcrumbLinks/',
 		'descriptionmsg' => 'sbl-desc',
 		'version'        => SBL_VERSION,
