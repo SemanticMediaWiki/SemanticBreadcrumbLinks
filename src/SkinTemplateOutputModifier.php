@@ -46,17 +46,14 @@ class SkinTemplateOutputModifier {
 	 */
 	public function modifyTemplate( &$template ) {
 
-		// Always set subtitle to be empty when SBL is used to avoid distraction
+		// Always set subtitle to be empty when SBL is used to avoid any output
+		// distraction
 		$template->data['subtitle'] = '';
 	}
 
 	private function canModifyOutput( OutputPage $output ) {
 
-		if ( !$output->getTitle()->isKnown() ) {
-			return false;
-		}
-
-		if ( $output->getTitle()->isSpecialPage() ) {
+		if ( !$output->getTitle()->isKnown() || $output->getTitle()->isSpecialPage() ) {
 			return false;
 		}
 
@@ -68,7 +65,6 @@ class SkinTemplateOutputModifier {
 	}
 
 	private function doModifyOutput( OutputPage $output ) {
-
 
 		$this->htmlBreadcrumbLinksBuilder->buildBreadcrumbs( $output->getTitle() );
 
