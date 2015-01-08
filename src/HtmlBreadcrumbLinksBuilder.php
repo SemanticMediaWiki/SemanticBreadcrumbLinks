@@ -19,14 +19,14 @@ use DummyLinker;
 class HtmlBreadcrumbLinksBuilder {
 
 	/**
-	 * @var HierarchicalLinksFinderByProperty
+	 * @var ByPropertyHierarchicalLinksFinder
 	 */
-	private $hierarchicalLinksFinderByProperty;
+	private $byPropertyHierarchicalLinksFinder;
 
 	/**
-	 * @var SubpageLinksFinder
+	 * @var BySubpageLinksFinder
 	 */
-	private $subpageLinksFinder;
+	private $bySubpageLinksFinder;
 
 	/**
 	 * @var DummyLinker|null
@@ -51,12 +51,12 @@ class HtmlBreadcrumbLinksBuilder {
 	/**
 	 * @since 1.0
 	 *
-	 * @param HierarchicalLinksFinderByProperty $hierarchicalLinksFinderByProperty
-	 * @param SubpageLinksFinder $subpageLinksFinder
+	 * @param ByPropertyHierarchicalLinksFinder $byPropertyHierarchicalLinksFinder
+	 * @param BySubpageLinksFinder $bySubpageLinksFinder
 	 */
-	public function __construct( HierarchicalLinksFinderByProperty $hierarchicalLinksFinderByProperty, SubpageLinksFinder $subpageLinksFinder ) {
-		$this->hierarchicalLinksFinderByProperty = $hierarchicalLinksFinderByProperty;
-		$this->subpageLinksFinder = $subpageLinksFinder;
+	public function __construct( ByPropertyHierarchicalLinksFinder $byPropertyHierarchicalLinksFinder, BySubpageLinksFinder $bySubpageLinksFinder ) {
+		$this->byPropertyHierarchicalLinksFinder = $byPropertyHierarchicalLinksFinder;
+		$this->bySubpageLinksFinder = $bySubpageLinksFinder;
 	}
 
 	/**
@@ -97,10 +97,10 @@ class HtmlBreadcrumbLinksBuilder {
 
 		$subject = DIWikiPage::newFromTitle( $title );
 
-		$this->hierarchicalLinksFinderByProperty->tryToFindLinksFor( $subject );
+		$this->byPropertyHierarchicalLinksFinder->tryToFindLinksFor( $subject );
 
-		$parents = $this->hierarchicalLinksFinderByProperty->getParents();
-		$children = $this->hierarchicalLinksFinderByProperty->getChildren();
+		$parents = $this->byPropertyHierarchicalLinksFinder->getParents();
+		$children = $this->byPropertyHierarchicalLinksFinder->getChildren();
 
 		$parents = $this->tryToUseSubpageHierarchyFallback(
 			$subject,
@@ -133,13 +133,13 @@ class HtmlBreadcrumbLinksBuilder {
 
 	private function tryToUseSubpageHierarchyFallback( $subject, $parents ) {
 
-		if ( $parents !== array() || !$this->subpageLinksFinder->canUseSubpageDiscoveryForFallback() ) {
+		if ( $parents !== array() || !$this->bySubpageLinksFinder->canUseSubpageDiscoveryForFallback() ) {
 			return $parents;
 		}
 
-		$this->subpageLinksFinder->tryToFindLinksFor( $subject );
+		$this->bySubpageLinksFinder->tryToFindLinksFor( $subject );
 
-		return $this->subpageLinksFinder->getParents();
+		return $this->bySubpageLinksFinder->getParents();
 	}
 
 	private function formatToFlatList( DIWikiPage $subject, $parents, $children ) {

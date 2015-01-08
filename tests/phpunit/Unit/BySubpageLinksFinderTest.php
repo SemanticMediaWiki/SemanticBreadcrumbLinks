@@ -2,14 +2,14 @@
 
 namespace SBL\Tests;
 
-use SBL\SubpageLinksFinder;
+use SBL\BySubpageLinksFinder;
 
 use SMW\DIWikiPage;
 
 use Title;
 
 /**
- * @covers \SBL\SubpageLinksFinder
+ * @covers \SBL\BySubpageLinksFinder
  *
  * @group semantic-breadcrumb-links
  *
@@ -18,19 +18,19 @@ use Title;
  *
  * @author mwjames
  */
-class SubpageLinksFinderTest extends \PHPUnit_Framework_TestCase {
+class BySubpageLinksFinderTest extends \PHPUnit_Framework_TestCase {
 
 	public function testCanConstruct() {
 
 		$this->assertInstanceOf(
-			'\SBL\SubpageLinksFinder',
-			new SubpageLinksFinder()
+			'\SBL\BySubpageLinksFinder',
+			new BySubpageLinksFinder()
 		);
 	}
 
 	public function testDisabledFinder() {
 
-		$instance = new SubpageLinksFinder();
+		$instance = new BySubpageLinksFinder();
 		$instance->setSubpageDiscoverySupportState( false );
 
 		$this->assertFalse(
@@ -45,7 +45,7 @@ class SubpageLinksFinderTest extends \PHPUnit_Framework_TestCase {
 
 		$subject = DIWikiPage::newFromTitle( Title::newFromText( $title ) );
 
-		$instance = new SubpageLinksFinder();
+		$instance = new BySubpageLinksFinder();
 		$instance->setSubpageDiscoverySupportState( true );
 
 		$this->assertEmpty(

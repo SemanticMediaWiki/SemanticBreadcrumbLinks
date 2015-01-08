@@ -12,7 +12,7 @@ use Title;
  *
  * @author mwjames
  */
-class SubpageLinksFinder {
+class BySubpageLinksFinder {
 
 	/**
 	 * @var boolean

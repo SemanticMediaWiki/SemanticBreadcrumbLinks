@@ -59,16 +59,16 @@ class HookRegistry {
 		 */
 		$wgHooks['SkinTemplateOutputPageBeforeExec'][] = function ( &$skin, &$template ) use( $store, $configuration ) {
 
-			$subpageLinksFinder = new SubpageLinksFinder();
-			$subpageLinksFinder->setSubpageDiscoverySupportState( $configuration['useSubpageDiscoveryForFallback'] );
+			$bySubpageLinksFinder = new BySubpageLinksFinder();
+			$bySubpageLinksFinder->setSubpageDiscoverySupportState( $configuration['useSubpageDiscoveryForFallback'] );
 
-			$hierarchicalLinksFinderByProperty = new HierarchicalLinksFinderByProperty( $store );
-			$hierarchicalLinksFinderByProperty->setFindClosestDescendantState( $configuration['tryToFindClosestDescendant'] );
-			$hierarchicalLinksFinderByProperty->setPropertySearchPatternByNamespace( $configuration['propertySearchPatternByNamespace'] );
+			$byPropertyHierarchicalLinksFinder = new ByPropertyHierarchicalLinksFinder( $store );
+			$byPropertyHierarchicalLinksFinder->setFindClosestDescendantState( $configuration['tryToFindClosestDescendant'] );
+			$byPropertyHierarchicalLinksFinder->setPropertySearchPatternByNamespace( $configuration['propertySearchPatternByNamespace'] );
 
 			$htmlBreadcrumbLinksBuilder = new HtmlBreadcrumbLinksBuilder(
-				$hierarchicalLinksFinderByProperty,
-				$subpageLinksFinder
+				$byPropertyHierarchicalLinksFinder,
+				$bySubpageLinksFinder
 			);
 
 			$htmlBreadcrumbLinksBuilder->setLinker( new DummyLinker() );

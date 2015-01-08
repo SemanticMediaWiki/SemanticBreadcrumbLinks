@@ -37,7 +37,7 @@ call_user_func( function () {
 
 	// Register resource files
 	$GLOBALS['wgResourceModules']['ext.semanticbreadcrumblinks'] = array(
-		'styles' => 'resources/sbl.styles.css',
+		'styles' => 'res/sbl.styles.css',
 		'localBasePath' => __DIR__ ,
 		'remoteExtPath' => end( ( explode( DIRECTORY_SEPARATOR . 'extensions' . DIRECTORY_SEPARATOR , __DIR__, 2 ) ) ),
 		'position' => 'top'
