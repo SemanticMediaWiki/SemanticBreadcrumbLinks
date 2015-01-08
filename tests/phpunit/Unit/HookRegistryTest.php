@@ -10,7 +10,7 @@ use Title;
 /**
  * @covers \SBL\HookRegistry
  *
- * @group semantic-interlanguage-links
+ * @group semantic-breadcrumb-links
  *
  * @license GNU GPL v2+
  * @since 1.0
@@ -59,7 +59,6 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$configuration = array(
 			'useSubpageDiscoveryForFallback' => false,
-			'maxAntecedentHierarchyMatchDepth' => 3,
 			'tryToFindClosestDescendant' => false,
 			'propertySearchPatternByNamespace' => array(),
 			'breadcrumbTrailStyleClass' => 'foo'
@@ -74,7 +73,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 			$wgHooks
 		);
 
-		$this->assertHookIsExcutable(
+		$this->assertThatHookIsExcutable(
 			$wgHooks,
 			'smwInitProperties',
 			array()
@@ -82,20 +81,20 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$template = new \stdClass;
 
-		$this->assertHookIsExcutable(
+		$this->assertThatHookIsExcutable(
 			$wgHooks,
 			'SkinTemplateOutputPageBeforeExec',
 			array( &$skin, &$template )
 		);
 
-		$this->assertHookIsExcutable(
+		$this->assertThatHookIsExcutable(
 			$wgHooks,
 			'BeforePageDisplay',
 			array( &$outputPage, &$skin )
 		);
 	}
 
-	private function assertHookIsExcutable( $wgHooks, $hookName, $arguments ) {
+	private function assertThatHookIsExcutable( $wgHooks, $hookName, $arguments ) {
 		foreach ( $wgHooks[ $hookName ] as $hook ) {
 			$this->assertInternalType(
 				'boolean',
