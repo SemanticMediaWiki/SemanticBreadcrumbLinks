@@ -57,10 +57,22 @@ call_user_func( function () {
 	$GLOBALS['wgExtensionFunctions'][] = function() {
 
 		$defaultPropertySearchPatternByNamespace = array(
-			NS_CATEGORY     => array( '_SUBC', '_SUBC', '_SUBC' ),
-			SMW_NS_PROPERTY => array( '_SUBP', '_SUBP', '_SUBP' ),
-			NS_MAIN         => array( SBL_PROP_PARENTPAGE, SBL_PROP_PARENTPAGE, SBL_PROP_PARENTPAGE ),
-			NS_HELP         => array( SBL_PROP_PARENTPAGE, SBL_PROP_PARENTPAGE, SBL_PROP_PARENTPAGE )
+			NS_CATEGORY     => array(
+				'_SUBC',
+				'_SUBC',
+				'_SUBC' ),
+			SMW_NS_PROPERTY => array(
+				'_SUBP',
+				'_SUBP',
+				'_SUBP' ),
+			NS_MAIN         => array(
+				SBL_PROP_PARENTPAGE,
+				SBL_PROP_PARENTPAGE,
+				SBL_PROP_PARENTPAGE ),
+			NS_HELP         => array(
+				SBL_PROP_PARENTPAGE,
+				SBL_PROP_PARENTPAGE,
+				SBL_PROP_PARENTPAGE )
 		);
 
 		$configuration = array(
@@ -72,8 +84,7 @@ call_user_func( function () {
 
 		$hookRegistry = new HookRegistry(
 			ApplicationFactory::getInstance()->getStore(),
-			$configuration,
-			new \SBL\PropertyRegistry()
+			$configuration
 		);
 
 		$hookRegistry->register( $GLOBALS['wgHooks'] );

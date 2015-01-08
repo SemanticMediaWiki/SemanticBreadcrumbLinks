@@ -73,9 +73,9 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$instance = new HookRegistry(
 			$store,
-			$configuration,
-			$this->getMock( 'SBL\PropertyRegistry' )
+			$configuration
 		);
+
 		$instance->register( $wgHooks );
 
 		$this->assertNotEmpty(

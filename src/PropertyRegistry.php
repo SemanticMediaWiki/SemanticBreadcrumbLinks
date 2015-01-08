@@ -19,14 +19,15 @@ class PropertyRegistry {
 	 *
 	 * @return boolean
 	 */
-	public function registerBreadcrumbProperties() {
+	public function register() {
 
 		$propertyDefinitions = array(
 
 			self::SBL_PARENTPAGE => array(
 				'label' => SBL_PROP_PARENTPAGE,
 				'type'  => '_wpg',
-				'alias' => wfMessage( 'sbl-property-alias-parentpage' )->text()
+				'alias' => wfMessage( 'sbl-property-alias-parentpage' )->text(),
+				'visbility' => true
 			)
 		);
 
@@ -36,7 +37,7 @@ class PropertyRegistry {
 				$propertyId,
 				$definition['type'],
 				$definition['label'],
-				true
+				$definition['visbility']
 			);
 
 			DIProperty::registerPropertyAlias(

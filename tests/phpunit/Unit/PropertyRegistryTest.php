@@ -29,9 +29,14 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 	public function testRegister() {
 
 		$instance = new PropertyRegistry();
-		$instance->registerBreadcrumbProperties();
+		$instance->register();
 
 		$this->assertNotEmpty(
+			DIProperty::findPropertyLabel( PropertyRegistry::SBL_PARENTPAGE )
+		);
+
+		$this->assertSame(
+			SBL_PROP_PARENTPAGE,
 			DIProperty::findPropertyLabel( PropertyRegistry::SBL_PARENTPAGE )
 		);
 	}
