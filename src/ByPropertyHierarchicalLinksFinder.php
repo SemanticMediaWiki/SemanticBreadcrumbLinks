@@ -14,7 +14,7 @@ use Title;
  *
  * @author mwjames
  */
-class HierarchicalLinksFinderByProperty {
+class ByPropertyHierarchicalLinksFinder {
 
 	/**
 	 * @var Store

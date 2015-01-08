@@ -34,6 +34,11 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 		$this->assertNotEmpty(
 			DIProperty::findPropertyLabel( PropertyRegistry::SBL_PARENTPAGE )
 		);
+
+		$this->assertSame(
+			SBL_PROP_PARENTPAGE,
+			DIProperty::findPropertyLabel( PropertyRegistry::SBL_PARENTPAGE )
+		);
 	}
 
 }

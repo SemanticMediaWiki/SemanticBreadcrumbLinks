@@ -2,7 +2,7 @@
 
 namespace SBL\Tests;
 
-use SBL\HierarchicalLinksFinderByProperty;
+use SBL\ByPropertyHierarchicalLinksFinder;
 
 use SMW\DIWikiPage;
 use SMW\DIProperty;
@@ -11,7 +11,7 @@ use SMW\ApplicationFactory;
 use Title;
 
 /**
- * @covers \SBL\HierarchicalLinksFinderByProperty
+ * @covers \SBL\ByPropertyHierarchicalLinksFinder
  *
  * @group semantic-breadcrumb-links
  *
@@ -20,7 +20,7 @@ use Title;
  *
  * @author mwjames
  */
-class HierarchicalLinksFinderByPropertyTest extends \PHPUnit_Framework_TestCase {
+class ByPropertyHierarchicalLinksFinderTest extends \PHPUnit_Framework_TestCase {
 
 	public function testCanConstruct() {
 
@@ -29,8 +29,8 @@ class HierarchicalLinksFinderByPropertyTest extends \PHPUnit_Framework_TestCase 
 			->getMockForAbstractClass();
 
 		$this->assertInstanceOf(
-			'\SBL\HierarchicalLinksFinderByProperty',
-			new HierarchicalLinksFinderByProperty( $store )
+			'\SBL\ByPropertyHierarchicalLinksFinder',
+			new ByPropertyHierarchicalLinksFinder( $store )
 		);
 	}
 
@@ -40,7 +40,7 @@ class HierarchicalLinksFinderByPropertyTest extends \PHPUnit_Framework_TestCase 
 			->disableOriginalConstructor()
 			->getMockForAbstractClass();
 
-		$instance = new HierarchicalLinksFinderByProperty( $store );
+		$instance = new ByPropertyHierarchicalLinksFinder( $store );
 
 		$instance->tryToFindLinksFor( new DIWikiPage( 'Foo', NS_MAIN ) );
 
@@ -69,7 +69,7 @@ class HierarchicalLinksFinderByPropertyTest extends \PHPUnit_Framework_TestCase 
 				$this->equalTo( $property ) )
 			->will( $this->returnValue( array() ) );
 
-		$instance = new HierarchicalLinksFinderByProperty( $store );
+		$instance = new ByPropertyHierarchicalLinksFinder( $store );
 
 		$instance->setFindClosestDescendantState( false );
 		$instance->setPropertySearchPatternByNamespace(
@@ -109,7 +109,7 @@ class HierarchicalLinksFinderByPropertyTest extends \PHPUnit_Framework_TestCase 
 				$this->equalTo( DIProperty::newFromUserLabel( 'Yin' )) )
 			->will( $this->returnValue( array( new DIWikiPage( 'Ni', NS_MAIN ) ) ) );
 
-		$instance = new HierarchicalLinksFinderByProperty( $store );
+		$instance = new ByPropertyHierarchicalLinksFinder( $store );
 
 		$instance->setFindClosestDescendantState( false );
 
@@ -146,7 +146,7 @@ class HierarchicalLinksFinderByPropertyTest extends \PHPUnit_Framework_TestCase 
 				$this->equalTo( DIProperty::newFromUserLabel( 'Bar' ) ) )
 			->will( $this->returnValue( array( $subject ) ) );
 
-		$instance = new HierarchicalLinksFinderByProperty( $store );
+		$instance = new ByPropertyHierarchicalLinksFinder( $store );
 
 		$instance->setFindClosestDescendantState( false );
 
@@ -190,7 +190,7 @@ class HierarchicalLinksFinderByPropertyTest extends \PHPUnit_Framework_TestCase 
 				new DIWikiPage( 'Ichi', NS_MAIN ),
 				new DIWikiPage( 'NotBeSelectable', NS_MAIN ) ) ) );
 
-		$instance = new HierarchicalLinksFinderByProperty( $store );
+		$instance = new ByPropertyHierarchicalLinksFinder( $store );
 
 		$instance->setFindClosestDescendantState( true );
 
@@ -226,7 +226,7 @@ class HierarchicalLinksFinderByPropertyTest extends \PHPUnit_Framework_TestCase 
 		$store->expects( $this->never() )
 			->method( 'getPropertySubjects' );
 
-		$instance = new HierarchicalLinksFinderByProperty( $store );
+		$instance = new ByPropertyHierarchicalLinksFinder( $store );
 
 		$instance->setFindClosestDescendantState( true );
 

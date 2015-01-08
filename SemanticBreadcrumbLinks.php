@@ -37,7 +37,7 @@ call_user_func( function () {
 
 	// Register resource files
 	$GLOBALS['wgResourceModules']['ext.semanticbreadcrumblinks'] = array(
-		'styles' => 'resources/sbl.styles.css',
+		'styles' => 'res/sbl.styles.css',
 		'localBasePath' => __DIR__ ,
 		'remoteExtPath' => end( ( explode( DIRECTORY_SEPARATOR . 'extensions' . DIRECTORY_SEPARATOR , __DIR__, 2 ) ) ),
 		'position' => 'top'
@@ -57,10 +57,22 @@ call_user_func( function () {
 	$GLOBALS['wgExtensionFunctions'][] = function() {
 
 		$defaultPropertySearchPatternByNamespace = array(
-			NS_CATEGORY     => array( '_SUBC', '_SUBC', '_SUBC' ),
-			SMW_NS_PROPERTY => array( '_SUBP', '_SUBP', '_SUBP' ),
-			NS_MAIN         => array( SBL_PROP_PARENTPAGE, SBL_PROP_PARENTPAGE, SBL_PROP_PARENTPAGE ),
-			NS_HELP         => array( SBL_PROP_PARENTPAGE, SBL_PROP_PARENTPAGE, SBL_PROP_PARENTPAGE )
+			NS_CATEGORY     => array(
+				'_SUBC',
+				'_SUBC',
+				'_SUBC' ),
+			SMW_NS_PROPERTY => array(
+				'_SUBP',
+				'_SUBP',
+				'_SUBP' ),
+			NS_MAIN         => array(
+				SBL_PROP_PARENTPAGE,
+				SBL_PROP_PARENTPAGE,
+				SBL_PROP_PARENTPAGE ),
+			NS_HELP         => array(
+				SBL_PROP_PARENTPAGE,
+				SBL_PROP_PARENTPAGE,
+				SBL_PROP_PARENTPAGE )
 		);
 
 		$configuration = array(

@@ -29,7 +29,11 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$this->assertInstanceOf(
 			'\SBL\HookRegistry',
-			new HookRegistry( $store, $configuration )
+			new HookRegistry(
+				$store,
+				$configuration,
+				$this->getMock( 'SBL\PropertyRegistry' )
+			)
 		);
 	}
 
@@ -66,7 +70,11 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$wgHooks = array();
 
-		$instance = new HookRegistry( $store, $configuration );
+		$instance = new HookRegistry(
+			$store,
+			$configuration
+		);
+
 		$instance->register( $wgHooks );
 
 		$this->assertNotEmpty(
