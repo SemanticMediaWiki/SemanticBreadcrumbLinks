@@ -52,10 +52,13 @@ call_user_func( function () {
 
 	$GLOBALS['egSBLTryToFindClosestDescendant'] = true;
 	$GLOBALS['egSBLUseSubpageDiscoveryForFallback'] = true;
+	$GLOBALS['egSBLPageTitleToHideSubpageParent'] = true;
 
 	// Finalize registration process
 	$GLOBALS['wgExtensionFunctions'][] = function() {
 
+		// Default values are defined at this point to ensure
+		// NS contants are specified
 		$defaultPropertySearchPatternByNamespace = array(
 			NS_CATEGORY     => array(
 				'_SUBC',
@@ -79,7 +82,8 @@ call_user_func( function () {
 			'breadcrumbTrailStyleClass'  => $GLOBALS['egSBLBreadcrumbTrailStyleClass'],
 			'tryToFindClosestDescendant' => $GLOBALS['egSBLTryToFindClosestDescendant'],
 			'propertySearchPatternByNamespace' => $GLOBALS['egSBLPropertySearchPatternByNamespace'] + $defaultPropertySearchPatternByNamespace,
-			'useSubpageDiscoveryForFallback'   => $GLOBALS['egSBLUseSubpageDiscoveryForFallback']
+			'useSubpageDiscoveryForFallback'   => $GLOBALS['egSBLUseSubpageDiscoveryForFallback'],
+			'hideSubpageParent' => $GLOBALS['egSBLPageTitleToHideSubpageParent']
 		);
 
 		$hookRegistry = new HookRegistry(

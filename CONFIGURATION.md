@@ -9,6 +9,9 @@
 based on the `Foo/Bar/Baz` subpage notation for when a property search returns empty results or a
 namespace did not describe a property search strategy.
 
+`$GLOBALS['egSBLPageTitleToHideSubpageParent']` if enabled SBL will hide the parent part of a subpage
+title from display.
+
 `$GLOBALS['egSBLPropertySearchPatternByNamespace']` supports an individual search pattern on
 a per namespace basis. If no search pattern is declared for a namespace then the search is disabled.
 If `egSBLUseSubpageDiscoveryForFallback` is not enabled then SBL will not try to resolve a possible
@@ -24,6 +27,7 @@ due to the nature of the breadcrumb trail.
 
 ```php
 $GLOBALS['egSBLBreadcrumbTrailStyleClass'] = 'sbl-breadcrumb-trail-light';
+$GLOBALS['egSBLPageTitleToHideSubpageParent'] = true;
 
 $GLOBALS['egSBLTryToFindClosestDescendant'] = true;
 $GLOBALS['egSBLUseSubpageDiscoveryForFallback'] = true;

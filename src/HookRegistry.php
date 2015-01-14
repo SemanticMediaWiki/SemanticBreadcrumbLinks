@@ -84,8 +84,12 @@ class HookRegistry {
 		/**
 		 * @see https://www.mediawiki.org/wiki/Manual:Hooks/BeforePageDisplay
 		 */
-		$wgHooks['BeforePageDisplay'][] = function ( &$output, &$skin ) {
-			$output->addModules( 'ext.semanticbreadcrumblinks' );
+		$wgHooks['BeforePageDisplay'][] = function ( &$output, &$skin ) use ( $configuration ) {
+
+			$pageDisplayOutputModifier = new PageDisplayOutputModifier();
+			$pageDisplayOutputModifier->setHideSubpageParentState( $configuration['hideSubpageParent'] );
+
+			$pageDisplayOutputModifier->modifyOutput( $output );
 
 			return true;
 		};

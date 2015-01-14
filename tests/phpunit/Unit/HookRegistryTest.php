@@ -65,7 +65,8 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 			'useSubpageDiscoveryForFallback' => false,
 			'tryToFindClosestDescendant' => false,
 			'propertySearchPatternByNamespace' => array(),
-			'breadcrumbTrailStyleClass' => 'foo'
+			'breadcrumbTrailStyleClass' => 'foo',
+			'hideSubpageParent' => true
 		);
 
 		$wgHooks = array();
