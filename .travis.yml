@@ -18,11 +18,11 @@ matrix:
     - env: THENEEDFORTHIS=FAIL
 
 install:
-  - bash ./build/install-mediawiki.sh
-  - bash ./build/install-semantic-breadcrumb-links.sh
+  - bash ./tests/travis/install-mediawiki.sh
+  - bash ./tests/travis/install-semantic-breadcrumb-links.sh
 
 script:
-  - bash ./build/run-tests.sh
+  - bash ./tests/travis/run-tests.sh
 
 after_success:
-  - bash ./build/upload-coverage-report.sh
+  - bash ./tests/travis/upload-coverage-report.sh
