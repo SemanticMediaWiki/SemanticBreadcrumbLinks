@@ -8,10 +8,10 @@ matrix:
   include:
     - env: DB=mysql; MW=master@5cc1f1d; TYPE=coverage
       php: 5.6
-    - env: DB=mysql; MW=1.23.6;
-      php: 5.4
     - env: DB=sqlite; MW=1.23.6;
-      php: 5.5
+      php: 5.4
+    - env: DB=mysql; MW=master
+      php: hhvm
   exclude:
     - env: THENEEDFORTHIS=FAIL
   allow_failures:
@@ -26,3 +26,13 @@ script:
 
 after_success:
   - bash ./tests/travis/upload-coverage-report.sh
+
+notifications:
+  email:
+    on_success: change
+    on_failure: always
+  irc:
+    channels:
+      - "chat.freenode.net#semantic-mediawiki"
+    on_success: change
+    on_failure: always
