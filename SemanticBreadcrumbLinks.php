@@ -6,7 +6,7 @@ use SMW\ApplicationFactory;
 /**
  * @see https://github.com/SemanticMediaWiki/SemanticBreadcrumbLinks/
  *
- * @defgroup SBL Semantic SemanticBreadcrumb Links
+ * @defgroup SBL Semantic Breadcrumb Links
  * @codeCoverageIgnore
  */
 call_user_func( function () {
@@ -22,7 +22,7 @@ call_user_func( function () {
 	define( 'SBL_VERSION', '1.0-alpha' );
 
 	// Register the extension
-	$GLOBALS[ 'wgExtensionCredits' ][ 'semantic' ][ ] = array(
+	$GLOBALS['wgExtensionCredits']['semantic'][ ] = array(
 		'path'           => __FILE__,
 		'name'           => 'Semantic Breadcrumb Links',
 		'author'         => array( 'James Hong Kong' ),
@@ -33,7 +33,7 @@ call_user_func( function () {
 	);
 
 	// Register message files
-	$GLOBALS['wgMessagesDirs'][ 'semanticbreadcrumblinks' ] = __DIR__ . '/i18n';
+	$GLOBALS['wgMessagesDirs']['semantic-breadcrumb-links'] = __DIR__ . '/i18n';
 
 	// Register resource files
 	$GLOBALS['wgResourceModules']['ext.semanticbreadcrumblinks'] = array(
@@ -51,7 +51,7 @@ call_user_func( function () {
 	$GLOBALS['egSBLPropertySearchPatternByNamespace'] = array();
 
 	$GLOBALS['egSBLTryToFindClosestDescendant'] = true;
-	$GLOBALS['egSBLUseSubpageDiscoveryForFallback'] = true;
+	$GLOBALS['egSBLUseSubpageFinderFallback'] = true;
 	$GLOBALS['egSBLPageTitleToHideSubpageParent'] = true;
 
 	// Finalize registration process
@@ -79,11 +79,12 @@ call_user_func( function () {
 		);
 
 		$configuration = array(
+			'hideSubpageParent' => $GLOBALS['egSBLPageTitleToHideSubpageParent'],
 			'breadcrumbTrailStyleClass'  => $GLOBALS['egSBLBreadcrumbTrailStyleClass'],
 			'tryToFindClosestDescendant' => $GLOBALS['egSBLTryToFindClosestDescendant'],
-			'propertySearchPatternByNamespace' => $GLOBALS['egSBLPropertySearchPatternByNamespace'] + $defaultPropertySearchPatternByNamespace,
-			'useSubpageDiscoveryForFallback'   => $GLOBALS['egSBLUseSubpageDiscoveryForFallback'],
-			'hideSubpageParent' => $GLOBALS['egSBLPageTitleToHideSubpageParent']
+			'useSubpageFinderFallback'   => $GLOBALS['egSBLUseSubpageFinderFallback'],
+			'wgNamespacesWithSubpages'   => $GLOBALS['wgNamespacesWithSubpages'],
+			'propertySearchPatternByNamespace' => $GLOBALS['egSBLPropertySearchPatternByNamespace'] + $defaultPropertySearchPatternByNamespace
 		);
 
 		$hookRegistry = new HookRegistry(

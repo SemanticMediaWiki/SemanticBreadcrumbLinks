@@ -3,7 +3,6 @@
 namespace SBL;
 
 use SMW\Store;
-
 use DummyLinker;
 
 /**
@@ -60,7 +59,7 @@ class HookRegistry {
 		$wgHooks['SkinTemplateOutputPageBeforeExec'][] = function ( &$skin, &$template ) use( $store, $configuration ) {
 
 			$bySubpageLinksFinder = new BySubpageLinksFinder();
-			$bySubpageLinksFinder->setSubpageDiscoverySupportState( $configuration['useSubpageDiscoveryForFallback'] );
+			$bySubpageLinksFinder->setSubpageDiscoverySupportState( $configuration['useSubpageFinderFallback'] );
 
 			$byPropertyHierarchicalLinksFinder = new ByPropertyHierarchicalLinksFinder( $store );
 			$byPropertyHierarchicalLinksFinder->setFindClosestDescendantState( $configuration['tryToFindClosestDescendant'] );
@@ -88,6 +87,7 @@ class HookRegistry {
 
 			$pageDisplayOutputModifier = new PageDisplayOutputModifier();
 			$pageDisplayOutputModifier->setHideSubpageParentState( $configuration['hideSubpageParent'] );
+			$pageDisplayOutputModifier->setSubpageByNamespace( $configuration['wgNamespacesWithSubpages'] );
 
 			$pageDisplayOutputModifier->modifyOutput( $output );
 

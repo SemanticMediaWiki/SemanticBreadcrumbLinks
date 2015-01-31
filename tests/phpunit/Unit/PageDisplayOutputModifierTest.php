@@ -24,10 +24,11 @@ class PageDisplayOutputModifierTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	public function testDisabledSubpageTitleManipulation() {
+	public function testDisabledHideSubpageParentForTitleManipulation() {
 
 		$instance = new PageDisplayOutputModifier();
 		$instance->setHideSubpageParentState( false );
+		$instance->setSubpageByNamespace( array( NS_MAIN => true ) );
 
 		$output = $this->getMockBuilder( '\OutputPage' )
 			->disableOriginalConstructor()
@@ -39,10 +40,36 @@ class PageDisplayOutputModifierTest extends \PHPUnit_Framework_TestCase {
 		$instance->modifyOutput( $output );
 	}
 
-	public function testEnabledSubpageTitleManipulation() {
+	public function testDisabledSubpageNamespaceForTitleManipulation() {
 
 		$instance = new PageDisplayOutputModifier();
 		$instance->setHideSubpageParentState( true );
+		$instance->setSubpageByNamespace( array( NS_MAIN => false ) );
+
+		$title = $this->getMockBuilder( '\Title' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$title->expects( $this->once() )
+			->method( 'getNamespace' )
+			->will( $this->returnValue( NS_MAIN ) );
+
+		$output = $this->getMockBuilder( '\OutputPage' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$output->expects( $this->once() )
+			->method( 'getTitle' )
+			->will( $this->returnValue( $title ) );
+
+		$instance->modifyOutput( $output );
+	}
+
+	public function testEnabledSubpageForTitleManipulation() {
+
+		$instance = new PageDisplayOutputModifier();
+		$instance->setHideSubpageParentState( true );
+		$instance->setSubpageByNamespace( array( NS_MAIN => true ) );
 
 		$title = $this->getMockBuilder( '\Title' )
 			->disableOriginalConstructor()
@@ -51,6 +78,10 @@ class PageDisplayOutputModifierTest extends \PHPUnit_Framework_TestCase {
 		$title->expects( $this->once() )
 			->method( 'isSubpage' )
 			->will( $this->returnValue( true ) );
+
+		$title->expects( $this->once() )
+			->method( 'getNamespace' )
+			->will( $this->returnValue( NS_MAIN ) );
 
 		$output = $this->getMockBuilder( '\OutputPage' )
 			->disableOriginalConstructor()

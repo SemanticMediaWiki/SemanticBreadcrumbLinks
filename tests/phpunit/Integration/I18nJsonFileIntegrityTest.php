@@ -6,8 +6,6 @@ use SMW\Tests\Utils\UtilityFactory;
 
 /**
  * @group semantic-breadcrumb-links
- * @group semantic-mediawiki-integration
- *
  * @group medium
  *
  * @license GNU GPL v2+
@@ -38,7 +36,7 @@ class I18nJsonFileIntegrityTest extends \PHPUnit_Framework_TestCase {
 	public function i18nFileProvider() {
 
 		$provider = array();
-		$location = $GLOBALS['wgMessagesDirs'][ 'semanticbreadcrumblinks' ];
+		$location = $GLOBALS['wgMessagesDirs']['semantic-breadcrumb-links'];
 
 		$bulkFileProvider = UtilityFactory::getInstance()->newBulkFileProvider( $location );
 		$bulkFileProvider->searchByFileExtension( 'json' );

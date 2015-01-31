@@ -5,16 +5,17 @@
 `$GLOBALS['egSBLTryToFindClosestDescendant']` if enabled SBL will try to find the closest descendant
 (it will not work for subpages due to missing annotation information).
 
-`$GLOBALS['egSBLUseSubpageDiscoveryForFallback']` if enabled SBL will try to match a hierarchy
+`$GLOBALS['egSBLUseSubpageFinderFallback']` if enabled SBL will try to match a hierarchy
 based on the `Foo/Bar/Baz` subpage notation for when a property search returns empty results or a
 namespace did not describe a property search strategy.
 
-`$GLOBALS['egSBLPageTitleToHideSubpageParent']` if enabled SBL will hide the parent part of a subpage
-title from display.
+`$GLOBALS['egSBLPageTitleToHideSubpageParent']` if enabled SBL will try to hide the parent part
+of a subpage title from display when a corresponding namespace entry is found in the
+[`wgNamespacesWithSubpages`][mw-nssubp] setting.
 
 `$GLOBALS['egSBLPropertySearchPatternByNamespace']` supports an individual search pattern on
 a per namespace basis. If no search pattern is declared for a namespace then the search is disabled.
-If `egSBLUseSubpageDiscoveryForFallback` is not enabled then SBL will not try to resolve a possible
+If `egSBLUseSubpageFinderFallback` is not enabled then SBL will not try to resolve a possible
 subpage hierarchy to build a breadcrumb trail.
 
 It is also possible to use user-defined properties (need to be defined as page-type property) while the amount
@@ -30,20 +31,32 @@ $GLOBALS['egSBLBreadcrumbTrailStyleClass'] = 'sbl-breadcrumb-trail-light';
 $GLOBALS['egSBLPageTitleToHideSubpageParent'] = true;
 
 $GLOBALS['egSBLTryToFindClosestDescendant'] = true;
-$GLOBALS['egSBLUseSubpageDiscoveryForFallback'] = true;
+$GLOBALS['egSBLUseSubpageFinderFallback'] = true;
 
 $GLOBALS['egSBLPropertySearchPatternByNamespace'] = array(
 
 	// Search for a three level sub-category hierarchy
-	NS_CATEGORY => array( '_SUBC', '_SUBC', '_SUBC' ),
+	NS_CATEGORY     => array(
+		'_SUBC',
+		'_SUBC',
+		'_SUBC' ),
 
 	// Search for a three level sub-property hierarchy
-	SMW_NS_PROPERTY => array( '_SUBP', '_SUBP', '_SUBP' ),
+	SMW_NS_PROPERTY => array(
+		'_SUBP',
+		'_SUBP',
+		'_SUBP' ),
 
 	// Search for a three level antecedent hierarchy that contains a `Has parent page`
 	// annotation to follow a `parent > grandparent > great-grandparent` schema
-	NS_MAIN  => array( SBL_PROP_PARENTPAGE, SBL_PROP_PARENTPAGE, SBL_PROP_PARENTPAGE ),
-	NS_HELP  => array( SBL_PROP_PARENTPAGE, SBL_PROP_PARENTPAGE, SBL_PROP_PARENTPAGE )
+	NS_MAIN         => array(
+		SBL_PROP_PARENTPAGE,
+		SBL_PROP_PARENTPAGE,
+		SBL_PROP_PARENTPAGE ),
+	NS_HELP         => array(
+		SBL_PROP_PARENTPAGE,
+		SBL_PROP_PARENTPAGE,
+		SBL_PROP_PARENTPAGE )
 );
 ```
 
@@ -67,3 +80,5 @@ $GLOBALS['egSBLPropertySearchPatternByNamespace'] = array(
 		'_SUBC'
 	);
 ```
+
+[mw-nssubp]: https://www.mediawiki.org/wiki/Manual:$wgNamespacesWithSubpages

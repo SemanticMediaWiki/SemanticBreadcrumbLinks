@@ -62,11 +62,12 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 			->getMockForAbstractClass();
 
 		$configuration = array(
-			'useSubpageDiscoveryForFallback' => false,
+			'useSubpageFinderFallback' => false,
 			'tryToFindClosestDescendant' => false,
 			'propertySearchPatternByNamespace' => array(),
 			'breadcrumbTrailStyleClass' => 'foo',
-			'hideSubpageParent' => true
+			'hideSubpageParent' => true,
+			'wgNamespacesWithSubpages' => array()
 		);
 
 		$wgHooks = array();
@@ -82,11 +83,21 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 			$wgHooks
 		);
 
+		$this->doTestInitProperties( $wgHooks );
+		$this->doTestSkinTemplateOutputPageBeforeExec( $wgHooks, $skin );
+		$this->doTestBeforePageDisplay( $wgHooks, $outputPage, $skin );
+	}
+
+	private function doTestInitProperties( $wgHooks ) {
+
 		$this->assertThatHookIsExcutable(
 			$wgHooks,
 			'smwInitProperties',
 			array()
 		);
+	}
+
+	private function doTestSkinTemplateOutputPageBeforeExec( $wgHooks, $skin ) {
 
 		$template = new \stdClass;
 
@@ -95,6 +106,9 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 			'SkinTemplateOutputPageBeforeExec',
 			array( &$skin, &$template )
 		);
+	}
+
+	private function doTestBeforePageDisplay( $wgHooks, $outputPage, $skin ) {
 
 		$this->assertThatHookIsExcutable(
 			$wgHooks,
