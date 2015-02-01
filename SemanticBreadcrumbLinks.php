@@ -7,19 +7,26 @@ use SMW\ApplicationFactory;
  * @see https://github.com/SemanticMediaWiki/SemanticBreadcrumbLinks/
  *
  * @defgroup SBL Semantic Breadcrumb Links
+ */
+if ( !defined( 'MEDIAWIKI' ) ) {
+	die( 'This file is part of the SemanticBreadcrumbLinks extension, it is not a valid entry point.' );
+}
+
+if ( version_compare( $GLOBALS[ 'wgVersion' ], '1.23', 'lt' ) ) {
+	die( '<b>Error:</b> This version of <a href="https://github.com/SemanticMediaWiki/SemanticBreadcrumbLinks/">SemanticBreadcrumbLinks</a> is only compatible with MediaWiki 1.23 or above. You need to upgrade MediaWiki first.' );
+}
+
+if ( defined( 'SBL_VERSION' ) ) {
+	// Do not initialize more than once.
+	return 1;
+}
+
+define( 'SBL_VERSION', '1.0-alpha' );
+
+/**
  * @codeCoverageIgnore
  */
 call_user_func( function () {
-
-	if ( !defined( 'MEDIAWIKI' ) ) {
-		die( 'This file is part of the SemanticBreadcrumbLinks extension, it is not a valid entry point.' );
-	}
-
-	if ( version_compare( $GLOBALS[ 'wgVersion' ], '1.23', 'lt' ) ) {
-		die( '<b>Error:</b> This version of <a href="https://github.com/SemanticMediaWiki/SemanticBreadcrumbLinks/">SemanticBreadcrumbLinks</a> is only compatible with MediaWiki 1.23 or above. You need to upgrade MediaWiki first.' );
-	}
-
-	define( 'SBL_VERSION', '1.0-alpha' );
 
 	// Register the extension
 	$GLOBALS['wgExtensionCredits']['semantic'][ ] = array(
