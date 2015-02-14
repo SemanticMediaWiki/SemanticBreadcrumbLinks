@@ -21,7 +21,7 @@ if ( defined( 'SBL_VERSION' ) ) {
 	return 1;
 }
 
-define( 'SBL_VERSION', '1.0-alpha' );
+define( 'SBL_VERSION', '1.0' );
 
 /**
  * @codeCoverageIgnore

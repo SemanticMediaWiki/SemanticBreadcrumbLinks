@@ -1,6 +1,6 @@
 ### 1.0.0
 
-Released on 2015-01-31
+Released on 2015-02-14
 
 * Initial release
 * `ByPropertyHierarchicalLinksFinder` to match a property hierarchy defined by `egSBLPropertySearchPatternByNamespace`
