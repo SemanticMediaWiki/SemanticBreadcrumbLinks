@@ -11,7 +11,7 @@ Semantic Breadcrumb Links (a.k.a. SBL) is a [Semantic Mediawiki][smw] extension
 to aid in-page navigation by building breadcrumb links from an attributive property
 filter.
 
-SBL uses a pattern match strategy to filter property usage (e.g. `Has parent page` )
+SBL uses a pattern match strategy to filter property usage (e.g. `Has parent page`)
 that ascribe the location of a page relative to its parent and provides navigational help by
 generating a breadcrumb trail.
 
