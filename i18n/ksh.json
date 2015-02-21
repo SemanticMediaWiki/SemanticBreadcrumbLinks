@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Purodha"
+		]
+	},
+	"sbl-desc": "E Zohsazprojramm zom Zohsazprojramm [https://semantic-mediawiki.org Semantesch MeedijaWikki] öm der Wääsch aanzezeije, wi mer sesch dorsch Eijeschaffte jeklek hät.",
+	"smw-pa-property-predefined__sbl_parentpage": "„$1“ ess_en Eijeschaff, di vum Wikki faßjelaat weed. Di wääde och [https://www.semantic-mediawiki.org/wiki/Help:Special_properties äxtra Eijeschaffte] jenannt.\n\nSe beschriiv der Zersammenhang zwesche Sigge un dänne ier Ongersigge, un deihd esu en boum_aatejje Oodenong för di Sigge bschtemme, di di Eijeschaff han. Se weed övver dat Zohsazprojramm [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic <i lang=\"en\" xml:lang=\"en\">Semantic Breadcrumb Links</i>] en et Wikki jebraat.",
+	"sbl-property-alias-parentpage": "Hädd_en ööverjeoodente Sigg"
+}
