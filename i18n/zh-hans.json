@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Liuxinyu970226"
+		]
+	},
+	"sbl-desc": "用于从署名属性过滤器构造面包屑链接的[https://semantic-mediawiki.org Semantic MediaWiki]扩展",
+	"smw-pa-property-predefined__sbl_parentpage": "“$1”是一个预定义属性（或称[https://www.semantic-mediawiki.org/wiki/Help:Special_properties 特殊属性]），它被用于描述一个父页面和一个子页面之间的关系，以形成一个后代层级用于带注释的内容。此属性由[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links 语义面包屑链接]扩展提供。",
+	"sbl-property-alias-parentpage": "有父页面"
+}

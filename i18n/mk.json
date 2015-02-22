@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bjankuloski06"
+		]
+	},
+	"sbl-desc": "Додаток за [https://semantic-mediawiki.org Семантички МедијаВики] за испишување на навигациска патека од атрибутивен филтер на својства",
+	"smw-pa-property-predefined__sbl_parentpage": "„$1“ е предодредено својство (наречено и [https://www.semantic-mediawiki.org/wiki/Help:Special_properties посебно својство]) со кое се опишува поврзаноста помеѓу матична и зависна страница з образување на наследна хиерархија за прибележани содржини. Ова својство го дава додатокот [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Семантички врски за навигациски патеки] (Semantic Breadcrumb Links).",
+	"sbl-property-alias-parentpage": "Има матична страница"
+}
