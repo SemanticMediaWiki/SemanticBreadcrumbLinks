@@ -140,4 +140,43 @@ class HtmlBreadcrumbLinksBuilderTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
+	/**
+	 * Test to ensure that no subobject is assigned from a Title that contains
+	 * a fragment
+	 */
+	public function testBuildBreadcrumbsToNeverUseFragmentedPartOfTitle() {
+
+		$subject = new DIWikiPage( __METHOD__, NS_MAIN, '', '' );
+
+		$byPropertyHierarchicalLinksFinder = $this->getMockBuilder( '\SBL\ByPropertyHierarchicalLinksFinder' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$byPropertyHierarchicalLinksFinder->expects( $this->once() )
+			->method( 'tryToFindLinksFor' )
+			->with( $this->equalTo( $subject ) );
+
+		$byPropertyHierarchicalLinksFinder->expects( $this->once() )
+			->method( 'getParents' )
+			->will( $this->returnValue( array() ) );
+
+		$byPropertyHierarchicalLinksFinder->expects( $this->once() )
+			->method( 'getChildren' )
+			->will( $this->returnValue( array() ) );
+
+		$bySubpageLinksFinder = $this->getMockBuilder( '\SBL\BySubpageLinksFinder' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$instance = new HtmlBreadcrumbLinksBuilder(
+			$byPropertyHierarchicalLinksFinder,
+			$bySubpageLinksFinder
+		);
+
+		$title = Title::newFromText( __METHOD__ );
+		$title->setFragment( 'Foo' );
+
+		$instance->buildBreadcrumbs( $title );
+	}
+
 }

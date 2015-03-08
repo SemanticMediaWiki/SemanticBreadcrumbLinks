@@ -95,6 +95,7 @@ class HtmlBreadcrumbLinksBuilder {
 	 */
 	public function buildBreadcrumbs( Title $title ) {
 
+		$title->setFragment( '' );
 		$subject = DIWikiPage::newFromTitle( $title );
 
 		$this->byPropertyHierarchicalLinksFinder->tryToFindLinksFor( $subject );
