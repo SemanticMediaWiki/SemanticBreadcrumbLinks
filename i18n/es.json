@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Fitoschido",
+			"Laurenslimb"
+		]
+	},
+	"sbl-desc": "Una extensión [https://semantic-mediawiki.org Semantic MediaWiki] que permite crear enlaces de navegación por jerarquía a partir de un filtro de propiedades atributivas.",
+	"smw-pa-property-predefined__sbl_parentpage": "«$1» es una propiedad predefinida (conocida también como [https://www.semantic-mediawiki.org/wiki/Help:Special_properties propiedad especial]) que se utiliza para describir una relación entre una página contenedora y su subpágina que, a su vez, permitirá formar una jerarquía descendiente para el contenido con anotaciones. La extensión ''[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic Breadcrumb Links]'' proporciona esta propiedad.",
+	"sbl-property-alias-parentpage": "Tiene página contenedora"
+}
