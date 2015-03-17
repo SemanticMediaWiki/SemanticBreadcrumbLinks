@@ -1,6 +1,7 @@
 ## Configuration
 
 `$GLOBALS['egSBLBreadcrumbTrailStyleClass']` is used to assign a styling class to the breadcrumb trail.
+`$GLOBALS['egSBLBreadcrumbDividerStyleClass']` is used to assign a divider styling class.
 
 `$GLOBALS['egSBLTryToFindClosestDescendant']` if enabled SBL will try to find the closest descendant
 (it will not work for subpages due to missing annotation information).
@@ -28,6 +29,8 @@ due to the nature of the breadcrumb trail.
 
 ```php
 $GLOBALS['egSBLBreadcrumbTrailStyleClass'] = 'sbl-breadcrumb-trail-light';
+$GLOBALS['egSBLBreadcrumbDividerStyleClass'] = 'sbl-breadcrumb-arrow';
+
 $GLOBALS['egSBLPageTitleToHideSubpageParent'] = true;
 
 $GLOBALS['egSBLTryToFindClosestDescendant'] = true;

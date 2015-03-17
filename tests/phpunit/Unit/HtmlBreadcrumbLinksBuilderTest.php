@@ -87,8 +87,10 @@ class HtmlBreadcrumbLinksBuilderTest extends \PHPUnit_Framework_TestCase {
 			$bySubpageLinksFinder
 		);
 
-		$instance->buildBreadcrumbs( Title::newFromText( __METHOD__ ) );
 		$instance->setRTLDirectionalityState( false );
+		$instance->setBreadcrumbDividerStyleClass( 'DividerStyleClass' );
+
+		$instance->buildBreadcrumbs( Title::newFromText( __METHOD__ ) );
 
 		$this->assertInternalType(
 			'string',
@@ -97,6 +99,11 @@ class HtmlBreadcrumbLinksBuilderTest extends \PHPUnit_Framework_TestCase {
 
 		$this->assertContains(
 			'dir="ltr"',
+			$instance->getHtml()
+		);
+
+		$this->assertContains(
+			'DividerStyleClass',
 			$instance->getHtml()
 		);
 	}

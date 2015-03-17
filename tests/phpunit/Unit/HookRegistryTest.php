@@ -66,6 +66,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 			'tryToFindClosestDescendant' => false,
 			'propertySearchPatternByNamespace' => array(),
 			'breadcrumbTrailStyleClass' => 'foo',
+			'breadcrumbDividerStyleClass' => 'bar',
 			'hideSubpageParent' => true,
 			'wgNamespacesWithSubpages' => array()
 		);

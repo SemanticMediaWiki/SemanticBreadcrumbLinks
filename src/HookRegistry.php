@@ -72,6 +72,7 @@ class HookRegistry {
 
 			$htmlBreadcrumbLinksBuilder->setLinker( new DummyLinker() );
 			$htmlBreadcrumbLinksBuilder->setBreadcrumbTrailStyleClass( $configuration['breadcrumbTrailStyleClass'] );
+			$htmlBreadcrumbLinksBuilder->setBreadcrumbDividerStyleClass( $configuration['breadcrumbDividerStyleClass'] );
 
 			$skinTemplateOutputModifier = new SkinTemplateOutputModifier( $htmlBreadcrumbLinksBuilder );
 			$skinTemplateOutputModifier->modifyTemplate( $template );

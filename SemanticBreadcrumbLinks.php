@@ -55,6 +55,7 @@ call_user_func( function () {
 
 	// Register default settings
 	$GLOBALS['egSBLBreadcrumbTrailStyleClass'] = 'sbl-breadcrumb-trail-light';
+	$GLOBALS['egSBLBreadcrumbDividerStyleClass'] = 'sbl-breadcrumb-arrow';
 	$GLOBALS['egSBLPropertySearchPatternByNamespace'] = array();
 
 	$GLOBALS['egSBLTryToFindClosestDescendant'] = true;
@@ -88,6 +89,7 @@ call_user_func( function () {
 		$configuration = array(
 			'hideSubpageParent' => $GLOBALS['egSBLPageTitleToHideSubpageParent'],
 			'breadcrumbTrailStyleClass'  => $GLOBALS['egSBLBreadcrumbTrailStyleClass'],
+			'breadcrumbDividerStyleClass'  => $GLOBALS['egSBLBreadcrumbDividerStyleClass'],
 			'tryToFindClosestDescendant' => $GLOBALS['egSBLTryToFindClosestDescendant'],
 			'useSubpageFinderFallback'   => $GLOBALS['egSBLUseSubpageFinderFallback'],
 			'wgNamespacesWithSubpages'   => $GLOBALS['wgNamespacesWithSubpages'],

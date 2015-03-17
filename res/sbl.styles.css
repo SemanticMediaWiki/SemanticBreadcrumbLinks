@@ -13,6 +13,21 @@
 	width: auto;
 }
 
+.sbl-breadcrumb-trail-light-boxed {
+	border: 1px solid rgb(238, 238, 238);
+	background: none repeat scroll 0 0 rgb(249, 249, 249);
+	color: rgb(119, 119, 119);
+	padding: 4px;
+	margin-bottom: 12px;
+}
+
+.sbl-breadcrumb-pipe-right:after, .sbl-breadcrumb-pipe-left:before  {
+	content: "|";
+	margin-left: 5px;
+	margin-right: 5px;
+	font-size: 0.875em;
+}
+
 .sbl-breadcrumb-arrow-right {
 	border-top: 5px solid transparent;
 	border-bottom: 5px solid transparent;

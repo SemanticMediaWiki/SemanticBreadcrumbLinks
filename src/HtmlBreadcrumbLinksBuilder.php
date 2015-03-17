@@ -44,6 +44,11 @@ class HtmlBreadcrumbLinksBuilder {
 	private $breadcrumbTrailStyleClass = 'sbl-breadcrumb-trail-boxed';
 
 	/**
+	 * @var string
+	 */
+	private $breadcrumbDividerStyleClass = 'sbl-breadcrumb-arrow';
+
+	/**
 	 * @var boolean
 	 */
 	private $isRTL = false;
@@ -75,6 +80,15 @@ class HtmlBreadcrumbLinksBuilder {
 	 */
 	public function setBreadcrumbTrailStyleClass( $breadcrumbTrailStyleClass ) {
 		$this->breadcrumbTrailStyleClass = $breadcrumbTrailStyleClass;
+	}
+
+	/**
+	 * @since 1.0
+	 *
+	 * @param string $breadcrumbDividerStyleClass
+	 */
+	public function setBreadcrumbDividerStyleClass( $breadcrumbDividerStyleClass ) {
+		$this->breadcrumbDividerStyleClass = $breadcrumbDividerStyleClass;
 	}
 
 	/**
@@ -148,13 +162,13 @@ class HtmlBreadcrumbLinksBuilder {
 		$parent = '';
 
 		foreach ( $parents as $breadcrumb ) {
-			$parent .= $this->wrapHtml( 'parent', $this->getDvShortHtmlText( $breadcrumb, $this->linker ) ) .  $this->wrapHtml( 'arrow-right' );
+			$parent .= $this->wrapHtml( 'parent', $this->getDvShortHtmlText( $breadcrumb, $this->linker ) ) .  $this->wrapHtml( 'right' );
 		}
 
 		$child = '';
 
 		foreach ( $children as $breadcrumb ) {
-			$child .=  $this->wrapHtml( 'arrow-left' ) . $this->wrapHtml( 'child', $this->getDvShortHtmlText( $breadcrumb, $this->linker ) );
+			$child .=  $this->wrapHtml( 'left' ) . $this->wrapHtml( 'child', $this->getDvShortHtmlText( $breadcrumb, $this->linker ) );
 		}
 
 		if ( $parent !== '' || $child !== '' ) {
@@ -171,7 +185,7 @@ class HtmlBreadcrumbLinksBuilder {
 
 	private function wrapHtml( $subClass, $html = '' ) {
 		return Html::rawElement( 'span', array(
-			'class' => 'sbl-breadcrumb-' . $subClass ),
+			'class' => $this->breadcrumbDividerStyleClass . '-' . $subClass ),
 			$html
 		);
 	}
