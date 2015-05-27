@@ -47,7 +47,8 @@ call_user_func( function () {
 		'styles' => 'res/sbl.styles.css',
 		'localBasePath' => __DIR__ ,
 		'remoteExtPath' => end( ( explode( DIRECTORY_SEPARATOR . 'extensions' . DIRECTORY_SEPARATOR , __DIR__, 2 ) ) ),
-		'position' => 'top'
+		'position' => 'top',
+		'group'    => 'ext.smw'
 	);
 
 	// Declare property Id constant
