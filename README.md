@@ -56,6 +56,12 @@ a parental relationship with `Foo` then the breadcrumb trail for `Baz` will be r
 `Foo > Bar`. On the other hand, the subject `Bar` will display a `Foo > Bar < Baz` trail
 indicating that `Foo` is a `parent`( `>` ) and `Baz` is a `child` ( `<` ) of `Bar`.
 
+### Example output
+
+![image](https://cloud.githubusercontent.com/assets/1245473/7828962/c9a262ba-043b-11e5-8b3c-6d7c7f47c503.png)
+
+The output can easily be adjusted using the deployed styles (in `res/sbl.styles.css`) together with the available configuration settings.
+
 ### Configuration
 
 Additional customizing and setting details can be found in the [configuration](https://github.com/SemanticMediaWiki/SemanticBreadcrumbLinks/blob/master/CONFIGURATION.md) section.
