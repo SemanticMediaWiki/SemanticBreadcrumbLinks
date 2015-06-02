@@ -29,11 +29,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$this->assertInstanceOf(
 			'\SBL\HookRegistry',
-			new HookRegistry(
-				$store,
-				$configuration,
-				$this->getMock( 'SBL\PropertyRegistry' )
-			)
+			new HookRegistry( $store, $configuration )
 		);
 	}
 
@@ -71,60 +67,61 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 			'wgNamespacesWithSubpages' => array()
 		);
 
-		$wgHooks = array();
-
 		$instance = new HookRegistry(
 			$store,
 			$configuration
 		);
 
-		$instance->register( $wgHooks );
+		$instance->register();
 
-		$this->assertNotEmpty(
-			$wgHooks
-		);
-
-		$this->doTestInitProperties( $wgHooks );
-		$this->doTestSkinTemplateOutputPageBeforeExec( $wgHooks, $skin );
-		$this->doTestBeforePageDisplay( $wgHooks, $outputPage, $skin );
+		$this->doTestInitProperties( $instance );
+		$this->doTestSkinTemplateOutputPageBeforeExec( $instance, $skin );
+		$this->doTestBeforePageDisplay( $instance, $outputPage, $skin );
 	}
 
-	private function doTestInitProperties( $wgHooks ) {
+	private function doTestInitProperties( $instance ) {
+
+		$this->assertTrue(
+			$instance->isRegistered( 'SMW::Property::initProperties' )
+		);
 
 		$this->assertThatHookIsExcutable(
-			$wgHooks,
-			'smwInitProperties',
+			$instance->getHandlersFor( 'SMW::Property::initProperties' ),
 			array()
 		);
 	}
 
-	private function doTestSkinTemplateOutputPageBeforeExec( $wgHooks, $skin ) {
+	private function doTestSkinTemplateOutputPageBeforeExec( $instance, $skin ) {
+
+		$this->assertTrue(
+			$instance->isRegistered( 'SkinTemplateOutputPageBeforeExec' )
+		);
 
 		$template = new \stdClass;
 
 		$this->assertThatHookIsExcutable(
-			$wgHooks,
-			'SkinTemplateOutputPageBeforeExec',
+			$instance->getHandlersFor( 'SkinTemplateOutputPageBeforeExec' ),
 			array( &$skin, &$template )
 		);
 	}
 
-	private function doTestBeforePageDisplay( $wgHooks, $outputPage, $skin ) {
+	private function doTestBeforePageDisplay( $instance, $outputPage, $skin ) {
+
+		$this->assertTrue(
+			$instance->isRegistered( 'BeforePageDisplay' )
+		);
 
 		$this->assertThatHookIsExcutable(
-			$wgHooks,
-			'BeforePageDisplay',
+			$instance->getHandlersFor( 'BeforePageDisplay' ),
 			array( &$outputPage, &$skin )
 		);
 	}
 
-	private function assertThatHookIsExcutable( $wgHooks, $hookName, $arguments ) {
-		foreach ( $wgHooks[ $hookName ] as $hook ) {
-			$this->assertInternalType(
-				'boolean',
-				call_user_func_array( $hook, $arguments )
-			);
-		}
+	private function assertThatHookIsExcutable( \Closure $handler, $arguments ) {
+		$this->assertInternalType(
+			'boolean',
+			call_user_func_array( $handler, $arguments )
+		);
 	}
 
 }

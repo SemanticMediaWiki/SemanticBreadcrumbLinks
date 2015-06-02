@@ -21,7 +21,7 @@ if ( defined( 'SBL_VERSION' ) ) {
 	return 1;
 }
 
-define( 'SBL_VERSION', '1.0' );
+define( 'SBL_VERSION', '1.1.0' );
 
 /**
  * @codeCoverageIgnore
@@ -67,7 +67,7 @@ call_user_func( function () {
 	$GLOBALS['wgExtensionFunctions'][] = function() {
 
 		// Default values are defined at this point to ensure
-		// NS contants are specified
+		// NS contants are specified prior
 		$defaultPropertySearchPatternByNamespace = array(
 			NS_CATEGORY     => array(
 				'_SUBC',
@@ -89,11 +89,11 @@ call_user_func( function () {
 
 		$configuration = array(
 			'hideSubpageParent' => $GLOBALS['egSBLPageTitleToHideSubpageParent'],
-			'breadcrumbTrailStyleClass'  => $GLOBALS['egSBLBreadcrumbTrailStyleClass'],
-			'breadcrumbDividerStyleClass'  => $GLOBALS['egSBLBreadcrumbDividerStyleClass'],
+			'breadcrumbTrailStyleClass' => $GLOBALS['egSBLBreadcrumbTrailStyleClass'],
+			'breadcrumbDividerStyleClass' => $GLOBALS['egSBLBreadcrumbDividerStyleClass'],
 			'tryToFindClosestDescendant' => $GLOBALS['egSBLTryToFindClosestDescendant'],
-			'useSubpageFinderFallback'   => $GLOBALS['egSBLUseSubpageFinderFallback'],
-			'wgNamespacesWithSubpages'   => $GLOBALS['wgNamespacesWithSubpages'],
+			'useSubpageFinderFallback' => $GLOBALS['egSBLUseSubpageFinderFallback'],
+			'wgNamespacesWithSubpages' => $GLOBALS['wgNamespacesWithSubpages'],
 			'propertySearchPatternByNamespace' => $GLOBALS['egSBLPropertySearchPatternByNamespace'] + $defaultPropertySearchPatternByNamespace
 		);
 
@@ -102,7 +102,7 @@ call_user_func( function () {
 			$configuration
 		);
 
-		$hookRegistry->register( $GLOBALS['wgHooks'] );
+		$hookRegistry->register();
 	};
 
 } );

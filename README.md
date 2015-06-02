@@ -15,6 +15,8 @@ SBL uses a pattern match strategy to filter property usage (e.g. `Has parent pag
 that ascribe the location of a page relative to its parent and provides navigational help by
 generating a breadcrumb trail.
 
+A short [video](https://vimeo.com/129347298) demonstrates "How SBL works".
+
 ## Requirements
 
 - PHP 5.3.2 or later
@@ -28,12 +30,12 @@ The recommended way to install Semantic Breadcrumb Links is by using [Composer][
 ```json
 {
 	"require": {
-		"mediawiki/semantic-breadcrumb-links": "~1.0"
+		"mediawiki/semantic-breadcrumb-links": "~1.1"
 	}
 }
 ```
 1. From your MediaWiki installation directory, execute
-   `composer require mediawiki/semantic-breadcrumb-links:~1.0`
+   `composer require mediawiki/semantic-breadcrumb-links:~1.1`
 2. Navigate to _Special:Version_ on your wiki and verify that the package
    have been successfully installed.
 
@@ -55,12 +57,6 @@ If a subject `Baz` declares a relationship with `Bar` and `Bar` itself specifies
 a parental relationship with `Foo` then the breadcrumb trail for `Baz` will be resolved as
 `Foo > Bar`. On the other hand, the subject `Bar` will display a `Foo > Bar < Baz` trail
 indicating that `Foo` is a `parent`( `>` ) and `Baz` is a `child` ( `<` ) of `Bar`.
-
-### Example output
-
-![image](https://cloud.githubusercontent.com/assets/1245473/7828962/c9a262ba-043b-11e5-8b3c-6d7c7f47c503.png)
-
-The output can easily be adjusted using the deployed styles (in `res/sbl.styles.css`) together with the available configuration settings.
 
 ### Configuration
 

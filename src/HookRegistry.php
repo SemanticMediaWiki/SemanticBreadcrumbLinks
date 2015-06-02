@@ -4,6 +4,7 @@ namespace SBL;
 
 use SMW\Store;
 use DummyLinker;
+use Hooks;
 
 /**
  * @license GNU GPL v2+
@@ -14,14 +15,9 @@ use DummyLinker;
 class HookRegistry {
 
 	/**
-	 * @var Store
-	 */
-	private $store;
-
-	/**
 	 * @var array
 	 */
-	private $configuration;
+	private $handlers = array();
 
 	/**
 	 * @since 1.0
@@ -30,33 +26,55 @@ class HookRegistry {
 	 * @param array $configuration
 	 */
 	public function __construct( Store $store, array $configuration ) {
-		$this->store = $store;
-		$this->configuration = $configuration;
+		$this->addCallbackHandlers( $store, $configuration );
+	}
+
+	/**
+	 * @since  1.1
+	 *
+	 * @param string $name
+	 *
+	 * @return boolean
+	 */
+	public function isRegistered( $name ) {
+		return Hooks::isRegistered( $name );
+	}
+
+	/**
+	 * @since  1.1
+	 *
+	 * @param string $name
+	 *
+	 * @return Callable|false
+	 */
+	public function getHandlersFor( $name ) {
+		return isset( $this->handlers[$name] ) ? $this->handlers[$name] : false;
 	}
 
 	/**
 	 * @since  1.0
-	 *
-	 * @param array &$wgHooks
 	 */
-	public function register( &$wgHooks ) {
+	public function register() {
+		foreach ( $this->handlers as $name => $callback ) {
+			Hooks::register( $name, $callback );
+		}
+	}
 
-		// PHP 5.3
-		$store = $this->store;
-		$configuration = $this->configuration;
+	private function addCallbackHandlers( $store, $configuration ) {
+
 		$propertyRegistry = new PropertyRegistry();
 
 		/**
 		 * @see https://github.com/SemanticMediaWiki/SemanticMediaWiki/blob/master/docs/technical/hooks.md
 		 */
-		$wgHooks['smwInitProperties'][] = function () use ( $propertyRegistry ) {
+		$this->handlers['SMW::Property::initProperties'] = function () use ( $propertyRegistry ) {
 			return $propertyRegistry->register();
 		};
 
 		/**
 		 * @see https://www.mediawiki.org/wiki/Manual:Hooks/SkinTemplateOutputPageBeforeExec
 		 */
-		$wgHooks['SkinTemplateOutputPageBeforeExec'][] = function ( &$skin, &$template ) use( $store, $configuration ) {
+		$this->handlers['SkinTemplateOutputPageBeforeExec'] = function ( &$skin, &$template ) use( $store, $configuration ) {
 
 			$bySubpageLinksFinder = new BySubpageLinksFinder();
 			$bySubpageLinksFinder->setSubpageDiscoverySupportState( $configuration['useSubpageFinderFallback'] );
@@ -84,7 +102,7 @@ class HookRegistry {
 		/**
 		 * @see https://www.mediawiki.org/wiki/Manual:Hooks/BeforePageDisplay
 		 */
-		$wgHooks['BeforePageDisplay'][] = function ( &$output, &$skin ) use ( $configuration ) {
+		$this->handlers['BeforePageDisplay'] = function ( &$output, &$skin ) use ( $configuration ) {
 
 			$pageDisplayOutputModifier = new PageDisplayOutputModifier();
 			$pageDisplayOutputModifier->setHideSubpageParentState( $configuration['hideSubpageParent'] );
