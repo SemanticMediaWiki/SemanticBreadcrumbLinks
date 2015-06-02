@@ -15,7 +15,8 @@ SBL uses a pattern match strategy to filter property usage (e.g. `Has parent pag
 that ascribe the location of a page relative to its parent and provides navigational help by
 generating a breadcrumb trail.
 
-A short [video](https://vimeo.com/129347298) demonstrates "How SBL works".
+A short [video](https://vimeo.com/129347298) demonstrates "How SBL works" or can be used
+to ease context navigation.
 
 ## Requirements
 
