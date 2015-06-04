@@ -104,11 +104,14 @@ class HtmlBreadcrumbLinksBuilder {
 	 * @since  1.0
 	 *
 	 * @param Title $title
-	 *
-	 * @return HtmlBreadcrumbsBuilder
 	 */
 	public function buildBreadcrumbs( Title $title ) {
 
+		if ( $title->isRedirect() ) {
+			return;
+		}
+
+		// Ensure no subobject is used by replacing the fragment
 		$title->setFragment( '' );
 		$subject = DIWikiPage::newFromTitle( $title );
 
@@ -123,8 +126,6 @@ class HtmlBreadcrumbLinksBuilder {
 		);
 
 		$this->formatToFlatList( $subject, $parents, $children );
-
-		return $this;
 	}
 
 	/**

@@ -186,4 +186,33 @@ class HtmlBreadcrumbLinksBuilderTest extends \PHPUnit_Framework_TestCase {
 		$instance->buildBreadcrumbs( $title );
 	}
 
+	public function testRedirectDoesNotTryToFindBreadcrumbs() {
+
+		$byPropertyHierarchicalLinksFinder = $this->getMockBuilder( '\SBL\ByPropertyHierarchicalLinksFinder' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$byPropertyHierarchicalLinksFinder->expects( $this->never() )
+			->method( 'tryToFindLinksFor' );
+
+		$bySubpageLinksFinder = $this->getMockBuilder( '\SBL\BySubpageLinksFinder' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$title = $this->getMockBuilder( '\Title' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$title->expects( $this->once() )
+			->method( 'isRedirect' )
+			->will( $this->returnValue( true ) );
+
+		$instance = new HtmlBreadcrumbLinksBuilder(
+			$byPropertyHierarchicalLinksFinder,
+			$bySubpageLinksFinder
+		);
+
+		$instance->buildBreadcrumbs( $title );
+	}
+
 }
