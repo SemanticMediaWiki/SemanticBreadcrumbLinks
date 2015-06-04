@@ -105,6 +105,25 @@ class BySubpageLinksFinderTest extends \PHPUnit_Framework_TestCase {
 			)
 		);
 
+		#4 /a/b
+		$provider[] = array(
+			'/a/b',
+			1,
+			array(
+				new DIWikiPage( '/a', NS_MAIN )
+			)
+		);
+
+		#5 /a//b/c
+		$provider[] = array(
+			'/a//b/c',
+			2,
+			array(
+				new DIWikiPage( '/a', NS_MAIN ),
+				new DIWikiPage( '/a//b', NS_MAIN )
+			)
+		);
+
 		return $provider;
 	}
 
