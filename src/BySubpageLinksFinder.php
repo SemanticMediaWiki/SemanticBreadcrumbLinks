@@ -80,8 +80,12 @@ class BySubpageLinksFinder {
 		array_pop( $links );
 
 		foreach ( $links as $link ) {
-			$growinglink .= $link;
-			$this->antecedentHierarchyLinks[] = DIWikiPage::newFromTitle( Title::newFromText( $growinglink ) );
+
+			if ( $link !== '' ) {
+				$growinglink .= $link;
+				$this->antecedentHierarchyLinks[] = DIWikiPage::newFromTitle( Title::newFromText( $growinglink ) );
+			}
+
 			$growinglink .= '/';
 		}
 	}
