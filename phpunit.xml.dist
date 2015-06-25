@@ -13,8 +13,11 @@
          stopOnSkipped="false"
          verbose="true">
     <testsuites>
-        <testsuite name="semantic-breadcrumb-links">
-            <directory>tests/phpunit</directory>
+        <testsuite name="semantic-breadcrumb-links-unit">
+            <directory>tests/phpunit/Unit</directory>
+        </testsuite>
+        <testsuite name="semantic-breadcrumb-links-integration">
+            <directory>tests/phpunit/Integration</directory>
         </testsuite>
     </testsuites>
     <filter>

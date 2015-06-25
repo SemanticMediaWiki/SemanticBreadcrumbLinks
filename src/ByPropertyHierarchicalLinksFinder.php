@@ -151,7 +151,7 @@ class ByPropertyHierarchicalLinksFinder {
 			}
 
 			// A flat display can only display one parent in its hierarchy
-			$dataItem = $value;
+			$dataItem =  $this->store->getRedirectTarget( $value );
 			break;
 		}
 
@@ -197,7 +197,9 @@ class ByPropertyHierarchicalLinksFinder {
 				continue;
 			}
 
-			$this->closestDescendantLinks[] = $dataItem;
+			$this->closestDescendantLinks[] = $this->store->getRedirectTarget(
+				$dataItem
+			);
 		}
 	}
 

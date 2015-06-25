@@ -93,6 +93,7 @@ class ByPropertyHierarchicalLinksFinderTest extends \PHPUnit_Framework_TestCase 
 
 		$store = $this->getMockBuilder( '\SMW\Store' )
 			->disableOriginalConstructor()
+			->setMethods( array( 'getRedirectTarget' ) )
 			->getMockForAbstractClass();
 
 		$store->expects( $this->at( 0 ) )
@@ -103,11 +104,23 @@ class ByPropertyHierarchicalLinksFinderTest extends \PHPUnit_Framework_TestCase 
 			->will( $this->returnValue( array( new DIWikiPage( 'Ichi', NS_MAIN ) ) ) );
 
 		$store->expects( $this->at( 1 ) )
+			->method( 'getRedirectTarget' )
+			->with(
+				$this->equalTo( new DIWikiPage( 'Ichi', NS_MAIN ) ) )
+			->will( $this->returnValue( new DIWikiPage( 'Ichi', NS_MAIN ) ) );
+
+		$store->expects( $this->at( 2 ) )
 			->method( 'getPropertyValues' )
 			->with(
 				$this->equalTo( new DIWikiPage( 'Ichi', NS_MAIN )  ),
 				$this->equalTo( DIProperty::newFromUserLabel( 'Yin' )) )
 			->will( $this->returnValue( array( new DIWikiPage( 'Ni', NS_MAIN ) ) ) );
+
+		$store->expects( $this->at( 3 ) )
+			->method( 'getRedirectTarget' )
+			->with(
+				$this->equalTo( new DIWikiPage( 'Ni', NS_MAIN ) ) )
+			->will( $this->returnValue( new DIWikiPage( 'San', NS_MAIN ) ) );
 
 		$instance = new ByPropertyHierarchicalLinksFinder( $store );
 
@@ -122,7 +135,7 @@ class ByPropertyHierarchicalLinksFinderTest extends \PHPUnit_Framework_TestCase 
 		$this->assertEquals(
 			array(
 				new DIWikiPage( 'Ichi', NS_MAIN ),
-				new DIWikiPage( 'Ni', NS_MAIN ) ),
+				new DIWikiPage( 'San', NS_MAIN ) ),
 			$instance->getParents()
 		);
 

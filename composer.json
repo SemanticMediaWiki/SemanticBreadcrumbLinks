@@ -6,8 +6,8 @@
 		"smw",
 		"semantic mediawiki",
 		"wiki",
-		"mediamiki",
-    "breadcrumb"
+		"mediawiki",
+		"breadcrumb"
 	],
 	"homepage": "https://semantic-mediawiki.org/wiki/Extension:SemanticBreadcrumbLinks",
 	"license": "GPL-2.0+",
