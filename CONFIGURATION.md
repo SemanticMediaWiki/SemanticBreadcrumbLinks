@@ -16,8 +16,10 @@ displayed due to the nature of the breadcrumb trail.
 The output can easily be adjusted using the deployed styles (in `res/sbl.styles.css`) together with
 the available configuration settings.
 
-- `$GLOBALS['egSBLBreadcrumbTrailStyleClass']` is used to assign a styling class to the breadcrumb trail.
-- `$GLOBALS['egSBLBreadcrumbDividerStyleClass']` is used to assign a divider styling class.
+- `$GLOBALS['egSBLBreadcrumbTrailStyleClass']` is used to assign a styling class to the breadcrumb
+  trail and deploys with `sbl-breadcrumb-trail-boxed`, `sbl-breadcrumb-trail-light`, or `sbl-breadcrumb-trail-light-boxed`.
+- `$GLOBALS['egSBLBreadcrumbDividerStyleClass']` is used to assign a divider styling class and
+  deploys with `sbl-breadcrumb-arrow` and `sbl-breadcrumb-pipe`.
 
 ### Subpage
 

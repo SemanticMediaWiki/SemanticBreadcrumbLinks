@@ -43,10 +43,12 @@ call_user_func( function () {
 	$GLOBALS['wgMessagesDirs']['semantic-breadcrumb-links'] = __DIR__ . '/i18n';
 
 	// Register resource files
+	$extensionPathParts = explode( DIRECTORY_SEPARATOR . 'extensions' . DIRECTORY_SEPARATOR , __DIR__, 2 );
+
 	$GLOBALS['wgResourceModules']['ext.semanticbreadcrumblinks'] = array(
 		'styles' => 'res/sbl.styles.css',
 		'localBasePath' => __DIR__ ,
-		'remoteExtPath' => end( ( explode( DIRECTORY_SEPARATOR . 'extensions' . DIRECTORY_SEPARATOR , __DIR__, 2 ) ) ),
+		'remoteExtPath' => end( $extensionPathParts ),
 		'position' => 'top',
 		'group'    => 'ext.smw'
 	);
