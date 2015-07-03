@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jaideraf"
+		]
+	},
+	"sbl-desc": "Uma extensão do [https://semantic-mediawiki.org Semantic MediaWiki] para construir links de navegação por hierarquia a partir de um filtro de propriedade atributiva.",
+	"smw-pa-property-predefined__sbl_parentpage": "$1 é uma propriedade predefinida que descreve um relacionamento entre uma \"página pai\" e uma \"página filha\" para ajudar a alinhar uma hierarquia de páginas marcadas. Essa propriedade é fornecida pela extensão [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic Breadcrumb Links].",
+	"sbl-property-alias-parentpage": "Tem página pai"
+}
