@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Elisardojm"
+			"Elisardojm",
+			"Toliño"
 		]
 	},
-	"sbl-desc": "Unha extensión de [https://semantic-mediawiki.org MediaWiki Semántica] que permite crear ligazóns de navegación por xerarquía a partir dun filtro de propiedades atributivas.",
-	"sbl-property-alias-parentpage": "Ten páxina contedora"
+	"sbl-desc": "Unha extensión de [https://semantic-mediawiki.org Semantic MediaWiki] que permite crear lapelas de navegación por xerarquía a partir dun filtro de propiedades atributivas",
+	"smw-pa-property-predefined__sbl_parentpage": "\"$1\" é unha propiedade predefinida que pode describir unha relación entre unha páxina nai e unha filla para axudar a definir unha xerarquía descendente para páxinas anotadas; esta propiedade está proporcionada pola extensión [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic Breadcrumb Links].",
+	"sbl-property-alias-parentpage": "Ten unha páxina nai"
 }
