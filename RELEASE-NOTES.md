@@ -1,3 +1,9 @@
+### 1.2.0 (2015-08-?)
+
+* #9 Added a tooltip to display all closest descendants
+* #8 Fixed failure for cases when a subpage contains an extra slash
+* #7 Fixed breadcrumb trail for when a subject is a redirect
+
 ### 1.1.0 (2015-06-02)
 
 * Fixed unstyled content flashing observed in MW 1.25
