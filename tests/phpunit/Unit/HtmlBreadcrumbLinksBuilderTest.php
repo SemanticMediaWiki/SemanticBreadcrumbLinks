@@ -73,7 +73,9 @@ class HtmlBreadcrumbLinksBuilderTest extends \PHPUnit_Framework_TestCase {
 
 		$byPropertyHierarchicalLinksFinder->expects( $this->once() )
 			->method( 'getChildren' )
-			->will( $this->returnValue( array( new DIWikiPage( 'Bar', NS_MAIN ) ) ) );
+			->will( $this->returnValue( array(
+				new DIWikiPage( 'Bar', NS_MAIN ),
+				new DIWikiPage( 'Foobar', NS_MAIN ) ) ) );
 
 		$bySubpageLinksFinder = $this->getMockBuilder( '\SBL\BySubpageLinksFinder' )
 			->disableOriginalConstructor()

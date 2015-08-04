@@ -200,8 +200,8 @@ class ByPropertyHierarchicalLinksFinderTest extends \PHPUnit_Framework_TestCase 
 				$this->equalTo( $subject ) )
 			->will( $this->returnValue( array(
 				new DIWikiPage( 'Foo', NS_MAIN ),
-				new DIWikiPage( 'Ichi', NS_MAIN ),
-				new DIWikiPage( 'NotBeSelectable', NS_MAIN ) ) ) );
+				new DIWikiPage( 'NotEqualToFoo', NS_MAIN ),
+				new DIWikiPage( 'AnotherChild', NS_MAIN ) ) ) );
 
 		$instance = new ByPropertyHierarchicalLinksFinder( $store );
 
@@ -219,7 +219,8 @@ class ByPropertyHierarchicalLinksFinderTest extends \PHPUnit_Framework_TestCase 
 
 		$this->assertEquals(
 			array(
-				new DIWikiPage( 'Ichi', NS_MAIN ) ),
+				new DIWikiPage( 'NotEqualToFoo', NS_MAIN ),
+				new DIWikiPage( 'AnotherChild', NS_MAIN ) ),
 			$instance->getChildren()
 		);
 	}
