@@ -166,14 +166,10 @@ class HtmlBreadcrumbLinksBuilder {
 			$parent .= $this->wrapHtml( 'parent', $this->getDvShortHtmlText( $breadcrumb, $this->linker ) ) .  $this->wrapHtml( 'right' );
 		}
 
-		$child = '';
-
-		foreach ( $children as $breadcrumb ) {
-			$child .=  $this->wrapHtml( 'left' ) . $this->wrapHtml( 'child', $this->getDvShortHtmlText( $breadcrumb, $this->linker ) );
-		}
+		list( $child, $data ) = $this->findElementsForChildren( $children  );
 
 		if ( $parent !== '' || $child !== '' ) {
-			$this->breadcrumbs = $parent . $this->wrapHtml( 'location', $this->getDvShortHtmlText( $subject ) ) . $child;
+			$this->breadcrumbs = $parent . $this->wrapHtml( 'location', $this->getDvShortHtmlText( $subject ) ) . $child . $this->addHtmlDataElement( $data );
 		}
 	}
 
@@ -188,6 +184,43 @@ class HtmlBreadcrumbLinksBuilder {
 		return Html::rawElement( 'span', array(
 			'class' => $this->breadcrumbDividerStyleClass . '-' . $subClass ),
 			$html
+		);
+	}
+
+	private function findElementsForChildren( array $children ) {
+
+		$child = '';
+		$data = '';
+
+		foreach ( $children as $breadcrumb ) {
+
+			// The first child is added as visible element while others
+			// are added as data-element
+			if ( $child !== '' ) {
+				$data .=  $this->addHtmlListElement( $this->getDvShortHtmlText( $breadcrumb, $this->linker ) );
+				continue;
+			}
+
+			$child .=  $this->wrapHtml( 'left' ) . $this->wrapHtml( 'child', $this->getDvShortHtmlText( $breadcrumb, $this->linker ) );
+		}
+
+		return array( $child, $data );
+	}
+
+	private function addHtmlListElement( $html = '' ) {
+		return Html::rawElement( 'li', array(), $html );
+	}
+
+	private function addHtmlDataElement( $data = '' ) {
+
+		if ( $data === '' ) {
+			return '';
+		}
+
+		return Html::rawElement( 'span', array(
+			'class' => 'sbl-breadcrumb-children',
+			'data-children' => $data ),
+			''
 		);
 	}
 

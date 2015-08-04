@@ -188,11 +188,6 @@ class ByPropertyHierarchicalLinksFinder {
 
 		foreach ( $children as $dataItem ) {
 
-			// A flat display can only display one child
-			if ( $this->closestDescendantLinks !== array() ) {
-				break;
-			}
-
 			if ( $subject->equals( $dataItem ) ) {
 				continue;
 			}

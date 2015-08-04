@@ -46,11 +46,19 @@ call_user_func( function () {
 	$extensionPathParts = explode( DIRECTORY_SEPARATOR . 'extensions' . DIRECTORY_SEPARATOR , __DIR__, 2 );
 
 	$GLOBALS['wgResourceModules']['ext.semanticbreadcrumblinks'] = array(
-		'styles' => 'res/sbl.styles.css',
+		'styles'  => 'res/sbl.styles.css',
+		'scripts' => 'res/sbl.tooltip.js',
 		'localBasePath' => __DIR__ ,
 		'remoteExtPath' => end( $extensionPathParts ),
 		'position' => 'top',
-		'group'    => 'ext.smw'
+		'group'    => 'ext.smw',
+		'dependencies'  => array(
+			'ext.jquery.qtip'
+		),
+		'targets' => array(
+			'mobile',
+			'desktop'
+		)
 	);
 
 	// Declare property Id constant
