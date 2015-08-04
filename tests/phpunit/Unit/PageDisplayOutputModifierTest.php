@@ -6,7 +6,6 @@ use SBL\PageDisplayOutputModifier;
 
 /**
  * @covers \SBL\PageDisplayOutputModifier
- *
  * @group semantic-breadcrumb-links
  *
  * @license GNU GPL v2+

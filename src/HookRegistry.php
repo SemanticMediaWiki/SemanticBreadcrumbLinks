@@ -23,10 +23,10 @@ class HookRegistry {
 	 * @since 1.0
 	 *
 	 * @param Store $store
-	 * @param array $configuration
+	 * @param Options $options
 	 */
-	public function __construct( Store $store, array $configuration ) {
-		$this->addCallbackHandlers( $store, $configuration );
+	public function __construct( Store $store, Options $options ) {
+		$this->addCallbackHandlers( $store, $options );
 	}
 
 	/**
@@ -47,7 +47,7 @@ class HookRegistry {
 	 *
 	 * @return Callable|false
 	 */
-	public function getHandlersFor( $name ) {
+	public function getHandlerFor( $name ) {
 		return isset( $this->handlers[$name] ) ? $this->handlers[$name] : false;
 	}
 
@@ -60,7 +60,7 @@ class HookRegistry {
 		}
 	}
 
-	private function addCallbackHandlers( $store, $configuration ) {
+	private function addCallbackHandlers( $store, $options ) {
 
 		$propertyRegistry = new PropertyRegistry();
 
@@ -74,14 +74,21 @@ class HookRegistry {
 		/**
 		 * @see https://www.mediawiki.org/wiki/Manual:Hooks/SkinTemplateOutputPageBeforeExec
 		 */
-		$this->handlers['SkinTemplateOutputPageBeforeExec'] = function ( &$skin, &$template ) use( $store, $configuration ) {
+		$this->handlers['SkinTemplateOutputPageBeforeExec'] = function ( &$skin, &$template ) use( $store, $options ) {
 
 			$bySubpageLinksFinder = new BySubpageLinksFinder();
-			$bySubpageLinksFinder->setSubpageDiscoverySupportState( $configuration['useSubpageFinderFallback'] );
+			$bySubpageLinksFinder->setSubpageDiscoverySupportState(
+				$options->get( 'useSubpageFinderFallback' )
+			);
 
 			$byPropertyHierarchicalLinksFinder = new ByPropertyHierarchicalLinksFinder( $store );
-			$byPropertyHierarchicalLinksFinder->setFindClosestDescendantState( $configuration['tryToFindClosestDescendant'] );
-			$byPropertyHierarchicalLinksFinder->setPropertySearchPatternByNamespace( $configuration['propertySearchPatternByNamespace'] );
+			$byPropertyHierarchicalLinksFinder->setFindClosestDescendantState(
+				$options->get( 'tryToFindClosestDescendant' )
+			);
+
+			$byPropertyHierarchicalLinksFinder->setPropertySearchPatternByNamespace(
+				$options->get( 'propertySearchPatternByNamespace' )
+			);
 
 			$htmlBreadcrumbLinksBuilder = new HtmlBreadcrumbLinksBuilder(
 				$byPropertyHierarchicalLinksFinder,
@@ -89,8 +96,13 @@ class HookRegistry {
 			);
 
 			$htmlBreadcrumbLinksBuilder->setLinker( new DummyLinker() );
-			$htmlBreadcrumbLinksBuilder->setBreadcrumbTrailStyleClass( $configuration['breadcrumbTrailStyleClass'] );
-			$htmlBreadcrumbLinksBuilder->setBreadcrumbDividerStyleClass( $configuration['breadcrumbDividerStyleClass'] );
+			$htmlBreadcrumbLinksBuilder->setBreadcrumbTrailStyleClass(
+				$options->get( 'breadcrumbTrailStyleClass' )
+			);
+
+			$htmlBreadcrumbLinksBuilder->setBreadcrumbDividerStyleClass(
+				$options->get( 'breadcrumbDividerStyleClass' )
+			);
 
 			$skinTemplateOutputModifier = new SkinTemplateOutputModifier( $htmlBreadcrumbLinksBuilder );
 			$skinTemplateOutputModifier->modifyTemplate( $template );
@@ -102,11 +114,17 @@ class HookRegistry {
 		/**
 		 * @see https://www.mediawiki.org/wiki/Manual:Hooks/BeforePageDisplay
 		 */
-		$this->handlers['BeforePageDisplay'] = function ( &$output, &$skin ) use ( $configuration ) {
+		$this->handlers['BeforePageDisplay'] = function ( &$output, &$skin ) use ( $options ) {
 
 			$pageDisplayOutputModifier = new PageDisplayOutputModifier();
-			$pageDisplayOutputModifier->setHideSubpageParentState( $configuration['hideSubpageParent'] );
-			$pageDisplayOutputModifier->setSubpageByNamespace( $configuration['wgNamespacesWithSubpages'] );
+
+			$pageDisplayOutputModifier->setHideSubpageParentState(
+				$options->get( 'hideSubpageParent' )
+			);
+
+			$pageDisplayOutputModifier->setSubpageByNamespace(
+				$options->get( 'wgNamespacesWithSubpages' )
+			);
 
 			$pageDisplayOutputModifier->modifyOutput( $output );
 

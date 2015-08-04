@@ -3,13 +3,11 @@
 namespace SBL\Tests;
 
 use SBL\HookRegistry;
-
-use HashBagOStuff;
+use SBL\Options;
 use Title;
 
 /**
  * @covers \SBL\HookRegistry
- *
  * @group semantic-breadcrumb-links
  *
  * @license GNU GPL v2+
@@ -25,11 +23,13 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 			->disableOriginalConstructor()
 			->getMockForAbstractClass();
 
-		$configuration = array();
+		$options = $this->getMockBuilder( '\SBL\Options' )
+			->disableOriginalConstructor()
+			->getMock();
 
 		$this->assertInstanceOf(
 			'\SBL\HookRegistry',
-			new HookRegistry( $store, $configuration )
+			new HookRegistry( $store, new $options )
 		);
 	}
 
@@ -69,7 +69,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$instance = new HookRegistry(
 			$store,
-			$configuration
+			new Options( $configuration )
 		);
 
 		$instance->register();
@@ -81,38 +81,44 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 	private function doTestInitProperties( $instance ) {
 
+		$handler = 'SMW::Property::initProperties';
+
 		$this->assertTrue(
-			$instance->isRegistered( 'SMW::Property::initProperties' )
+			$instance->isRegistered( $handler )
 		);
 
 		$this->assertThatHookIsExcutable(
-			$instance->getHandlersFor( 'SMW::Property::initProperties' ),
+			$instance->getHandlerFor( $handler ),
 			array()
 		);
 	}
 
 	private function doTestSkinTemplateOutputPageBeforeExec( $instance, $skin ) {
 
+		$handler = 'SkinTemplateOutputPageBeforeExec';
+
 		$this->assertTrue(
-			$instance->isRegistered( 'SkinTemplateOutputPageBeforeExec' )
+			$instance->isRegistered( $handler )
 		);
 
 		$template = new \stdClass;
 
 		$this->assertThatHookIsExcutable(
-			$instance->getHandlersFor( 'SkinTemplateOutputPageBeforeExec' ),
+			$instance->getHandlerFor( $handler ),
 			array( &$skin, &$template )
 		);
 	}
 
 	private function doTestBeforePageDisplay( $instance, $outputPage, $skin ) {
 
+		$handler = 'BeforePageDisplay';
+
 		$this->assertTrue(
-			$instance->isRegistered( 'BeforePageDisplay' )
+			$instance->isRegistered( $handler )
 		);
 
 		$this->assertThatHookIsExcutable(
-			$instance->getHandlersFor( 'BeforePageDisplay' ),
+			$instance->getHandlerFor( $handler ),
 			array( &$outputPage, &$skin )
 		);
 	}

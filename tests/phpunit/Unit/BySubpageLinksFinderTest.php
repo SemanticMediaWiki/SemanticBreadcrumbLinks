@@ -10,7 +10,6 @@ use Title;
 
 /**
  * @covers \SBL\BySubpageLinksFinder
- *
  * @group semantic-breadcrumb-links
  *
  * @license GNU GPL v2+

@@ -10,7 +10,6 @@ use Title;
 
 /**
  * @covers \SBL\HtmlBreadcrumbLinksBuilder
- *
  * @group semantic-breadcrumb-links
  *
  * @license GNU GPL v2+

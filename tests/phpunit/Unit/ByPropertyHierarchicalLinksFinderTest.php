@@ -12,7 +12,6 @@ use Title;
 
 /**
  * @covers \SBL\ByPropertyHierarchicalLinksFinder
- *
  * @group semantic-breadcrumb-links
  *
  * @license GNU GPL v2+

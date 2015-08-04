@@ -1,6 +1,7 @@
 <?php
 
 use SBL\HookRegistry;
+use SBL\Options;
 use SMW\ApplicationFactory;
 
 /**
@@ -109,7 +110,7 @@ call_user_func( function () {
 
 		$hookRegistry = new HookRegistry(
 			ApplicationFactory::getInstance()->getStore(),
-			$configuration
+			new Options( $configuration )
 		);
 
 		$hookRegistry->register();

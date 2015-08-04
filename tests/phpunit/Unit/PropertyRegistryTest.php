@@ -8,7 +8,6 @@ use SMW\DIProperty;
 
 /**
  * @covers \SBL\PropertyRegistry
- *
  * @group semantic-breadcrumb-links
  *
  * @license GNU GPL v2+

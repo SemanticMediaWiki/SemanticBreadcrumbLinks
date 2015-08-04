@@ -8,7 +8,6 @@ use Title;
 
 /**
  * @covers \SBL\SkinTemplateOutputModifier
- *
  * @group semantic-breadcrumb-links
  *
  * @license GNU GPL v2+
