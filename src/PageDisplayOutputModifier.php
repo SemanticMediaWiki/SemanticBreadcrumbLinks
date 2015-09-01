@@ -44,18 +44,19 @@ class PageDisplayOutputModifier {
 	/**
 	 * @since  1.0
 	 *
-	 * @param OutputPage $output
+	 * @param OutputPage $outputPage
 	 */
-	public function modifyOutput( OutputPage $output ) {
+	public function modifyOutput( OutputPage $outputPage ) {
 
-		$output->addModules( 'ext.semanticbreadcrumblinks' );
+		$outputPage->addModuleStyles( 'ext.semanticbreadcrumblinks' );
+		$outputPage->addModules( 'ext.semanticbreadcrumblinks' );
 
-		if ( !$this->hideSubpageParentState || !$this->hasSubpageEnabledNamespace( $output->getTitle()->getNamespace() ) ) {
+		if ( !$this->hideSubpageParentState || !$this->hasSubpageEnabledNamespace( $outputPage->getTitle()->getNamespace() ) ) {
 			return;
 		}
 
-		if ( $output->getTitle()->isSubpage() ) {
-			$output->setPageTitle( $output->getTitle()->getSubpageText() );
+		if ( $outputPage->getTitle()->isSubpage() ) {
+			$outputPage->setPageTitle( $outputPage->getTitle()->getSubpageText() );
 		}
 	}
 
