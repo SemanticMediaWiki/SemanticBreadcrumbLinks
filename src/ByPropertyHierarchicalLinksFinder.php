@@ -180,6 +180,9 @@ class ByPropertyHierarchicalLinksFinder {
 			return;
 		}
 
+		// Limit the search
+		$requestOptions->limit = 20;
+
 		$children = $this->store->getPropertySubjects(
 			$property,
 			$subject,
