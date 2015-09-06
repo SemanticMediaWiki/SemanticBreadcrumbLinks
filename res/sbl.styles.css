@@ -47,3 +47,7 @@
 	margin-left: 4px;
 	margin-right: 4px;
 }
+
+.sbl-breadcrumb-has-childern {
+	 font-style: italic;
+}

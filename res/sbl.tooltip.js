@@ -18,6 +18,8 @@
 		 */
 		$( '.sbl-breadcrumb-children' ).each(function () {
 
+			$( this ).prev().addClass( 'sbl-breadcrumb-has-childern' )
+
 			// The current instance is hidden therefore look for the direct
 			// precedents and only act on a href link
 			$( this ).prev().find( 'a' ).qtip( {
