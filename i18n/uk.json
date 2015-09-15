@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ата"
+		]
+	},
+	"sbl-desc": "Розширення [https://semantic-mediawiki.org Семантичної MediaWiki] для побудови навігаційних посилань з фільтра атрибутивних властивостей",
+	"smw-pa-property-predefined__sbl_parentpage": "«$1» — попередньо визначена властивість, яка описує відношення між батьківською та синівською сторінками для, призначена для допомоги у визначенні похідної ієрархії для анотованих сторінок, і забезпечується розширенням [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic Breadcrumb Links].",
+	"sbl-property-alias-parentpage": "Має батьківську сторінку"
+}
