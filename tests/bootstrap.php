@@ -8,8 +8,8 @@ if ( !is_readable( $autoloaderClassPath = __DIR__ . '/../../SemanticMediaWiki/te
 	die( 'The SemanticMediaWiki test autoloader is not available' );
 }
 
+print sprintf( "\n%-27s%s\n", "Semantic Breadcrumb Links: ", SBL_VERSION );
+
 $autoloader = require $autoloaderClassPath;
 $autoloader->addPsr4( 'SBL\\Tests\\', __DIR__ . '/phpunit/Unit' );
 $autoloader->addPsr4( 'SBL\\Tests\\Integration\\', __DIR__ . '/phpunit/Integration' );
-
-print( "Semantic MediaWiki: " . SMW_VERSION . " ({$GLOBALS['smwgDefaultStore']}, {$GLOBALS['wgDBtype']})\n\n" );
