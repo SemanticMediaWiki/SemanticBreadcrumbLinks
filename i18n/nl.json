@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Esketti"
+			"Esketti",
+			"Ата"
 		]
 	},
 	"sbl-desc": "Een [https://semantic-mediawiki.org Semantic MediaWiki] uitbreiding te bouwen broodkruimellinks van een attributive woning filter",
-	"smw-pa-property-predefined__sbl_parentpage": "\"$1\" is a predefined property that can describe a relationship between a parent and a child page to help outline a descendant hierarchy for annotated pages and is provided by the [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic Breadcrumb Links] extension.",
+	"smw-pa-property-predefined__sbl_parentpage": "!!FUZZY!!\"$1\" is a predefined property that can describe a relationship between a parent and a child page to help outline a descendant hierarchy for annotated pages and is provided by the [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic Breadcrumb Links] extension.",
 	"sbl-property-alias-parentpage": "Heeft bovenliggende pagina"
 }

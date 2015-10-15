@@ -2,10 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"kghbln",
-			"Metalhead64"
+			"Metalhead64",
+			"Kghbln"
 		]
 	},
 	"sbl-desc": "Ermöglicht eine auf semantische Attribute gestützte Anzeige des Navigationsweges",
-	"smw-pa-property-predefined__sbl_parentpage": "„$1“ ist ein systemseitig festgelegtes Attribut, das einen Zusammenhang zwischen über- und untergeordneten Seiten beschreiben kann, um beim Zusammenfassen einer Hierarchie für kommentierte Seiten zu helfen und wird von der Softwareerweiterung [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links „Semantic Breadcrumb Links“] bereitgestellt.",
+	"smw-pa-property-predefined__sbl_parentpage": "„$1“ ist ein Spezialattribut, das den Zusammenhang zwischen über- und untergeordneten Seiten speichert und somit beim Festlegen einer Hierarchie von mit Annotationen versehener Seiten hilft. Es wird von der Softwareerweiterung [https://semantic-mediawiki.org/wiki/Semantic_Interlanguage_Links_(de) Semantic Interlanguage Links] bereitgestellt.",
 	"sbl-property-alias-parentpage": "Hat übergeordnete Seite"
 }
