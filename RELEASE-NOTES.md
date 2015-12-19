@@ -1,12 +1,11 @@
 This file contains the RELEASE-NOTES of the Semantic Breadcrumb Links (a.k.a. SBL) extension.
 
-### 1.2.0 (2015-08-??)
+### 1.2.0 (2015-12-19)
 
 * #9 Added a tooltip to display all closest descendants
 * #8 Fixed failure for cases when a subpage contains an extra slash
 * #7 Fixed breadcrumb trail for when a subject is a redirect
 * Localization updates from https://translatewiki.net
-* Requires Semantic MediaWiki ~2.2
 
 ### 1.1.0 (2015-06-02)
 

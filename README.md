@@ -15,14 +15,13 @@ SBL uses a pattern match strategy to filter property usage (e.g. `Has parent pag
 that ascribe the location of a page relative to its parent and provides navigational help by
 generating a breadcrumb trail.
 
-A short [video](https://vimeo.com/129347298) demonstrates "How SBL works" or can be used
-to ease context navigation.
+This [video](https://vimeo.com/129347298) demonstrates the functionality of the Semantic Breadcrumb Links extension.
 
 ## Requirements
 
 - PHP 5.3.2 or later
 - MediaWiki 1.23 or later
-- [Semantic MediaWiki][smw] 2.2 or later
+- [Semantic MediaWiki][smw] 2.1 or later
 
 ## Installation
 
