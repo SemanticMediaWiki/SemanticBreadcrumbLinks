@@ -3,9 +3,7 @@
 namespace SBL;
 
 use SMW\DIWikiPage;
-
-use SMWWikiPageValue as WikiPageValue;
-
+use SMW\DataValueFactory;
 use Title;
 use Html;
 use DummyLinker;
@@ -174,9 +172,11 @@ class HtmlBreadcrumbLinksBuilder {
 	}
 
 	private function getDvShortHtmlText( $subject, $linker = null ) {
-		$dataValue = new WikiPageValue( '_wpg' );
-		$dataValue->setDataItem( $subject );
-		$dataValue->setCaption( $subject->getTitle()->getSubpageText() );
+
+		$dataValue = DataValueFactory::getInstance()->newDataItemValue(
+			$subject
+		);
+
 		return $dataValue->getShortHtmlText( $linker );
 	}
 
