@@ -73,6 +73,7 @@ call_user_func( function () {
 	$GLOBALS['egSBLTryToFindClosestDescendant'] = true;
 	$GLOBALS['egSBLUseSubpageFinderFallback'] = true;
 	$GLOBALS['egSBLPageTitleToHideSubpageParent'] = true;
+	$GLOBALS['egSBLEnabledSubpageParentAnnotation'] = true;
 
 	// Finalize registration process
 	$GLOBALS['wgExtensionFunctions'][] = function() {
@@ -108,6 +109,7 @@ call_user_func( function () {
 			'breadcrumbDividerStyleClass' => $GLOBALS['egSBLBreadcrumbDividerStyleClass'],
 			'tryToFindClosestDescendant' => $GLOBALS['egSBLTryToFindClosestDescendant'],
 			'useSubpageFinderFallback' => $GLOBALS['egSBLUseSubpageFinderFallback'],
+			'enabledSubpageParentAnnotation' => $GLOBALS['egSBLEnabledSubpageParentAnnotation'],
 			'wgNamespacesWithSubpages' => $GLOBALS['wgNamespacesWithSubpages'],
 			'propertySearchPatternByNamespace' => $GLOBALS['egSBLPropertySearchPatternByNamespace'] + $defaultPropertySearchPatternByNamespace
 		);

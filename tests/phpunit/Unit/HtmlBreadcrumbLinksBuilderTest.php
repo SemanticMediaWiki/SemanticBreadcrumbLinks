@@ -49,10 +49,14 @@ class HtmlBreadcrumbLinksBuilderTest extends \PHPUnit_Framework_TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$instance = new HtmlBreadcrumbLinksBuilder( $byPropertyHierarchicalLinksFinder, $bySubpageLinksFinder );
+		$instance = new HtmlBreadcrumbLinksBuilder(
+			$byPropertyHierarchicalLinksFinder,
+			$bySubpageLinksFinder
+		);
 
 		$instance->setBreadcrumbTrailStyleClass( 'Foo' );
 		$instance->setLinker( $dummyLinker );
+		$instance->setHideSubpageParentState( true );
 
 		$this->assertInternalType(
 			'string',

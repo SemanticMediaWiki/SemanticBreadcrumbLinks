@@ -2,6 +2,8 @@ This file contains the RELEASE-NOTES of the Semantic Breadcrumb Links (a.k.a. SB
 
 ### 1.3.0 (2015-03-10)
 
+* Added `$GLOBALS['egSBLEnabledSubpageParentAnnotation']` to allow for subpage
+  parents to be annotated automatically if no other `Has parent page` exists
 * Recognize `egSBLPageTitleToHideSubpageParent` / `wgNamespacesWithSubpages`
   when building the breadcrumb title
 * Apply italic styles for "hasChildren" early to avoid JS async display clutter
