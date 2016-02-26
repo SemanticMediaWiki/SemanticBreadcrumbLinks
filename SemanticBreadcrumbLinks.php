@@ -22,7 +22,7 @@ if ( defined( 'SBL_VERSION' ) ) {
 	return 1;
 }
 
-define( 'SBL_VERSION', '1.2.0' );
+define( 'SBL_VERSION', '1.3.0-alpha' );
 
 /**
  * @codeCoverageIgnore
@@ -80,22 +80,26 @@ call_user_func( function () {
 		// Default values are defined at this point to ensure
 		// NS contants are specified prior
 		$defaultPropertySearchPatternByNamespace = array(
-			NS_CATEGORY     => array(
+			NS_CATEGORY => array(
 				'_SUBC',
 				'_SUBC',
-				'_SUBC' ),
+				'_SUBC'
+			),
 			SMW_NS_PROPERTY => array(
 				'_SUBP',
 				'_SUBP',
-				'_SUBP' ),
-			NS_MAIN         => array(
+				'_SUBP'
+			),
+			NS_MAIN => array(
 				SBL_PROP_PARENTPAGE,
 				SBL_PROP_PARENTPAGE,
-				SBL_PROP_PARENTPAGE ),
-			NS_HELP         => array(
+				SBL_PROP_PARENTPAGE
+			),
+			NS_HELP => array(
 				SBL_PROP_PARENTPAGE,
 				SBL_PROP_PARENTPAGE,
-				SBL_PROP_PARENTPAGE )
+				SBL_PROP_PARENTPAGE
+			)
 		);
 
 		$configuration = array(
