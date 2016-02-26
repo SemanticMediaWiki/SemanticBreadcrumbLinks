@@ -52,6 +52,16 @@ class HtmlBreadcrumbLinksBuilder {
 	private $isRTL = false;
 
 	/**
+	 * @var boolean
+	 */
+	private $hasChildren = false;
+
+	/**
+	 * @var boolean
+	 */
+	private $hideSubpageParent = false;
+
+	/**
 	 * @since 1.0
 	 *
 	 * @param ByPropertyHierarchicalLinksFinder $byPropertyHierarchicalLinksFinder
@@ -87,6 +97,15 @@ class HtmlBreadcrumbLinksBuilder {
 	 */
 	public function setBreadcrumbDividerStyleClass( $breadcrumbDividerStyleClass ) {
 		$this->breadcrumbDividerStyleClass = $breadcrumbDividerStyleClass;
+	}
+
+	/**
+	 * @since 1.3
+	 *
+	 * @param boolean $hideSubpageParent
+	 */
+	public function setHideSubpageParentState( $hideSubpageParent ) {
+		$this->hideSubpageParent = $hideSubpageParent;
 	}
 
 	/**
@@ -164,6 +183,8 @@ class HtmlBreadcrumbLinksBuilder {
 			$parent .= $this->wrapHtml( 'parent', $this->getDvShortHtmlText( $breadcrumb, $this->linker ) ) .  $this->wrapHtml( 'right' );
 		}
 
+		$this->hasChildren = count( $children ) > 1;
+
 		list( $child, $data ) = $this->findElementsForChildren( $children  );
 
 		if ( $parent !== '' || $child !== '' ) {
@@ -177,12 +198,18 @@ class HtmlBreadcrumbLinksBuilder {
 			$subject
 		);
 
+		$dataValue->setCaption(
+			$this->hideSubpageParent ? $subject->getTitle()->getSubpageText() : false
+		);
+
 		return $dataValue->getShortHtmlText( $linker );
 	}
 
 	private function wrapHtml( $subClass, $html = '' ) {
 		return Html::rawElement( 'span', array(
-			'class' => $this->breadcrumbDividerStyleClass . '-' . $subClass ),
+				'class' => $this->breadcrumbDividerStyleClass . '-' . $subClass,
+				'style' => $subClass === 'child' && $this->hasChildren ? 'font-style:italic;' : ''
+			),
 			$html
 		);
 	}
@@ -197,6 +224,7 @@ class HtmlBreadcrumbLinksBuilder {
 			// The first child is added as visible element while others
 			// are added as data-element
 			if ( $child !== '' ) {
+				$this->hasChildren = true;
 				$data .=  $this->addHtmlListElement( $this->getDvShortHtmlText( $breadcrumb, $this->linker ) );
 				continue;
 			}

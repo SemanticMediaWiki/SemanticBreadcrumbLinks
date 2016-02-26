@@ -1,5 +1,11 @@
 This file contains the RELEASE-NOTES of the Semantic Breadcrumb Links (a.k.a. SBL) extension.
 
+### 1.3.0 (2015-03-10)
+
+* Recognize `egSBLPageTitleToHideSubpageParent` / `wgNamespacesWithSubpages`
+  when building the breadcrumb title
+* Apply italic styles for "hasChildren" early to avoid JS async display clutter
+
 ### 1.2.0 (2015-12-19)
 
 * #9 Added a tooltip to display all closest descendants

@@ -104,6 +104,10 @@ class HookRegistry {
 				$options->get( 'breadcrumbDividerStyleClass' )
 			);
 
+			$htmlBreadcrumbLinksBuilder->setHideSubpageParentState(
+				$options->get( 'hideSubpageParent' )
+			);
+
 			$skinTemplateOutputModifier = new SkinTemplateOutputModifier( $htmlBreadcrumbLinksBuilder );
 			$skinTemplateOutputModifier->modifyTemplate( $template );
 			$skinTemplateOutputModifier->modifyOutput( $skin->getOutput() );
