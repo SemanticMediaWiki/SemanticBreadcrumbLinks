@@ -3,6 +3,7 @@
 namespace SBL;
 
 use SMW\Store;
+use SMW\ApplicationFactory;
 use DummyLinker;
 use Hooks;
 
@@ -131,6 +132,35 @@ class HookRegistry {
 			);
 
 			$pageDisplayOutputModifier->modifyOutput( $output );
+
+			return true;
+		};
+
+		/**
+		 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ParserAfterTidy
+		 */
+		$this->handlers['ParserAfterTidy'] = function ( &$parser, &$text ) use ( $options ) {
+
+			// ParserOptions::getInterfaceMessage is being used to identify whether a
+			// parse was initiated by `Message::parse`
+			if ( $parser->getTitle()->isSpecialPage() || $parser->getOptions()->getInterfaceMessage() ) {
+				return true;
+			}
+
+			$parserData = ApplicationFactory::getInstance()->newParserData(
+				$parser->getTitle(),
+				$parser->getOutput()
+			);
+
+			$subpageParentAnnotator = new SubpageParentAnnotator(
+				$parserData
+			);
+
+			$subpageParentAnnotator->setSubpageParentAnnotationState(
+				$options->get( 'enabledSubpageParentAnnotation' )
+			);
+
+			$subpageParentAnnotator->addAnnotation();
 
 			return true;
 		};

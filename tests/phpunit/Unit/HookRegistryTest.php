@@ -64,6 +64,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 			'breadcrumbTrailStyleClass' => 'foo',
 			'breadcrumbDividerStyleClass' => 'bar',
 			'hideSubpageParent' => true,
+			'enabledSubpageParentAnnotation' => true,
 			'wgNamespacesWithSubpages' => array()
 		);
 
@@ -77,6 +78,8 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 		$this->doTestInitProperties( $instance );
 		$this->doTestSkinTemplateOutputPageBeforeExec( $instance, $skin );
 		$this->doTestBeforePageDisplay( $instance, $outputPage, $skin );
+		$this->doTestParserAfterTidy( $instance );
+		$this->doTestParserAfterTidyToBailOutEarly( $instance );
 	}
 
 	private function doTestInitProperties( $instance ) {
@@ -120,6 +123,90 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 		$this->assertThatHookIsExcutable(
 			$instance->getHandlerFor( $handler ),
 			array( &$outputPage, &$skin )
+		);
+	}
+
+	private function doTestParserAfterTidy( $instance ) {
+
+		$handler = 'ParserAfterTidy';
+
+		$this->assertTrue(
+			$instance->isRegistered( $handler )
+		);
+
+		$title = Title::newFromText( __METHOD__ );
+
+		$parserOptions = $this->getMockBuilder( '\ParserOptions' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$parserOutput = $this->getMockBuilder( '\ParserOutput' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$parser = $this->getMockBuilder( '\Parser' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$parser->expects( $this->any() )
+			->method( 'getTitle' )
+			->will( $this->returnValue( $title ) );
+
+		$parser->expects( $this->any() )
+			->method( 'getOptions' )
+			->will( $this->returnValue( $parserOptions ) );
+
+		$parser->expects( $this->any() )
+			->method( 'getOutput' )
+			->will( $this->returnValue( $parserOutput ) );
+
+		$text = '';
+
+		$this->assertThatHookIsExcutable(
+			$instance->getHandlerFor( $handler ),
+			array( &$parser, &$text )
+		);
+	}
+
+	private function doTestParserAfterTidyToBailOutEarly( $instance ) {
+
+		$handler = 'ParserAfterTidy';
+
+		$this->assertTrue(
+			$instance->isRegistered( $handler )
+		);
+
+		$title = Title::newFromText( __METHOD__ );
+
+		$parserOptions = $this->getMockBuilder( '\ParserOptions' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$parserOptions->expects( $this->any() )
+			->method( 'getInterfaceMessage' )
+			->will( $this->returnValue( true ) );
+
+		$parserOutput = $this->getMockBuilder( '\ParserOutput' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$parser = $this->getMockBuilder( '\Parser' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$parser->expects( $this->any() )
+			->method( 'getTitle' )
+			->will( $this->returnValue( $title ) );
+
+		$parser->expects( $this->any() )
+			->method( 'getOptions' )
+			->will( $this->returnValue( $parserOptions ) );
+
+		$text = '';
+
+		$this->assertThatHookIsExcutable(
+			$instance->getHandlerFor( $handler ),
+			array( &$parser, &$text )
 		);
 	}
 

@@ -31,6 +31,10 @@ enabled then SBL will not try to resolve a possible subpage hierarchy.
 of a subpage title from display when a corresponding namespace entry is found in the
 [`wgNamespacesWithSubpages`][mw-nssubp] setting.
 
+- `$GLOBALS['egSBLEnabledSubpageParentAnnotation']` supports the auto-generation of `Has parent page`
+annotations for subpages. Yet, it will not create any additional assignment if `Has parent page` is
+already part of the `SemanticData`.
+
 ## Default settings
 
 ```php
@@ -38,6 +42,7 @@ $GLOBALS['egSBLBreadcrumbTrailStyleClass'] = 'sbl-breadcrumb-trail-light';
 $GLOBALS['egSBLBreadcrumbDividerStyleClass'] = 'sbl-breadcrumb-arrow';
 
 $GLOBALS['egSBLPageTitleToHideSubpageParent'] = true;
+$GLOBALS['egSBLEnabledSubpageParentAnnotation'] = true;
 
 $GLOBALS['egSBLTryToFindClosestDescendant'] = true;
 $GLOBALS['egSBLUseSubpageFinderFallback'] = true;
@@ -48,24 +53,28 @@ $GLOBALS['egSBLPropertySearchPatternByNamespace'] = array(
 	NS_CATEGORY => array(
 		'_SUBC',
 		'_SUBC',
-		'_SUBC' ),
+		'_SUBC'
+	),
 
 	// Search for a three level sub-property hierarchy
 	SMW_NS_PROPERTY => array(
 		'_SUBP',
 		'_SUBP',
-		'_SUBP' ),
+		'_SUBP'
+	),
 
 	// Search for a three level antecedent hierarchy that contains a `Has parent page`
 	// annotation to follow a `parent > grandparent > great-grandparent` schema
 	NS_MAIN => array(
 		SBL_PROP_PARENTPAGE,
 		SBL_PROP_PARENTPAGE,
-		SBL_PROP_PARENTPAGE ),
+		SBL_PROP_PARENTPAGE
+	),
 	NS_HELP => array(
 		SBL_PROP_PARENTPAGE,
 		SBL_PROP_PARENTPAGE,
-		SBL_PROP_PARENTPAGE )
+		SBL_PROP_PARENTPAGE
+	)
 );
 ```
 
