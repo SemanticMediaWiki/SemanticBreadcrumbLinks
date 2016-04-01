@@ -1,6 +1,6 @@
 This file contains the RELEASE-NOTES of the Semantic Breadcrumb Links (a.k.a. SBL) extension.
 
-### 1.3.0 (2015-03-10)
+### 1.3.0 (dev)
 
 * Added `$GLOBALS['egSBLEnabledSubpageParentAnnotation']` to allow for subpage
   parents to be annotated automatically if no other `Has parent page` exists
