@@ -51,3 +51,7 @@
 .sbl-breadcrumb-has-childern {
 	 font-style: italic;
 }
+
+.sbl-breadcrumb-children-list {
+	margin: .3em 0 0 0.6em;
+}

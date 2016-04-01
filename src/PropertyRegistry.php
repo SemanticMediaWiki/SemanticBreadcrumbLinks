@@ -19,31 +19,39 @@ class PropertyRegistry {
 	 *
 	 * @return boolean
 	 */
-	public function register() {
+	public function register( $propertyRegistry ) {
 
 		$propertyDefinitions = array(
 
 			self::SBL_PARENTPAGE => array(
 				'label' => SBL_PROP_PARENTPAGE,
 				'type'  => '_wpg',
-				'alias' => wfMessage( 'sbl-property-alias-parentpage' )->text(),
+				'alias' => 'sbl-property-alias-parentpage',
 				'visbility' => true
 			)
 		);
 
 		foreach ( $propertyDefinitions as $propertyId => $definition ) {
 
-			DIProperty::registerProperty(
+			$propertyRegistry->registerProperty(
 				$propertyId,
 				$definition['type'],
 				$definition['label'],
 				$definition['visbility']
 			);
 
-			DIProperty::registerPropertyAlias(
+			$propertyRegistry->registerPropertyAlias(
 				$propertyId,
-				$definition['alias']
+				wfMessage( $definition['alias'] )->text()
 			);
+
+			// 2.4+
+			if ( method_exists( $propertyRegistry, 'registerPropertyAliasByMsgKey' ) ) {
+				$propertyRegistry->registerPropertyAliasByMsgKey(
+					$propertyId,
+					$definition['alias']
+				);
+			}
 		}
 
 		return true;

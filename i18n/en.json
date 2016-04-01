@@ -5,6 +5,7 @@
 		]
 	},
 	"sbl-desc": "A [https://semantic-mediawiki.org Semantic MediaWiki] extension to build breadcrumb links from an attributive property filter",
-	"smw-pa-property-predefined__sbl_parentpage": "\"$1\" is a predefined property that can describe a relationship between a parent and a child page to help outline a descendant hierarchy for annotated pages and is provided by the [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic Breadcrumb Links] extension.",
+	"smw-pa-property-predefined__sbl_parentpage": "\"$1\" is a predefined property that can describe a relationship between a parent and a child entity and is provided by the [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic Breadcrumb Links] extension.",
+	"smw-pa-property-predefined-long__sbl_parentpage": "By identifying the location of an entity relative to its parent it can be used to generate a navigational help in form of a breadcrumb trail.",
 	"sbl-property-alias-parentpage": "Has parent page"
 }
