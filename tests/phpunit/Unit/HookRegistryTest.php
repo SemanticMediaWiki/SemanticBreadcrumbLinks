@@ -86,13 +86,17 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$handler = 'SMW::Property::initProperties';
 
+		$propertyRegistry = $this->getMockBuilder( '\SMW\PropertyRegistry' )
+			->disableOriginalConstructor()
+			->getMock();
+
 		$this->assertTrue(
 			$instance->isRegistered( $handler )
 		);
 
 		$this->assertThatHookIsExcutable(
 			$instance->getHandlerFor( $handler ),
-			array()
+			array( $propertyRegistry )
 		);
 	}
 

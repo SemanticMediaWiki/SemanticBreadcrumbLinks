@@ -194,12 +194,18 @@ class HtmlBreadcrumbLinksBuilder {
 
 	private function getDvShortHtmlText( $subject, $linker = null ) {
 
+		$displayTitle = '';
 		$dataValue = DataValueFactory::getInstance()->newDataItemValue(
 			$subject
 		);
 
+		// 2.4+
+		if ( method_exists( $dataValue , 'getDisplayTitle' ) ) {
+			$displayTitle = $dataValue->getDisplayTitle();
+		}
+
 		$dataValue->setCaption(
-			$this->hideSubpageParent ? $subject->getTitle()->getSubpageText() : false
+			$this->hideSubpageParent && $displayTitle === '' ? $subject->getTitle()->getSubpageText() : false
 		);
 
 		return $dataValue->getShortHtmlText( $linker );
@@ -247,7 +253,7 @@ class HtmlBreadcrumbLinksBuilder {
 
 		return Html::rawElement( 'span', array(
 			'class' => 'sbl-breadcrumb-children',
-			'data-children' => $data ),
+			'data-children' => '<ul class="sbl-breadcrumb-children-list">' . $data . '</ul>' ),
 			''
 		);
 	}

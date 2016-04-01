@@ -4,8 +4,6 @@ namespace SBL\Tests;
 
 use SBL\PropertyRegistry;
 
-use SMW\DIProperty;
-
 /**
  * @covers \SBL\PropertyRegistry
  * @group semantic-breadcrumb-links
@@ -27,17 +25,20 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 
 	public function testRegister() {
 
+		$propertyRegistry = $this->getMockBuilder( '\SMW\PropertyRegistry' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$propertyRegistry->expects( $this->any() )
+			->method( 'registerProperty' )
+			->with( $this->equalTo( PropertyRegistry::SBL_PARENTPAGE ) );
+
+		$propertyRegistry->expects( $this->any() )
+			->method( 'registerPropertyAlias' )
+			->with( $this->equalTo( PropertyRegistry::SBL_PARENTPAGE ) );
+
 		$instance = new PropertyRegistry();
-		$instance->register();
-
-		$this->assertNotEmpty(
-			DIProperty::findPropertyLabel( PropertyRegistry::SBL_PARENTPAGE )
-		);
-
-		$this->assertSame(
-			SBL_PROP_PARENTPAGE,
-			DIProperty::findPropertyLabel( PropertyRegistry::SBL_PARENTPAGE )
-		);
+		$instance->register( $propertyRegistry );
 	}
 
 }
