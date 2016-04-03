@@ -7,6 +7,7 @@
 		]
 	},
 	"sbl-desc": "Ermöglicht eine auf semantische Attribute gestützte Anzeige des Navigationsweges",
-	"smw-pa-property-predefined__sbl_parentpage": "„$1“ ist ein Spezialattribut, das den Zusammenhang zwischen über- und untergeordneten Seiten speichert und somit beim Festlegen einer Hierarchie von mit Annotationen versehener Seiten hilft. Es wird von der Softwareerweiterung [https://semantic-mediawiki.org/wiki/Semantic_Interlanguage_Links_(de) Semantic Interlanguage Links] bereitgestellt.",
+	"smw-pa-property-predefined__sbl_parentpage": "„$1“ ist ein Spezialattribut, das den Zusammenhang zwischen über- und untergeordneten Objekten speichert. Es wird von der Softwareerweiterung [https://semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links „Semantic Breadcrumb Links“] bereitgestellt.",
+	"smw-pa-property-predefined-long__sbl_parentpage": "Durch die Identifizierung des Standortes eines Objektes relativ zu seinem übergeordneten Objekt kann es verwendet werden, um eine Navigationshilfe in Form einer Brotkrümelnavigation zu erzeugen.",
 	"sbl-property-alias-parentpage": "Hat übergeordnete Seite"
 }
