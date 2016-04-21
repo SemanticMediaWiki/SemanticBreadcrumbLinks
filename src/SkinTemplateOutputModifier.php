@@ -2,6 +2,7 @@
 
 namespace SBL;
 
+use SMW\ApplicationFactory;
 use OutputPage;
 use Action;
 use Title;
@@ -53,7 +54,7 @@ class SkinTemplateOutputModifier {
 
 	private function canModifyOutput( OutputPage $output ) {
 
-		if ( !$output->getTitle()->isKnown() || $output->getTitle()->isSpecialPage() ) {
+		if ( !$this->isEnabled( $output->getTitle() ) ) {
 			return false;
 		}
 
@@ -75,6 +76,12 @@ class SkinTemplateOutputModifier {
 		$output->prependHTML( $this->htmlBreadcrumbLinksBuilder->getHtml() );
 
 		return true;
+	}
+
+	private function isEnabled( Title $title ) {
+		return $title->isKnown() &&
+			!$title->isSpecialPage() &&
+			ApplicationFactory::getInstance()->getNamespaceExaminer()->isSemanticEnabled( $title->getNamespace() );
 	}
 
 }

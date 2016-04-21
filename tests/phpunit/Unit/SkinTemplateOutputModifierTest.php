@@ -116,6 +116,10 @@ class SkinTemplateOutputModifierTest extends \PHPUnit_Framework_TestCase {
 			->will( $this->returnValue( true ) );
 
 		$title->expects( $this->once() )
+			->method( 'getNamespace' )
+			->will( $this->returnValue( NS_MAIN ) );
+
+		$title->expects( $this->once() )
 			->method( 'isSpecialPage' )
 			->will( $this->returnValue( false ) );
 
@@ -165,6 +169,10 @@ class SkinTemplateOutputModifierTest extends \PHPUnit_Framework_TestCase {
 		$title->expects( $this->once() )
 			->method( 'isKnown' )
 			->will( $this->returnValue( true ) );
+
+		$title->expects( $this->once() )
+			->method( 'getNamespace' )
+			->will( $this->returnValue( NS_MAIN ) );
 
 		$title->expects( $this->once() )
 			->method( 'isSpecialPage' )
