@@ -21,6 +21,27 @@
 	margin-bottom: 12px;
 }
 
+.sbl-breadcrumb-bootstrap {
+	padding: 8px 15px;
+	margin-bottom: 20px;
+	list-style: none;
+	background-color: #f5f5f5;
+	border-radius: 4px;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 14px;
+	line-height: 1.42857143;
+}
+
+.sbl-breadcrumb-slash-right:after, .sbl-breadcrumb-slash-left:before  {
+	padding: 0 5px 0 8px;
+	color: #ccc;
+	content: "/\00a0";
+}
+
+.sbl-breadcrumb-slash-location {
+	color: #777;
+}
+
 .sbl-breadcrumb-pipe-right:after, .sbl-breadcrumb-pipe-left:before  {
 	content: "|";
 	margin-left: 5px;
@@ -54,4 +75,9 @@
 
 .sbl-breadcrumb-children-list {
 	margin: .3em 0 0 0.6em;
+}
+
+/* SBL chameleon */
+.skin-chameleon .sbl-breadcrumb-children-list {
+    margin: .1em 0 0 -1.5em;
 }
