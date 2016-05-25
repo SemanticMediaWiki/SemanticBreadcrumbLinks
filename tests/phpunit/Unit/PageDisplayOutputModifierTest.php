@@ -78,7 +78,7 @@ class PageDisplayOutputModifierTest extends \PHPUnit_Framework_TestCase {
 			->method( 'isSubpage' )
 			->will( $this->returnValue( true ) );
 
-		$title->expects( $this->once() )
+		$title->expects( $this->atLeastOnce() )
 			->method( 'getNamespace' )
 			->will( $this->returnValue( NS_MAIN ) );
 
