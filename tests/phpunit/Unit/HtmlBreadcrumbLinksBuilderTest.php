@@ -3,9 +3,7 @@
 namespace SBL\Tests;
 
 use SBL\HtmlBreadcrumbLinksBuilder;
-
 use SMW\DIWikiPage;
-
 use Title;
 
 /**
@@ -188,6 +186,56 @@ class HtmlBreadcrumbLinksBuilderTest extends \PHPUnit_Framework_TestCase {
 		$title = Title::newFromText( __METHOD__ );
 		$title->setFragment( 'Foo' );
 
+		$instance->buildBreadcrumbs( $title );
+	}
+
+	public function testBuildBreadcrumbsToUseDisplayTitle() {
+
+		$subject = new DIWikiPage( __METHOD__, NS_MAIN, '', '' );
+
+		$byPropertyHierarchicalLinksFinder = $this->getMockBuilder( '\SBL\ByPropertyHierarchicalLinksFinder' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$byPropertyHierarchicalLinksFinder->expects( $this->once() )
+			->method( 'tryToFindLinksFor' )
+			->with( $this->equalTo( $subject ) );
+
+		$byPropertyHierarchicalLinksFinder->expects( $this->once() )
+			->method( 'getParents' )
+			->will( $this->returnValue( array( $subject ) ) );
+
+		$byPropertyHierarchicalLinksFinder->expects( $this->once() )
+			->method( 'getChildren' )
+			->will( $this->returnValue( array() ) );
+
+		$bySubpageLinksFinder = $this->getMockBuilder( '\SBL\BySubpageLinksFinder' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$dataValue = $this->getMockBuilder( '\SMWWikiPageValue' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$dataValue->expects( $this->atLeastOnce() )
+			->method( 'getDisplayTitle' );
+
+		$dataValueFactory = $this->getMockBuilder( '\SMW\DataValueFactory' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$dataValueFactory->expects( $this->atLeastOnce() )
+			->method( 'newDataValueByItem' )
+			->will( $this->returnValue( $dataValue ) );
+
+		$instance = new HtmlBreadcrumbLinksBuilder(
+			$byPropertyHierarchicalLinksFinder,
+			$bySubpageLinksFinder
+		);
+
+		$title = Title::newFromText( __METHOD__ );
+
+		$instance->setDataValueFactory( $dataValueFactory );
 		$instance->buildBreadcrumbs( $title );
 	}
 
