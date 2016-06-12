@@ -27,6 +27,11 @@ class HtmlBreadcrumbLinksBuilder {
 	private $bySubpageLinksFinder;
 
 	/**
+	 * @var DataValueFactory
+	 */
+	private $dataValueFactory;
+
+	/**
 	 * @var DummyLinker|null
 	 */
 	private $linker = null;
@@ -70,6 +75,7 @@ class HtmlBreadcrumbLinksBuilder {
 	public function __construct( ByPropertyHierarchicalLinksFinder $byPropertyHierarchicalLinksFinder, BySubpageLinksFinder $bySubpageLinksFinder ) {
 		$this->byPropertyHierarchicalLinksFinder = $byPropertyHierarchicalLinksFinder;
 		$this->bySubpageLinksFinder = $bySubpageLinksFinder;
+		$this->dataValueFactory = DataValueFactory::getInstance();
 	}
 
 	/**
@@ -79,6 +85,15 @@ class HtmlBreadcrumbLinksBuilder {
 	 */
 	public function setLinker( DummyLinker $linker ) {
 		$this->linker = $linker;
+	}
+
+	/**
+	 * @since 1.3
+	 *
+	 * @param DataValueFactory $dataValueFactory
+	 */
+	public function setDataValueFactory( DataValueFactory $dataValueFactory ) {
+		$this->dataValueFactory = $dataValueFactory;
 	}
 
 	/**
@@ -195,7 +210,8 @@ class HtmlBreadcrumbLinksBuilder {
 	private function getDvShortHtmlText( $subject, $linker = null ) {
 
 		$displayTitle = '';
-		$dataValue = DataValueFactory::getInstance()->newDataItemValue(
+
+		$dataValue = $this->dataValueFactory->newDataValueByItem(
 			$subject
 		);
 
@@ -207,6 +223,11 @@ class HtmlBreadcrumbLinksBuilder {
 		$dataValue->setCaption(
 			$this->hideSubpageParent && $displayTitle === '' ? $subject->getTitle()->getSubpageText() : false
 		);
+
+		// Make sure non-linked titles use the _DTITLE, if available
+		if ( $linker === null && $displayTitle !== '' ) {
+			$dataValue->setCaption( $displayTitle );
+		}
 
 		return $dataValue->getShortHtmlText( $linker );
 	}
