@@ -7,5 +7,6 @@
 	},
 	"sbl-desc": "{{desc|name=Semantic Breadcrumb Links|url=https://semantic-mediawiki.org/wiki/Extension:SemanticBreadcrumbLinks}}",
 	"smw-pa-property-predefined__sbl_parentpage": "This is description of a [http://semantic-mediawiki.org/wiki/Property special property].",
+	"smw-pa-property-predefined-long__sbl_parentpage": "This is an informatory message.",
 	"sbl-property-alias-parentpage": "A name of a property alias."
 }

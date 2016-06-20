@@ -4,7 +4,7 @@
 			"Liuxinyu970226"
 		]
 	},
-	"sbl-desc": "用于从署名属性过滤器构造面包屑链接的[https://semantic-mediawiki.org Semantic MediaWiki]扩展",
+	"sbl-desc": "用于从署名属性过滤器构造面包屑链接的[https://www.semantic-mediawiki.org Semantic MediaWiki]扩展",
 	"smw-pa-property-predefined__sbl_parentpage": "“$1”是一个预定义属性，它可以描述一个父实体和一个子实体之间的关系，并由[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links 语义面包屑链接]扩展提供。",
 	"smw-pa-property-predefined-long__sbl_parentpage": "通过标识相对于父实体的实体位置，它可被用于生成一个面包屑记录形式的导航帮助。",
 	"sbl-property-alias-parentpage": "有父页面"
