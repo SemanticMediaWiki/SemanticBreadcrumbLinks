@@ -41,28 +41,9 @@ The recommended way to install Semantic Breadcrumb Links is by using [Composer][
 
 ## Usage
 
-![image](https://cloud.githubusercontent.com/assets/1245473/9051711/c436667e-3a5e-11e5-8179-2105474e2949.png)
+![image](https://cloud.githubusercontent.com/assets/1245473/16253761/85daa7b2-3839-11e6-833e-6ec2bc15756b.png)
 
-SBL will try to generate a breadcrumb trail if a property relation can be matched including its
-relational directionality. `>` indicates a `Has parent` (or `Is child of`) relationship
-while `<` describes the closest descendant for a `Is parent of` affinity.
-
-It is required to specify a property search pattern (by default `Has parent page` is assigned
-as special property to `NS_MAIN`) in order to find relationships between a subject and its
-antecedents.
-
-### Example
-
-`Foo` `>` `Bar` -- `[[Has parent page::Foo]]` `>` `Baz` -- `[[Has parent page::Bar]]`
-
-If a subject `Baz` declares a relationship with `Bar` and `Bar` itself specifies
-a parental relationship with `Foo` then the breadcrumb trail for `Baz` will be resolved as
-`Foo > Bar`. On the other hand, the subject `Bar` will display a `Foo > Bar < Baz` trail
-indicating that `Foo` is a `parent`( `>` ) and `Baz` is a `child` ( `<` ) of `Bar`.
-
-### Configuration
-
-For customizing and settings, see the [configuration](https://github.com/SemanticMediaWiki/SemanticBreadcrumbLinks/blob/master/CONFIGURATION.md) section.
+This [document](docs/README.md) decribes available settings and features of this extension.
 
 ## Contribution and support
 

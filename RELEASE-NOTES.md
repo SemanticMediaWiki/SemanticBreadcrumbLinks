@@ -1,7 +1,8 @@
 This file contains the RELEASE-NOTES of the Semantic Breadcrumb Links (a.k.a. SBL) extension.
 
-### 1.3.0 (dev)
+### 1.3.0 (2016-06-??)
 
+* Added `onoi/shared-resources` dependency
 * Support for `Display title of` provided by SMW 2.4
 * Added `$GLOBALS['egSBLEnabledSubpageParentAnnotation']` to allow for subpage
   parents to be annotated automatically if no other `Has parent page` exists
