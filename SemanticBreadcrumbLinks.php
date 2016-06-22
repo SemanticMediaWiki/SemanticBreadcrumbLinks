@@ -22,61 +22,65 @@ if ( defined( 'SBL_VERSION' ) ) {
 	return 1;
 }
 
-define( 'SBL_VERSION', '1.3.0-alpha' );
+SemanticBreadcrumbLinks::initExtension();
+
+$GLOBALS['wgExtensionFunctions'][] = function() {
+	SemanticBreadcrumbLinks::onExtensionFunction();
+};
 
 /**
  * @codeCoverageIgnore
  */
-call_user_func( function () {
+class SemanticBreadcrumbLinks {
 
-	// Register the extension
-	$GLOBALS['wgExtensionCredits']['semantic'][ ] = array(
-		'path'           => __FILE__,
-		'name'           => 'Semantic Breadcrumb Links',
-		'author'         => array( 'James Hong Kong' ),
-		'url'            => 'https://github.com/SemanticMediaWiki/SemanticBreadcrumbLinks/',
-		'descriptionmsg' => 'sbl-desc',
-		'version'        => SBL_VERSION,
-		'license-name'   => 'GPL-2.0+',
-	);
+	/**
+	 * @since 1.3
+	 */
+	public static function initExtension() {
 
-	// Register message files
-	$GLOBALS['wgMessagesDirs']['semantic-breadcrumb-links'] = __DIR__ . '/i18n';
+		// Load DefaultSettings
+		require_once __DIR__ . '/DefaultSettings.php';
 
-	// Register resource files
-	$extensionPathParts = explode( DIRECTORY_SEPARATOR . 'extensions' . DIRECTORY_SEPARATOR , __DIR__, 2 );
+		define( 'SBL_VERSION', '1.3.0-alpha' );
 
-	$GLOBALS['wgResourceModules']['ext.semanticbreadcrumblinks'] = array(
-		'styles'  => 'res/sbl.styles.css',
-		'scripts' => 'res/sbl.tooltip.js',
-		'localBasePath' => __DIR__ ,
-		'remoteExtPath' => end( $extensionPathParts ),
-		'position' => 'top',
-		'group'    => 'ext.smw',
-		'dependencies'  => array(
-			'ext.jquery.qtip'
-		),
-		'targets' => array(
-			'mobile',
-			'desktop'
-		)
-	);
+		define( 'SBL_PROP_PARENTPAGE', 'Has parent page' );
 
-	// Declare property Id constant
-	define( 'SBL_PROP_PARENTPAGE', 'Has parent page' );
+		// Register the extension
+		$GLOBALS['wgExtensionCredits']['semantic'][ ] = array(
+			'path'           => __DIR__,
+			'name'           => 'Semantic Breadcrumb Links',
+			'author'         => array( 'James Hong Kong' ),
+			'url'            => 'https://github.com/SemanticMediaWiki/SemanticBreadcrumbLinks/',
+			'descriptionmsg' => 'sbl-desc',
+			'version'        => SBL_VERSION,
+			'license-name'   => 'GPL-2.0+',
+		);
 
-	// Register default settings
-	$GLOBALS['egSBLBreadcrumbTrailStyleClass'] = 'sbl-breadcrumb-trail-light';
-	$GLOBALS['egSBLBreadcrumbDividerStyleClass'] = 'sbl-breadcrumb-arrow';
-	$GLOBALS['egSBLPropertySearchPatternByNamespace'] = array();
+		// Register message files
+		$GLOBALS['wgMessagesDirs']['SemanticBreadcrumbLinks'] = __DIR__ . '/i18n';
 
-	$GLOBALS['egSBLTryToFindClosestDescendant'] = true;
-	$GLOBALS['egSBLUseSubpageFinderFallback'] = true;
-	$GLOBALS['egSBLPageTitleToHideSubpageParent'] = true;
-	$GLOBALS['egSBLEnabledSubpageParentAnnotation'] = true;
+		// Register resource files
+		$GLOBALS['wgResourceModules']['ext.semanticbreadcrumblinks'] = array(
+			'styles'  => 'res/sbl.styles.css',
+			'scripts' => 'res/sbl.tooltip.js',
+			'localBasePath' => __DIR__ ,
+			'remoteExtPath' => 'SemanticBreadcrumbLinks',
+			'position' => 'top',
+			'group'    => 'ext.smw',
+			'dependencies'  => array(
+				'onoi.qtip'
+			),
+			'targets' => array(
+				'mobile',
+				'desktop'
+			)
+		);
+	}
 
-	// Finalize registration process
-	$GLOBALS['wgExtensionFunctions'][] = function() {
+	/**
+	 * @since 1.3
+	 */
+	public static function onExtensionFunction() {
 
 		// Default values are defined at this point to ensure
 		// NS contants are specified prior
@@ -120,6 +124,15 @@ call_user_func( function () {
 		);
 
 		$hookRegistry->register();
-	};
+	}
 
-} );
+	/**
+	 * @since 1.3
+	 *
+	 * @return string|null
+	 */
+	public static function getVersion() {
+		return SBL_VERSION;
+	}
+
+}
