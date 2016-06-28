@@ -47,7 +47,7 @@ class SemanticBreadcrumbLinks {
 
 		// Register the extension
 		$GLOBALS['wgExtensionCredits']['semantic'][ ] = array(
-			'path'           => __DIR__,
+			'path'           => __FILE__,
 			'name'           => 'Semantic Breadcrumb Links',
 			'author'         => array( 'James Hong Kong' ),
 			'url'            => 'https://github.com/SemanticMediaWiki/SemanticBreadcrumbLinks/',
