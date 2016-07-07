@@ -4,7 +4,8 @@
 			"Bjankuloski06"
 		]
 	},
-	"sbl-desc": "Додаток за [https://semantic-mediawiki.org Семантички МедијаВики] за испишување на навигациска патека од атрибутивен филтер на својства",
-	"smw-pa-property-predefined__sbl_parentpage": "„$1“ е предодредено својство со кое се опишува поврзаноста помеѓу матична и зависна страница з образување на наследна хиерархија за прибележани содржини. Ова својство го дава додатокот [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Семантички врски за навигациски патеки] (Semantic Breadcrumb Links).",
+	"sbl-desc": "Додаток за [https://www.semantic-mediawiki.org Семантички МедијаВики] за испишување на навигациска патека од атрибутивен филтер на својства",
+	"smw-pa-property-predefined__sbl_parentpage": "„$1“ е предодредено својство што може да опише однос помеѓу матична и зависна страница, а зависната единица е укажана со додатокот [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Врски од семантички трошки].",
+	"smw-pa-property-predefined-long__sbl_parentpage": "Утврдувајќи го наоѓалиштето на единица во однос на нејзината матична, можете да создадете навигациска помош во облик на трага од трошки.",
 	"sbl-property-alias-parentpage": "Има матична страница"
 }

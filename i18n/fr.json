@@ -6,7 +6,7 @@
 			"Verdy p"
 		]
 	},
-	"sbl-desc": "Une extension [https://semantic-mediawiki.org MédiaWiki Sémantique] pour construire des liens d’aide à la navigation depuis un filtre de propriété attributif",
+	"sbl-desc": "Une extension [https://www.semantic-mediawiki.org MédiaWiki Sémantique] pour construire des liens d’aide à la navigation depuis un filtre de propriété attributif",
 	"smw-pa-property-predefined__sbl_parentpage": "« $1 » est une propriété prédéfinie qui peut décrire une relation entre deux entités parent et enfant, elle est fournie par l’extension [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Liens d’aide à la navigation sémantique].",
 	"smw-pa-property-predefined-long__sbl_parentpage": "Identifier l’emplacement d’une entité par rapport à son parent peut être utilisé pour générer une aide de navigation en forme de fil d’Ariane.",
 	"sbl-property-alias-parentpage": "A une page parent"

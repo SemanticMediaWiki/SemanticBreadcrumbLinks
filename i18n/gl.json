@@ -5,7 +5,7 @@
 			"Toliño"
 		]
 	},
-	"sbl-desc": "Unha extensión de [https://semantic-mediawiki.org Semantic MediaWiki] que permite crear lapelas de navegación por xerarquía a partir dun filtro de propiedades atributivas",
+	"sbl-desc": "Unha extensión de [https://www.semantic-mediawiki.org Semantic MediaWiki] que permite crear lapelas de navegación por xerarquía a partir dun filtro de propiedades atributivas",
 	"smw-pa-property-predefined__sbl_parentpage": "\"$1\" é unha propiedade predefinida que pode describir unha relación entre unha entidade nai e unha filla; esta propiedade está proporcionada pola extensión [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic Breadcrumb Links].",
 	"smw-pa-property-predefined-long__sbl_parentpage": "Identificar a localización dunha entidade relativa ós seus pais pode usarse para xerar unha axuda de navegación en forma de camiño de migas de pan.",
 	"sbl-property-alias-parentpage": "Ten unha páxina nai"
