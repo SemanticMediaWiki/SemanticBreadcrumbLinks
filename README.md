@@ -21,7 +21,7 @@ This [video](https://vimeo.com/129347298) demonstrates the functionality of the 
 
 - PHP 5.3.2 or later
 - MediaWiki 1.23 or later
-- [Semantic MediaWiki][smw] 2.1 or later
+- [Semantic MediaWiki][smw] 2.4 or later
 
 ## Installation
 
@@ -30,12 +30,12 @@ The recommended way to install Semantic Breadcrumb Links is by using [Composer][
 ```json
 {
 	"require": {
-		"mediawiki/semantic-breadcrumb-links": "~1.2"
+		"mediawiki/semantic-breadcrumb-links": "~1.3"
 	}
 }
 ```
 1. From your MediaWiki installation directory, execute
-   `composer require mediawiki/semantic-breadcrumb-links:~1.2`
+   `composer require mediawiki/semantic-breadcrumb-links:~1.3`
 2. Navigate to _Special:Version_ on your wiki and verify that the package
    have been successfully installed.
 

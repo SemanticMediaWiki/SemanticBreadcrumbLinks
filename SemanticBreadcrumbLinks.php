@@ -41,7 +41,7 @@ class SemanticBreadcrumbLinks {
 		// Load DefaultSettings
 		require_once __DIR__ . '/DefaultSettings.php';
 
-		define( 'SBL_VERSION', '1.3.0-alpha' );
+		define( 'SBL_VERSION', '1.3.0' );
 
 		define( 'SBL_PROP_PARENTPAGE', 'Has parent page' );
 
