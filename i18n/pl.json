@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"XnIcRaM"
+		]
+	},
+	"sbl-desc": "[https://www.semantic-mediawiki.org Semantic MediaWiki] rozszerzenie do budowy elementów ułatwiających nawigację na podstawie wybranych atrybutów tudzież właściwości.",
+	"sbl-property-alias-parentpage": "Posiada nadrzędną stronę"
+}
