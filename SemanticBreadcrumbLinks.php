@@ -60,14 +60,26 @@ class SemanticBreadcrumbLinks {
 		$GLOBALS['wgMessagesDirs']['SemanticBreadcrumbLinks'] = __DIR__ . '/i18n';
 
 		// Register resource files
-		$GLOBALS['wgResourceModules']['ext.semanticbreadcrumblinks'] = array(
+		$GLOBALS['wgResourceModules']['ext.semanticbreadcrumblinks.styles'] = array(
 			'styles'  => 'res/sbl.styles.css',
+			'localBasePath' => __DIR__ ,
+			'remoteExtPath' => 'SemanticBreadcrumbLinks',
+			'position' => 'top',
+			'group'    => 'ext.smw',
+			'targets' => array(
+				'mobile',
+				'desktop'
+			)
+		);
+
+		$GLOBALS['wgResourceModules']['ext.semanticbreadcrumblinks'] = array(
 			'scripts' => 'res/sbl.tooltip.js',
 			'localBasePath' => __DIR__ ,
 			'remoteExtPath' => 'SemanticBreadcrumbLinks',
 			'position' => 'top',
 			'group'    => 'ext.smw',
 			'dependencies'  => array(
+				'ext.semanticbreadcrumblinks.styles',
 				'onoi.qtip'
 			),
 			'targets' => array(
