@@ -50,8 +50,7 @@ class PageDisplayOutputModifier {
 	 */
 	public function modifyOutput( OutputPage $outputPage ) {
 
-		// #21
-		// $outputPage->addModuleStyles( 'ext.semanticbreadcrumblinks' );
+		$outputPage->addModuleStyles( 'ext.semanticbreadcrumblinks.styles' );
 		$outputPage->addModules( 'ext.semanticbreadcrumblinks' );
 
 		if ( !$this->hideSubpageParentState || !$this->hasSubpageEnabledNamespace( $outputPage->getTitle()->getNamespace() ) ) {
