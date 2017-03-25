@@ -81,7 +81,7 @@ class BySubpageLinksFinder {
 
 		foreach ( $links as $link ) {
 
-			if ( $link !== '' ) {
+			if ( $link !== '' && substr( $link, -1 ) !== ' ' ) {
 				$growinglink .= $link;
 				$this->antecedentHierarchyLinks[] = DIWikiPage::newFromTitle( Title::newFromText( $growinglink ) );
 			}

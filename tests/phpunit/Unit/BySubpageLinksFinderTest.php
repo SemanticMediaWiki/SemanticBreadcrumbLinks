@@ -123,6 +123,27 @@ class BySubpageLinksFinderTest extends \PHPUnit_Framework_TestCase {
 			)
 		);
 
+		#6 (#23 issue)
+		$provider[] = array(
+			'Foo / Bar',
+			0,
+			array()
+		);
+
+		#7 (#23 issue)
+		$provider[] = array(
+			'Foo /Bar',
+			0,
+			array()
+		);
+
+		#8 (#23 issue)
+		$provider[] = array(
+			'Foo /Bar /Foobar',
+			0,
+			array()
+		);
+
 		return $provider;
 	}
 
