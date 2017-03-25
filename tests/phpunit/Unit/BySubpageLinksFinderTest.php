@@ -3,9 +3,7 @@
 namespace SBL\Tests;
 
 use SBL\BySubpageLinksFinder;
-
 use SMW\DIWikiPage;
-
 use Title;
 
 /**
@@ -30,10 +28,10 @@ class BySubpageLinksFinderTest extends \PHPUnit_Framework_TestCase {
 	public function testDisabledFinder() {
 
 		$instance = new BySubpageLinksFinder();
-		$instance->setSubpageDiscoverySupportState( false );
+		$instance->setSubpageDiscoveryFallback( false );
 
 		$this->assertFalse(
-			$instance->canUseSubpageDiscoveryForFallback()
+			$instance->isDiscoveryFallback()
 		);
 	}
 
@@ -45,13 +43,13 @@ class BySubpageLinksFinderTest extends \PHPUnit_Framework_TestCase {
 		$subject = DIWikiPage::newFromTitle( Title::newFromText( $title ) );
 
 		$instance = new BySubpageLinksFinder();
-		$instance->setSubpageDiscoverySupportState( true );
+		$instance->setSubpageDiscoveryFallback( true );
 
 		$this->assertEmpty(
 			$instance->getParents()
 		);
 
-		$instance->tryToFindLinksFor( $subject );
+		$instance->findLinksBySubject( $subject );
 
 		$this->assertCount(
 			$count,

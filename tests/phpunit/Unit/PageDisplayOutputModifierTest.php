@@ -26,7 +26,7 @@ class PageDisplayOutputModifierTest extends \PHPUnit_Framework_TestCase {
 	public function testDisabledHideSubpageParentForTitleManipulation() {
 
 		$instance = new PageDisplayOutputModifier();
-		$instance->setHideSubpageParentState( false );
+		$instance->hideSubpageParent( false );
 		$instance->setSubpageByNamespace( array( NS_MAIN => true ) );
 
 		$output = $this->getMockBuilder( '\OutputPage' )
@@ -42,7 +42,7 @@ class PageDisplayOutputModifierTest extends \PHPUnit_Framework_TestCase {
 	public function testDisabledSubpageNamespaceForTitleManipulation() {
 
 		$instance = new PageDisplayOutputModifier();
-		$instance->setHideSubpageParentState( true );
+		$instance->hideSubpageParent( true );
 		$instance->setSubpageByNamespace( array( NS_MAIN => false ) );
 
 		$title = $this->getMockBuilder( '\Title' )
@@ -67,7 +67,7 @@ class PageDisplayOutputModifierTest extends \PHPUnit_Framework_TestCase {
 	public function testEnabledSubpageForTitleManipulation() {
 
 		$instance = new PageDisplayOutputModifier();
-		$instance->setHideSubpageParentState( true );
+		$instance->hideSubpageParent( true );
 		$instance->setSubpageByNamespace( array( NS_MAIN => true ) );
 
 		$title = $this->getMockBuilder( '\Title' )

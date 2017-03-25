@@ -54,7 +54,7 @@ class HtmlBreadcrumbLinksBuilderTest extends \PHPUnit_Framework_TestCase {
 
 		$instance->setBreadcrumbTrailStyleClass( 'Foo' );
 		$instance->setLinker( $dummyLinker );
-		$instance->setHideSubpageParentState( true );
+		$instance->hideSubpageParent( true );
 
 		$this->assertInternalType(
 			'string',
@@ -83,14 +83,14 @@ class HtmlBreadcrumbLinksBuilderTest extends \PHPUnit_Framework_TestCase {
 			->getMock();
 
 		$bySubpageLinksFinder->expects( $this->never() )
-			->method( 'canUseSubpageDiscoveryForFallback' );
+			->method( 'isDiscoveryFallback' );
 
 		$instance = new HtmlBreadcrumbLinksBuilder(
 			$byPropertyHierarchicalLinksFinder,
 			$bySubpageLinksFinder
 		);
 
-		$instance->setRTLDirectionalityState( false );
+		$instance->isRTL( false );
 		$instance->setBreadcrumbDividerStyleClass( 'DividerStyleClass' );
 
 		$instance->buildBreadcrumbs( Title::newFromText( __METHOD__ ) );
@@ -130,7 +130,7 @@ class HtmlBreadcrumbLinksBuilderTest extends \PHPUnit_Framework_TestCase {
 			->getMock();
 
 		$bySubpageLinksFinder->expects( $this->once() )
-			->method( 'canUseSubpageDiscoveryForFallback' )
+			->method( 'isDiscoveryFallback' )
 			->will( $this->returnValue( true ) );
 
 		$bySubpageLinksFinder->expects( $this->once() )
@@ -163,7 +163,7 @@ class HtmlBreadcrumbLinksBuilderTest extends \PHPUnit_Framework_TestCase {
 			->getMock();
 
 		$byPropertyHierarchicalLinksFinder->expects( $this->once() )
-			->method( 'tryToFindLinksFor' )
+			->method( 'findLinksBySubject' )
 			->with( $this->equalTo( $subject ) );
 
 		$byPropertyHierarchicalLinksFinder->expects( $this->once() )
@@ -198,7 +198,7 @@ class HtmlBreadcrumbLinksBuilderTest extends \PHPUnit_Framework_TestCase {
 			->getMock();
 
 		$byPropertyHierarchicalLinksFinder->expects( $this->once() )
-			->method( 'tryToFindLinksFor' )
+			->method( 'findLinksBySubject' )
 			->with( $this->equalTo( $subject ) );
 
 		$byPropertyHierarchicalLinksFinder->expects( $this->once() )
@@ -246,7 +246,7 @@ class HtmlBreadcrumbLinksBuilderTest extends \PHPUnit_Framework_TestCase {
 			->getMock();
 
 		$byPropertyHierarchicalLinksFinder->expects( $this->never() )
-			->method( 'tryToFindLinksFor' );
+			->method( 'findLinksBySubject' );
 
 		$bySubpageLinksFinder = $this->getMockBuilder( '\SBL\BySubpageLinksFinder' )
 			->disableOriginalConstructor()

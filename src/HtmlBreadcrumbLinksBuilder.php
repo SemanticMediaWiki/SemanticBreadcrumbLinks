@@ -119,7 +119,7 @@ class HtmlBreadcrumbLinksBuilder {
 	 *
 	 * @param boolean $hideSubpageParent
 	 */
-	public function setHideSubpageParentState( $hideSubpageParent ) {
+	public function hideSubpageParent( $hideSubpageParent ) {
 		$this->hideSubpageParent = $hideSubpageParent;
 	}
 
@@ -128,7 +128,7 @@ class HtmlBreadcrumbLinksBuilder {
 	 *
 	 * @param boolean $isRTL
 	 */
-	public function setRTLDirectionalityState( $isRTL ) {
+	public function isRTL( $isRTL ) {
 		$this->isRTL = $isRTL;
 	}
 
@@ -147,12 +147,12 @@ class HtmlBreadcrumbLinksBuilder {
 		$title->setFragment( '' );
 		$subject = DIWikiPage::newFromTitle( $title );
 
-		$this->byPropertyHierarchicalLinksFinder->tryToFindLinksFor( $subject );
+		$this->byPropertyHierarchicalLinksFinder->findLinksBySubject( $subject );
 
 		$parents = $this->byPropertyHierarchicalLinksFinder->getParents();
 		$children = $this->byPropertyHierarchicalLinksFinder->getChildren();
 
-		$parents = $this->tryToUseSubpageHierarchyFallback(
+		$parents = $this->getSubstituteLinksParentsOnDiscoveryFallback(
 			$subject,
 			$parents
 		);
@@ -179,13 +179,13 @@ class HtmlBreadcrumbLinksBuilder {
 		);
 	}
 
-	private function tryToUseSubpageHierarchyFallback( $subject, $parents ) {
+	private function getSubstituteLinksParentsOnDiscoveryFallback( $subject, $parents ) {
 
-		if ( $parents !== array() || !$this->bySubpageLinksFinder->canUseSubpageDiscoveryForFallback() ) {
+		if ( $parents !== array() || !$this->bySubpageLinksFinder->isDiscoveryFallback() ) {
 			return $parents;
 		}
 
-		$this->bySubpageLinksFinder->tryToFindLinksFor( $subject );
+		$this->bySubpageLinksFinder->findLinksBySubject( $subject );
 
 		return $this->bySubpageLinksFinder->getParents();
 	}

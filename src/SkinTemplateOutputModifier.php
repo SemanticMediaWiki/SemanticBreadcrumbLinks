@@ -69,7 +69,7 @@ class SkinTemplateOutputModifier {
 
 		$this->htmlBreadcrumbLinksBuilder->buildBreadcrumbs( $output->getTitle() );
 
-		$this->htmlBreadcrumbLinksBuilder->setRTLDirectionalityState(
+		$this->htmlBreadcrumbLinksBuilder->isRTL(
 			$output->getTitle()->getPageLanguage()->isRTL()
 		);
 

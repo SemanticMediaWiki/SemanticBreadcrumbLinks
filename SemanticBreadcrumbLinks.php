@@ -13,20 +13,12 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	die( 'This file is part of the SemanticBreadcrumbLinks extension, it is not a valid entry point.' );
 }
 
-if ( version_compare( $GLOBALS[ 'wgVersion' ], '1.23', 'lt' ) ) {
-	die( '<b>Error:</b> This version of <a href="https://github.com/SemanticMediaWiki/SemanticBreadcrumbLinks/">SemanticBreadcrumbLinks</a> is only compatible with MediaWiki 1.23 or above. You need to upgrade MediaWiki first.' );
-}
-
 if ( defined( 'SBL_VERSION' ) ) {
 	// Do not initialize more than once.
 	return 1;
 }
 
-SemanticBreadcrumbLinks::initExtension();
-
-$GLOBALS['wgExtensionFunctions'][] = function() {
-	SemanticBreadcrumbLinks::onExtensionFunction();
-};
+SemanticBreadcrumbLinks::load();
 
 /**
  * @codeCoverageIgnore
@@ -36,13 +28,30 @@ class SemanticBreadcrumbLinks {
 	/**
 	 * @since 1.3
 	 */
-	public static function initExtension() {
+	public static function load() {
+
+		if ( is_readable( __DIR__ . '/vendor/autoload.php' ) ) {
+			include_once __DIR__ . '/vendor/autoload.php';
+		}
 
 		// Load DefaultSettings
 		require_once __DIR__ . '/DefaultSettings.php';
 
-		define( 'SBL_VERSION', '1.3.0' );
+		// In case extension.json is being used, the the succeeding steps will
+		// be handled by the ExtensionRegistry
+		self::initExtension();
 
+		$GLOBALS['wgExtensionFunctions'][] = function() {
+			self::onExtensionFunction();
+		};
+	}
+
+	/**
+	 * @since 1.3
+	 */
+	public static function initExtension() {
+
+		define( 'SBL_VERSION', '1.3.1-alpha' );
 		define( 'SBL_PROP_PARENTPAGE', 'Has parent page' );
 
 		// Register the extension
@@ -92,7 +101,24 @@ class SemanticBreadcrumbLinks {
 	/**
 	 * @since 1.3
 	 */
+	public static function checkRequirements() {
+
+		if ( version_compare( $GLOBALS[ 'wgVersion' ], '1.23', 'lt' ) ) {
+			die( '<b>Error:</b> This version of <a href="https://github.com/SemanticMediaWiki/SemanticBreadcrumbLinks/">Semantic Breadcrumb Links</a> is only compatible with MediaWiki 1.23 or above. You need to upgrade MediaWiki first.' );
+		}
+
+		if ( !defined( 'SMW_VERSION' ) ) {
+			die( '<b>Error:</b> <a href="https://github.com/SemanticMediaWiki/SemanticBreadcrumbLinks/">Semantic Breadcrumb Links</a> requires <a href="https://github.com/SemanticMediaWiki/SemanticMediaWiki/">Semantic MediaWiki</a>, please enable or install the extension first.' );
+		}
+	}
+
+	/**
+	 * @since 1.3
+	 */
 	public static function onExtensionFunction() {
+
+		// Check requirements after LocalSetting.php has been processed
+		self::checkRequirements();
 
 		// Default values are defined at this point to ensure
 		// NS contants are specified prior

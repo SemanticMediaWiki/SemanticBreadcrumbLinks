@@ -18,7 +18,7 @@ class PageDisplayOutputModifier {
 	/**
 	 * @var boolean
 	 */
-	private $hideSubpageParentState;
+	private $hideSubpageParent;
 
 	/**
 	 * @var array
@@ -28,10 +28,10 @@ class PageDisplayOutputModifier {
 	/**
 	 * @since  1.0
 	 *
-	 * @param boolean $hideSubpageParentState
+	 * @param boolean $hideSubpageParent
 	 */
-	public function setHideSubpageParentState( $hideSubpageParentState ) {
-		$this->hideSubpageParentState = $hideSubpageParentState;
+	public function hideSubpageParent( $hideSubpageParent ) {
+		$this->hideSubpageParent = $hideSubpageParent;
 	}
 
 	/**
@@ -53,7 +53,7 @@ class PageDisplayOutputModifier {
 		$outputPage->addModuleStyles( 'ext.semanticbreadcrumblinks.styles' );
 		$outputPage->addModules( 'ext.semanticbreadcrumblinks' );
 
-		if ( !$this->hideSubpageParentState || !$this->hasSubpageEnabledNamespace( $outputPage->getTitle()->getNamespace() ) ) {
+		if ( !$this->hideSubpageParent || !$this->hasEnabledSubpageByNamespace( $outputPage->getTitle()->getNamespace() ) ) {
 			return;
 		}
 
@@ -78,7 +78,7 @@ class PageDisplayOutputModifier {
 		return $displayTitle !== '' ? $displayTitle : $title->getSubpageText();
 	}
 
-	private function hasSubpageEnabledNamespace( $namespace ) {
+	private function hasEnabledSubpageByNamespace( $namespace ) {
 		return isset( $this->subpageByNamespace[ $namespace ] ) && $this->subpageByNamespace[ $namespace ];
 	}
 

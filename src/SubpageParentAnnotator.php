@@ -23,7 +23,7 @@ class SubpageParentAnnotator {
 	/**
 	 * @var boolean
 	 */
-	private $subpageParentAnnotationState = true;
+	private $enableSubpageParentAnnotation = true;
 
 	/**
 	 * @since 1.3
@@ -37,10 +37,10 @@ class SubpageParentAnnotator {
 	/**
 	 * @since 1.3
 	 *
-	 * @param boolean $subpageParentAnnotationState
+	 * @param boolean $enableSubpageParentAnnotation
 	 */
-	public function setSubpageParentAnnotationState( $subpageParentAnnotationState ) {
-		$this->subpageParentAnnotationState = (bool)$subpageParentAnnotationState;
+	public function enableSubpageParentAnnotation( $enableSubpageParentAnnotation ) {
+		$this->enableSubpageParentAnnotation = (bool)$enableSubpageParentAnnotation;
 	}
 
 	/**
@@ -50,7 +50,7 @@ class SubpageParentAnnotator {
 
 		$title = $this->parserData->getTitle();
 
-		if ( !$this->subpageParentAnnotationState || strpos( $title->getText(), '/' ) === false ) {
+		if ( !$this->enableSubpageParentAnnotation || strpos( $title->getText(), '/' ) === false ) {
 			return;
 		}
 

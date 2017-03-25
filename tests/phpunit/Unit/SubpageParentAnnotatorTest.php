@@ -80,7 +80,7 @@ class SubpageParentAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			$this->parserData
 		);
 
-		$instance->setSubpageParentAnnotationState( false );
+		$instance->enableSubpageParentAnnotation( false );
 		$instance->addAnnotation();
 	}
 
@@ -105,7 +105,7 @@ class SubpageParentAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			$this->parserData
 		);
 
-		$instance->setSubpageParentAnnotationState( true );
+		$instance->enableSubpageParentAnnotation( true );
 		$instance->addAnnotation();
 	}
 
@@ -140,7 +140,7 @@ class SubpageParentAnnotatorTest extends \PHPUnit_Framework_TestCase {
 			$parserData
 		);
 
-		$instance->setSubpageParentAnnotationState( true );
+		$instance->enableSubpageParentAnnotation( true );
 		$instance->addAnnotation();
 	}
 
