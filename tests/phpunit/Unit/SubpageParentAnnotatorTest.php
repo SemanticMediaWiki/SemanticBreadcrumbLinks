@@ -109,4 +109,39 @@ class SubpageParentAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		$instance->addAnnotation();
 	}
 
+	public function testNoAnnotationOnPagesWithSpaces() {
+
+		$title = Title::newFromText( 'Foo / Bar' );
+
+		$parserData = $this->getMockBuilder( '\SMW\ParserData' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$parserData->expects( $this->any() )
+			->method( 'getTitle' )
+			->will( $this->returnValue( $title ) );
+
+		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$semanticData->expects( $this->once() )
+			->method( 'getPropertyValues' )
+			->will( $this->returnValue( array() ) );
+
+		$semanticData->expects( $this->never() )
+			->method( 'addPropertyObjectValue' );
+
+		$parserData->expects( $this->atLeastOnce() )
+			->method( 'getSemanticData' )
+			->will( $this->returnValue( $semanticData ) );
+
+		$instance = new SubpageParentAnnotator(
+			$parserData
+		);
+
+		$instance->setSubpageParentAnnotationState( true );
+		$instance->addAnnotation();
+	}
+
 }

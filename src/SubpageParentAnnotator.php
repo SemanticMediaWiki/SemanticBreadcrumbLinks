@@ -61,9 +61,16 @@ class SubpageParentAnnotator {
 			return;
 		}
 
+		$base = $this->getBaseText( $title );
+
+		// #23
+		if ( substr( $base, -1 ) === ' ' ) {
+			return;
+		}
+
 		$this->parserData->getSemanticData()->addPropertyObjectValue(
 			$property,
-			DIWikiPage::newFromText( $this->getBaseText( $title ), $title->getNamespace() )
+			DIWikiPage::newFromText( $base, $title->getNamespace() )
 		);
 
 		$this->parserData->pushSemanticDataToParserOutput();
