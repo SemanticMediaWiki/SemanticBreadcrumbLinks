@@ -3,11 +3,9 @@
 namespace SBL\Tests;
 
 use SBL\ByPropertyHierarchicalLinksFinder;
-
 use SMW\DIWikiPage;
 use SMW\DIProperty;
 use SMW\ApplicationFactory;
-
 use Title;
 
 /**
@@ -41,7 +39,7 @@ class ByPropertyHierarchicalLinksFinderTest extends \PHPUnit_Framework_TestCase 
 
 		$instance = new ByPropertyHierarchicalLinksFinder( $store );
 
-		$instance->tryToFindLinksFor( new DIWikiPage( 'Foo', NS_MAIN ) );
+		$instance->findLinksBySubject( new DIWikiPage( 'Foo', NS_MAIN ) );
 
 		$this->assertEmpty(
 			$instance->getParents()
@@ -75,7 +73,7 @@ class ByPropertyHierarchicalLinksFinderTest extends \PHPUnit_Framework_TestCase 
 			array( NS_MAIN => array( 'Bar' ) )
 		);
 
-		$instance->tryToFindLinksFor( $subject );
+		$instance->findLinksBySubject( $subject );
 
 		$this->assertEmpty(
 			$instance->getParents()
@@ -129,7 +127,7 @@ class ByPropertyHierarchicalLinksFinderTest extends \PHPUnit_Framework_TestCase 
 			array( NS_MAIN => array( 'Bar', 'Yin' ) )
 		);
 
-		$instance->tryToFindLinksFor( $subject );
+		$instance->findLinksBySubject( $subject );
 
 		$this->assertEquals(
 			array(
@@ -166,7 +164,7 @@ class ByPropertyHierarchicalLinksFinderTest extends \PHPUnit_Framework_TestCase 
 			array( NS_MAIN => array( 'Bar', 'Yin' ) )
 		);
 
-		$instance->tryToFindLinksFor( $subject );
+		$instance->findLinksBySubject( $subject );
 
 		$this->assertEmpty(
 			$instance->getParents()
@@ -210,7 +208,7 @@ class ByPropertyHierarchicalLinksFinderTest extends \PHPUnit_Framework_TestCase 
 			array( NS_MAIN => array( 'Bar' ) )
 		);
 
-		$instance->tryToFindLinksFor( $subject );
+		$instance->findLinksBySubject( $subject );
 
 		$this->assertEmpty(
 			$instance->getParents()
@@ -247,7 +245,7 @@ class ByPropertyHierarchicalLinksFinderTest extends \PHPUnit_Framework_TestCase 
 			array( NS_MAIN => array( '_MDAT' ) )
 		);
 
-		$instance->tryToFindLinksFor( $subject );
+		$instance->findLinksBySubject( $subject );
 
 		$this->assertEmpty(
 			$instance->getParents()

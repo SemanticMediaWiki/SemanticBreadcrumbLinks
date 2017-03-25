@@ -41,7 +41,6 @@
 	},
 	"autoload": {
 		"files" : [
-			"DefaultSettings.php",
 			"SemanticBreadcrumbLinks.php"
 		],
 		"psr-4": {

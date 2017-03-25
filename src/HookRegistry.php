@@ -83,7 +83,7 @@ class HookRegistry {
 		$this->handlers['SkinTemplateOutputPageBeforeExec'] = function ( &$skin, &$template ) use( $store, $options ) {
 
 			$bySubpageLinksFinder = new BySubpageLinksFinder();
-			$bySubpageLinksFinder->setSubpageDiscoverySupportState(
+			$bySubpageLinksFinder->setSubpageDiscoveryFallback(
 				$options->get( 'useSubpageFinderFallback' )
 			);
 
@@ -110,7 +110,7 @@ class HookRegistry {
 				$options->get( 'breadcrumbDividerStyleClass' )
 			);
 
-			$htmlBreadcrumbLinksBuilder->setHideSubpageParentState(
+			$htmlBreadcrumbLinksBuilder->hideSubpageParent(
 				$options->get( 'hideSubpageParent' )
 			);
 
@@ -128,7 +128,7 @@ class HookRegistry {
 
 			$pageDisplayOutputModifier = new PageDisplayOutputModifier();
 
-			$pageDisplayOutputModifier->setHideSubpageParentState(
+			$pageDisplayOutputModifier->hideSubpageParent(
 				$options->get( 'hideSubpageParent' )
 			);
 
@@ -161,7 +161,7 @@ class HookRegistry {
 				$parserData
 			);
 
-			$subpageParentAnnotator->setSubpageParentAnnotationState(
+			$subpageParentAnnotator->enableSubpageParentAnnotation(
 				$options->get( 'enabledSubpageParentAnnotation' )
 			);
 

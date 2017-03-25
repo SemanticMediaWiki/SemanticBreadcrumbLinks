@@ -4,7 +4,7 @@ namespace SBL;
 
 use SMW\DIWikiPage;
 use SMW\DIProperty;
-
+use SMW\Store;
 use SMWRequestOptions as RequestOptions;
 use Title;
 
@@ -46,7 +46,7 @@ class ByPropertyHierarchicalLinksFinder {
 	 *
 	 * @param Store $store
 	 */
-	public function __construct( $store ) {
+	public function __construct( Store $store ) {
 		$this->store = $store;
 	}
 
@@ -73,7 +73,7 @@ class ByPropertyHierarchicalLinksFinder {
 	 *
 	 * @param DIWikiPage $subject
 	 */
-	public function tryToFindLinksFor( DIWikiPage $subject ) {
+	public function findLinksBySubject( DIWikiPage $subject ) {
 
 		if ( !isset( $this->propertySearchPatternByNamespace[ $subject->getNamespace() ] ) ) {
 			return;

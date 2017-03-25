@@ -3,7 +3,6 @@
 namespace SBL;
 
 use SMW\DIWikiPage;
-
 use Title;
 
 /**
@@ -17,7 +16,7 @@ class BySubpageLinksFinder {
 	/**
 	 * @var boolean
 	 */
-	private $subpageDiscoverySupportState = true;
+	private $isDiscoveryFallback = true;
 
 	/**
 	 * @var array
@@ -27,10 +26,10 @@ class BySubpageLinksFinder {
 	/**
 	 * @since 1.0
 	 *
-	 * @param boolean $subpageDiscoverySupportState
+	 * @param boolean $isDiscoveryFallback
 	 */
-	public function setSubpageDiscoverySupportState( $subpageDiscoverySupportState ) {
-		$this->subpageDiscoverySupportState = $subpageDiscoverySupportState;
+	public function setSubpageDiscoveryFallback( $isDiscoveryFallback ) {
+		$this->isDiscoveryFallback = $isDiscoveryFallback;
 	}
 
 	/**
@@ -38,8 +37,8 @@ class BySubpageLinksFinder {
 	 *
 	 * @return boolean
 	 */
-	public function canUseSubpageDiscoveryForFallback() {
-		return $this->subpageDiscoverySupportState;
+	public function isDiscoveryFallback() {
+		return $this->isDiscoveryFallback;
 	}
 
 	/**
@@ -47,7 +46,7 @@ class BySubpageLinksFinder {
 	 *
 	 * @param DIWikiPage $subject
 	 */
-	public function tryToFindLinksFor( DIWikiPage $subject ) {
+	public function findLinksBySubject( DIWikiPage $subject ) {
 
 		$prefixedText = $subject->getTitle()->getPrefixedText();
 
