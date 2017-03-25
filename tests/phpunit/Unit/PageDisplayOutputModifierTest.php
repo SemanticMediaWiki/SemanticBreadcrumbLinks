@@ -33,7 +33,7 @@ class PageDisplayOutputModifierTest extends \PHPUnit_Framework_TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$output->expects( $this->never() )
+		$output->expects( $this->atLeastOnce() )
 			->method( 'getTitle' );
 
 		$instance->modifyOutput( $output );
@@ -57,7 +57,7 @@ class PageDisplayOutputModifierTest extends \PHPUnit_Framework_TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$output->expects( $this->once() )
+		$output->expects( $this->atLeastOnce() )
 			->method( 'getTitle' )
 			->will( $this->returnValue( $title ) );
 
@@ -89,6 +89,45 @@ class PageDisplayOutputModifierTest extends \PHPUnit_Framework_TestCase {
 		$output->expects( $this->atLeastOnce() )
 			->method( 'getTitle' )
 			->will( $this->returnValue( $title ) );
+
+		$output->expects( $this->once() )
+			->method( 'setPageTitle' );
+
+		$instance->modifyOutput( $output );
+	}
+
+	public function testEnabledSubpageForTitleManipulationOnInvalidSubpage() {
+
+		$instance = new PageDisplayOutputModifier();
+		$instance->hideSubpageParent( true );
+		$instance->setSubpageByNamespace( array( NS_MAIN => true ) );
+
+		$title = $this->getMockBuilder( '\Title' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$title->expects( $this->once() )
+			->method( 'isSubpage' )
+			->will( $this->returnValue( true ) );
+
+		$title->expects( $this->once() )
+			->method( 'getText' )
+			->will( $this->returnValue( 'Foo /Bar' ) );
+
+		$title->expects( $this->atLeastOnce() )
+			->method( 'getNamespace' )
+			->will( $this->returnValue( NS_MAIN ) );
+
+		$output = $this->getMockBuilder( '\OutputPage' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$output->expects( $this->atLeastOnce() )
+			->method( 'getTitle' )
+			->will( $this->returnValue( $title ) );
+
+		$output->expects( $this->never() )
+			->method( 'setPageTitle' );
 
 		$instance->modifyOutput( $output );
 	}

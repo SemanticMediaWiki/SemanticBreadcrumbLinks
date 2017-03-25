@@ -53,13 +53,33 @@ class PageDisplayOutputModifier {
 		$outputPage->addModuleStyles( 'ext.semanticbreadcrumblinks.styles' );
 		$outputPage->addModules( 'ext.semanticbreadcrumblinks' );
 
-		if ( !$this->hideSubpageParent || !$this->hasEnabledSubpageByNamespace( $outputPage->getTitle()->getNamespace() ) ) {
+		$title = $outputPage->getTitle();
+
+		if ( !$this->hideSubpageParent || !$this->hasEnabledSubpageByNamespace( $title->getNamespace() ) ) {
 			return;
 		}
 
-		if ( $outputPage->getTitle()->isSubpage() ) {
-			$outputPage->setPageTitle( $this->getPageTitle( $outputPage->getTitle() ) );
+		if ( $this->isSubpage( $title ) ) {
+			$outputPage->setPageTitle( $this->getPageTitle( $title ) );
 		}
+	}
+
+	private function isSubpage( Title $title ) {
+
+		if ( !$title->isSubpage() ) {
+			return false;
+		}
+
+		$parts = explode( '/', $title->getText() );
+
+		if ( count( $parts ) > 1 ) {
+			unset( $parts[count( $parts ) - 1] );
+		}
+
+		$base = implode( '/', $parts );
+
+		// #23 (Foo /Bar vs. Foo/ Bar)
+		return substr( $base, -1 ) !== ' ';
 	}
 
 	private function getPageTitle( Title $title ) {
