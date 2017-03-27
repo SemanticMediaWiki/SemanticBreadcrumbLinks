@@ -1,5 +1,9 @@
 This file contains the RELEASE-NOTES of the Semantic Breadcrumb Links (a.k.a. SBL) extension.
 
+### 1.4.0
+
+This is not a release yet.
+
 ### 1.3.1
 
 Released on March 27, 2017
