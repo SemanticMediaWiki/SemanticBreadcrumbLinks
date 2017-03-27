@@ -1,5 +1,14 @@
 This file contains the RELEASE-NOTES of the Semantic Breadcrumb Links (a.k.a. SBL) extension.
 
+### 1.3.1
+
+Released on March 27, 2017
+
+* #21 Fixed warnings cause by the Resource Loader
+* #23 Fixed subpage detection
+* Internal code changes
+* Localization updates from https://translatewiki.net
+
 ### 1.3.0
 
 Released on July 9, 2016.
