@@ -4,7 +4,7 @@ This file contains the RELEASE-NOTES of the Semantic Breadcrumb Links (a.k.a. SB
 
 Released on March 27, 2017
 
-* #21 Fixed warnings cause by the Resource Loader
+* #21 Fixed warnings caused by the Resource Loader
 * #23 Fixed subpage detection
 * Internal code changes
 * Localization updates from https://translatewiki.net
