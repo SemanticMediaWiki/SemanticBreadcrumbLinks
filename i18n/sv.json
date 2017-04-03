@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jopparn",
+			"WikiPhoenix"
+		]
+	},
+	"sbl-desc": "Ett [https://www.semantic-mediawiki.org Semantic MediaWiki]-tillägg för att bygga brödsmulslänkar från ett attributivt egenskapsfilter",
+	"sbl-property-alias-parentpage": "Har överordnad sida"
+}
