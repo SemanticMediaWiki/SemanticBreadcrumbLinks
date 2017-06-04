@@ -17,6 +17,10 @@ a parental relationship with `Foo` then the breadcrumb trail for `Baz` will be r
 `Foo > Bar`. On the other hand, the subject `Bar` will display a `Foo > Bar < Baz` trail
 indicating that `Foo` is a `parent`( `>` ) and `Baz` is a `child` ( `<` ) of `Bar`.
 
+Using `__NOBREADCRUMBLINKS__` on an individual page will suppress the __display__ of a SBL
+generated breadcrumb trail, yet it will not remove or alter the state of annotation related
+values.
+
 ### Configuration
 
 Details on available sttings are decribed in [this](00-configurations.md) document.
