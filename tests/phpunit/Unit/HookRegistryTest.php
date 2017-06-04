@@ -80,6 +80,8 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 		$this->doTestBeforePageDisplay( $instance, $outputPage, $skin );
 		$this->doTestParserAfterTidy( $instance );
 		$this->doTestParserAfterTidyToBailOutEarly( $instance );
+		$this->doTestSmwParserBeforeMagicWordsFinder( $instance );
+		$this->doTestOutputPageParserOutput( $instance, $outputPage );
 	}
 
 	private function doTestInitProperties( $instance ) {
@@ -211,6 +213,52 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 		$this->assertThatHookIsExcutable(
 			$instance->getHandlerFor( $handler ),
 			array( &$parser, &$text )
+		);
+	}
+
+	private function doTestSmwParserBeforeMagicWordsFinder( $instance ) {
+
+		$handler = 'SMW::Parser::BeforeMagicWordsFinder';
+
+		$this->assertTrue(
+			$instance->isRegistered( $handler )
+		);
+
+		$magicWords = array();
+
+		$this->assertThatHookIsExcutable(
+			$instance->getHandlerFor( $handler ),
+			array( &$magicWords )
+		);
+
+		$this->assertContains(
+			'SBL_NOBREADCRUMBLINKS',
+			$magicWords
+		);
+	}
+
+	private function doTestOutputPageParserOutput( $instance, $outputPage ) {
+
+		$handler = 'OutputPageParserOutput';
+
+		$this->assertTrue(
+			$instance->isRegistered( $handler )
+		);
+
+		$parserOutput = $this->getMockBuilder( '\ParserOutput' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$magicWords = array();
+
+		$this->assertThatHookIsExcutable(
+			$instance->getHandlerFor( $handler ),
+			array( &$outputPage, $parserOutput )
+		);
+
+		$this->assertEquals(
+			'',
+			$outputPage->smwmagicwords
 		);
 	}
 

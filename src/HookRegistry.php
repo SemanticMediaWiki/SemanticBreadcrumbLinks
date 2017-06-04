@@ -78,6 +78,25 @@ class HookRegistry {
 		};
 
 		/**
+		 * @see https://www.semantic-mediawiki.org/wiki/Hooks/SMW::Parser::BeforeMagicWordsFinder
+		 */
+		$this->handlers['SMW::Parser::BeforeMagicWordsFinder'] = function( array &$magicWords ) {
+			$magicWords = array_merge( $magicWords, array( 'SBL_NOBREADCRUMBLINKS' ) );
+			return true;
+		};
+
+		/**
+		 * @note This is bit of a hack but there is no other way to get access to
+		 * the ParserOutput
+		 *
+		 * @see https://www.mediawiki.org/wiki/Manual:Hooks/OutputPageParserOutput
+		 */
+		$this->handlers['OutputPageParserOutput'] = function( &$outputPage, $parserOutput ) {
+			$outputPage->smwmagicwords = $parserOutput->getExtensionData( 'smwmagicwords' );
+			return true;
+		};
+
+		/**
 		 * @see https://www.mediawiki.org/wiki/Manual:Hooks/SkinTemplateOutputPageBeforeExec
 		 */
 		$this->handlers['SkinTemplateOutputPageBeforeExec'] = function ( &$skin, &$template ) use( $store, $options ) {

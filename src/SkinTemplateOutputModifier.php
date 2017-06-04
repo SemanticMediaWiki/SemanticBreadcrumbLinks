@@ -62,6 +62,10 @@ class SkinTemplateOutputModifier {
 			return false;
 		}
 
+		if ( isset( $output->smwmagicwords ) && in_array( 'SBL_NOBREADCRUMBLINKS', $output->smwmagicwords ) ) {
+			return false;
+		}
+
 		return true;
 	}
 

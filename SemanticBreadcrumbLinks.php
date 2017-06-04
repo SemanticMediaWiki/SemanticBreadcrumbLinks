@@ -67,6 +67,7 @@ class SemanticBreadcrumbLinks {
 
 		// Register message files
 		$GLOBALS['wgMessagesDirs']['SemanticBreadcrumbLinks'] = __DIR__ . '/i18n';
+		$GLOBALS['wgExtensionMessagesFiles']['SemanticBreadcrumbLinksMagic'] = __DIR__ . '/i18n/SemanticBreadcrumbLinks.magic.php';
 
 		// Register resource files
 		$GLOBALS['wgResourceModules']['ext.semanticbreadcrumblinks.styles'] = array(

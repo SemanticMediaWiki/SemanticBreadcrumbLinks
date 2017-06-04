@@ -29,7 +29,7 @@ class SkinTemplateOutputModifierTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	public function testForUnknownTitle() {
+	public function testTryPrependHtmlOnUnknownTitle() {
 
 		$htmlBreadcrumbLinksBuilder = $this->getMockBuilder( '\SBL\HtmlBreadcrumbLinksBuilder' )
 			->disableOriginalConstructor()
@@ -54,14 +54,16 @@ class SkinTemplateOutputModifierTest extends \PHPUnit_Framework_TestCase {
 			->method( 'getTitle' )
 			->will( $this->returnValue( $title ) );
 
-		$instance = new SkinTemplateOutputModifier( $htmlBreadcrumbLinksBuilder );
+		$instance = new SkinTemplateOutputModifier(
+			$htmlBreadcrumbLinksBuilder
+		);
 
 		$this->assertTrue(
 			$instance->modifyOutput( $output )
 		);
 	}
 
-	public function testForIsSpecialPage() {
+	public function testTryPrependHtmlOnSpecialPage() {
 
 		$htmlBreadcrumbLinksBuilder = $this->getMockBuilder( '\SBL\HtmlBreadcrumbLinksBuilder' )
 			->disableOriginalConstructor()
@@ -90,14 +92,16 @@ class SkinTemplateOutputModifierTest extends \PHPUnit_Framework_TestCase {
 			->method( 'getTitle' )
 			->will( $this->returnValue( $title ) );
 
-		$instance = new SkinTemplateOutputModifier( $htmlBreadcrumbLinksBuilder );
+		$instance = new SkinTemplateOutputModifier(
+			$htmlBreadcrumbLinksBuilder
+		);
 
 		$this->assertTrue(
 			$instance->modifyOutput( $output )
 		);
 	}
 
-	public function testTryPrependHtmlForNonViewAction() {
+	public function testTryPrependHtmlOnNonViewAction() {
 
 		$context = new \RequestContext();
 		$context->setRequest( new \FauxRequest( array( 'action' => 'edit' ), true ) );
@@ -138,7 +142,58 @@ class SkinTemplateOutputModifierTest extends \PHPUnit_Framework_TestCase {
 			->method( 'getTitle' )
 			->will( $this->returnValue( $title ) );
 
+		$instance = new SkinTemplateOutputModifier(
+			$htmlBreadcrumbLinksBuilder
+		);
+
+		$this->assertTrue(
+			$instance->modifyOutput( $output )
+		);
+	}
+
+	public function testTryPrependHtmlOnNOBREADCRUMBLINKS() {
+
+		$context = new \RequestContext();
+		$context->setRequest( new \FauxRequest( array( 'action' => 'view'  ), true ) );
+
+		$htmlBreadcrumbLinksBuilder = $this->getMockBuilder( '\SBL\HtmlBreadcrumbLinksBuilder' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$title = $this->getMockBuilder( '\Title' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$title->expects( $this->once() )
+			->method( 'isKnown' )
+			->will( $this->returnValue( true ) );
+
+		$title->expects( $this->once() )
+			->method( 'getNamespace' )
+			->will( $this->returnValue( NS_MAIN ) );
+
+		$title->expects( $this->once() )
+			->method( 'isSpecialPage' )
+			->will( $this->returnValue( false ) );
+
+		$output = $this->getMockBuilder( '\OutputPage' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$output->expects( $this->never() )
+			->method( 'prependHTML' );
+
+		$output->expects( $this->once() )
+			->method( 'getContext' )
+			->will( $this->returnValue( $context ) );
+
+		$output->expects( $this->atLeastOnce() )
+			->method( 'getTitle' )
+			->will( $this->returnValue( $title ) );
+
 		$instance = new SkinTemplateOutputModifier( $htmlBreadcrumbLinksBuilder );
+
+		$output->smwmagicwords = array( 'SBL_NOBREADCRUMBLINKS' );
 
 		$this->assertTrue(
 			$instance->modifyOutput( $output )
