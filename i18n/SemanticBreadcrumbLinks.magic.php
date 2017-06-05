@@ -16,5 +16,5 @@ $magicWords['en'] = array(
  * German (Deutsch)
  */
 $magicWords['de'] = array(
-	'SBL_NOBREADCRUMBLINKS' => array( 0, '__KEINE_BROTKRUMENLINKS__', '__KEINEBROTKRUMENLINKS__'
+	'SBL_NOBREADCRUMBLINKS' => array( 0, '__KEINE_BROTKRUMENLINKS__', '__KEINEBROTKRUMENLINKS__' )
 );
