@@ -29,17 +29,17 @@ class ByPropertyHierarchicalLinksFinder {
 	/**
 	 * @var array
 	 */
-	private $propertySearchPatternByNamespace = array();
+	private $propertySearchPatternByNamespace = [];
 
 	/**
 	 * @var array
 	 */
-	private $antecedentHierarchyLinks = array();
+	private $antecedentHierarchyLinks = [];
 
 	/**
 	 * @var array
 	 */
-	private $closestDescendantLinks = array();
+	private $closestDescendantLinks = [];
 
 	/**
 	 * @since 1.0
@@ -128,7 +128,7 @@ class ByPropertyHierarchicalLinksFinder {
 
 		$dataItem = null;
 
-		if ( $propertySearchPattern === array() ) {
+		if ( $propertySearchPattern === [] ) {
 			return null;
 		}
 
@@ -140,7 +140,7 @@ class ByPropertyHierarchicalLinksFinder {
 			$requestOptions
 		);
 
-		if ( $propertyValues === array() ) {
+		if ( $propertyValues === [] ) {
 			return null;
 		}
 

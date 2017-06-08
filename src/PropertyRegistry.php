@@ -21,15 +21,15 @@ class PropertyRegistry {
 	 */
 	public function register( $propertyRegistry ) {
 
-		$propertyDefinitions = array(
+		$propertyDefinitions = [
 
-			self::SBL_PARENTPAGE => array(
+			self::SBL_PARENTPAGE => [
 				'label' => SBL_PROP_PARENTPAGE,
 				'type'  => '_wpg',
 				'alias' => 'sbl-property-alias-parentpage',
 				'visbility' => true
-			)
-		);
+			]
+		];
 
 		foreach ( $propertyDefinitions as $propertyId => $definition ) {
 

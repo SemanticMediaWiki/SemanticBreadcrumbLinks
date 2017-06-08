@@ -57,16 +57,16 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 			->disableOriginalConstructor()
 			->getMockForAbstractClass();
 
-		$configuration = array(
+		$configuration = [
 			'useSubpageFinderFallback' => false,
 			'tryToFindClosestDescendant' => false,
-			'propertySearchPatternByNamespace' => array(),
+			'propertySearchPatternByNamespace' => [],
 			'breadcrumbTrailStyleClass' => 'foo',
 			'breadcrumbDividerStyleClass' => 'bar',
 			'hideSubpageParent' => true,
 			'enabledSubpageParentAnnotation' => true,
-			'wgNamespacesWithSubpages' => array()
-		);
+			'wgNamespacesWithSubpages' => []
+		];
 
 		$instance = new HookRegistry(
 			$store,
@@ -98,7 +98,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$this->assertThatHookIsExcutable(
 			$instance->getHandlerFor( $handler ),
-			array( $propertyRegistry )
+			[ $propertyRegistry ]
 		);
 	}
 
@@ -114,7 +114,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$this->assertThatHookIsExcutable(
 			$instance->getHandlerFor( $handler ),
-			array( &$skin, &$template )
+			[ &$skin, &$template ]
 		);
 	}
 
@@ -128,7 +128,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$this->assertThatHookIsExcutable(
 			$instance->getHandlerFor( $handler ),
-			array( &$outputPage, &$skin )
+			[ &$outputPage, &$skin ]
 		);
 	}
 
@@ -170,7 +170,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$this->assertThatHookIsExcutable(
 			$instance->getHandlerFor( $handler ),
-			array( &$parser, &$text )
+			[ &$parser, &$text ]
 		);
 	}
 
@@ -212,7 +212,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$this->assertThatHookIsExcutable(
 			$instance->getHandlerFor( $handler ),
-			array( &$parser, &$text )
+			[ &$parser, &$text ]
 		);
 	}
 
@@ -224,11 +224,11 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 			$instance->isRegistered( $handler )
 		);
 
-		$magicWords = array();
+		$magicWords = [];
 
 		$this->assertThatHookIsExcutable(
 			$instance->getHandlerFor( $handler ),
-			array( &$magicWords )
+			[ &$magicWords ]
 		);
 
 		$this->assertContains(
@@ -249,11 +249,11 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$magicWords = array();
+		$magicWords = [];
 
 		$this->assertThatHookIsExcutable(
 			$instance->getHandlerFor( $handler ),
-			array( &$outputPage, $parserOutput )
+			[ &$outputPage, $parserOutput ]
 		);
 
 		$this->assertEquals(

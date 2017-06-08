@@ -104,7 +104,7 @@ class SkinTemplateOutputModifierTest extends \PHPUnit_Framework_TestCase {
 	public function testTryPrependHtmlOnNonViewAction() {
 
 		$context = new \RequestContext();
-		$context->setRequest( new \FauxRequest( array( 'action' => 'edit' ), true ) );
+		$context->setRequest( new \FauxRequest( [ 'action' => 'edit' ], true ) );
 		$context->setTitle( Title::newFromText( __METHOD__ ) );
 
 		$htmlBreadcrumbLinksBuilder = $this->getMockBuilder( '\SBL\HtmlBreadcrumbLinksBuilder' )
@@ -154,7 +154,7 @@ class SkinTemplateOutputModifierTest extends \PHPUnit_Framework_TestCase {
 	public function testTryPrependHtmlOnNOBREADCRUMBLINKS() {
 
 		$context = new \RequestContext();
-		$context->setRequest( new \FauxRequest( array( 'action' => 'view'  ), true ) );
+		$context->setRequest( new \FauxRequest( [ 'action' => 'view'  ], true ) );
 
 		$htmlBreadcrumbLinksBuilder = $this->getMockBuilder( '\SBL\HtmlBreadcrumbLinksBuilder' )
 			->disableOriginalConstructor()
@@ -193,7 +193,7 @@ class SkinTemplateOutputModifierTest extends \PHPUnit_Framework_TestCase {
 
 		$instance = new SkinTemplateOutputModifier( $htmlBreadcrumbLinksBuilder );
 
-		$output->smwmagicwords = array( 'SBL_NOBREADCRUMBLINKS' );
+		$output->smwmagicwords = [ 'SBL_NOBREADCRUMBLINKS' ];
 
 		$this->assertTrue(
 			$instance->modifyOutput( $output )
@@ -203,7 +203,7 @@ class SkinTemplateOutputModifierTest extends \PHPUnit_Framework_TestCase {
 	public function testPrependHtmlForViewActionOnly() {
 
 		$context = new \RequestContext();
-		$context->setRequest( new \FauxRequest( array( 'action' => 'view'  ), true ) );
+		$context->setRequest( new \FauxRequest( [ 'action' => 'view'  ], true ) );
 
 		$htmlBreadcrumbLinksBuilder = $this->getMockBuilder( '\SBL\HtmlBreadcrumbLinksBuilder' )
 			->disableOriginalConstructor()
@@ -259,7 +259,7 @@ class SkinTemplateOutputModifierTest extends \PHPUnit_Framework_TestCase {
 		);
 
 		$template = new \stdClass;
-		$template->data = array();
+		$template->data = [];
 
 		$instance->modifyTemplate( $template );
 

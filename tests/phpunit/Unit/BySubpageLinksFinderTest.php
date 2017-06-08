@@ -65,82 +65,82 @@ class BySubpageLinksFinderTest extends \PHPUnit_Framework_TestCase {
 	public function titleProvider() {
 
 		#0
-		$provider[] = array(
+		$provider[] = [
 			'Foo',
 			0,
-			array()
-		);
+			[]
+		];
 
 		#1
-		$provider[] = array(
+		$provider[] = [
 			'Foo/',
 			1,
-			array(
+			[
 				new DIWikiPage( 'Foo', NS_MAIN )
-			)
-		);
+			]
+		];
 
 		#2
-		$provider[] = array(
+		$provider[] = [
 			'Foo/Bar/Baz',
 			2,
-			array(
+			[
 				new DIWikiPage( 'Foo', NS_MAIN ),
 				new DIWikiPage( 'Foo/Bar', NS_MAIN )
-			)
-		);
+			]
+		];
 
 		#3
-		$provider[] = array(
+		$provider[] = [
 			'Foo/Bar/Baz/Yin/Yan',
 			4,
-			array(
+			[
 				new DIWikiPage( 'Foo', NS_MAIN ),
 				new DIWikiPage( 'Foo/Bar', NS_MAIN ),
 				new DIWikiPage( 'Foo/Bar/Baz', NS_MAIN ),
 				new DIWikiPage( 'Foo/Bar/Baz/Yin', NS_MAIN )
-			)
-		);
+			]
+		];
 
 		#4 /a/b
-		$provider[] = array(
+		$provider[] = [
 			'/a/b',
 			1,
-			array(
+			[
 				new DIWikiPage( '/a', NS_MAIN )
-			)
-		);
+			]
+		];
 
 		#5 /a//b/c
-		$provider[] = array(
+		$provider[] = [
 			'/a//b/c',
 			2,
-			array(
+			[
 				new DIWikiPage( '/a', NS_MAIN ),
 				new DIWikiPage( '/a//b', NS_MAIN )
-			)
-		);
+			]
+		];
 
 		#6 (#23 issue)
-		$provider[] = array(
+		$provider[] = [
 			'Foo / Bar',
 			0,
-			array()
-		);
+			[]
+		];
 
 		#7 (#23 issue)
-		$provider[] = array(
+		$provider[] = [
 			'Foo /Bar',
 			0,
-			array()
-		);
+			[]
+		];
 
 		#8 (#23 issue)
-		$provider[] = array(
+		$provider[] = [
 			'Foo /Bar /Foobar',
 			0,
-			array()
-		);
+			[]
+		];
 
 		return $provider;
 	}

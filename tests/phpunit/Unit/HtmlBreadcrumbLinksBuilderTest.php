@@ -70,13 +70,13 @@ class HtmlBreadcrumbLinksBuilderTest extends \PHPUnit_Framework_TestCase {
 
 		$byPropertyHierarchicalLinksFinder->expects( $this->once() )
 			->method( 'getParents' )
-			->will( $this->returnValue( array( new DIWikiPage( 'Foo', NS_MAIN ) ) ) );
+			->will( $this->returnValue( [ new DIWikiPage( 'Foo', NS_MAIN ) ] ) );
 
 		$byPropertyHierarchicalLinksFinder->expects( $this->once() )
 			->method( 'getChildren' )
-			->will( $this->returnValue( array(
+			->will( $this->returnValue( [
 				new DIWikiPage( 'Bar', NS_MAIN ),
-				new DIWikiPage( 'Foobar', NS_MAIN ) ) ) );
+				new DIWikiPage( 'Foobar', NS_MAIN ) ] ) );
 
 		$bySubpageLinksFinder = $this->getMockBuilder( '\SBL\BySubpageLinksFinder' )
 			->disableOriginalConstructor()
@@ -119,11 +119,11 @@ class HtmlBreadcrumbLinksBuilderTest extends \PHPUnit_Framework_TestCase {
 
 		$byPropertyHierarchicalLinksFinder->expects( $this->once() )
 			->method( 'getParents' )
-			->will( $this->returnValue( array() ) );
+			->will( $this->returnValue( [] ) );
 
 		$byPropertyHierarchicalLinksFinder->expects( $this->once() )
 			->method( 'getChildren' )
-			->will( $this->returnValue( array() ) );
+			->will( $this->returnValue( [] ) );
 
 		$bySubpageLinksFinder = $this->getMockBuilder( '\SBL\BySubpageLinksFinder' )
 			->disableOriginalConstructor()
@@ -135,7 +135,7 @@ class HtmlBreadcrumbLinksBuilderTest extends \PHPUnit_Framework_TestCase {
 
 		$bySubpageLinksFinder->expects( $this->once() )
 			->method( 'getParents' )
-			->will( $this->returnValue( array( new DIWikiPage( 'Foo', NS_MAIN ) ) ) );
+			->will( $this->returnValue( [ new DIWikiPage( 'Foo', NS_MAIN ) ] ) );
 
 		$instance = new HtmlBreadcrumbLinksBuilder(
 			$byPropertyHierarchicalLinksFinder,
@@ -168,11 +168,11 @@ class HtmlBreadcrumbLinksBuilderTest extends \PHPUnit_Framework_TestCase {
 
 		$byPropertyHierarchicalLinksFinder->expects( $this->once() )
 			->method( 'getParents' )
-			->will( $this->returnValue( array() ) );
+			->will( $this->returnValue( [] ) );
 
 		$byPropertyHierarchicalLinksFinder->expects( $this->once() )
 			->method( 'getChildren' )
-			->will( $this->returnValue( array() ) );
+			->will( $this->returnValue( [] ) );
 
 		$bySubpageLinksFinder = $this->getMockBuilder( '\SBL\BySubpageLinksFinder' )
 			->disableOriginalConstructor()
@@ -203,11 +203,11 @@ class HtmlBreadcrumbLinksBuilderTest extends \PHPUnit_Framework_TestCase {
 
 		$byPropertyHierarchicalLinksFinder->expects( $this->once() )
 			->method( 'getParents' )
-			->will( $this->returnValue( array( $subject ) ) );
+			->will( $this->returnValue( [ $subject ] ) );
 
 		$byPropertyHierarchicalLinksFinder->expects( $this->once() )
 			->method( 'getChildren' )
-			->will( $this->returnValue( array() ) );
+			->will( $this->returnValue( [] ) );
 
 		$bySubpageLinksFinder = $this->getMockBuilder( '\SBL\BySubpageLinksFinder' )
 			->disableOriginalConstructor()

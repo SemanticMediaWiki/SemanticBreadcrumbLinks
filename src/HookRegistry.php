@@ -18,7 +18,7 @@ class HookRegistry {
 	/**
 	 * @var array
 	 */
-	private $handlers = array();
+	private $handlers = [];
 
 	/**
 	 * @since 1.0
@@ -81,7 +81,7 @@ class HookRegistry {
 		 * @see https://www.semantic-mediawiki.org/wiki/Hooks/SMW::Parser::BeforeMagicWordsFinder
 		 */
 		$this->handlers['SMW::Parser::BeforeMagicWordsFinder'] = function( array &$magicWords ) {
-			$magicWords = array_merge( $magicWords, array( 'SBL_NOBREADCRUMBLINKS' ) );
+			$magicWords = array_merge( $magicWords, [ 'SBL_NOBREADCRUMBLINKS' ] );
 			return true;
 		};
 

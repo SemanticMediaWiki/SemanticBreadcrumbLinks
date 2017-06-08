@@ -64,13 +64,13 @@ class ByPropertyHierarchicalLinksFinderTest extends \PHPUnit_Framework_TestCase 
 			->with(
 				$this->equalTo( $subject ),
 				$this->equalTo( $property ) )
-			->will( $this->returnValue( array() ) );
+			->will( $this->returnValue( [] ) );
 
 		$instance = new ByPropertyHierarchicalLinksFinder( $store );
 
 		$instance->setFindClosestDescendantState( false );
 		$instance->setPropertySearchPatternByNamespace(
-			array( NS_MAIN => array( 'Bar' ) )
+			[ NS_MAIN => [ 'Bar' ] ]
 		);
 
 		$instance->findLinksBySubject( $subject );
@@ -90,7 +90,7 @@ class ByPropertyHierarchicalLinksFinderTest extends \PHPUnit_Framework_TestCase 
 
 		$store = $this->getMockBuilder( '\SMW\Store' )
 			->disableOriginalConstructor()
-			->setMethods( array( 'getRedirectTarget' ) )
+			->setMethods( [ 'getRedirectTarget' ] )
 			->getMockForAbstractClass();
 
 		$store->expects( $this->at( 0 ) )
@@ -98,7 +98,7 @@ class ByPropertyHierarchicalLinksFinderTest extends \PHPUnit_Framework_TestCase 
 			->with(
 				$this->equalTo( $subject ),
 				$this->equalTo( DIProperty::newFromUserLabel( 'Bar' ) ) )
-			->will( $this->returnValue( array( new DIWikiPage( 'Ichi', NS_MAIN ) ) ) );
+			->will( $this->returnValue( [ new DIWikiPage( 'Ichi', NS_MAIN ) ] ) );
 
 		$store->expects( $this->at( 1 ) )
 			->method( 'getRedirectTarget' )
@@ -111,7 +111,7 @@ class ByPropertyHierarchicalLinksFinderTest extends \PHPUnit_Framework_TestCase 
 			->with(
 				$this->equalTo( new DIWikiPage( 'Ichi', NS_MAIN )  ),
 				$this->equalTo( DIProperty::newFromUserLabel( 'Yin' )) )
-			->will( $this->returnValue( array( new DIWikiPage( 'Ni', NS_MAIN ) ) ) );
+			->will( $this->returnValue( [ new DIWikiPage( 'Ni', NS_MAIN ) ] ) );
 
 		$store->expects( $this->at( 3 ) )
 			->method( 'getRedirectTarget' )
@@ -124,15 +124,15 @@ class ByPropertyHierarchicalLinksFinderTest extends \PHPUnit_Framework_TestCase 
 		$instance->setFindClosestDescendantState( false );
 
 		$instance->setPropertySearchPatternByNamespace(
-			array( NS_MAIN => array( 'Bar', 'Yin' ) )
+			[ NS_MAIN => [ 'Bar', 'Yin' ] ]
 		);
 
 		$instance->findLinksBySubject( $subject );
 
 		$this->assertEquals(
-			array(
+			[
 				new DIWikiPage( 'Ichi', NS_MAIN ),
-				new DIWikiPage( 'San', NS_MAIN ) ),
+				new DIWikiPage( 'San', NS_MAIN ) ],
 			$instance->getParents()
 		);
 
@@ -154,14 +154,14 @@ class ByPropertyHierarchicalLinksFinderTest extends \PHPUnit_Framework_TestCase 
 			->with(
 				$this->equalTo( $subject ),
 				$this->equalTo( DIProperty::newFromUserLabel( 'Bar' ) ) )
-			->will( $this->returnValue( array( $subject ) ) );
+			->will( $this->returnValue( [ $subject ] ) );
 
 		$instance = new ByPropertyHierarchicalLinksFinder( $store );
 
 		$instance->setFindClosestDescendantState( false );
 
 		$instance->setPropertySearchPatternByNamespace(
-			array( NS_MAIN => array( 'Bar', 'Yin' ) )
+			[ NS_MAIN => [ 'Bar', 'Yin' ] ]
 		);
 
 		$instance->findLinksBySubject( $subject );
@@ -188,24 +188,24 @@ class ByPropertyHierarchicalLinksFinderTest extends \PHPUnit_Framework_TestCase 
 
 		$store->expects( $this->atLeastOnce() )
 			->method( 'getPropertyValues' )
-			->will( $this->returnValue( array() ) );
+			->will( $this->returnValue( [] ) );
 
 		$store->expects( $this->at( 1 ) )
 			->method( 'getPropertySubjects' )
 			->with(
 				$this->equalTo( $property ),
 				$this->equalTo( $subject ) )
-			->will( $this->returnValue( array(
+			->will( $this->returnValue( [
 				new DIWikiPage( 'Foo', NS_MAIN ),
 				new DIWikiPage( 'NotEqualToFoo', NS_MAIN ),
-				new DIWikiPage( 'AnotherChild', NS_MAIN ) ) ) );
+				new DIWikiPage( 'AnotherChild', NS_MAIN ) ] ) );
 
 		$instance = new ByPropertyHierarchicalLinksFinder( $store );
 
 		$instance->setFindClosestDescendantState( true );
 
 		$instance->setPropertySearchPatternByNamespace(
-			array( NS_MAIN => array( 'Bar' ) )
+			[ NS_MAIN => [ 'Bar' ] ]
 		);
 
 		$instance->findLinksBySubject( $subject );
@@ -215,9 +215,9 @@ class ByPropertyHierarchicalLinksFinderTest extends \PHPUnit_Framework_TestCase 
 		);
 
 		$this->assertEquals(
-			array(
+			[
 				new DIWikiPage( 'NotEqualToFoo', NS_MAIN ),
-				new DIWikiPage( 'AnotherChild', NS_MAIN ) ),
+				new DIWikiPage( 'AnotherChild', NS_MAIN ) ],
 			$instance->getChildren()
 		);
 	}
@@ -232,7 +232,7 @@ class ByPropertyHierarchicalLinksFinderTest extends \PHPUnit_Framework_TestCase 
 
 		$store->expects( $this->atLeastOnce() )
 			->method( 'getPropertyValues' )
-			->will( $this->returnValue( array() ) );
+			->will( $this->returnValue( [] ) );
 
 		$store->expects( $this->never() )
 			->method( 'getPropertySubjects' );
@@ -242,7 +242,7 @@ class ByPropertyHierarchicalLinksFinderTest extends \PHPUnit_Framework_TestCase 
 		$instance->setFindClosestDescendantState( true );
 
 		$instance->setPropertySearchPatternByNamespace(
-			array( NS_MAIN => array( '_MDAT' ) )
+			[ NS_MAIN => [ '_MDAT' ] ]
 		);
 
 		$instance->findLinksBySubject( $subject );

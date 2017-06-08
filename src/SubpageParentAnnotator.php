@@ -57,7 +57,7 @@ class SubpageParentAnnotator {
 		$property = DIProperty::newFromUserLabel( SBL_PROP_PARENTPAGE );
 
 		// Don't override any "man"-made annotation
-		if ( $this->parserData->getSemanticData()->getPropertyValues( $property ) !== array() ) {
+		if ( $this->parserData->getSemanticData()->getPropertyValues( $property ) !== [] ) {
 			return;
 		}
 
