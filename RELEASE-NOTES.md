@@ -2,11 +2,16 @@ This file contains the RELEASE-NOTES of the Semantic Breadcrumb Links (a.k.a. SB
 
 ### 1.4.0
 
-This is not a release yet.
+Released on June 10, 2017.
+
+* Requires PHP 5.5 or later
+* Requires MediaWiki 1.27 or later
+* #30 Added the `__NOBREADCRUMBLINKS__` behaviour switch allowing to suppress the display of a generated breadcrumb trail.
+* Localization updates from https://translatewiki.net
 
 ### 1.3.1
 
-Released on March 27, 2017
+Released on March 27, 2017.
 
 * #21 Fixed warnings caused by the Resource Loader
 * #23 Fixed subpage detection
@@ -17,9 +22,9 @@ Released on March 27, 2017
 
 Released on July 9, 2016.
 
-* Requires SMW 2.4+
+* Requires Semantic MediaWiki 2.4 or later
 * Added `onoi/shared-resources` dependency
-* Support for `Display title of` provided by SMW 2.4
+* Support for `Display title of` provided by SMW 2.4.0
 * Added `$GLOBALS['egSBLEnabledSubpageParentAnnotation']` to allow for subpage
   parents to be annotated automatically if no other `Has parent page` exists
 * Recognize `egSBLPageTitleToHideSubpageParent` / `wgNamespacesWithSubpages`
