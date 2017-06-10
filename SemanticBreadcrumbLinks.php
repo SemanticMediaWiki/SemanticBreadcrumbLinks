@@ -10,7 +10,7 @@ use SMW\ApplicationFactory;
  * @defgroup SBL Semantic Breadcrumb Links
  */
 if ( !defined( 'MEDIAWIKI' ) ) {
-	die( 'This file is part of the SemanticBreadcrumbLinks extension, it is not a valid entry point.' );
+	die( 'This file is part of the Semantic Breadcrumb Links extension, it is not a valid entry point.' );
 }
 
 if ( defined( 'SBL_VERSION' ) ) {
@@ -105,11 +105,11 @@ class SemanticBreadcrumbLinks {
 	public static function checkRequirements() {
 
 		if ( version_compare( $GLOBALS[ 'wgVersion' ], '1.27', 'lt' ) ) {
-			die( '<b>Error:</b> This version of <a href="https://github.com/SemanticMediaWiki/SemanticBreadcrumbLinks/">Semantic Breadcrumb Links</a> is only compatible with MediaWiki 1.23 or above. You need to upgrade MediaWiki first.' );
+			die( '<b>Error:</b> This version of <a href="https://github.com/SemanticMediaWiki/SemanticBreadcrumbLinks/">Semantic Breadcrumb Links</a> is only compatible with MediaWiki 1.27 or above. You need to upgrade MediaWiki first.' );
 		}
 
 		if ( !defined( 'SMW_VERSION' ) ) {
-			die( '<b>Error:</b> <a href="https://github.com/SemanticMediaWiki/SemanticBreadcrumbLinks/">Semantic Breadcrumb Links</a> requires <a href="https://github.com/SemanticMediaWiki/SemanticMediaWiki/">Semantic MediaWiki</a>, please enable or install the extension first.' );
+			die( '<b>Error:</b> <a href="https://github.com/SemanticMediaWiki/SemanticBreadcrumbLinks/">Semantic Breadcrumb Links</a> requires <a href="https://github.com/SemanticMediaWiki/SemanticMediaWiki/">Semantic MediaWiki</a>. Please enable or install the extension first.' );
 		}
 	}
 
