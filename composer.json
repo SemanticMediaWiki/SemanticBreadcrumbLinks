@@ -9,11 +9,12 @@
 		"mediawiki",
 		"breadcrumb"
 	],
-	"homepage": "https://semantic-mediawiki.org/wiki/Extension:SemanticBreadcrumbLinks",
+	"homepage": "https://www.semantic-mediawiki.org/wiki/Extension:SemanticBreadcrumbLinks",
 	"license": "GPL-2.0+",
 	"authors": [
 		{
-			"name": "mwjames",
+			"name": "James Hong Kong",
+			"homepage": "https://www.semantic-mediawiki.org/wiki/User:MWJames",
 			"role": "Developer"
 		}
 	],
@@ -21,12 +22,12 @@
 		"email": "semediawiki-user@lists.sourceforge.net",
 		"issues": "https://github.com/SemanticMediaWiki/SemanticBreadcrumbLinks/issues",
 		"irc": "irc://irc.freenode.net/semantic-mediawiki",
-		"forum": "https://semantic-mediawiki.org/wiki/semantic-mediawiki.org_talk:Community_portal",
-		"wiki": "https://semantic-mediawiki.org/wiki/",
+		"forum": "https://www.semantic-mediawiki.org/wiki/semantic-mediawiki.org_talk:Community_portal",
+		"wiki": "https://www.semantic-mediawiki.org/wiki/",
 		"source": "https://github.com/SemanticMediaWiki/SemanticBreadcrumbLinks"
 	},
 	"require": {
-		"php": ">=5.3.0",
+		"php": ">=5.5",
 		"composer/installers": "1.*,>=1.0.12",
 		"mediawiki/semantic-media-wiki": "~2.4|~3.0",
 		"onoi/shared-resources":"~0.2"
