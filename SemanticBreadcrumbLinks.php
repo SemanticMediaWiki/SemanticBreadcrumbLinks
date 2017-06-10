@@ -51,7 +51,7 @@ class SemanticBreadcrumbLinks {
 	 */
 	public static function initExtension() {
 
-		define( 'SBL_VERSION', '1.4.0' );
+		define( 'SBL_VERSION', '1.5.0-alpha' );
 		define( 'SBL_PROP_PARENTPAGE', 'Has parent page' );
 
 		// Register the extension
