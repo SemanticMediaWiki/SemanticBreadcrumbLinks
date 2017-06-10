@@ -27,7 +27,7 @@ class PageDisplayOutputModifierTest extends \PHPUnit_Framework_TestCase {
 
 		$instance = new PageDisplayOutputModifier();
 		$instance->hideSubpageParent( false );
-		$instance->setSubpageByNamespace( array( NS_MAIN => true ) );
+		$instance->setSubpageByNamespace( [ NS_MAIN => true ] );
 
 		$output = $this->getMockBuilder( '\OutputPage' )
 			->disableOriginalConstructor()
@@ -43,7 +43,7 @@ class PageDisplayOutputModifierTest extends \PHPUnit_Framework_TestCase {
 
 		$instance = new PageDisplayOutputModifier();
 		$instance->hideSubpageParent( true );
-		$instance->setSubpageByNamespace( array( NS_MAIN => false ) );
+		$instance->setSubpageByNamespace( [ NS_MAIN => false ] );
 
 		$title = $this->getMockBuilder( '\Title' )
 			->disableOriginalConstructor()
@@ -68,7 +68,7 @@ class PageDisplayOutputModifierTest extends \PHPUnit_Framework_TestCase {
 
 		$instance = new PageDisplayOutputModifier();
 		$instance->hideSubpageParent( true );
-		$instance->setSubpageByNamespace( array( NS_MAIN => true ) );
+		$instance->setSubpageByNamespace( [ NS_MAIN => true ] );
 
 		$title = $this->getMockBuilder( '\Title' )
 			->disableOriginalConstructor()
@@ -100,7 +100,7 @@ class PageDisplayOutputModifierTest extends \PHPUnit_Framework_TestCase {
 
 		$instance = new PageDisplayOutputModifier();
 		$instance->hideSubpageParent( true );
-		$instance->setSubpageByNamespace( array( NS_MAIN => true ) );
+		$instance->setSubpageByNamespace( [ NS_MAIN => true ] );
 
 		$title = $this->getMockBuilder( '\Title' )
 			->disableOriginalConstructor()

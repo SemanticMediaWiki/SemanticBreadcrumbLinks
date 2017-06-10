@@ -21,7 +21,7 @@ class BySubpageLinksFinder {
 	/**
 	 * @var array
 	 */
-	private $antecedentHierarchyLinks = array();
+	private $antecedentHierarchyLinks = [];
 
 	/**
 	 * @since 1.0

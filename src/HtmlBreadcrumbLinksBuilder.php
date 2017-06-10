@@ -171,17 +171,17 @@ class HtmlBreadcrumbLinksBuilder {
 			return $this->breadcrumbs;
 		}
 
-		return Html::rawElement( 'div', array(
+		return Html::rawElement( 'div', [
 			'id'    => 'sbl-breadcrumbs',
 			'class' => $this->breadcrumbTrailStyleClass,
-			'dir'   => $this->isRTL ? 'rtl' : 'ltr' ),
+			'dir'   => $this->isRTL ? 'rtl' : 'ltr' ],
 			$this->breadcrumbs
 		);
 	}
 
 	private function getSubstituteLinksParentsOnDiscoveryFallback( $subject, $parents ) {
 
-		if ( $parents !== array() || !$this->bySubpageLinksFinder->isDiscoveryFallback() ) {
+		if ( $parents !== [] || !$this->bySubpageLinksFinder->isDiscoveryFallback() ) {
 			return $parents;
 		}
 
@@ -233,10 +233,10 @@ class HtmlBreadcrumbLinksBuilder {
 	}
 
 	private function wrapHtml( $subClass, $html = '' ) {
-		return Html::rawElement( 'span', array(
+		return Html::rawElement( 'span', [
 				'class' => $this->breadcrumbDividerStyleClass . '-' . $subClass,
 				'style' => $subClass === 'child' && $this->hasChildren ? 'font-style:italic;' : ''
-			),
+			],
 			$html
 		);
 	}
@@ -259,11 +259,11 @@ class HtmlBreadcrumbLinksBuilder {
 			$child .=  $this->wrapHtml( 'left' ) . $this->wrapHtml( 'child', $this->getDvShortHtmlText( $breadcrumb, $this->linker ) );
 		}
 
-		return array( $child, $data );
+		return [ $child, $data ];
 	}
 
 	private function addHtmlListElement( $html = '' ) {
-		return Html::rawElement( 'li', array(), $html );
+		return Html::rawElement( 'li', [], $html );
 	}
 
 	private function addHtmlDataElement( $data = '' ) {
@@ -272,9 +272,9 @@ class HtmlBreadcrumbLinksBuilder {
 			return '';
 		}
 
-		return Html::rawElement( 'span', array(
+		return Html::rawElement( 'span', [
 			'class' => 'sbl-breadcrumb-children',
-			'data-children' => '<ul class="sbl-breadcrumb-children-list">' . $data . '</ul>' ),
+			'data-children' => '<ul class="sbl-breadcrumb-children-list">' . $data . '</ul>' ],
 			''
 		);
 	}

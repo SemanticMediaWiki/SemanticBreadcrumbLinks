@@ -52,7 +52,7 @@ class SubpageParentAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$semanticData->expects( $this->once() )
 			->method( 'getPropertyValues' )
-			->will( $this->returnValue( array() ) );
+			->will( $this->returnValue( [] ) );
 
 		$semanticData->expects( $this->once() )
 			->method( 'addPropertyObjectValue' )
@@ -92,7 +92,7 @@ class SubpageParentAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$semanticData->expects( $this->once() )
 			->method( 'getPropertyValues' )
-			->will( $this->returnValue( array( 'Foo' ) ) );
+			->will( $this->returnValue( [ 'Foo' ] ) );
 
 		$semanticData->expects( $this->never() )
 			->method( 'addPropertyObjectValue' );
@@ -127,7 +127,7 @@ class SubpageParentAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$semanticData->expects( $this->once() )
 			->method( 'getPropertyValues' )
-			->will( $this->returnValue( array() ) );
+			->will( $this->returnValue( [] ) );
 
 		$semanticData->expects( $this->never() )
 			->method( 'addPropertyObjectValue' );

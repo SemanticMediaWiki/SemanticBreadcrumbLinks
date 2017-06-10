@@ -26,7 +26,7 @@ $GLOBALS['egSBLBreadcrumbDividerStyleClass'] = 'sbl-breadcrumb-arrow';
  * An array of search patterna on a per namespace basis. If no search pattern is
  * declared for a namespace then the search is disabled.
  */
-$GLOBALS['egSBLPropertySearchPatternByNamespace'] = array();
+$GLOBALS['egSBLPropertySearchPatternByNamespace'] = [];
 
 /**
  * SBL will try to find the closest descendant (it will not work for subpages

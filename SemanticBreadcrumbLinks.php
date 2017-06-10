@@ -55,48 +55,48 @@ class SemanticBreadcrumbLinks {
 		define( 'SBL_PROP_PARENTPAGE', 'Has parent page' );
 
 		// Register the extension
-		$GLOBALS['wgExtensionCredits']['semantic'][ ] = array(
+		$GLOBALS['wgExtensionCredits']['semantic'][ ] = [
 			'path'           => __FILE__,
 			'name'           => 'Semantic Breadcrumb Links',
-			'author'         => array( 'James Hong Kong' ),
+			'author'         => [ 'James Hong Kong' ],
 			'url'            => 'https://github.com/SemanticMediaWiki/SemanticBreadcrumbLinks/',
 			'descriptionmsg' => 'sbl-desc',
 			'version'        => SBL_VERSION,
 			'license-name'   => 'GPL-2.0+',
-		);
+		];
 
 		// Register message files
 		$GLOBALS['wgMessagesDirs']['SemanticBreadcrumbLinks'] = __DIR__ . '/i18n';
 		$GLOBALS['wgExtensionMessagesFiles']['SemanticBreadcrumbLinksMagic'] = __DIR__ . '/i18n/SemanticBreadcrumbLinks.magic.php';
 
 		// Register resource files
-		$GLOBALS['wgResourceModules']['ext.semanticbreadcrumblinks.styles'] = array(
+		$GLOBALS['wgResourceModules']['ext.semanticbreadcrumblinks.styles'] = [
 			'styles'  => 'res/sbl.styles.css',
 			'localBasePath' => __DIR__ ,
 			'remoteExtPath' => 'SemanticBreadcrumbLinks',
 			'position' => 'top',
 			'group'    => 'ext.smw',
-			'targets' => array(
+			'targets' => [
 				'mobile',
 				'desktop'
-			)
-		);
+			]
+		];
 
-		$GLOBALS['wgResourceModules']['ext.semanticbreadcrumblinks'] = array(
+		$GLOBALS['wgResourceModules']['ext.semanticbreadcrumblinks'] = [
 			'scripts' => 'res/sbl.tooltip.js',
 			'localBasePath' => __DIR__ ,
 			'remoteExtPath' => 'SemanticBreadcrumbLinks',
 			'position' => 'top',
 			'group'    => 'ext.smw',
-			'dependencies'  => array(
+			'dependencies'  => [
 				'ext.semanticbreadcrumblinks.styles',
 				'onoi.qtip'
-			),
-			'targets' => array(
+			],
+			'targets' => [
 				'mobile',
 				'desktop'
-			)
-		);
+			]
+		];
 	}
 
 	/**
@@ -123,30 +123,30 @@ class SemanticBreadcrumbLinks {
 
 		// Default values are defined at this point to ensure
 		// NS contants are specified prior
-		$defaultPropertySearchPatternByNamespace = array(
-			NS_CATEGORY => array(
+		$defaultPropertySearchPatternByNamespace = [
+			NS_CATEGORY => [
 				'_SUBC',
 				'_SUBC',
 				'_SUBC'
-			),
-			SMW_NS_PROPERTY => array(
+			],
+			SMW_NS_PROPERTY => [
 				'_SUBP',
 				'_SUBP',
 				'_SUBP'
-			),
-			NS_MAIN => array(
+			],
+			NS_MAIN => [
 				SBL_PROP_PARENTPAGE,
 				SBL_PROP_PARENTPAGE,
 				SBL_PROP_PARENTPAGE
-			),
-			NS_HELP => array(
+			],
+			NS_HELP => [
 				SBL_PROP_PARENTPAGE,
 				SBL_PROP_PARENTPAGE,
 				SBL_PROP_PARENTPAGE
-			)
-		);
+			]
+		];
 
-		$configuration = array(
+		$configuration = [
 			'hideSubpageParent' => $GLOBALS['egSBLPageTitleToHideSubpageParent'],
 			'breadcrumbTrailStyleClass' => $GLOBALS['egSBLBreadcrumbTrailStyleClass'],
 			'breadcrumbDividerStyleClass' => $GLOBALS['egSBLBreadcrumbDividerStyleClass'],
@@ -155,7 +155,7 @@ class SemanticBreadcrumbLinks {
 			'enabledSubpageParentAnnotation' => $GLOBALS['egSBLEnabledSubpageParentAnnotation'],
 			'wgNamespacesWithSubpages' => $GLOBALS['wgNamespacesWithSubpages'],
 			'propertySearchPatternByNamespace' => $GLOBALS['egSBLPropertySearchPatternByNamespace'] + $defaultPropertySearchPatternByNamespace
-		);
+		];
 
 		$hookRegistry = new HookRegistry(
 			ApplicationFactory::getInstance()->getStore(),
