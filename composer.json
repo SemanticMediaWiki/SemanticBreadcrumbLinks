@@ -10,7 +10,7 @@
 		"breadcrumb"
 	],
 	"homepage": "https://www.semantic-mediawiki.org/wiki/Extension:SemanticBreadcrumbLinks",
-	"license": "GPL-2.0+",
+	"license": "GPL-2.0-or-later",
 	"authors": [
 		{
 			"name": "James Hong Kong",
