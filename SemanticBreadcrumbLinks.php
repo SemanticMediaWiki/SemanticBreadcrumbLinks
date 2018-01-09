@@ -62,7 +62,7 @@ class SemanticBreadcrumbLinks {
 			'url'            => 'https://github.com/SemanticMediaWiki/SemanticBreadcrumbLinks/',
 			'descriptionmsg' => 'sbl-desc',
 			'version'        => SBL_VERSION,
-			'license-name'   => 'GPL-2.0+',
+			'license-name'   => 'GPL-2.0-or-later',
 		];
 
 		// Register message files
