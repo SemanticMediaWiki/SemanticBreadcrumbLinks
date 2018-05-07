@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Hedda"
+		]
+	},
+	"sbl-desc": "Bir atfeden özellik filtresinden breadcrumb bağlantıları oluşturmak için [https://www.semantic-mediawiki.org Semantik bir MediaWiki] uzantısı",
+	"smw-pa-property-predefined__sbl_parentpage": "\"$1\", ebeveyn ve çocuk varlığı arasındaki ilişkiyi tanımlayan önceden tanımlanmış bir özelliktir ve [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic Breadcrumb Links] uzantısıyla sağlanır.",
+	"smw-pa-property-predefined-long__sbl_parentpage": "Bir varlığın ebeveynine göre konumunu belirleyerek bir ekmek kırıntısı (breadcrumb) izi şeklinde bir gezinti yardımı oluşturmak için kullanılabilir.",
+	"sbl-property-alias-parentpage": "Üst sayfa var"
+}
