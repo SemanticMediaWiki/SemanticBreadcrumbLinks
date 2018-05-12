@@ -1,5 +1,9 @@
 ## Configuration
 
+This file describes the configuration of the Semantic Breadcrumb Links (SBL) extension.
+
+### General
+
 - `$GLOBALS['egSBLTryToFindClosestDescendant']` if enabled SBL will try to find the closest descendant
 (it will not work for subpages due to missing annotation information).
 
@@ -10,6 +14,9 @@ the amountof properties specified per namespace will be used as maximum depth fo
 matches (`parent > grandparent > great-grandparent` etc.) that can be found relative to the current
 subject. If multiple parents or children are available for a subject then only one of each can be
 displayed due to the nature of the breadcrumb trail.
+
+Note that the display of these aforementioned decendants is limited to 20 (1 shown directly and 19 via
+the dropdown) for best experience even though more may exist. This limit cannot be changed.
 
 ### Styling
 
