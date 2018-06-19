@@ -54,35 +54,35 @@ $GLOBALS['egSBLEnabledSubpageParentAnnotation'] = true;
 $GLOBALS['egSBLTryToFindClosestDescendant'] = true;
 $GLOBALS['egSBLUseSubpageFinderFallback'] = true;
 
-$GLOBALS['egSBLPropertySearchPatternByNamespace'] = array(
+$GLOBALS['egSBLPropertySearchPatternByNamespace'] = [
 
 	// Search for a three level sub-category hierarchy
-	NS_CATEGORY => array(
+	NS_CATEGORY => [
 		'_SUBC',
 		'_SUBC',
 		'_SUBC'
-	),
+	],
 
 	// Search for a three level sub-property hierarchy
-	SMW_NS_PROPERTY => array(
+	SMW_NS_PROPERTY => [
 		'_SUBP',
 		'_SUBP',
 		'_SUBP'
-	),
+	],
 
 	// Search for a three level antecedent hierarchy that contains a `Has parent page`
 	// annotation to follow a `parent > grandparent > great-grandparent` schema
-	NS_MAIN => array(
+	NS_MAIN => [
 		SBL_PROP_PARENTPAGE,
 		SBL_PROP_PARENTPAGE,
 		SBL_PROP_PARENTPAGE
-	),
-	NS_HELP => array(
+	],
+	NS_HELP => [
 		SBL_PROP_PARENTPAGE,
 		SBL_PROP_PARENTPAGE,
 		SBL_PROP_PARENTPAGE
-	)
-);
+	]
+];
 ```
 
 ### Other search strategies
@@ -92,18 +92,18 @@ $GLOBALS['egSBLPropertySearchPatternByNamespace'] = array(
 	// Find a relationship on the first iteration using a `Has parent page` and
 	// if successful use this input to find a related category (`_INST`) in the
 	// following iteration
-	$GLOBALS['egSBLPropertySearchPatternByNamespace'][ NS_MAIN ] = array(
+	$GLOBALS['egSBLPropertySearchPatternByNamespace'][ NS_MAIN ] = [
 		SBL_PROP_PARENTPAGE,
 		'_INST'
-	);
+	];
 
 	// Match the category of a page and then for all succeeding steps
 	// try to match an associated sub-category to that category/sub-category
-	$GLOBALS['egSBLPropertySearchPatternByNamespace'][ NS_MAIN ] = array(
+	$GLOBALS['egSBLPropertySearchPatternByNamespace'][ NS_MAIN ] = [
 		'_INST',
 		'_SUBC',
 		'_SUBC'
-	);
+	];
 ```
 
 [mw-nssubp]: https://www.mediawiki.org/wiki/Manual:$wgNamespacesWithSubpages
