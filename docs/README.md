@@ -23,4 +23,4 @@ values.
 
 ### Configuration
 
-Details on available sttings are decribed in [this](00-configurations.md) document.
+Details on available settings are decribed in the [SBL configuration guide](00-configurations.md).
