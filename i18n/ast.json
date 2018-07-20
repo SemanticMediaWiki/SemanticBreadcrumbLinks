@@ -5,7 +5,7 @@
 		]
 	},
 	"sbl-desc": "Una estensión de [https://semantic-mediawiki.org Semantic MediaWiki] pa construir enllaces de rastros dende un filtru de propiedá atributiva",
-	"smw-pa-property-predefined__sbl_parentpage": "\"$1\" ye una propiedá predefinida que pué describir una rellación ente una entidá madre y una fía y úfrela la estensión [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Enllaces de rastros semánticos].",
-	"smw-pa-property-predefined-long__sbl_parentpage": "Identificando'l llugar d'una entidá en rellación cola madre pué usase pa xenerar una ayuda de navegación en forma de rastru d'enllaces.",
+	"smw-pa-property-predefined__sbl_parentpage": "«$1» ye una propiedá predefinida que puede describir una rellación ente una entidá madre y una fía y úfrela la estensión [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Enllaces de rastros semánticos].",
+	"smw-pa-property-predefined-long__sbl_parentpage": "Identificando'l llugar d'una entidá en rellación cola madre puede usase pa xenerar una ayuda de navegación en forma de rastru d'enllaces.",
 	"sbl-property-alias-parentpage": "Tien páxina madre"
 }
