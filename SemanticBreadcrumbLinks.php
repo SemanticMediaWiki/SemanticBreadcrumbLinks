@@ -37,7 +37,7 @@ class SemanticBreadcrumbLinks {
 		// Load DefaultSettings
 		require_once __DIR__ . '/DefaultSettings.php';
 
-		// In case extension.json is being used, the the succeeding steps will
+		// In case extension.json is being used, the succeeding steps will
 		// be handled by the ExtensionRegistry
 		self::initExtension();
 
