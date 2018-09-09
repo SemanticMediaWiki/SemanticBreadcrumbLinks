@@ -77,6 +77,14 @@
 	margin: .3em 0 0 0.6em;
 }
 
+/**
+ * @see the contentSub CSS, substract -1em to start from 0
+ */
+#contentSub #sbl-breadcrumbs {
+	font-size: 100%;
+	margin: 0 0 1.4em -1em;
+}
+
 /* SBL chameleon */
 .skin-chameleon .sbl-breadcrumb-children-list {
     margin: .1em 0 0 -1.5em;

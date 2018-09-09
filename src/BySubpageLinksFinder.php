@@ -48,13 +48,17 @@ class BySubpageLinksFinder {
 	 */
 	public function findLinksBySubject( DIWikiPage $subject ) {
 
-		$prefixedText = $subject->getTitle()->getPrefixedText();
+		$title = $subject->getTitle();
 
-		if ( !$this->canBuildLinksFromText( $prefixedText ) ) {
+		// Use the text instead of the prefixedText to avoid a split
+		// in cases where the NS contains a / (e.g. smw/schema:Foobar)
+		$text = $title->getText();
+
+		if ( !$this->canBuildLinksFromText( $text ) ) {
 			return;
 		}
 
-		$this->buildHierarchicalLinksFromText( $prefixedText );
+		$this->buildHierarchicalLinksFromText( $text, $title->getNamespace() );
 	}
 
 	/**
@@ -70,7 +74,7 @@ class BySubpageLinksFinder {
 		return preg_match( '/\//', $text );
 	}
 
-	private function buildHierarchicalLinksFromText( $text ) {
+	private function buildHierarchicalLinksFromText( $text, $ns ) {
 
 		$growinglink = '';
 		$links = explode( '/', $text );
@@ -82,7 +86,7 @@ class BySubpageLinksFinder {
 
 			if ( $link !== '' && substr( $link, -1 ) !== ' ' ) {
 				$growinglink .= $link;
-				$this->antecedentHierarchyLinks[] = DIWikiPage::newFromTitle( Title::newFromText( $growinglink ) );
+				$this->antecedentHierarchyLinks[] = DIWikiPage::newFromTitle( Title::newFromText( $growinglink, $ns ) );
 			}
 
 			$growinglink .= '/';

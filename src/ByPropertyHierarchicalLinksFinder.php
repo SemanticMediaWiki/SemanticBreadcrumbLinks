@@ -83,6 +83,7 @@ class ByPropertyHierarchicalLinksFinder {
 
 		$requestOptions = new RequestOptions();
 		$requestOptions->sort = true;
+		$requestOptions->conditionConstraint = true;
 
 		// Use 3 as buffer to broaden match possibilities
 		$requestOptions->limit = 3;

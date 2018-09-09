@@ -38,7 +38,7 @@ class BySubpageLinksFinderTest extends \PHPUnit_Framework_TestCase {
 	/**
 	 * @dataProvider titleProvider
 	 */
-	public function testFindParentBreadcrumbs( $title,$count, $expected ) {
+	public function testFindParentBreadcrumbs( $title, $count, $expected ) {
 
 		$subject = DIWikiPage::newFromTitle( Title::newFromText( $title ) );
 
@@ -140,6 +140,15 @@ class BySubpageLinksFinderTest extends \PHPUnit_Framework_TestCase {
 			'Foo /Bar /Foobar',
 			0,
 			[]
+		];
+
+		#9
+		$provider[] = [
+			'Help:Foo/Foobar',
+			1,
+			[
+				new DIWikiPage( 'Foo', NS_HELP ),
+			]
 		];
 
 		return $provider;

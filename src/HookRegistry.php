@@ -133,9 +133,12 @@ class HookRegistry {
 				$options->get( 'hideSubpageParent' )
 			);
 
-			$skinTemplateOutputModifier = new SkinTemplateOutputModifier( $htmlBreadcrumbLinksBuilder );
-			$skinTemplateOutputModifier->modifyTemplate( $template );
-			$skinTemplateOutputModifier->modifyOutput( $skin->getOutput() );
+			$skinTemplateOutputModifier = new SkinTemplateOutputModifier(
+				$htmlBreadcrumbLinksBuilder,
+				ApplicationFactory::getInstance()->getNamespaceExaminer()
+			);
+
+			$skinTemplateOutputModifier->modify( $skin->getOutput(), $template );
 
 			return true;
 		};
