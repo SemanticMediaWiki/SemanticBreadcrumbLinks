@@ -18,7 +18,7 @@ This [video](https://vimeo.com/129347298) demonstrates the functionality of the 
 
 ## Requirements
 
-- PHP 5.5 or later
+- PHP 5.6 or later
 - MediaWiki 1.27 or later
 - [Semantic MediaWiki][smw] 2.4 or later
 
