@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Nerogaf",
+			"Red Winged Duck"
+		]
+	},
+	"sbl-desc": "Пашырэньне [https://www.semantic-mediawiki.org Semantic MediaWiki] для пабудовы навігацыйных спасылак зь фільтру атрыбутыўных уласьцівасьцяў",
+	"sbl-property-alias-parentpage": "Мае бацькоўскую старонку"
+}
