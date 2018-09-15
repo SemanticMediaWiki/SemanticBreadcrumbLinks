@@ -51,3 +51,8 @@ $GLOBALS['egSBLPageTitleToHideSubpageParent'] = true;
  * Supports the auto-generation of Has parent page annotations for subpages.
  */
 $GLOBALS['egSBLEnabledSubpageParentAnnotation'] = true;
+
+/**
+ * Disables the annotation for a subpage when it is identified as translation page.
+ */
+$GLOBALS['egSBLDisableTranslationSubpageAnnotation'] = true;

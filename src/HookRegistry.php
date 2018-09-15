@@ -187,6 +187,10 @@ class HookRegistry {
 				$options->get( 'enabledSubpageParentAnnotation' )
 			);
 
+			$subpageParentAnnotator->disableTranslationSubpageAnnotation(
+				$options->get( 'disableTranslationSubpageAnnotation' )
+			);
+
 			$subpageParentAnnotator->addAnnotation();
 
 			return true;

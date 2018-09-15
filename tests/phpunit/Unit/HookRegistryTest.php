@@ -65,6 +65,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 			'breadcrumbDividerStyleClass' => 'bar',
 			'hideSubpageParent' => true,
 			'enabledSubpageParentAnnotation' => true,
+			'disableTranslationSubpageAnnotation' => false,
 			'wgNamespacesWithSubpages' => []
 		];
 

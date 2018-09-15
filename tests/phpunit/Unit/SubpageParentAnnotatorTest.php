@@ -19,10 +19,15 @@ use Title;
 class SubpageParentAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 	private $parserData;
+	private $parserOutput;
 
 	protected function setUp() {
 
 		$title = Title::newFromText( 'Foo/Bar' );
+
+		$this->parserOutput = $this->getMockBuilder( '\ParserOutput' )
+			->disableOriginalConstructor()
+			->getMock();
 
 		$this->parserData = $this->getMockBuilder( '\SMW\ParserData' )
 			->disableOriginalConstructor()
@@ -31,6 +36,10 @@ class SubpageParentAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		$this->parserData->expects( $this->any() )
 			->method( 'getTitle' )
 			->will( $this->returnValue( $title ) );
+
+		$this->parserData->expects( $this->any() )
+			->method( 'getOutput' )
+			->will( $this->returnValue( $this->parserOutput ) );
 	}
 
 	public function testCanConstruct() {
@@ -141,6 +150,21 @@ class SubpageParentAnnotatorTest extends \PHPUnit_Framework_TestCase {
 		);
 
 		$instance->enableSubpageParentAnnotation( true );
+		$instance->addAnnotation();
+	}
+
+	public function testDisableTranslationSubpageAnnotation() {
+
+		$this->parserOutput->expects( $this->once() )
+			->method( 'getExtensionData' )
+			->with( $this->equalTo( 'translate-translation-page' ) )
+			->will( $this->returnValue( true ) );
+
+		$instance = new SubpageParentAnnotator(
+			$this->parserData
+		);
+
+		$instance->disableTranslationSubpageAnnotation( true );
 		$instance->addAnnotation();
 	}
 
