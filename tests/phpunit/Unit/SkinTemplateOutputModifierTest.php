@@ -100,9 +100,6 @@ class SkinTemplateOutputModifierTest extends \PHPUnit_Framework_TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$output->expects( $this->never() )
-			->method( 'prependHTML' );
-
 		$output->expects( $this->atLeastOnce() )
 			->method( 'getTitle' )
 			->will( $this->returnValue( $title ) );
@@ -119,10 +116,6 @@ class SkinTemplateOutputModifierTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function PrependHtmlOnNonViewAction() {
-
-		$context = new \RequestContext();
-		$context->setRequest( new \FauxRequest( [ 'action' => 'edit' ], true ) );
-		$context->setTitle( Title::newFromText( __METHOD__ ) );
 
 		$htmlBreadcrumbLinksBuilder = $this->getMockBuilder( '\SBL\HtmlBreadcrumbLinksBuilder' )
 			->disableOriginalConstructor()
@@ -147,13 +140,6 @@ class SkinTemplateOutputModifierTest extends \PHPUnit_Framework_TestCase {
 		$output = $this->getMockBuilder( '\OutputPage' )
 			->disableOriginalConstructor()
 			->getMock();
-
-		$output->expects( $this->never() )
-			->method( 'prependHTML' );
-
-		$output->expects( $this->once() )
-			->method( 'getContext' )
-			->will( $this->returnValue( $context ) );
 
 		$output->expects( $this->atLeastOnce() )
 			->method( 'getTitle' )
@@ -172,9 +158,6 @@ class SkinTemplateOutputModifierTest extends \PHPUnit_Framework_TestCase {
 
 	public function testTryPrependHtmlOnNOBREADCRUMBLINKS() {
 
-		$context = new \RequestContext();
-		$context->setRequest( new \FauxRequest( [ 'action' => 'view'  ], true ) );
-
 		$htmlBreadcrumbLinksBuilder = $this->getMockBuilder( '\SBL\HtmlBreadcrumbLinksBuilder' )
 			->disableOriginalConstructor()
 			->getMock();
@@ -199,13 +182,6 @@ class SkinTemplateOutputModifierTest extends \PHPUnit_Framework_TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$output->expects( $this->never() )
-			->method( 'prependHTML' );
-
-		$output->expects( $this->any() )
-			->method( 'getContext' )
-			->will( $this->returnValue( $context ) );
-
 		$output->expects( $this->atLeastOnce() )
 			->method( 'getTitle' )
 			->will( $this->returnValue( $title ) );
@@ -223,10 +199,11 @@ class SkinTemplateOutputModifierTest extends \PHPUnit_Framework_TestCase {
 		$instance->modify( $output, $template );
 	}
 
-	public function tesPrependHtmlForViewActionOnly() {
+	public function testAppendHtml() {
 
-		$context = new \RequestContext();
-		$context->setRequest( new \FauxRequest( [ 'action' => 'view'  ], true ) );
+		$this->namespaceExaminer->expects( $this->once() )
+			->method( 'isSemanticEnabled' )
+			->will( $this->returnValue( true ) );
 
 		$htmlBreadcrumbLinksBuilder = $this->getMockBuilder( '\SBL\HtmlBreadcrumbLinksBuilder' )
 			->disableOriginalConstructor()
@@ -235,6 +212,10 @@ class SkinTemplateOutputModifierTest extends \PHPUnit_Framework_TestCase {
 		$htmlBreadcrumbLinksBuilder->expects( $this->once() )
 			->method( 'buildBreadcrumbs' )
 			->will( $this->returnSelf() );
+
+		$htmlBreadcrumbLinksBuilder->expects( $this->once() )
+			->method( 'getHtml' )
+			->will( $this->returnValue( 'bar' ) );
 
 		$language = $this->getMockBuilder( '\Language' )
 			->disableOriginalConstructor()
@@ -264,13 +245,6 @@ class SkinTemplateOutputModifierTest extends \PHPUnit_Framework_TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$output->expects( $this->once() )
-			->method( 'prependHTML' );
-
-		$output->expects( $this->once() )
-			->method( 'getContext' )
-			->will( $this->returnValue( $context ) );
-
 		$output->expects( $this->atLeastOnce() )
 			->method( 'getTitle' )
 			->will( $this->returnValue( $title ) );
@@ -281,11 +255,15 @@ class SkinTemplateOutputModifierTest extends \PHPUnit_Framework_TestCase {
 		);
 
 		$template = new \stdClass;
-		$template->data = [];
+
+		$template->data = [
+			'subtitle' => 'Foo'
+		];
 
 		$instance->modify( $output, $template );
 
-		$this->assertEmpty(
+		$this->assertEquals(
+			'Foobar',
 			$template->data['subtitle']
 		);
 	}
