@@ -62,7 +62,7 @@ class SkinTemplateOutputModifier {
 
 		// We always assume `subtitle` is available!
 		// https://github.com/wikimedia/mediawiki/blob/23ea2e4c2966f381eb7fd69b66a8d738bb24cc60/includes/skins/SkinTemplate.php#L292-L296
-		$template->data['subtitle'] = $this->htmlBreadcrumbLinksBuilder->getHtml();
+		$template->data['subtitle'] .= $this->htmlBreadcrumbLinksBuilder->getHtml();
 	}
 
 	private function canModifyOutput( OutputPage $output ) {
