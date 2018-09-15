@@ -153,6 +153,7 @@ class SemanticBreadcrumbLinks {
 			'tryToFindClosestDescendant' => $GLOBALS['egSBLTryToFindClosestDescendant'],
 			'useSubpageFinderFallback' => $GLOBALS['egSBLUseSubpageFinderFallback'],
 			'enabledSubpageParentAnnotation' => $GLOBALS['egSBLEnabledSubpageParentAnnotation'],
+			'disableTranslationSubpageAnnotation' => $GLOBALS['egSBLDisableTranslationSubpageAnnotation'],
 			'wgNamespacesWithSubpages' => $GLOBALS['wgNamespacesWithSubpages'],
 			'propertySearchPatternByNamespace' => $GLOBALS['egSBLPropertySearchPatternByNamespace'] + $defaultPropertySearchPatternByNamespace
 		];

@@ -26,6 +26,11 @@ class SubpageParentAnnotator {
 	private $enableSubpageParentAnnotation = true;
 
 	/**
+	 * @var boolean
+	 */
+	private $disableTranslationSubpageAnnotation = false;
+
+	/**
 	 * @since 1.3
 	 *
 	 * @param ParserData $parserData
@@ -44,6 +49,15 @@ class SubpageParentAnnotator {
 	}
 
 	/**
+	 * @since 1.3
+	 *
+	 * @param boolean $enableSubpageParentAnnotation
+	 */
+	public function disableTranslationSubpageAnnotation( $disableTranslationSubpageAnnotation ) {
+		$this->disableTranslationSubpageAnnotation = (bool)$disableTranslationSubpageAnnotation;
+	}
+
+	/**
 	 * @since  1.3
 	 */
 	public function addAnnotation() {
@@ -51,6 +65,12 @@ class SubpageParentAnnotator {
 		$title = $this->parserData->getTitle();
 
 		if ( !$this->enableSubpageParentAnnotation || strpos( $title->getText(), '/' ) === false ) {
+			return;
+		}
+
+		// Is a ranslation page? bail-out!
+		// @see https://github.com/SemanticMediaWiki/SemanticMediaWiki/pull/3293
+		if ( $this->disableTranslationSubpageAnnotation && $this->parserData->getOutput()->getExtensionData( 'translate-translation-page' ) ) {
 			return;
 		}
 

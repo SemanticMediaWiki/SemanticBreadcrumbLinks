@@ -3,6 +3,7 @@
 namespace SBL\Tests;
 
 use SBL\Options;
+use SMW\Tests\PHPUnitCompat;
 
 /**
  * @covers \SBL\Options
@@ -14,6 +15,8 @@ use SBL\Options;
  * @author mwjames
  */
 class OptionsTest extends \PHPUnit_Framework_TestCase {
+
+	use PHPUnitCompat;
 
 	public function testCanConstruct() {
 
