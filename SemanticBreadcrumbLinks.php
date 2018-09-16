@@ -36,34 +36,16 @@ class SemanticBreadcrumbLinks {
 
 		// Load DefaultSettings
 		require_once __DIR__ . '/DefaultSettings.php';
-
-		// In case extension.json is being used, the succeeding steps will
-		// be handled by the ExtensionRegistry
-		self::initExtension();
-
-		$GLOBALS['wgExtensionFunctions'][] = function() {
-			self::onExtensionFunction();
-		};
 	}
 
 	/**
 	 * @since 1.3
 	 */
-	public static function initExtension() {
+	public static function initExtension( $credits = [] ) {
 
-		define( 'SBL_VERSION', '1.5.0-alpha' );
+		// See https://phabricator.wikimedia.org/T151136
+		define( 'SBL_VERSION', isset( $credits['version'] ) ? $credits['version'] : 'UNKNOWN' );
 		define( 'SBL_PROP_PARENTPAGE', 'Has parent page' );
-
-		// Register the extension
-		$GLOBALS['wgExtensionCredits']['semantic'][ ] = [
-			'path'           => __FILE__,
-			'name'           => 'Semantic Breadcrumb Links',
-			'author'         => [ 'James Hong Kong' ],
-			'url'            => 'https://github.com/SemanticMediaWiki/SemanticBreadcrumbLinks/',
-			'descriptionmsg' => 'sbl-desc',
-			'version'        => SBL_VERSION,
-			'license-name'   => 'GPL-2.0-or-later',
-		];
 
 		// Register message files
 		$GLOBALS['wgMessagesDirs']['SemanticBreadcrumbLinks'] = __DIR__ . '/i18n';
@@ -102,24 +84,15 @@ class SemanticBreadcrumbLinks {
 	/**
 	 * @since 1.3
 	 */
-	public static function checkRequirements() {
-
-		if ( version_compare( $GLOBALS[ 'wgVersion' ], '1.27', 'lt' ) ) {
-			die( '<b>Error:</b> This version of <a href="https://github.com/SemanticMediaWiki/SemanticBreadcrumbLinks/">Semantic Breadcrumb Links</a> is only compatible with MediaWiki 1.27 or above. You need to upgrade MediaWiki first.' );
-		}
-
-		if ( !defined( 'SMW_VERSION' ) ) {
-			die( '<b>Error:</b> <a href="https://github.com/SemanticMediaWiki/SemanticBreadcrumbLinks/">Semantic Breadcrumb Links</a> requires <a href="https://github.com/SemanticMediaWiki/SemanticMediaWiki/">Semantic MediaWiki</a>. Please enable or install the extension first.' );
-		}
-	}
-
-	/**
-	 * @since 1.3
-	 */
 	public static function onExtensionFunction() {
 
-		// Check requirements after LocalSetting.php has been processed
-		self::checkRequirements();
+		if ( !defined( 'SMW_VERSION' ) ) {
+			if ( PHP_SAPI === 'cli' || PHP_SAPI === 'phpdbg' ) {
+				die( "\nThe 'Semantic Breadcrumb Links' extension requires 'Semantic MediaWiki' to be installed and enabled.\n" );
+			} else {
+				die( '<b>Error:</b> The <a href="https://github.com/SemanticMediaWiki/SemanticBreadcrumbLinks/">Semantic Breadcrumb Links</a> extension requires <a href="https://www.semantic-mediawiki.org/wiki/Semantic_MediaWiki">Semantic MediaWiki</a> to be installed and enabled.<br />' );
+			}
+		}
 
 		// Default values are defined at this point to ensure
 		// NS contants are specified prior
@@ -146,9 +119,21 @@ class SemanticBreadcrumbLinks {
 			]
 		];
 
+		// Cover legacy settings
+		$deprecationNotices = [];
+
+		if ( isset( $GLOBALS['egSBLBreadcrumbTrailStyleClass'] ) ) {
+			$GLOBALS['sblgBreadcrumbTrailStyleClass'] = $GLOBALS['egSBLBreadcrumbTrailStyleClass'];
+			$deprecationNotices['replacement']['egSBLBreadcrumbTrailStyleClass'] = 'sblgBreadcrumbTrailStyleClass';
+		}
+
+		if ( $deprecationNotices !== [] && !isset( $GLOBALS['smwgDeprecationNotices']['sbl'] ) ) {
+			$GLOBALS['smwgDeprecationNotices']['sbl'] = [ 'replacement' => $deprecationNotices['replacement'] ];
+		}
+
 		$configuration = [
 			'hideSubpageParent' => $GLOBALS['egSBLPageTitleToHideSubpageParent'],
-			'breadcrumbTrailStyleClass' => $GLOBALS['egSBLBreadcrumbTrailStyleClass'],
+			'breadcrumbTrailStyleClass' => $GLOBALS['sblgBreadcrumbTrailStyleClass'],
 			'breadcrumbDividerStyleClass' => $GLOBALS['egSBLBreadcrumbDividerStyleClass'],
 			'tryToFindClosestDescendant' => $GLOBALS['egSBLTryToFindClosestDescendant'],
 			'useSubpageFinderFallback' => $GLOBALS['egSBLUseSubpageFinderFallback'],

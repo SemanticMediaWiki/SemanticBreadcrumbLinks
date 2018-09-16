@@ -1,0 +1,27 @@
+{
+	"name": "SemanticBreadcrumbLinks",
+	"version": "2.0.0-alpha",
+	"author": [
+		"James Hong Kong",
+		"..."
+	],
+	"url": "https://github.com/SemanticMediaWiki/SemanticBreadcrumbLinks/",
+	"descriptionmsg": "sbl-desc",
+	"namemsg": "sbl-name",
+	"license-name": "GPL-2.0-or-later",
+	"type": "semantic",
+	"requires": {
+		"MediaWiki": ">= 1.27"
+	},
+	"MessagesDirs": {
+		"SemanticBreadcrumbLinks": [
+			"i18n"
+		]
+	},
+	"callback": "SemanticBreadcrumbLinks::initExtension",
+	"ExtensionFunctions": [
+		"SemanticBreadcrumbLinks::onExtensionFunction"
+	],
+	"load_composer_autoloader":true,
+	"manifest_version": 1
+}

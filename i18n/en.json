@@ -6,7 +6,12 @@
 		]
 	},
 	"sbl-desc": "A [https://www.semantic-mediawiki.org Semantic MediaWiki] extension to build breadcrumb links from an attributive property filter",
-	"smw-pa-property-predefined__sbl_parentpage": "\"$1\" is a predefined property that can describe a relationship between a parent and a child entity and is provided by the [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic Breadcrumb Links] extension.",
-	"smw-pa-property-predefined-long__sbl_parentpage": "By identifying the location of an entity relative to its parent it can be used to generate a navigational help in form of a breadcrumb trail.",
-	"sbl-property-alias-parentpage": "Has parent page"
+	"sbl-name": "Semantic Breadcrumb Links",
+	"smw-pa-property-predefined-sbl-parentpage": "\"$1\" is a predefined property that can describe a relationship between a parent and a child entity and is provided by the [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic Breadcrumb Links] extension.",
+	"smw-pa-property-predefined-long-sbl-parentpage": "By identifying the location of an entity relative to its parent it can be used to generate a navigational help in form of a breadcrumb trail.",
+	"sbl-property-alias-parentpage": "Has parent page",
+	"sbl-admin-deprecation-notice-section": "Semantic Breadcrumb Links extension",
+	"sbl-admin-deprecation-notice-title-replacement": "Replaced or renamed settings",
+	"sbl-admin-deprecation-notice-title-replacement-explanation": "The following section contains settings that were renamed or otherwise modified and it is recommended to forthwith update their name or format.",
+	"sbl-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links/$1 $1]</code> was replaced by <code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links/$2 $2]</code>"
 }
