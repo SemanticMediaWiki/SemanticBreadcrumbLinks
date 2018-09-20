@@ -10,7 +10,7 @@ use SMW\ApplicationFactory;
  * @defgroup SBL Semantic Breadcrumb Links
  */
 if ( !defined( 'MEDIAWIKI' ) ) {
-	die( 'This file is part of the Semantic Breadcrumb Links extension, it is not a valid entry point.' );
+	die( 'This file is part of the Semantic Breadcrumb Links extension. It is not a valid entry point.' );
 }
 
 if ( defined( 'SBL_VERSION' ) ) {
@@ -51,7 +51,7 @@ class SemanticBreadcrumbLinks {
 	 */
 	public static function initExtension() {
 
-		define( 'SBL_VERSION', '1.5.0-alpha' );
+		define( 'SBL_VERSION', '1.5.0' );
 		define( 'SBL_PROP_PARENTPAGE', 'Has parent page' );
 
 		// Register the extension
