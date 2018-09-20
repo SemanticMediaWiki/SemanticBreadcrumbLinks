@@ -6,7 +6,7 @@
 		]
 	},
 	"sbl-desc": "Пашырэньне [https://www.semantic-mediawiki.org Semantic MediaWiki] для пабудовы навігацыйных спасылак зь фільтру атрыбутыўных уласьцівасьцяў",
-	"smw-pa-property-predefined__sbl_parentpage": "\"$1\" з'яўляецца перадвызначанай ўласьцівасьцю, якая можа апісаць адносіны паміж крыніцай і залежнасьцю й забясьпечана пашырэньнем [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic Breadcrumb Links].",
+	"smw-pa-property-predefined__sbl_parentpage": "«$1» зьяўляецца перадвызначанай уласьцівасьцю, якая можа апісаць адносіны паміж крыніцай і залежнасьцю й забясьпечана пашырэньнем [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic Breadcrumb Links].",
 	"smw-pa-property-predefined-long__sbl_parentpage": "Вызначаючы месцазнаходжаньне аб'екта адносна яго крыніцы, ён можа быць скарыстаны для стварэньня дапамогі па навігацыі ў форме шляху.",
 	"sbl-property-alias-parentpage": "Мае бацькоўскую старонку"
 }
