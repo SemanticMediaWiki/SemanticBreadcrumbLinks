@@ -2,7 +2,7 @@ This file contains the RELEASE-NOTES of the Semantic Breadcrumb Links (a.k.a. SB
 
 ### 1.5.0
 
-Released on September 20, 2018.
+Released on September 22, 2018.
 
 * Requires PHP 5.6 or later
 * #47/#49 Fixed integration with MediaWiki 1.30+ by using `subtitle` to show redirect, revision and display title information
