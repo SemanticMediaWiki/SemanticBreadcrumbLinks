@@ -93,3 +93,6 @@
 .skin-chameleon .sbl-breadcrumb-children-list {
     margin: .1em 0 0 -1.5em;
 }
+.skin-chameleon #contentSub #sbl-breadcrumbs {
+    margin: 0.9em 0 1.4em 0;
+}
