@@ -1,5 +1,14 @@
 This file contains the RELEASE-NOTES of the Semantic Breadcrumb Links (a.k.a. SBL) extension.
 
+### 1.5.0
+
+Released on September 22, 2018.
+
+* Requires PHP 5.6 or later
+* #47/#49 Fixed integration with MediaWiki 1.30+ by using `subtitle` to show redirect, revision and display title information
+* #50 Added `$egSBLDisableTranslationSubpageAnnotation` to allow for disabling translation subpage annotation
+* Localization updates from https://translatewiki.net
+
 ### 1.4.0
 
 Released on June 10, 2017.
@@ -25,9 +34,9 @@ Released on July 9, 2016.
 * Requires Semantic MediaWiki 2.4 or later
 * Added `onoi/shared-resources` dependency
 * Support for `Display title of` provided by SMW 2.4.0
-* Added `$GLOBALS['egSBLEnabledSubpageParentAnnotation']` to allow for subpage
+* Added `$egSBLEnabledSubpageParentAnnotation` to allow for subpage
   parents to be annotated automatically if no other `Has parent page` exists
-* Recognize `egSBLPageTitleToHideSubpageParent` / `wgNamespacesWithSubpages`
+* Recognize `$egSBLPageTitleToHideSubpageParent` / `$wgNamespacesWithSubpages`
   when building the breadcrumb title
 * Apply italic styles for "hasChildren" early to avoid JS async display clutter
 
@@ -45,7 +54,7 @@ Released on December 19, 2015.
 Released on June 2, 2015.
 
 * Fixed unstyled content flashing observed in MW 1.25
-* Added `$GLOBALS['egSBLBreadcrumbDividerStyleClass']` to assign styling options such as `sbl-breadcrumb-pipe` or `sbl-breadcrumb-arrow`
+* Added `$egSBLBreadcrumbDividerStyleClass` to assign styling options such as `sbl-breadcrumb-pipe` or `sbl-breadcrumb-arrow`
 * Localization updates from https://translatewiki.net
 
 ### 1.0.0
@@ -53,5 +62,5 @@ Released on June 2, 2015.
 Released on Februray 14, 2015.
 
 * Initial release
-* `ByPropertyHierarchicalLinksFinder` to match a property hierarchy defined by `egSBLPropertySearchPatternByNamespace`
-* `BySubpageLinksFinder` to find a subpage hierarchy if `egSBLUseSubpageFinderFallback` is enabled
+* `ByPropertyHierarchicalLinksFinder` to match a property hierarchy defined by `$egSBLPropertySearchPatternByNamespace`
+* `BySubpageLinksFinder` to find a subpage hierarchy if `$egSBLUseSubpageFinderFallback` is enabled

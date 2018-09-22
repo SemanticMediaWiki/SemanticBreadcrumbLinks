@@ -37,10 +37,12 @@ enabled then SBL will not try to resolve a possible subpage hierarchy.
 - `$GLOBALS['egSBLPageTitleToHideSubpageParent']` if enabled SBL will try to hide the parent part
 of a subpage title from display when a corresponding namespace entry is found in the
 [`wgNamespacesWithSubpages`][mw-nssubp] setting.
-
 - `$GLOBALS['egSBLEnabledSubpageParentAnnotation']` supports the auto-generation of `Has parent page`
 annotations for subpages. Yet, it will not create any additional assignment if `Has parent page` is
 already part of the `SemanticData`.
+- `$GLOBALS['egSBLDisableTranslationSubpageAnnotation']` supports avoiding to create annotations for
+pages like e.g. "Example/en" where "en" is identified as translation page by the "Translate" extension. Note
+that this works only for any new translation revision but not for revisions in retrospect.
 
 ## Default settings
 
@@ -50,6 +52,7 @@ $GLOBALS['egSBLBreadcrumbDividerStyleClass'] = 'sbl-breadcrumb-arrow';
 
 $GLOBALS['egSBLPageTitleToHideSubpageParent'] = true;
 $GLOBALS['egSBLEnabledSubpageParentAnnotation'] = true;
+$GLOBALS['egSBLDisableTranslationSubpageAnnotation'] = true;
 
 $GLOBALS['egSBLTryToFindClosestDescendant'] = true;
 $GLOBALS['egSBLUseSubpageFinderFallback'] = true;

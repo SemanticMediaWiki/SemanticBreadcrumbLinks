@@ -10,7 +10,7 @@ use SMW\ApplicationFactory;
  * @defgroup SBL Semantic Breadcrumb Links
  */
 if ( !defined( 'MEDIAWIKI' ) ) {
-	die( 'This file is part of the Semantic Breadcrumb Links extension, it is not a valid entry point.' );
+	die( 'This file is part of the Semantic Breadcrumb Links extension. It is not a valid entry point.' );
 }
 
 if ( defined( 'SBL_VERSION' ) ) {

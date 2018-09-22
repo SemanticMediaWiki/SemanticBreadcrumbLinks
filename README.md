@@ -29,12 +29,12 @@ The recommended way to install Semantic Breadcrumb Links is by using [Composer][
 ```json
 {
 	"require": {
-		"mediawiki/semantic-breadcrumb-links": "~1.4"
+		"mediawiki/semantic-breadcrumb-links": "~1.5"
 	}
 }
 ```
 1. From your MediaWiki installation directory, execute
-   `composer require mediawiki/semantic-breadcrumb-links:~1.4`
+   `composer require mediawiki/semantic-breadcrumb-links:~1.5`
 2. Navigate to _Special:Version_ on your wiki and verify that the package
    have been successfully installed.
 
