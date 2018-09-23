@@ -1,5 +1,11 @@
 This file contains the RELEASE-NOTES of the Semantic Breadcrumb Links (a.k.a. SBL) extension.
 
+### 1.5.1
+
+Released on September 23, 2018.
+
+* Fixed CSS for `skin-chameleon`
+
 ### 1.5.0
 
 Released on September 22, 2018.
