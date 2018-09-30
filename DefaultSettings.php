@@ -15,7 +15,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 /**
  * Assigns a styling class to the breadcrumb trail
  */
-$GLOBALS['egSBLBreadcrumbTrailStyleClass'] = 'sbl-breadcrumb-trail-light';
+$GLOBALS['sblgBreadcrumbTrailStyleClass'] = 'sbl-breadcrumb-trail-light';
 
 /**
  * Assigns a divider styling class
