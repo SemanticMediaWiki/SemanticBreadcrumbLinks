@@ -5,7 +5,6 @@
 		]
 	},
 	"sbl-desc": "Проширење [https://www.semantic-mediawiki.org Semantic MediaWiki] за стварање бредкрамб линкова од филтера атрибутивних својстава",
-	"smw-pa-property-predefined__sbl_parentpage": "„$1” предефинисано својство које може да опише однос између родитељског и подентитета и омогућује га проширење [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic Breadcrumb Links].",
-	"smw-pa-property-predefined-long__sbl_parentpage": "Идентификовањем локације ентитета у односу на његовог родитеља може се генерисати навигациона помоћ у форми бредграмб трага.",
+	"smw-pa-property-predefined-long-sbl-parentpage": "Идентификовањем локације ентитета у односу на његовог родитеља може се генерисати навигациона помоћ у форми бредграмб трага.",
 	"sbl-property-alias-parentpage": "Има родитељску страницу"
 }

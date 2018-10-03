@@ -5,8 +5,13 @@
 			"Athena in Wonderland"
 		]
 	},
-	"sbl-desc": "Uma extensão do [https://www.semantic-mediawiki.org MediaWiki Semântico] para criar hiperligações de um trilho de navegação a partir de um filtro de propriedades atributivas",
-	"smw-pa-property-predefined__sbl_parentpage": "\"$1\" é uma propriedade predefinida que pode descrever uma relação entre duas entidades mãe e filha e é fornecida pela extensão [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Links Semânticos de Trilho de Navegação].",
-	"smw-pa-property-predefined-long__sbl_parentpage": "Ao identificar a localização de uma entidade em relação à sua entidade mãe, essa localização pode ser usada para gerar ajuda à navegação na forma de um trilho de navegação.",
-	"sbl-property-alias-parentpage": "Tem uma página mãe"
+	"sbl-desc": "Uma extensão do [https://www.semantic-mediawiki.org MediaWiki Semântico] para criar as hiperligações de um trilho de navegação a partir de um filtro de propriedades atributivas",
+	"sbl-name": "Hiperligações de um trilho de navegação semântico",
+	"smw-pa-property-predefined-sbl-parentpage": "\"$1\" é uma propriedade predefinida que pode descrever uma relação entre uma entidade mãe e uma entidade filha e é fornecida pela extensão [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Hiperligações de um trilho de navegação semântico].",
+	"smw-pa-property-predefined-long-sbl-parentpage": "Ao identificar a localização de uma entidade em relação à sua entidade mãe, essa localização pode ser usada para gerar ajuda à navegação na forma de um trilho de navegação.",
+	"sbl-property-alias-parentpage": "Tem uma página mãe",
+	"sbl-admin-deprecation-notice-section": "Extensão de hiperligações de um trilho de navegação semântico",
+	"sbl-admin-deprecation-notice-title-replacement": "Definições substituídas ou com o nome alterado",
+	"sbl-admin-deprecation-notice-title-replacement-explanation": "A secção a seguir contém definições que sofreram alteração do nome ou outra modificação e é recomendado que seja atualizado de imediato o nome ou o formato das mesmas.",
+	"sbl-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links/$1 $1]</code> foi substituída por <code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links/$2 $2]</code>"
 }

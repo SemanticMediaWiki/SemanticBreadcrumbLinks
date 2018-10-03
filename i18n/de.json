@@ -7,7 +7,12 @@
 		]
 	},
 	"sbl-desc": "Ermöglicht eine auf semantische Attribute gestützte Anzeige des Navigationsweges",
-	"smw-pa-property-predefined__sbl_parentpage": "„$1“ ist ein softwareseitig fest definiertes Attribut, das den Zusammenhang zwischen über- und untergeordneten Objekten speichert. Es wird von der Softwareerweiterung [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links „Semantic Breadcrumb Links“] bereitgestellt.",
-	"smw-pa-property-predefined-long__sbl_parentpage": "Das Ermitteln des Objektstandortes, in Relation zu seinem übergeordneten Objekt, kann dazu genutzt werden, eine Navigationshilfe in Form einer Brotkrümelnavigation zu erzeugen.",
-	"sbl-property-alias-parentpage": "Hat übergeordnete Seite"
+	"sbl-name": "Semantic Breadcrumb Links",
+	"smw-pa-property-predefined-sbl-parentpage": "„$1“ ist ein softwareseitig fest definiertes Attribut, das eine Beziehung zwischen einem über- und untergeordneten Objekt beschreiben kann und von der Erweiterung [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links „Semantic Breadcrumb Links“] zur Verfügung gestellt wird.",
+	"smw-pa-property-predefined-long-sbl-parentpage": "Das Ermitteln des Objektstandortes, in Relation zu seinem übergeordneten Objekt, kann dazu genutzt werden, eine Navigationshilfe in Form einer Brotkrümelnavigation zu erzeugen.",
+	"sbl-property-alias-parentpage": "Hat übergeordnete Seite",
+	"sbl-admin-deprecation-notice-section": "Erweiterung „Semantic Breadcrumb Links“",
+	"sbl-admin-deprecation-notice-title-replacement": "Ersetzte oder umbenannte Einstellungen",
+	"sbl-admin-deprecation-notice-title-replacement-explanation": "Der folgende Abschnitt enthält Einstellungen, die umbenannt oder anderweitig verändert wurden. Es wird daher empfohlen, ihre Namen oder ihr Format unverzüglich zu aktualisieren.",
+	"sbl-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links/$1 $1]</code> wurde durch <code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links/$2 $2]</code> ersetzt"
 }

@@ -1,11 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Bjankuloski06"
+			"Bjankuloski06",
+			"Vlad5250"
 		]
 	},
 	"sbl-desc": "Додаток за [https://www.semantic-mediawiki.org Семантички МедијаВики] за испишување на навигациска патека од атрибутивен филтер на својства",
-	"smw-pa-property-predefined__sbl_parentpage": "„$1“ е предодредено својство што може да опише однос помеѓу матична и зависна страница, а зависната единица е укажана со додатокот [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Врски од семантички трошки].",
-	"smw-pa-property-predefined-long__sbl_parentpage": "Утврдувајќи го наоѓалиштето на единица во однос на нејзината матична, можете да создадете навигациска помош во облик на трага од трошки.",
-	"sbl-property-alias-parentpage": "Има матична страница"
+	"smw-pa-property-predefined-long-sbl-parentpage": "Утврдувајќи го наоѓалиштето на единица во однос на нејзината матична, можете да создадете навигациска помош во облик на трага од трошки.",
+	"sbl-property-alias-parentpage": "Има матична страница",
+	"sbl-admin-deprecation-notice-title-replacement": "Заменети или преименувани својства",
+	"sbl-admin-deprecation-notice-title-replacement-explanation": "Следново содржи поставки кои се преименувани или поинаку изменети. Се препорачува неодложна поднова на нивното име или формат.",
+	"sbl-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links/$1 $1]</code> е заменета со <code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links/$2 $2]</code>"
 }

@@ -7,7 +7,12 @@
 		]
 	},
 	"sbl-desc": "用於從名稱屬性過濾器構造麵包屑鏈接的[https://www.semantic-mediawiki.org Semantic MediaWiki]擴展",
-	"smw-pa-property-predefined__sbl_parentpage": "“$1”是一個預定義屬性，可以描述父和子實體之間的關係，並由[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic Breadcrumb Links]擴展提供。",
-	"smw-pa-property-predefined-long__sbl_parentpage": "通過識別實體相對於其父母的位置，它可以用於以麵包屑痕蹟的形式生成導航幫助。",
-	"sbl-property-alias-parentpage": "有父頁面"
+	"sbl-name": "Semantic Breadcrumb Links",
+	"smw-pa-property-predefined-sbl-parentpage": "「$1」是由 [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic Breadcrumb Links] 擴充功能所提供，可用來描述父級與子級實體之間關係的預定義屬性。",
+	"smw-pa-property-predefined-long-sbl-parentpage": "通過識別實體相對於其父母的位置，它可以用於以麵包屑痕蹟的形式生成導航幫助。",
+	"sbl-property-alias-parentpage": "有父頁面",
+	"sbl-admin-deprecation-notice-section": "Semantic Breadcrumb Links 擴充功能",
+	"sbl-admin-deprecation-notice-title-replacement": "已替換或重新命名的設定",
+	"sbl-admin-deprecation-notice-title-replacement-explanation": "以下段落包含已重新命名或或是其它變動的設定，建議立即更新其名稱或格式。",
+	"sbl-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links/$1 $1]</code> 被替換成 <code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links/$2 $2]</code>"
 }

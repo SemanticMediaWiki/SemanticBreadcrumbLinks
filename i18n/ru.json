@@ -2,11 +2,16 @@
 	"@metadata": {
 		"authors": [
 			"Alexandr Efremov",
-			"Okras"
+			"Okras",
+			"Vlad5250"
 		]
 	},
 	"sbl-desc": "Расширение [https://www.semantic-mediawiki.org Semantic MediaWiki] для построения навигационных ссылок из фильтра атрибутивных свойств",
-	"smw-pa-property-predefined__sbl_parentpage": "«$1» — предварительно определенное свойство, которое описывает отношение между родительскими и дочерними сущностями и обеспечивается расширением [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic Breadcrumb Links].",
-	"smw-pa-property-predefined-long__sbl_parentpage": "Если определить расположение сущности относительно ее родительской сущности, она может быть использована для генерирования навигационной справки в форме пройденного пути.",
-	"sbl-property-alias-parentpage": "Имеет родительскую страницу"
+	"smw-pa-property-predefined-sbl-parentpage": "«$1» — предварительно определенное свойство, которое описывает отношение между родительскими и дочерними сущностями и обеспечивается расширением [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic Breadcrumb Links].",
+	"smw-pa-property-predefined-long-sbl-parentpage": "Если определить расположение сущности относительно ее родительской сущности, она может быть использована для генерирования навигационной справки в форме пройденного пути.",
+	"sbl-property-alias-parentpage": "Имеет родительскую страницу",
+	"sbl-admin-deprecation-notice-section": "Расширение «Semantic Breadcrumb Links»",
+	"sbl-admin-deprecation-notice-title-replacement": "Заменённые или переименованные настройки",
+	"sbl-admin-deprecation-notice-title-replacement-explanation": "Следующий раздел содержит настройки, которые были переименованы или изменены другим способом, поэтому рекомендуем обновить их названия или формат.",
+	"sbl-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links/$1 $1]</code> была заменена на <code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links/$2 $2]</code>"
 }
