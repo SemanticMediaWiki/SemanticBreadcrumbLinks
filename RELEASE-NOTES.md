@@ -1,5 +1,13 @@
 This file contains the RELEASE-NOTES of the Semantic Breadcrumb Links (a.k.a. SBL) extension.
 
+### 2.0.0
+
+Released on October 6, 2018.
+
+* #52 Adds support for extension registration via "extension.json"  
+  → Now you have to use `wfLoadExtension( 'SemanticBreadcrumbLinks' );` in the "LocalSettings.php" file to invoke the extension
+* Localization updates from https://translatewiki.net
+
 ### 1.5.1
 
 Released on September 23, 2018.
@@ -10,7 +18,8 @@ Released on September 23, 2018.
 
 Released on September 22, 2018.
 
-* Requires PHP 5.6 or later
+* Minimum requirement for PHP changed to version 5.6 and later
+* Minimum requirement for Semantic MediaWiki changed to version 2.5 and later
 * #47/#49 Fixed integration with MediaWiki 1.30+ by using `subtitle` to show redirect, revision and display title information
 * #50 Added `$egSBLDisableTranslationSubpageAnnotation` to allow for disabling translation subpage annotation
 * Localization updates from https://translatewiki.net
@@ -19,8 +28,8 @@ Released on September 22, 2018.
 
 Released on June 10, 2017.
 
-* Requires PHP 5.5 or later
-* Requires MediaWiki 1.27 or later
+* Minimum requirement for PHP changed to version 5.5 and later
+* Minimum requirement for MediaWiki changed to version 1.27 and later
 * #30 Added the `__NOBREADCRUMBLINKS__` behaviour switch allowing to suppress the display of a generated breadcrumb trail.
 * Localization updates from https://translatewiki.net
 
@@ -37,14 +46,15 @@ Released on March 27, 2017.
 
 Released on July 9, 2016.
 
-* Requires Semantic MediaWiki 2.4 or later
+* Minimum requirement for Semantic MediaWiki changed to version 2.4 and later
 * Added `onoi/shared-resources` dependency
-* Support for `Display title of` provided by SMW 2.4.0
+* Support for `Display title of` provided by Semantic MediaWiki 2.4.0
 * Added `$egSBLEnabledSubpageParentAnnotation` to allow for subpage
   parents to be annotated automatically if no other `Has parent page` exists
 * Recognize `$egSBLPageTitleToHideSubpageParent` / `$wgNamespacesWithSubpages`
   when building the breadcrumb title
 * Apply italic styles for "hasChildren" early to avoid JS async display clutter
+* Localization updates from https://translatewiki.net
 
 ### 1.2.0
 
@@ -59,7 +69,7 @@ Released on December 19, 2015.
 
 Released on June 2, 2015.
 
-* Fixed unstyled content flashing observed in MW 1.25
+* Fixed unstyled content flashing observed in MediaWiki 1.25
 * Added `$egSBLBreadcrumbDividerStyleClass` to assign styling options such as `sbl-breadcrumb-pipe` or `sbl-breadcrumb-arrow`
 * Localization updates from https://translatewiki.net
 

@@ -1,6 +1,6 @@
 {
 	"name": "SemanticBreadcrumbLinks",
-	"version": "2.0.0-alpha",
+	"version": "2.0.0",
 	"author": [
 		"James Hong Kong",
 		"..."
@@ -22,6 +22,6 @@
 	"ExtensionFunctions": [
 		"SemanticBreadcrumbLinks::onExtensionFunction"
 	],
-	"load_composer_autoloader":true,
+	"load_composer_autoloader": true,
 	"manifest_version": 1
 }
