@@ -6,5 +6,6 @@
 		]
 	},
 	"sbl-desc": "Ett [https://www.semantic-mediawiki.org Semantic MediaWiki]-tillägg för att bygga brödsmulslänkar från ett attributivt egenskapsfilter",
-	"sbl-property-alias-parentpage": "Har överordnad sida"
+	"sbl-property-alias-parentpage": "Har överordnad sida",
+	"sbl-admin-deprecation-notice-title-replacement": "Ersatta eller omdöpta inställningar"
 }
