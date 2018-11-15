@@ -7,5 +7,8 @@
 	},
 	"sbl-desc": "Unha extensión de [https://www.semantic-mediawiki.org Semantic MediaWiki] que permite crear lapelas de navegación por xerarquía a partir dun filtro de propiedades atributivas",
 	"smw-pa-property-predefined-long-sbl-parentpage": "Identificar a localización dunha entidade relativa ós seus pais pode usarse para xerar unha axuda de navegación en forma de camiño de migas de pan.",
-	"sbl-property-alias-parentpage": "Ten unha páxina nai"
+	"sbl-property-alias-parentpage": "Ten unha páxina nai",
+	"sbl-admin-deprecation-notice-title-replacement": "Parámetros substituídos ou renomeados",
+	"sbl-admin-deprecation-notice-title-replacement-explanation": "A sección seguinte contén os parámetros que foron renomeados ou modificados e que é recomendable que sexa actualizado de inmediato o nome ou formato.",
+	"sbl-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links/$1 $1]</code> foi substituída por <code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links/$2 $2]</code>"
 }
