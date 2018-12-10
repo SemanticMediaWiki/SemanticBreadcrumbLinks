@@ -2,10 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Fitoschido",
-			"Laurenslimb"
+			"Laurenslimb",
+			"Ktranz"
 		]
 	},
 	"sbl-desc": "Una extensión de [https://www.semantic-mediawiki.org Semantic MediaWiki] que permite crear enlaces de navegación por jerarquía a partir de un filtro de propiedades atributivas",
+	"sbl-name": "Enlaces semánticos Breadcrumb",
 	"smw-pa-property-predefined-long-sbl-parentpage": "Cuando se identifique la posición de una entidad relativa a su contenedora, se podrá utilizar para generar una ayuda de navegación en forma de barra de ruta.",
 	"sbl-property-alias-parentpage": "Tiene página contenedora"
 }
