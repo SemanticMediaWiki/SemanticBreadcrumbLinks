@@ -6,7 +6,11 @@
 		]
 	},
 	"sbl-desc": "Пашырэньне [https://www.semantic-mediawiki.org Semantic MediaWiki] для пабудовы навігацыйных спасылак зь фільтру атрыбутыўных уласьцівасьцяў",
+	"sbl-name": "Semantic Breadcrumb Links",
+	"smw-pa-property-predefined-sbl-parentpage": "«$1» — перадвызначаная ўласьцівасьць, якая можа апісваць адносіны паміж бацькоўскімі й дачыннымі сутнасьцямі й забясьпечваецца пашырэньнем [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic Breadcrumb Links].",
 	"smw-pa-property-predefined-long-sbl-parentpage": "Вызначаючы месцазнаходжаньне аб'екта адносна яго крыніцы, ён можа быць скарыстаны для стварэньня дапамогі па навігацыі ў форме шляху.",
 	"sbl-property-alias-parentpage": "Мае бацькоўскую старонку",
-	"sbl-admin-deprecation-notice-title-replacement": "Замененыя ці перайменаваныя налады"
+	"sbl-admin-deprecation-notice-section": "Пашырэньне Semantic Breadcrumb Links",
+	"sbl-admin-deprecation-notice-title-replacement": "Замененыя ці перайменаваныя налады",
+	"sbl-admin-deprecation-notice-title-replacement-explanation": "Наступны разьдзел утрымлівае налады, якія былі перайменаваны, ці неяк зьменены. Раім абнавіць іх назвы ці фармат."
 }
