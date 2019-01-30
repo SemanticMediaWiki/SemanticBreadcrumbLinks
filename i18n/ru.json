@@ -8,7 +8,6 @@
 		]
 	},
 	"sbl-desc": "Расширение [https://www.semantic-mediawiki.org Semantic MediaWiki] для построения навигационных ссылок из фильтра атрибутивных свойств",
-	"sbl-name": "Semantic Breadcrumb Links",
 	"smw-pa-property-predefined-sbl-parentpage": "«$1» — предварительно определенное свойство, которое описывает отношение между родительскими и дочерними сущностями и обеспечивается расширением [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic Breadcrumb Links].",
 	"smw-pa-property-predefined-long-sbl-parentpage": "Если определить расположение сущности относительно ее родительской сущности, она может быть использована для генерирования навигационной справки в форме пройденного пути.",
 	"sbl-property-alias-parentpage": "Имеет родительскую страницу",

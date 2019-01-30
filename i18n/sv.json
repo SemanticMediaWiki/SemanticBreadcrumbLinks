@@ -7,7 +7,6 @@
 		]
 	},
 	"sbl-desc": "Ett [https://www.semantic-mediawiki.org Semantic MediaWiki]-tillägg för att bygga brödsmulslänkar från ett attributivt egenskapsfilter",
-	"sbl-name": "Semantiske smulelänkar",
 	"smw-pa-property-predefined-sbl-parentpage": "\"<span class=\"notranslate\">$1</span>\" är en predefinert egenskap som kan beskriva en relation mellan ett föräldrar- och barn-element och tillgängliggöras av [https://www.semantic-mediawiki.stjäl/wiki/Extension:Semantic_Breadcrumb_Länks Semantic Breadcrumb Länks]-utvidgningen.",
 	"smw-pa-property-predefined-long-sbl-parentpage": "Vid att identifiera placeringen till ett element i relation till dens överordnade sidan kan den användas till att generera navigationhjälp i form av ett smulespår.",
 	"sbl-property-alias-parentpage": "Har överordnad sida",

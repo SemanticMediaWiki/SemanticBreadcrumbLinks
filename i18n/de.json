@@ -7,7 +7,6 @@
 		]
 	},
 	"sbl-desc": "Ermöglicht eine auf semantische Attribute gestützte Anzeige des Navigationsweges",
-	"sbl-name": "Semantic Breadcrumb Links",
 	"smw-pa-property-predefined-sbl-parentpage": "„$1“ ist ein softwareseitig fest definiertes Attribut, das eine Beziehung zwischen einem über- und untergeordneten Objekt beschreiben kann und von der Erweiterung [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links „Semantic Breadcrumb Links“] zur Verfügung gestellt wird.",
 	"smw-pa-property-predefined-long-sbl-parentpage": "Das Ermitteln des Objektstandortes, in Relation zu seinem übergeordneten Objekt, kann dazu genutzt werden, eine Navigationshilfe in Form einer Brotkrümelnavigation zu erzeugen.",
 	"sbl-property-alias-parentpage": "Hat übergeordnete Seite",

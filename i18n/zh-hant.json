@@ -7,7 +7,6 @@
 		]
 	},
 	"sbl-desc": "用於從名稱屬性過濾器構造麵包屑鏈接的[https://www.semantic-mediawiki.org Semantic MediaWiki]擴展",
-	"sbl-name": "Semantic Breadcrumb Links",
 	"smw-pa-property-predefined-sbl-parentpage": "「$1」是由 [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic Breadcrumb Links] 擴充功能所提供，可用來描述父級與子級實體之間關係的預定義屬性。",
 	"smw-pa-property-predefined-long-sbl-parentpage": "通過識別實體相對於其父母的位置，它可以用於以麵包屑痕蹟的形式生成導航幫助。",
 	"sbl-property-alias-parentpage": "有父頁面",

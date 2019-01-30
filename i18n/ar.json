@@ -6,7 +6,6 @@
 		]
 	},
 	"sbl-desc": "تمديد [https://www.semantic-mediawiki.org ميدياويكي الدلالي] لبناء وصلات تنقل من مرشح خاصية توزيعية",
-	"sbl-name": "روابط ممر التصفح الدلالية",
 	"smw-pa-property-predefined-sbl-parentpage": "\"$1\" هي خاصية محددة مسبقًا يمكن أن تصف العلاقة بين الكيان الرئيسي والتابع ويتم توفيرها بواسطة ملحق [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links روابط ممر التصفح الدلالية].",
 	"smw-pa-property-predefined-long-sbl-parentpage": "عن طريق التعرف على موقع كيان بالنسبة لأصله فيمكن استخدامه لتوليد مساعدة إبحار في صورة أثر.",
 	"sbl-property-alias-parentpage": "لها صفحة أم",

@@ -6,7 +6,6 @@
 		]
 	},
 	"sbl-desc": "En [https://www.semantic-mediawiki.org Semantic MediaWiki]-utvidelse for å bygge brødsmulelenker fra et attributtegenskapsfilter",
-	"sbl-name": "Semantiske brødsmulelenker",
 	"smw-pa-property-predefined-sbl-parentpage": "\"$1\" er en predefinert egenskap som kan beskrive en relasjon mellom et foreldre- og barn-element og gjøres tilgjengelig av [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic Breadcrumb Links]-utvidelsen.",
 	"smw-pa-property-predefined-long-sbl-parentpage": "Ved å identifisere plasseringen til et element i relasjon til dens overordnede side kan den brukes til å generere navigasjonshjelp i form av et brødsmulespor.",
 	"sbl-property-alias-parentpage": "Har overordnet side",

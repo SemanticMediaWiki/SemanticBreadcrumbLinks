@@ -6,7 +6,6 @@
 		]
 	},
 	"sbl-desc": "Uma extensão do [https://www.semantic-mediawiki.org MediaWiki Semântico] para criar as hiperligações de um trilho de navegação a partir de um filtro de propriedades atributivas",
-	"sbl-name": "Hiperligações de um trilho de navegação semântico",
 	"smw-pa-property-predefined-sbl-parentpage": "\"$1\" é uma propriedade predefinida que pode descrever uma relação entre uma entidade mãe e uma entidade filha e é fornecida pela extensão [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Hiperligações de um trilho de navegação semântico].",
 	"smw-pa-property-predefined-long-sbl-parentpage": "Ao identificar a localização de uma entidade em relação à sua entidade mãe, essa localização pode ser usada para gerar ajuda à navegação na forma de um trilho de navegação.",
 	"sbl-property-alias-parentpage": "Tem uma página mãe",
