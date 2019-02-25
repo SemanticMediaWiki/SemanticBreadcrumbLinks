@@ -2,14 +2,15 @@
 	"@metadata": {
 		"authors": [
 			"Claw eg",
-			"ديفيد"
+			"ديفيد",
+			"Meno25"
 		]
 	},
 	"sbl-desc": "تمديد [https://www.semantic-mediawiki.org ميدياويكي الدلالي] لبناء وصلات تنقل من مرشح خاصية توزيعية",
-	"smw-pa-property-predefined-sbl-parentpage": "\"$1\" هي خاصية محددة مسبقًا يمكن أن تصف العلاقة بين الكيان الرئيسي والتابع ويتم توفيرها بواسطة ملحق [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links روابط ممر التصفح الدلالية].",
+	"smw-pa-property-predefined-sbl-parentpage": "\"$1\" هي خاصية محددة مسبقا يمكن أن تصف العلاقة بين الكيان الرئيسي والتابع ويتم توفيرها بواسطة الامتداد [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links وصلات ممر التصفح الدلالية].",
 	"smw-pa-property-predefined-long-sbl-parentpage": "عن طريق التعرف على موقع كيان بالنسبة لأصله فيمكن استخدامه لتوليد مساعدة إبحار في صورة أثر.",
 	"sbl-property-alias-parentpage": "لها صفحة أم",
-	"sbl-admin-deprecation-notice-section": "امتداد روابط ممر التصفح الدلالية",
+	"sbl-admin-deprecation-notice-section": "امتداد وصلات ممر التصفح الدلالية",
 	"sbl-admin-deprecation-notice-title-replacement": "تم استبدال أو إعادة تسمية الإعدادات",
 	"sbl-admin-deprecation-notice-title-replacement-explanation": "يحتوي القسم التالي على الإعدادات التي تمت إعادة تسميتها أو تم تعديلها بطريقة أخرى، ويُوصَى بتحديث اسمها أو تنسيقها على الفور.",
 	"sbl-admin-deprecation-notice-config-replacement": "تم استبدال <code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links/$1 $1]</code> was بـ<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links/$2 $2]</code>"
