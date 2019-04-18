@@ -7,7 +7,7 @@
 		]
 	},
 	"sbl-desc": "Uma extensão do [https://semantic-mediawiki.org Semantic MediaWiki] para construir links de navegação por hierarquia a partir de um filtro de propriedade atributiva.",
-	"smw-pa-property-predefined-sbl-parentpage": "\"$1\" é uma propriedade predefinida que pode descrever um relacionamento entre um pai e uma entidade filha e é fornecida pela extensão [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Links de Breadcrumb Semântico].",
+	"smw-pa-property-predefined-sbl-parentpage": "\"$1\" é uma propriedade predefinida que pode descrever um relacionamento entre uma entidade pai e uma entidade filha e é fornecida pela extensão [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic Breadcrumb Links].",
 	"smw-pa-property-predefined-long-sbl-parentpage": "Ao identificar a localização de uma entidade em relação ao seu pai, ela pode ser usada para gerar uma ajuda de navegação na forma de hierarquia.",
 	"sbl-property-alias-parentpage": "Tem página pai",
 	"sbl-admin-deprecation-notice-section": "Extensão Semantic Breadcrumb Links",
