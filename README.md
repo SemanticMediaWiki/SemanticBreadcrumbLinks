@@ -32,15 +32,8 @@ instructions provided.
 
 ### Step 1
 
-Change to the base directory of your MediaWiki installation. This is where the "LocalSettings.php"
-file is located. If you have not yet installed Composer do it now by running the following command
-in your shell:
-
-    wget https://getcomposer.org/composer.phar
-
-### Step 2
-    
-If you do not have a "composer.local.json" file yet, create one and add the following content to it:
+Change to the base directory of your MediaWiki installation. If you do not have a "composer.local.json" file yet,
+create one and add the following content to it:
 
 ```
 {
@@ -57,25 +50,19 @@ section in your file:
 
 Remember to add a comma to the end of the preceding line in this section.
 
-### Step 3
+### Step 2
 
 Run the following command in your shell:
 
     php composer.phar update --no-dev
 
-Note if you have Git installed on your system add the `--prefer-source` flag to the above command. Also
-note that it may be necessary to run this command twice. If unsure do it twice right away.
+Note if you have Git installed on your system add the `--prefer-source` flag to the above command.
 
-### Step 4
+### Step 3
 
 Add the following line to the end of your "LocalSettings.php" file:
 
     wfLoadExtension( 'SemanticBreadcrumbLinks' );
-
-### Verify installation success
-
-As final step, you can verify SCI got installed by looking at the "Special:Version" page on your wiki and
-check that it is listed in the semantic extensions section.
 
 ## Usage
 
@@ -91,9 +78,8 @@ at the contribution guideline.
 * [File an issue](https://github.com/SemanticMediaWiki/SemanticBreadcrumbLinks/issues)
 * [Submit a pull request](https://github.com/SemanticMediaWiki/SemanticBreadcrumbLinks/pulls)
 * Ask a question on [the mailing list](https://www.semantic-mediawiki.org/wiki/Mailing_list)
-* Ask a question on the #semantic-mediawiki IRC channel on Freenode.
 
-### Tests
+## Tests
 
 This extension provides unit and integration tests that are run by a [continues integration platform][travis]
 but can also be executed using `composer phpunit` from the extension base directory.
