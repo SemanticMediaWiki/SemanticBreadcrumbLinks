@@ -3,11 +3,12 @@
 		"authors": [
 			"Wladek92",
 			"Gomoko",
-			"Verdy p"
+			"Verdy p",
+			"Thibaut120094"
 		]
 	},
-	"sbl-desc": "Une extension [https://www.semantic-mediawiki.org MédiaWiki Sémantique] pour construire des liens d’aide à la navigation depuis un filtre de propriété attributif",
-	"smw-pa-property-predefined-sbl-parentpage": "« $1 » est une propriété prédéfinie qui peut décrire une relation entre une entité parent et une entité enfant; elle est fournie par l’extension [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links liens d’aide à la navigation sémantique].",
+	"sbl-desc": "Une extension [https://www.semantic-mediawiki.org MediaWiki Sémantique] pour construire des liens d’aide à la navigation depuis un filtre de propriété attributif",
+	"smw-pa-property-predefined-sbl-parentpage": "« $1 » est une propriété prédéfinie qui peut décrire une relation entre une entité parent et une entité enfant; elle est fournie par l’extension [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links liens d’aide à la navigation sémantique].",
 	"smw-pa-property-predefined-long-sbl-parentpage": "Identifier l’emplacement d’une entité par rapport à son parent peut être utilisé pour générer une aide de navigation sous forme de fil d’Ariane.",
 	"sbl-property-alias-parentpage": "A une page parent",
 	"sbl-admin-deprecation-notice-section": "Extension concernant les liens d’aide à la navigation",
