@@ -7,6 +7,5 @@
 		]
 	},
 	"sbl-desc": "{{desc|name=Semantic Breadcrumb Links|url=https://semantic-mediawiki.org/wiki/Extension:SemanticBreadcrumbLinks}}",
-	"sbl-property-alias-parentpage": "A name of a property alias.",
-	"sbl-admin-deprecation-notice-title-replacement": ""
+	"sbl-property-alias-parentpage": "A name of a property alias."
 }
