@@ -76,14 +76,14 @@ $GLOBALS['egSBLPropertySearchPatternByNamespace'] = [
 	// Search for a three level antecedent hierarchy that contains a `Has parent page`
 	// annotation to follow a `parent > grandparent > great-grandparent` schema
 	NS_MAIN => [
-		SBL_PROP_PARENTPAGE,
-		SBL_PROP_PARENTPAGE,
-		SBL_PROP_PARENTPAGE
+		'SBL_PROP_PARENTPAGE',
+		'SBL_PROP_PARENTPAGE',
+		'SBL_PROP_PARENTPAGE'
 	],
 	NS_HELP => [
-		SBL_PROP_PARENTPAGE,
-		SBL_PROP_PARENTPAGE,
-		SBL_PROP_PARENTPAGE
+		'SBL_PROP_PARENTPAGE',
+		'SBL_PROP_PARENTPAGE',
+		'SBL_PROP_PARENTPAGE'
 	]
 ];
 ```
