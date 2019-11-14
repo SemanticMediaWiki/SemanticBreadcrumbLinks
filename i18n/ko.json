@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"아라"
+			"아라",
+			"Ykhwong"
 		]
 	},
-	"sbl-property-alias-parentpage": "부모 문서 있음"
+	"sbl-property-alias-parentpage": "부모 문서 있음",
+	"sbl-admin-deprecation-notice-title-replacement": "치환되거나 이름이 변경된 설정"
 }

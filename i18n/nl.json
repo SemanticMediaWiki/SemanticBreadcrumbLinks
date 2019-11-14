@@ -7,6 +7,5 @@
 		]
 	},
 	"sbl-desc": "Een [https://www.semantic-mediawiki.org Semantic MediaWiki]-uitbreiding om broodkruimelkoppelingen te maken door middel van een attributief eigenschapsfilter",
-	"smw-pa-property-predefined__sbl_parentpage": "\"$1\" is een voorgedefinieerde eigenschap die een relatie kan beschrijven tussen een bovenliggende en een onderliggende entiteit en is beschikbaar gesteld door de [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic Breadcrumb Links]-uitbreiding.",
 	"sbl-property-alias-parentpage": "Heeft bovenliggende pagina"
 }
