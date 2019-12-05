@@ -4,7 +4,12 @@
 			"Xuacu"
 		]
 	},
-	"sbl-desc": "Una estensión de [https://semantic-mediawiki.org Semantic MediaWiki] pa construir enllaces de rastros dende un filtru de propiedá atributiva",
+	"sbl-desc": "Una estensión de [https://www.semantic-mediawiki.org Semantic MediaWiki] pa construir enllaces de rastros dende un filtru de propiedá atributiva",
+	"smw-pa-property-predefined-sbl-parentpage": "\"$1\" ye una propiedá predefinida que pué describir una rellación ente una entidá madre y una fía y úfrela la estensión [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Enllaces de rastros semánticos].",
 	"smw-pa-property-predefined-long-sbl-parentpage": "Identificando'l llugar d'una entidá en rellación cola madre puede usase pa xenerar una ayuda de navegación en forma de rastru d'enllaces.",
-	"sbl-property-alias-parentpage": "Tien páxina madre"
+	"sbl-property-alias-parentpage": "Tien páxina madre",
+	"sbl-admin-deprecation-notice-section": "Estensión Enllaces de rastros semánticos",
+	"sbl-admin-deprecation-notice-title-replacement": "Opciones sustituyíes o cambiaes de nome",
+	"sbl-admin-deprecation-notice-title-replacement-explanation": "La sección siguiente contien opciones que cambiaron el nome o recibieron otros cambeos. Encamiéntase anovar darréu'l so nome o formatu.",
+	"sbl-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links/$1 $1]</code> sustituyóse por <code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links/$2 $2]</code>"
 }
