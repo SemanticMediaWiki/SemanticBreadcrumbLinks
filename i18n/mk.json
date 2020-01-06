@@ -6,8 +6,10 @@
 		]
 	},
 	"sbl-desc": "Додаток за [https://www.semantic-mediawiki.org Семантички МедијаВики] за испишување на прегледничката патека од атрибутивен филтер на својства",
+	"smw-pa-property-predefined-sbl-parentpage": "„$1“ е предодредено својство кое го опишува одосот помеѓу матична и зависна единица. Овозможено е од додатокот [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Врски за семантички трошки].",
 	"smw-pa-property-predefined-long-sbl-parentpage": "Утврдувајќи го наоѓалиштето на единица во однос на нејзината матична, можете да создадете навигациска помош во облик на трага од трошки.",
 	"sbl-property-alias-parentpage": "Има матична страница",
+	"sbl-admin-deprecation-notice-section": "Додаток „Врски за семантички трошки“",
 	"sbl-admin-deprecation-notice-title-replacement": "Заменети или преименувани својства",
 	"sbl-admin-deprecation-notice-title-replacement-explanation": "Следново содржи поставки кои се преименувани или поинаку изменети. Се препорачува неодложна поднова на нивното име или формат.",
 	"sbl-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links/$1 $1]</code> е заменета со <code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links/$2 $2]</code>"
