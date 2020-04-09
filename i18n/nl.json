@@ -2,8 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Esketti",
-			"Ата",
-			"Hex"
+			"Hex",
+			"Ата"
 		]
 	},
 	"sbl-desc": "Een [https://www.semantic-mediawiki.org Semantic MediaWiki]-uitbreiding om broodkruimelkoppelingen te maken door middel van een attributief eigenschapsfilter",

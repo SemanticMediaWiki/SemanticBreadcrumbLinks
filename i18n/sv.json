@@ -2,8 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Jopparn",
-			"WikiPhoenix",
-			"Psl85"
+			"Psl85",
+			"WikiPhoenix"
 		]
 	},
 	"sbl-desc": "Ett [https://www.semantic-mediawiki.org Semantic MediaWiki]-tillägg för att bygga brödsmulslänkar från ett attributivt egenskapsfilter",

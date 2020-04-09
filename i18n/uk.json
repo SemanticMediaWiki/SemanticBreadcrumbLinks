@@ -1,8 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ата",
-			"Piramidion"
+			"Piramidion",
+			"Ата"
 		]
 	},
 	"sbl-desc": "Розширення [https://www.semantic-mediawiki.org Семантичної MediaWiki] для побудови навігаційних посилань з фільтра атрибутивних властивостей",

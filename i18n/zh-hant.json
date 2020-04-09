@@ -2,8 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Assoc",
-			"Kly",
-			"Deathkon"
+			"Deathkon",
+			"Kly"
 		]
 	},
 	"sbl-desc": "用於從名稱屬性過濾器構造麵包屑鏈接的[https://www.semantic-mediawiki.org Semantic MediaWiki]擴展",

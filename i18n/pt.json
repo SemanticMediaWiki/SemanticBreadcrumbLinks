@@ -1,8 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Hamilton Abreu",
-			"Athena in Wonderland"
+			"Athena in Wonderland",
+			"Hamilton Abreu"
 		]
 	},
 	"sbl-desc": "Uma extensão do [https://www.semantic-mediawiki.org MediaWiki Semântico] para criar as hiperligações de um trilho de navegação a partir de um filtro de propriedades atributivas",

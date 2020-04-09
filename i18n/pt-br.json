@@ -1,9 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Jaideraf",
 			"!Silent",
-			"Eduardo Addad de Oliveira"
+			"Eduardo Addad de Oliveira",
+			"Jaideraf"
 		]
 	},
 	"sbl-desc": "Uma extensão do [https://semantic-mediawiki.org Semantic MediaWiki] para construir links de navegação por hierarquia a partir de um filtro de propriedade atributiva.",

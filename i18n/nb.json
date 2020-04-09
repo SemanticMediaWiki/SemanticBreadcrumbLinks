@@ -1,8 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Jon Harald Søby",
-			"Event"
+			"Event",
+			"Jon Harald Søby"
 		]
 	},
 	"sbl-desc": "En [https://www.semantic-mediawiki.org Semantic MediaWiki]-utvidelse for å bygge brødsmulelenker fra et attributtegenskapsfilter",

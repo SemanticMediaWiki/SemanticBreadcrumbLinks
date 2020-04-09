@@ -1,8 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Hedda",
-			"BaRaN6161 TURK"
+			"BaRaN6161 TURK",
+			"Hedda"
 		]
 	},
 	"sbl-desc": "Bir atfeden özellik filtresinden breadcrumb bağlantıları oluşturmak için [https://www.semantic-mediawiki.org Semantik bir MediaWiki] uzantısı",

@@ -1,10 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
+			"Alex Mashin",
 			"Alexandr Efremov",
 			"Okras",
-			"Vlad5250",
-			"Alex Mashin"
+			"Vlad5250"
 		]
 	},
 	"sbl-desc": "Расширение [https://www.semantic-mediawiki.org Semantic MediaWiki] для построения навигационных ссылок из фильтра атрибутивных свойств",

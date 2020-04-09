@@ -2,8 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Fitoschido",
-			"Laurenslimb",
-			"Ktranz"
+			"Ktranz",
+			"Laurenslimb"
 		]
 	},
 	"sbl-desc": "Una extensión de [https://www.semantic-mediawiki.org Semantic MediaWiki] que permite crear enlaces de navegación por jerarquía a partir de un filtro de propiedades atributivas",

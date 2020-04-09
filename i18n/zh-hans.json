@@ -1,8 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Liuxinyu970226",
-			"A Chinese Wikipedian"
+			"A Chinese Wikipedian",
+			"Liuxinyu970226"
 		]
 	},
 	"sbl-desc": "用于从署名属性过滤器构造面包屑链接的[https://www.semantic-mediawiki.org Semantic MediaWiki]扩展",
