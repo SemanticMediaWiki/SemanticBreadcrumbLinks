@@ -1,12 +1,12 @@
-# http://docs.travis-ci.com/user/workers/container-based-infrastructure/
-sudo: false
+os:
+  - linux
 
 language: php
 
 services:
   - mysql
 
-matrix:
+jobs:
   fast_finish: true
   include:
     - env: DB=mysql; MW=REL1_28; TYPE=coverage
