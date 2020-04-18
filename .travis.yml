@@ -17,6 +17,8 @@ matrix:
       php: 7.1
     - env: DB=sqlite; MW=master; PHPUNIT=8.5.*
       php: 7.4
+  allow_failures:
+    - env: DB=sqlite; MW=master; PHPUNIT=8.5.*
 
 install:
   - bash ./tests/travis/install-mediawiki.sh
