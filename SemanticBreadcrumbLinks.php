@@ -30,9 +30,17 @@ class SemanticBreadcrumbLinks {
 	 */
 	public static function load() {
 
+		if ( !defined( 'MEDIAWIKI' ) ) {
+			return;
+		}
+
 		if ( is_readable( __DIR__ . '/vendor/autoload.php' ) ) {
 			include_once __DIR__ . '/vendor/autoload.php';
 		}
+
+		// #56 Ensure the constant is defined before `LocalSettings.php` is
+		// loaded in order to make it available for use in `LocalSettings.php`
+		define( 'SBL_PROP_PARENTPAGE', 'Has parent page' );
 
 		// Load DefaultSettings
 		require_once __DIR__ . '/DefaultSettings.php';
@@ -45,7 +53,6 @@ class SemanticBreadcrumbLinks {
 
 		// See https://phabricator.wikimedia.org/T151136
 		define( 'SBL_VERSION', isset( $credits['version'] ) ? $credits['version'] : 'UNKNOWN' );
-		define( 'SBL_PROP_PARENTPAGE', 'Has parent page' );
 
 		// Register message files
 		$GLOBALS['wgMessagesDirs']['SemanticBreadcrumbLinks'] = __DIR__ . '/i18n';
