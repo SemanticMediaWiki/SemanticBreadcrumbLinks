@@ -16,7 +16,7 @@ matrix:
     - env: DB=mysql; MW=REL1_31; PHPUNIT=6.5.*
       php: 7.1
     - env: DB=sqlite; MW=master; PHPUNIT=6.5.*
-      php: 7.2
+      php: 7.3
 
 install:
   - bash ./tests/travis/install-mediawiki.sh
