@@ -1,5 +1,12 @@
 This file contains the RELEASE-NOTES of the Semantic Breadcrumb Links (a.k.a. SBL) extension.
 
+### 2.0.1
+
+Released on April 19, 2020.
+
+* #56 Fixes issue with a constant being loaded too late 
+* Localization updates from https://translatewiki.net
+
 ### 2.0.0
 
 Released on October 6, 2018.
