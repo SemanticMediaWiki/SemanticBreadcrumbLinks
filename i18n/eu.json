@@ -1,10 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mikel Ibaiba",
-			"Amaia"
+			"Amaia",
+			"Mikel Ibaiba"
 		]
 	},
-	"smw-pa-property-predefined__sbl_parentpage": "\"$1\" aurrez zehaztutako ezaugarri bat da, guraso eta seme-alaba entitateen arteko harremana deskriba dezakeena, eta [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic Breadcrumb Links] luzapenak hornitzen du.",
 	"sbl-property-alias-parentpage": "Helduentzako orria dauka"
 }
