@@ -9,7 +9,7 @@
 	"sbl-desc": "[https://www.semantic-mediawiki.org Semantic MediaWiki] rozszerzenie do budowy elementów ułatwiających nawigację na podstawie wybranych atrybutów tudzież właściwości.",
 	"smw-pa-property-predefined-sbl-parentpage": "„$1” to predefiniowana właściwość, która może opisywać relację między rodzicem a jednostką podrzędną. Właściwość jest dostarczana przez rozszerzenie [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic Breadcrumb Links].",
 	"smw-pa-property-predefined-long-sbl-parentpage": "Identyfikując położenie obiektu względem jego rodzica, można go wykorzystać do wygenerowania pomocy nawigacyjnej w postaci ścieżki nawigacyjnej.",
-	"sbl-property-alias-parentpage": "Posiada nadrzędną stronę",
+	"sbl-property-alias-parentpage": "Ma stronę nadrzędną",
 	"sbl-admin-deprecation-notice-section": "Rozszerzenie Sementyczne Liki Nawigacyjne",
 	"sbl-admin-deprecation-notice-title-replacement": "Zastąpione lub zmienione ustawienia",
 	"sbl-admin-deprecation-notice-title-replacement-explanation": "Poniższa sekcja zawiera ustawienia, których nazwy zostały zmienione lub w inny sposób zmodyfikowane, i zaleca się niezwłoczne zaktualizowanie ich nazwy lub formatu.",
