@@ -1,10 +1,17 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Guycn2",
 			"המקיסט"
 		]
 	},
 	"sbl-desc": "הרחבת [https://www.semantic-mediawiki.org מדיה־ויקי סמנטית] שמטרתה לבנות קישורים מאוחדים ממסנני מאפיינים",
-	"sbl-property-alias-parentpage": "בעל דף אב"
+	"smw-pa-property-predefined-sbl-parentpage": "\"$1\" הוא מאפיין מוגדר מראש שיכול לתאר מערכת יחסים בין הורה לישות צאצא והוא מסופק על־ידי ההרחבה [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic Breadcrumb Links].",
+	"smw-pa-property-predefined-long-sbl-parentpage": "על־ידי זיהוי המיקום של ישות ביחס להורה שלה ניתן להשתמש בה כדי ליצור עזרה בניווט בצורה של שביל פירורי לחם.",
+	"sbl-property-alias-parentpage": "בעל דף הורה",
+	"sbl-admin-deprecation-notice-section": "ההרחבה Semantic Breadcrumb Links",
+	"sbl-admin-deprecation-notice-title-replacement": "הגדרות שהוחלפו או ששמם שונה",
+	"sbl-admin-deprecation-notice-title-replacement-explanation": "הפרק הבא מכיל הגדרות ששמן שונה או ששונו בדרך אחרת ומומלץ לעדכן לאלתר את השם או את התסדיר שלהן.",
+	"sbl-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links/$1 $1]</code> הוחלף ב־<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links/$2 $2]</code>"
 }
