@@ -4,5 +4,12 @@
 			"Eleassar"
 		]
 	},
-	"sbl-property-alias-parentpage": "Ima nadrejeno stran"
+	"sbl-desc": "Razširitev [https://www.semantic-mediawiki.org Semantični MediaWiki] za ustvarjanje navigacijskih sledi iz filtra atributivnih lastnosti",
+	"smw-pa-property-predefined-sbl-parentpage": "»$1« je vnaprej določena lastnost, ki lahko opiše razmerje med nadrejeno in podrejeno entiteto in je na voljo z razširitvijo [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic Breadcrumb Links].",
+	"smw-pa-property-predefined-long-sbl-parentpage": "Z identifikacijo lokacije entitete glede na nadrejeno entiteto se lahko uporabi za generiranje navigacijske pomoči v obliki navigacijske sledi.",
+	"sbl-property-alias-parentpage": "Ima nadrejeno stran",
+	"sbl-admin-deprecation-notice-section": "Razširitev Semantic Breadcrumb Links",
+	"sbl-admin-deprecation-notice-title-replacement": "Zamenjane ali preimenovane nastavitve",
+	"sbl-admin-deprecation-notice-title-replacement-explanation": "Naslednji razdelek vsebuje nastavitve, ki so bile preimenovane ali drugače spremenjene, zato je priporočljivo, da takoj posodobite njihovo ime ali obliko.",
+	"sbl-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$1 $1]</code> je bilo zamenjano s <code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Extra_Special_Properties/$2 $2]</code>"
 }
