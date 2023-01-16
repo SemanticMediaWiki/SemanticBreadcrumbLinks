@@ -6,7 +6,7 @@
 	},
 	"sbl-desc": "Extension pro [https://www.semantic-mediawiki.org Semantic MediaWiki] pro reconstruer e monstrar le cammino de navigation wiki del usator",
 	"smw-pa-property-predefined-sbl-parentpage": "\"$1\" es un proprietate predefinite que pote describer un relation inter un entitate genitor e un entitate filio e es fornite per le extension [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic Breadcrumb Links].",
-	"smw-pa-property-predefined-long-sbl-parentpage": "Per identificar le loco de un entitate in relation a su parente illo pote esser usate pro generar un adjuta navigational in forma de un tracia de micas de pan.",
+	"smw-pa-property-predefined-long-sbl-parentpage": "Identificante le loco de un entitate in relation a su parente, illo pote esser usate pro generar un adjuta navigational in forma de un pista de paginas visitate.",
 	"sbl-property-alias-parentpage": "Ha pagina genitor",
 	"sbl-admin-deprecation-notice-section": "Extension \"Semantic Breadcrumb Links\"",
 	"sbl-admin-deprecation-notice-title-replacement": "Parametros reimplaciate o renominate",
