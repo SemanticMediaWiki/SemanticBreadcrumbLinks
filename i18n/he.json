@@ -11,7 +11,7 @@
 	"smw-pa-property-predefined-long-sbl-parentpage": "על־ידי זיהוי המיקום של ישות ביחס להורה שלה ניתן להשתמש בה כדי ליצור עזרה בניווט בצורה של שביל פירורי לחם.",
 	"sbl-property-alias-parentpage": "בעל דף הורה",
 	"sbl-admin-deprecation-notice-section": "ההרחבה Semantic Breadcrumb Links",
-	"sbl-admin-deprecation-notice-title-replacement": "הגדרות שהוחלפו או ששמם שונה",
+	"sbl-admin-deprecation-notice-title-replacement": "הגדרות שהוחלפו או ששמן שונה",
 	"sbl-admin-deprecation-notice-title-replacement-explanation": "הפרק הבא מכיל הגדרות ששמן שונה או ששונו בדרך אחרת ומומלץ לעדכן לאלתר את השם או את התסדיר שלהן.",
 	"sbl-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links/$1 $1]</code> הוחלף ב־<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links/$2 $2]</code>"
 }
