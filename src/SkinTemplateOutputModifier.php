@@ -64,6 +64,28 @@ class SkinTemplateOutputModifier {
 		// https://github.com/wikimedia/mediawiki/blob/23ea2e4c2966f381eb7fd69b66a8d738bb24cc60/includes/skins/SkinTemplate.php#L292-L296
 		$template->data['subtitle'] .= $this->htmlBreadcrumbLinksBuilder->getHtml();
 	}
+	
+	/**
+	 * For MW 1.35
+	 * @since 2.0.1
+	 *
+	 * @param OutputPage $output
+	 */
+	public function modify2( OutputPage $output) 
+	{
+		if ( !$this->canModifyOutput( $output ) ) {
+			return;
+		}
+
+		$title = $output->getTitle();
+		$this->htmlBreadcrumbLinksBuilder->buildBreadcrumbs( $title );
+
+		$this->htmlBreadcrumbLinksBuilder->isRTL(
+			$title->getPageLanguage()->isRTL()
+		);
+		
+		$output->addSubtitle($this->htmlBreadcrumbLinksBuilder->getHtml());
+	}
 
 	private function canModifyOutput( OutputPage $output ) {
 
