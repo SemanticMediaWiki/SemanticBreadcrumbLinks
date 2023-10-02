@@ -9,9 +9,9 @@
 	"sbl-desc": "从定语属性筛选构建面包屑链接的[https://www.semantic-mediawiki.org 语义MediaWiki]扩展",
 	"smw-pa-property-predefined-sbl-parentpage": "“$1”是[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links 语义面包屑链接]扩展提供的描述父实体和子实体之间的关系的预定义属性。",
 	"smw-pa-property-predefined-long-sbl-parentpage": "通过识别实体相对于其父实体的位置，可以生成面包屑路径形式的导航帮助。",
-	"sbl-property-alias-parentpage": "拥有父页面",
+	"sbl-property-alias-parentpage": "有父页面",
 	"sbl-admin-deprecation-notice-section": "语义面包屑链接扩展",
-	"sbl-admin-deprecation-notice-title-replacement": "替换或重命名设置",
+	"sbl-admin-deprecation-notice-title-replacement": "已替换或重命名的设置",
 	"sbl-admin-deprecation-notice-title-replacement-explanation": "以下部分含有已重命名或以其他方式修改的设置，建议立即更新它们的名称或格式。",
 	"sbl-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links/$1 $1]</code>已替换为<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links/$2 $2]</code>"
 }
