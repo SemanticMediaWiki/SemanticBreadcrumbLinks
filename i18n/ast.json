@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Xuacu"
+			"Xuacu",
+			"YoaR"
 		]
 	},
 	"sbl-desc": "Una estensión de [https://www.semantic-mediawiki.org Semantic MediaWiki] pa construir enllaces de rastros dende un filtru de propiedá atributiva",
@@ -10,6 +11,6 @@
 	"sbl-property-alias-parentpage": "Tien páxina madre",
 	"sbl-admin-deprecation-notice-section": "Estensión Enllaces de rastros semánticos",
 	"sbl-admin-deprecation-notice-title-replacement": "Opciones sustituyíes o cambiaes de nome",
-	"sbl-admin-deprecation-notice-title-replacement-explanation": "La sección siguiente contien opciones que cambiaron el nome o recibieron otros cambeos. Encamiéntase anovar darréu'l so nome o formatu.",
+	"sbl-admin-deprecation-notice-title-replacement-explanation": "La sección siguiente contién opciones que cambiaron el nome o recibieron otros cambeos. Encamiéntase anovar darréu'l so nome o formatu.",
 	"sbl-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links/$1 $1]</code> sustituyóse por <code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links/$2 $2]</code>"
 }
