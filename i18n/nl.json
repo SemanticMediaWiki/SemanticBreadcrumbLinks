@@ -3,9 +3,16 @@
 		"authors": [
 			"Esketti",
 			"Hex",
+			"McDutchie",
 			"Ата"
 		]
 	},
 	"sbl-desc": "Een [https://www.semantic-mediawiki.org Semantic MediaWiki]-uitbreiding om broodkruimelkoppelingen te maken door middel van een attributief eigenschapsfilter",
-	"sbl-property-alias-parentpage": "Heeft bovenliggende pagina"
+	"smw-pa-property-predefined-sbl-parentpage": "“$1” is een vooraf gedefinieerde eigenschap die een relatie tussen een bovenliggende en onderliggende entiteit kan beschrijven en wordt geleverd door de uitbreiding [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic Breadcrumb Links].",
+	"smw-pa-property-predefined-long-sbl-parentpage": "Door de locatie van een entiteit ten opzichte van de bovenliggende entiteit te identificeren, kan deze worden gebruikt om navigatiehulp te genereren in de vorm van een broodkruimelspoor.",
+	"sbl-property-alias-parentpage": "Heeft bovenliggende pagina",
+	"sbl-admin-deprecation-notice-section": "Uitbreiding “Semantic Breadcrumb Links”",
+	"sbl-admin-deprecation-notice-title-replacement": "Vervangen of hernoemde instellingen",
+	"sbl-admin-deprecation-notice-title-replacement-explanation": "In het volgende gedeelte staan instellingen die een nieuwe naam hebben gekregen of anderszins zijn gewijzigd. Het wordt aanbevolen hun naam of indeling onmiddellijk bij te werken.",
+	"sbl-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links/$1 $1]</code> is vervangen door <code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links/$2 $2]</code>"
 }
