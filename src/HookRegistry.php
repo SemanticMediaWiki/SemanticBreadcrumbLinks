@@ -91,8 +91,40 @@ class HookRegistry {
 		 *
 		 * @see https://www.mediawiki.org/wiki/Manual:Hooks/OutputPageParserOutput
 		 */
-		$this->handlers['OutputPageParserOutput'] = function( &$outputPage, $parserOutput ) {
+		$this->handlers['OutputPageParserOutput'] = function( &$outputPage, $parserOutput ) use( $store, $options )
+		{
 			$outputPage->smwmagicwords = $parserOutput->getExtensionData( 'smwmagicwords' );
+			
+			// For MW 1.35
+			$bySubpageLinksFinder = new BySubpageLinksFinder();
+			$bySubpageLinksFinder->setSubpageDiscoveryFallback ( $options->get( 'useSubpageFinderFallback' ) );
+
+			$byPropertyHierarchicalLinksFinder = new ByPropertyHierarchicalLinksFinder( $store );
+			$byPropertyHierarchicalLinksFinder->setFindClosestDescendantState( $options->get( 'tryToFindClosestDescendant' ) );
+
+			$byPropertyHierarchicalLinksFinder->setPropertySearchPatternByNamespace( $options->get( 'propertySearchPatternByNamespace' ) );
+
+			$htmlBreadcrumbLinksBuilder = new HtmlBreadcrumbLinksBuilder
+			(
+				$byPropertyHierarchicalLinksFinder,
+				$bySubpageLinksFinder
+			);
+
+			$htmlBreadcrumbLinksBuilder->setLinker( new DummyLinker() );
+			$htmlBreadcrumbLinksBuilder->setBreadcrumbTrailStyleClass( $options->get( 'breadcrumbTrailStyleClass' ) );
+
+			$htmlBreadcrumbLinksBuilder->setBreadcrumbDividerStyleClass( $options->get( 'breadcrumbDividerStyleClass' ) );
+
+			$htmlBreadcrumbLinksBuilder->hideSubpageParent( $options->get( 'hideSubpageParent' ) );
+
+			$skinTemplateOutputModifier = new SkinTemplateOutputModifier
+			(
+				$htmlBreadcrumbLinksBuilder,
+				ApplicationFactory::getInstance()->getNamespaceExaminer()
+			);
+
+			$skinTemplateOutputModifier->modify2( $outputPage );
+			
 			return true;
 		};
 
