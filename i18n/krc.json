@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Къарачайлы"
+		]
+	},
+	"sbl-desc": "Атрибут энчилик фильтринден breadcrumb джибериулерини болдурур ючюн [https://www.semantic-mediawiki.org Semantik bir MediaWiki] кенгериу",
+	"smw-pa-property-predefined-sbl-parentpage": "\"$1\" - ана бла бала барлыкъ арасындагъы илешкилени таныталгъан, аллындан танытылгъан энчиликди эмда [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic Breadcrumb Links] кенгириу къошуу бла баджарылыр.",
+	"smw-pa-property-predefined-long-sbl-parentpage": "Барлыкъны анасына кёре темасыны белгилеб ётмек умурну (breadcrumb) ызы шекелде навигация болушлулкъ болдурур ючюн хайырланыргъа боллукъду.",
+	"sbl-property-alias-parentpage": "Ана бети барды",
+	"sbl-admin-deprecation-notice-section": "«Semantic Breadcrumb Links» кенгериу",
+	"sbl-admin-deprecation-notice-title-replacement": "Ауушдурулгъан неда атын тюрлендирген джарашдырыула",
+	"sbl-admin-deprecation-notice-title-replacement-explanation": "Тюбюндеги бёлюм, джангыдан аталгъан неда башха шекелде тюрлендирилген джарашдырыуланы тутады эмда атларыны неда форматларыны джангыртырыгъызны тыйыншлы кёреди.",
+	"sbl-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links/$1 $1]</code> орнуна <code>[https://www.semantic-mediawiki.org/wiki/Extension: Semantic_Breadcrumb_Links/$2 $2]</code>"
+}
