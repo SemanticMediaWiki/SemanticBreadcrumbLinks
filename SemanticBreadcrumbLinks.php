@@ -92,15 +92,6 @@ class SemanticBreadcrumbLinks {
 	 * @since 1.3
 	 */
 	public static function onExtensionFunction() {
-
-		if ( !defined( 'SMW_VERSION' ) ) {
-			if ( PHP_SAPI === 'cli' || PHP_SAPI === 'phpdbg' ) {
-				die( "\nThe 'Semantic Breadcrumb Links' extension requires 'Semantic MediaWiki' to be installed and enabled.\n" );
-			} else {
-				die( '<b>Error:</b> The <a href="https://github.com/SemanticMediaWiki/SemanticBreadcrumbLinks/">Semantic Breadcrumb Links</a> extension requires <a href="https://www.semantic-mediawiki.org/wiki/Semantic_MediaWiki">Semantic MediaWiki</a> to be installed and enabled.<br />' );
-			}
-		}
-
 		// Default values are defined at this point to ensure
 		// NS contants are specified prior
 		$defaultPropertySearchPatternByNamespace = [
