@@ -9,17 +9,16 @@ use SMW\Tests\PHPUnitCompat;
  * @covers \SBL\Options
  * @group semantic-breadcrumb-links
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since   1.2
  *
  * @author mwjames
  */
-class OptionsTest extends \PHPUnit_Framework_TestCase {
+class OptionsTest extends \PHPUnit\Framework\TestCase {
 
 	use PHPUnitCompat;
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			'\SBL\Options',
 			new Options()
@@ -27,7 +26,6 @@ class OptionsTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testAddOption() {
-
 		$instance = new Options();
 
 		$this->assertFalse(
@@ -43,7 +41,6 @@ class OptionsTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testUnregisteredKeyThrowsException() {
-
 		$instance = new Options();
 
 		$this->setExpectedException( 'InvalidArgumentException' );

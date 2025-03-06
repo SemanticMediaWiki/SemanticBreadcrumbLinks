@@ -6,7 +6,7 @@ use SMW\DIWikiPage;
 use Title;
 
 /**
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -14,7 +14,7 @@ use Title;
 class BySubpageLinksFinder {
 
 	/**
-	 * @var boolean
+	 * @var bool
 	 */
 	private $isDiscoveryFallback = true;
 
@@ -26,7 +26,7 @@ class BySubpageLinksFinder {
 	/**
 	 * @since 1.0
 	 *
-	 * @param boolean $isDiscoveryFallback
+	 * @param bool $isDiscoveryFallback
 	 */
 	public function setSubpageDiscoveryFallback( $isDiscoveryFallback ) {
 		$this->isDiscoveryFallback = $isDiscoveryFallback;
@@ -35,7 +35,7 @@ class BySubpageLinksFinder {
 	/**
 	 * @since 1.0
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function isDiscoveryFallback() {
 		return $this->isDiscoveryFallback;
@@ -47,7 +47,6 @@ class BySubpageLinksFinder {
 	 * @param DIWikiPage $subject
 	 */
 	public function findLinksBySubject( DIWikiPage $subject ) {
-
 		$title = $subject->getTitle();
 
 		// Use the text instead of the prefixedText to avoid a split
@@ -75,7 +74,6 @@ class BySubpageLinksFinder {
 	}
 
 	private function buildHierarchicalLinksFromText( $text, $ns ) {
-
 		$growinglink = '';
 		$links = explode( '/', $text );
 

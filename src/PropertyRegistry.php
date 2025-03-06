@@ -2,25 +2,22 @@
 
 namespace SBL;
 
-use SMW\DIProperty;
-
 /**
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
  */
 class PropertyRegistry {
 
-	const SBL_PARENTPAGE = '__sbl_parentpage';
+	public const SBL_PARENTPAGE = '__sbl_parentpage';
 
 	/**
 	 * @since 1.0
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function register( $propertyRegistry ) {
-
 		$propertyDefinitions = [
 
 			self::SBL_PARENTPAGE => [

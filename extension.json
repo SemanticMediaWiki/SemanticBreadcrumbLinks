@@ -11,17 +11,26 @@
 	"license-name": "GPL-2.0-or-later",
 	"type": "semantic",
 	"requires": {
-		"MediaWiki": ">= 1.27"
+		"MediaWiki": ">= 1.39"
 	},
 	"MessagesDirs": {
 		"SemanticBreadcrumbLinks": [
 			"i18n"
 		]
 	},
+	"ExtensionMessagesFiles": {
+		"SemanticBreadcrumbLinksMagic": "i18n/SemanticBreadcrumbLinks.magic.php"
+	},
 	"callback": "SemanticBreadcrumbLinks::initExtension",
 	"ExtensionFunctions": [
 		"SemanticBreadcrumbLinks::onExtensionFunction"
 	],
+	"AutoloadClasses": {
+		"SemanticBreadcrumbLinks": "SemanticBreadcrumbLinks.php"
+	},
+	"AutoloadNamespaces": {
+		"SBL\\": "src/"
+	},
 	"load_composer_autoloader": true,
-	"manifest_version": 1
+	"manifest_version": 2
 }

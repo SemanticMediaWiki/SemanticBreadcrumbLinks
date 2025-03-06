@@ -2,7 +2,7 @@
 
 use SBL\HookRegistry;
 use SBL\Options;
-use SMW\ApplicationFactory;
+use SMW\Services\ServicesFactory as ApplicationFactory;
 
 /**
  * @see https://github.com/SemanticMediaWiki/SemanticBreadcrumbLinks/
@@ -29,7 +29,6 @@ class SemanticBreadcrumbLinks {
 	 * @since 1.3
 	 */
 	public static function load() {
-
 		if ( !defined( 'MEDIAWIKI' ) ) {
 			return;
 		}
@@ -50,18 +49,13 @@ class SemanticBreadcrumbLinks {
 	 * @since 1.3
 	 */
 	public static function initExtension( $credits = [] ) {
-
 		// See https://phabricator.wikimedia.org/T151136
 		define( 'SBL_VERSION', isset( $credits['version'] ) ? $credits['version'] : 'UNKNOWN' );
-
-		// Register message files
-		$GLOBALS['wgMessagesDirs']['SemanticBreadcrumbLinks'] = __DIR__ . '/i18n';
-		$GLOBALS['wgExtensionMessagesFiles']['SemanticBreadcrumbLinksMagic'] = __DIR__ . '/i18n/SemanticBreadcrumbLinks.magic.php';
 
 		// Register resource files
 		$GLOBALS['wgResourceModules']['ext.semanticbreadcrumblinks.styles'] = [
 			'styles'  => 'res/sbl.styles.css',
-			'localBasePath' => __DIR__ ,
+			'localBasePath' => __DIR__,
 			'remoteExtPath' => 'SemanticBreadcrumbLinks',
 			'position' => 'top',
 			'group'    => 'ext.smw',
@@ -73,7 +67,7 @@ class SemanticBreadcrumbLinks {
 
 		$GLOBALS['wgResourceModules']['ext.semanticbreadcrumblinks'] = [
 			'scripts' => 'res/sbl.tooltip.js',
-			'localBasePath' => __DIR__ ,
+			'localBasePath' => __DIR__,
 			'remoteExtPath' => 'SemanticBreadcrumbLinks',
 			'position' => 'top',
 			'group'    => 'ext.smw',
@@ -92,7 +86,6 @@ class SemanticBreadcrumbLinks {
 	 * @since 1.3
 	 */
 	public static function onExtensionFunction() {
-
 		if ( !defined( 'SMW_VERSION' ) ) {
 			if ( PHP_SAPI === 'cli' || PHP_SAPI === 'phpdbg' ) {
 				die( "\nThe 'Semantic Breadcrumb Links' extension requires 'Semantic MediaWiki' to be installed and enabled.\n" );

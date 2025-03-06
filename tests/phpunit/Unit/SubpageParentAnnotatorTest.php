@@ -3,26 +3,25 @@
 namespace SBL\Tests;
 
 use SBL\SubpageParentAnnotator;
-use SMW\DIWikiPage;
 use SMW\DIProperty;
+use SMW\DIWikiPage;
 use Title;
 
 /**
  * @covers \SBL\SubpageParentAnnotator
  * @group semantic-breadcrumb-links
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
  */
-class SubpageParentAnnotatorTest extends \PHPUnit_Framework_TestCase {
+class SubpageParentAnnotatorTest extends \PHPUnit\Framework\TestCase {
 
 	private $parserData;
 	private $parserOutput;
 
-	protected function setUp() {
-
+	protected function setUp(): void {
 		$title = Title::newFromText( 'Foo/Bar' );
 
 		$this->parserOutput = $this->getMockBuilder( '\ParserOutput' )
@@ -35,15 +34,14 @@ class SubpageParentAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$this->parserData->expects( $this->any() )
 			->method( 'getTitle' )
-			->will( $this->returnValue( $title ) );
+			->willReturn( $title );
 
 		$this->parserData->expects( $this->any() )
 			->method( 'getOutput' )
-			->will( $this->returnValue( $this->parserOutput ) );
+			->willReturn( $this->parserOutput );
 	}
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			'\SBL\SubpageParentAnnotator',
 			new SubpageParentAnnotator( $this->parserData )
@@ -51,7 +49,6 @@ class SubpageParentAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testAddAnnotation() {
-
 		$property = DIProperty::newFromUserLabel( SBL_PROP_PARENTPAGE );
 		$subject = DIWikiPage::newFromText( 'Foo' );
 
@@ -61,17 +58,17 @@ class SubpageParentAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$semanticData->expects( $this->once() )
 			->method( 'getPropertyValues' )
-			->will( $this->returnValue( [] ) );
+			->willReturn( [] );
 
 		$semanticData->expects( $this->once() )
 			->method( 'addPropertyObjectValue' )
 			->with(
-				$this->equalTo( $property ),
-				$this->equalTo( $subject ) );
+				$property,
+				$subject );
 
 		$this->parserData->expects( $this->atLeastOnce() )
 			->method( 'getSemanticData' )
-			->will( $this->returnValue( $semanticData ) );
+			->willReturn( $semanticData );
 
 		$instance = new SubpageParentAnnotator(
 			$this->parserData
@@ -81,7 +78,6 @@ class SubpageParentAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testDisabledAnnotationFunctionality() {
-
 		$this->parserData->expects( $this->never() )
 			->method( 'getSemanticData' );
 
@@ -94,21 +90,20 @@ class SubpageParentAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testDisabledAnnotationFunctionalityDueToPreexisingValues() {
-
 		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()
 			->getMock();
 
 		$semanticData->expects( $this->once() )
 			->method( 'getPropertyValues' )
-			->will( $this->returnValue( [ 'Foo' ] ) );
+			->willReturn( [ 'Foo' ] );
 
 		$semanticData->expects( $this->never() )
 			->method( 'addPropertyObjectValue' );
 
 		$this->parserData->expects( $this->atLeastOnce() )
 			->method( 'getSemanticData' )
-			->will( $this->returnValue( $semanticData ) );
+			->willReturn( $semanticData );
 
 		$instance = new SubpageParentAnnotator(
 			$this->parserData
@@ -119,7 +114,6 @@ class SubpageParentAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testNoAnnotationOnPagesWithSpaces() {
-
 		$title = Title::newFromText( 'Foo / Bar' );
 
 		$parserData = $this->getMockBuilder( '\SMW\ParserData' )
@@ -128,7 +122,7 @@ class SubpageParentAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$parserData->expects( $this->any() )
 			->method( 'getTitle' )
-			->will( $this->returnValue( $title ) );
+			->willReturn( $title );
 
 		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
 			->disableOriginalConstructor()
@@ -136,14 +130,14 @@ class SubpageParentAnnotatorTest extends \PHPUnit_Framework_TestCase {
 
 		$semanticData->expects( $this->once() )
 			->method( 'getPropertyValues' )
-			->will( $this->returnValue( [] ) );
+			->willReturn( [] );
 
 		$semanticData->expects( $this->never() )
 			->method( 'addPropertyObjectValue' );
 
 		$parserData->expects( $this->atLeastOnce() )
 			->method( 'getSemanticData' )
-			->will( $this->returnValue( $semanticData ) );
+			->willReturn( $semanticData );
 
 		$instance = new SubpageParentAnnotator(
 			$parserData
@@ -154,11 +148,10 @@ class SubpageParentAnnotatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testDisableTranslationSubpageAnnotation() {
-
 		$this->parserOutput->expects( $this->once() )
 			->method( 'getExtensionData' )
-			->with( $this->equalTo( 'translate-translation-page' ) )
-			->will( $this->returnValue( true ) );
+			->with( 'translate-translation-page' )
+			->willReturn( true );
 
 		$instance = new SubpageParentAnnotator(
 			$this->parserData
