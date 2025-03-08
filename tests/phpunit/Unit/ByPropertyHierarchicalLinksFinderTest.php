@@ -3,24 +3,21 @@
 namespace SBL\Tests;
 
 use SBL\ByPropertyHierarchicalLinksFinder;
-use SMW\DIWikiPage;
 use SMW\DIProperty;
-use SMW\ApplicationFactory;
-use Title;
+use SMW\DIWikiPage;
 
 /**
  * @covers \SBL\ByPropertyHierarchicalLinksFinder
  * @group semantic-breadcrumb-links
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
  */
-class ByPropertyHierarchicalLinksFinderTest extends \PHPUnit_Framework_TestCase {
+class ByPropertyHierarchicalLinksFinderTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
-
 		$store = $this->getMockBuilder( '\SMW\Store' )
 			->disableOriginalConstructor()
 			->getMockForAbstractClass();
@@ -32,7 +29,6 @@ class ByPropertyHierarchicalLinksFinderTest extends \PHPUnit_Framework_TestCase 
 	}
 
 	public function testNoValidConfigurationForAnyNamespace() {
-
 		$store = $this->getMockBuilder( '\SMW\Store' )
 			->disableOriginalConstructor()
 			->getMockForAbstractClass();
@@ -51,7 +47,6 @@ class ByPropertyHierarchicalLinksFinderTest extends \PHPUnit_Framework_TestCase 
 	}
 
 	public function testEmptyResultByTryingToFindAntecedent() {
-
 		$subject = new DIWikiPage( 'Foo', NS_MAIN );
 		$property = DIProperty::newFromUserLabel( 'Bar' );
 
@@ -62,9 +57,9 @@ class ByPropertyHierarchicalLinksFinderTest extends \PHPUnit_Framework_TestCase 
 		$store->expects( $this->once() )
 			->method( 'getPropertyValues' )
 			->with(
-				$this->equalTo( $subject ),
-				$this->equalTo( $property ) )
-			->will( $this->returnValue( [] ) );
+				$subject,
+				$property )
+			->willReturn( [] );
 
 		$instance = new ByPropertyHierarchicalLinksFinder( $store );
 
@@ -85,39 +80,38 @@ class ByPropertyHierarchicalLinksFinderTest extends \PHPUnit_Framework_TestCase 
 	}
 
 	public function testFindAntecedentForMultiplePropertySearchPattern() {
-
 		$subject = new DIWikiPage( 'Foo', NS_MAIN );
 
 		$store = $this->getMockBuilder( '\SMW\Store' )
 			->disableOriginalConstructor()
-			->setMethods( [ 'getRedirectTarget' ] )
+			->onlyMethods( [ 'getRedirectTarget' ] )
 			->getMockForAbstractClass();
 
 		$store->expects( $this->at( 0 ) )
 			->method( 'getPropertyValues' )
 			->with(
-				$this->equalTo( $subject ),
-				$this->equalTo( DIProperty::newFromUserLabel( 'Bar' ) ) )
-			->will( $this->returnValue( [ new DIWikiPage( 'Ichi', NS_MAIN ) ] ) );
+				$subject,
+				DIProperty::newFromUserLabel( 'Bar' ) )
+			->willReturn( [ new DIWikiPage( 'Ichi', NS_MAIN ) ] );
 
 		$store->expects( $this->at( 1 ) )
 			->method( 'getRedirectTarget' )
 			->with(
-				$this->equalTo( new DIWikiPage( 'Ichi', NS_MAIN ) ) )
-			->will( $this->returnValue( new DIWikiPage( 'Ichi', NS_MAIN ) ) );
+				new DIWikiPage( 'Ichi', NS_MAIN ) )
+			->willReturn( new DIWikiPage( 'Ichi', NS_MAIN ) );
 
 		$store->expects( $this->at( 2 ) )
 			->method( 'getPropertyValues' )
 			->with(
-				$this->equalTo( new DIWikiPage( 'Ichi', NS_MAIN )  ),
-				$this->equalTo( DIProperty::newFromUserLabel( 'Yin' )) )
-			->will( $this->returnValue( [ new DIWikiPage( 'Ni', NS_MAIN ) ] ) );
+				new DIWikiPage( 'Ichi', NS_MAIN ),
+				DIProperty::newFromUserLabel( 'Yin' ) )
+			->willReturn( [ new DIWikiPage( 'Ni', NS_MAIN ) ] );
 
 		$store->expects( $this->at( 3 ) )
 			->method( 'getRedirectTarget' )
 			->with(
-				$this->equalTo( new DIWikiPage( 'Ni', NS_MAIN ) ) )
-			->will( $this->returnValue( new DIWikiPage( 'San', NS_MAIN ) ) );
+				new DIWikiPage( 'Ni', NS_MAIN ) )
+			->willReturn( new DIWikiPage( 'San', NS_MAIN ) );
 
 		$instance = new ByPropertyHierarchicalLinksFinder( $store );
 
@@ -142,7 +136,6 @@ class ByPropertyHierarchicalLinksFinderTest extends \PHPUnit_Framework_TestCase 
 	}
 
 	public function testCheckCircularReferenceForSomeSubject() {
-
 		$subject = new DIWikiPage( 'Foo', NS_MAIN );
 
 		$store = $this->getMockBuilder( '\SMW\Store' )
@@ -152,9 +145,9 @@ class ByPropertyHierarchicalLinksFinderTest extends \PHPUnit_Framework_TestCase 
 		$store->expects( $this->at( 0 ) )
 			->method( 'getPropertyValues' )
 			->with(
-				$this->equalTo( $subject ),
-				$this->equalTo( DIProperty::newFromUserLabel( 'Bar' ) ) )
-			->will( $this->returnValue( [ $subject ] ) );
+				$subject,
+				DIProperty::newFromUserLabel( 'Bar' ) )
+			->willReturn( [ $subject ] );
 
 		$instance = new ByPropertyHierarchicalLinksFinder( $store );
 
@@ -176,7 +169,6 @@ class ByPropertyHierarchicalLinksFinderTest extends \PHPUnit_Framework_TestCase 
 	}
 
 	public function testChildSearchForValidPageTypeProperty() {
-
 		$subject = new DIWikiPage( 'Foo', NS_MAIN );
 
 		$property = DIProperty::newFromUserLabel( 'Bar' );
@@ -188,17 +180,17 @@ class ByPropertyHierarchicalLinksFinderTest extends \PHPUnit_Framework_TestCase 
 
 		$store->expects( $this->atLeastOnce() )
 			->method( 'getPropertyValues' )
-			->will( $this->returnValue( [] ) );
+			->willReturn( [] );
 
 		$store->expects( $this->at( 1 ) )
 			->method( 'getPropertySubjects' )
 			->with(
-				$this->equalTo( $property ),
-				$this->equalTo( $subject ) )
-			->will( $this->returnValue( [
+				$property,
+				$subject )
+			->willReturn( [
 				new DIWikiPage( 'Foo', NS_MAIN ),
 				new DIWikiPage( 'NotEqualToFoo', NS_MAIN ),
-				new DIWikiPage( 'AnotherChild', NS_MAIN ) ] ) );
+				new DIWikiPage( 'AnotherChild', NS_MAIN ) ] );
 
 		$instance = new ByPropertyHierarchicalLinksFinder( $store );
 
@@ -223,7 +215,6 @@ class ByPropertyHierarchicalLinksFinderTest extends \PHPUnit_Framework_TestCase 
 	}
 
 	public function testChildSearchForInvalidPropertyType() {
-
 		$subject = new DIWikiPage( 'Foo', NS_MAIN );
 
 		$store = $this->getMockBuilder( '\SMW\Store' )
@@ -232,7 +223,7 @@ class ByPropertyHierarchicalLinksFinderTest extends \PHPUnit_Framework_TestCase 
 
 		$store->expects( $this->atLeastOnce() )
 			->method( 'getPropertyValues' )
-			->will( $this->returnValue( [] ) );
+			->willReturn( [] );
 
 		$store->expects( $this->never() )
 			->method( 'getPropertySubjects' );

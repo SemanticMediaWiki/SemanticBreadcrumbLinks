@@ -2,13 +2,13 @@
 
 namespace SBL;
 
+use Linker;
+use MediaWiki\MediaWikiServices;
+use SMW\Services\ServicesFactory as ApplicationFactory;
 use SMW\Store;
-use SMW\ApplicationFactory;
-use DummyLinker;
-use Hooks;
 
 /**
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -35,10 +35,11 @@ class HookRegistry {
 	 *
 	 * @param string $name
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function isRegistered( $name ) {
-		return Hooks::isRegistered( $name );
+		$hookContainer = MediaWikiServices::getInstance()->getHookContainer();
+		return $hookContainer->isRegistered( $name );
 	}
 
 	/**
@@ -46,7 +47,7 @@ class HookRegistry {
 	 *
 	 * @param string $name
 	 *
-	 * @return Callable|false
+	 * @return callable|false
 	 */
 	public function getHandlerFor( $name ) {
 		return isset( $this->handlers[$name] ) ? $this->handlers[$name] : false;
@@ -56,18 +57,17 @@ class HookRegistry {
 	 * @since  1.0
 	 */
 	public function register() {
+		$hookContainer = MediaWikiServices::getInstance()->getHookContainer();
 		foreach ( $this->handlers as $name => $callback ) {
-			Hooks::register( $name, $callback );
+			$hookContainer->register( $name, $callback );
 		}
 	}
 
 	private function addCallbackHandlers( $store, $options ) {
-
 		/**
 		 * @see https://github.com/SemanticMediaWiki/SemanticMediaWiki/blob/master/docs/technical/hooks.md
 		 */
-		$this->handlers['SMW::Property::initProperties'] = function( $baseRegistry ) {
-
+		$this->handlers['SMW::Property::initProperties'] = static function ( $baseRegistry ) {
 			$propertyRegistry = new PropertyRegistry();
 
 			$propertyRegistry->register(
@@ -80,7 +80,7 @@ class HookRegistry {
 		/**
 		 * @see https://www.semantic-mediawiki.org/wiki/Hooks/SMW::Parser::BeforeMagicWordsFinder
 		 */
-		$this->handlers['SMW::Parser::BeforeMagicWordsFinder'] = function( array &$magicWords ) {
+		$this->handlers['SMW::Parser::BeforeMagicWordsFinder'] = static function ( array &$magicWords ) {
 			$magicWords = array_merge( $magicWords, [ 'SBL_NOBREADCRUMBLINKS' ] );
 			return true;
 		};
@@ -91,7 +91,7 @@ class HookRegistry {
 		 *
 		 * @see https://www.mediawiki.org/wiki/Manual:Hooks/OutputPageParserOutput
 		 */
-		$this->handlers['OutputPageParserOutput'] = function( &$outputPage, $parserOutput ) {
+		$this->handlers['OutputPageParserOutput'] = static function ( &$outputPage, $parserOutput ) {
 			$outputPage->smwmagicwords = $parserOutput->getExtensionData( 'smwmagicwords' );
 			return true;
 		};
@@ -99,8 +99,7 @@ class HookRegistry {
 		/**
 		 * @see https://www.mediawiki.org/wiki/Manual:Hooks/SkinTemplateOutputPageBeforeExec
 		 */
-		$this->handlers['SkinTemplateOutputPageBeforeExec'] = function ( &$skin, &$template ) use( $store, $options ) {
-
+		$this->handlers['SkinTemplateOutputPageBeforeExec'] = static function ( &$skin, &$template ) use( $store, $options ) {
 			$bySubpageLinksFinder = new BySubpageLinksFinder();
 			$bySubpageLinksFinder->setSubpageDiscoveryFallback(
 				$options->get( 'useSubpageFinderFallback' )
@@ -120,7 +119,7 @@ class HookRegistry {
 				$bySubpageLinksFinder
 			);
 
-			$htmlBreadcrumbLinksBuilder->setLinker( new DummyLinker() );
+			$htmlBreadcrumbLinksBuilder->setLinker( new Linker() );
 			$htmlBreadcrumbLinksBuilder->setBreadcrumbTrailStyleClass(
 				$options->get( 'breadcrumbTrailStyleClass' )
 			);
@@ -146,8 +145,7 @@ class HookRegistry {
 		/**
 		 * @see https://www.mediawiki.org/wiki/Manual:Hooks/BeforePageDisplay
 		 */
-		$this->handlers['BeforePageDisplay'] = function ( &$output, &$skin ) use ( $options ) {
-
+		$this->handlers['BeforePageDisplay'] = static function ( &$output, &$skin ) use ( $options ) {
 			$pageDisplayOutputModifier = new PageDisplayOutputModifier();
 
 			$pageDisplayOutputModifier->hideSubpageParent(
@@ -166,8 +164,7 @@ class HookRegistry {
 		/**
 		 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ParserAfterTidy
 		 */
-		$this->handlers['ParserAfterTidy'] = function ( &$parser, &$text ) use ( $options ) {
-
+		$this->handlers['ParserAfterTidy'] = static function ( &$parser, &$text ) use ( $options ) {
 			// ParserOptions::getInterfaceMessage is being used to identify whether a
 			// parse was initiated by `Message::parse`
 			if ( $parser->getTitle()->isSpecialPage() || $parser->getOptions()->getInterfaceMessage() ) {

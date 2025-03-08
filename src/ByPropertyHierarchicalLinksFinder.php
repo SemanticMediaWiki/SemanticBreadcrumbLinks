@@ -2,14 +2,13 @@
 
 namespace SBL;
 
-use SMW\DIWikiPage;
 use SMW\DIProperty;
+use SMW\DIWikiPage;
+use SMW\RequestOptions;
 use SMW\Store;
-use SMWRequestOptions as RequestOptions;
-use Title;
 
 /**
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -22,7 +21,7 @@ class ByPropertyHierarchicalLinksFinder {
 	private $store;
 
 	/**
-	 * @var boolean
+	 * @var bool
 	 */
 	private $findClosestDescendant = true;
 
@@ -53,7 +52,7 @@ class ByPropertyHierarchicalLinksFinder {
 	/**
 	 * @since 1.0
 	 *
-	 * @param boolean $findClosestDescendant
+	 * @param bool $findClosestDescendant
 	 */
 	public function setFindClosestDescendantState( $findClosestDescendant ) {
 		$this->findClosestDescendant = $findClosestDescendant;
@@ -74,7 +73,6 @@ class ByPropertyHierarchicalLinksFinder {
 	 * @param DIWikiPage $subject
 	 */
 	public function findLinksBySubject( DIWikiPage $subject ) {
-
 		if ( !isset( $this->propertySearchPatternByNamespace[ $subject->getNamespace() ] ) ) {
 			return;
 		}
@@ -126,7 +124,6 @@ class ByPropertyHierarchicalLinksFinder {
 	}
 
 	private function doResolveAntecedentHierarchyRecursively( DIWikiPage $subject, array $propertySearchPattern, RequestOptions $requestOptions, $currentDepth = 0 ) {
-
 		$dataItem = null;
 
 		if ( $propertySearchPattern === [] ) {
@@ -147,12 +144,12 @@ class ByPropertyHierarchicalLinksFinder {
 
 		foreach ( $propertyValues as $value ) {
 
-			if ( !$value instanceOf DIWikiPage || $subject->equals( $value ) ) {
+			if ( !$value instanceof DIWikiPage || $subject->equals( $value ) ) {
 				continue;
 			}
 
 			// A flat display can only display one parent in its hierarchy
-			$dataItem =  $this->store->getRedirectTarget( $value );
+			$dataItem = $this->store->getRedirectTarget( $value );
 			break;
 		}
 
@@ -172,7 +169,6 @@ class ByPropertyHierarchicalLinksFinder {
 	}
 
 	private function doFindClosestDescendantByInverseLink( DIWikiPage $subject, array $propertySearchPattern, RequestOptions $requestOptions ) {
-
 		$property = array_shift( $propertySearchPattern );
 
 		$property = DIProperty::newFromUserLabel( $property );

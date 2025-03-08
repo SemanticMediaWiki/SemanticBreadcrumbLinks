@@ -3,12 +3,12 @@
 namespace SBL;
 
 use OutputPage;
-use Title;
 use SMW\DataValueFactory;
 use SMW\DIWikiPage;
+use Title;
 
 /**
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -16,7 +16,7 @@ use SMW\DIWikiPage;
 class PageDisplayOutputModifier {
 
 	/**
-	 * @var boolean
+	 * @var bool
 	 */
 	private $hideSubpageParent;
 
@@ -28,7 +28,7 @@ class PageDisplayOutputModifier {
 	/**
 	 * @since  1.0
 	 *
-	 * @param boolean $hideSubpageParent
+	 * @param bool $hideSubpageParent
 	 */
 	public function hideSubpageParent( $hideSubpageParent ) {
 		$this->hideSubpageParent = $hideSubpageParent;
@@ -49,7 +49,6 @@ class PageDisplayOutputModifier {
 	 * @param OutputPage $outputPage
 	 */
 	public function modifyOutput( OutputPage $outputPage ) {
-
 		$outputPage->addModuleStyles( 'ext.semanticbreadcrumblinks.styles' );
 		$outputPage->addModules( 'ext.semanticbreadcrumblinks' );
 
@@ -65,7 +64,6 @@ class PageDisplayOutputModifier {
 	}
 
 	private function isSubpage( Title $title ) {
-
 		if ( !$title->isSubpage() ) {
 			return false;
 		}
@@ -83,7 +81,6 @@ class PageDisplayOutputModifier {
 	}
 
 	private function getPageTitle( Title $title ) {
-
 		$displayTitle = '';
 
 		$dataValue = DataValueFactory::getInstance()->newDataItemValue(
@@ -91,7 +88,7 @@ class PageDisplayOutputModifier {
 		);
 
 		// 2.4+
-		if ( method_exists( $dataValue , 'getDisplayTitle' ) ) {
+		if ( method_exists( $dataValue, 'getDisplayTitle' ) ) {
 			$displayTitle = $dataValue->getDisplayTitle();
 		}
 

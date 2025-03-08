@@ -8,15 +8,14 @@ use SBL\PropertyRegistry;
  * @covers \SBL\PropertyRegistry
  * @group semantic-breadcrumb-links
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
  */
-class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
+class PropertyRegistryTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			'\SBL\PropertyRegistry',
 			new PropertyRegistry()
@@ -24,18 +23,17 @@ class PropertyRegistryTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testRegister() {
-
 		$propertyRegistry = $this->getMockBuilder( '\SMW\PropertyRegistry' )
 			->disableOriginalConstructor()
 			->getMock();
 
 		$propertyRegistry->expects( $this->atLeastOnce() )
 			->method( 'registerProperty' )
-			->with( $this->equalTo( PropertyRegistry::SBL_PARENTPAGE ) );
+			->with( PropertyRegistry::SBL_PARENTPAGE );
 
 		$propertyRegistry->expects( $this->atLeastOnce() )
 			->method( 'registerPropertyAlias' )
-			->with( $this->equalTo( PropertyRegistry::SBL_PARENTPAGE ) );
+			->with( PropertyRegistry::SBL_PARENTPAGE );
 
 		$instance = new PropertyRegistry();
 		$instance->register( $propertyRegistry );

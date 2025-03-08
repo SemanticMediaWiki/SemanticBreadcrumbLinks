@@ -10,15 +10,14 @@ use Title;
  * @covers \SBL\BySubpageLinksFinder
  * @group semantic-breadcrumb-links
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
  */
-class BySubpageLinksFinderTest extends \PHPUnit_Framework_TestCase {
+class BySubpageLinksFinderTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
-
 		$this->assertInstanceOf(
 			'\SBL\BySubpageLinksFinder',
 			new BySubpageLinksFinder()
@@ -26,7 +25,6 @@ class BySubpageLinksFinderTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testDisabledFinder() {
-
 		$instance = new BySubpageLinksFinder();
 		$instance->setSubpageDiscoveryFallback( false );
 
@@ -39,7 +37,6 @@ class BySubpageLinksFinderTest extends \PHPUnit_Framework_TestCase {
 	 * @dataProvider titleProvider
 	 */
 	public function testFindParentBreadcrumbs( $title, $count, $expected ) {
-
 		$subject = DIWikiPage::newFromTitle( Title::newFromText( $title ) );
 
 		$instance = new BySubpageLinksFinder();
@@ -63,15 +60,14 @@ class BySubpageLinksFinderTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function titleProvider() {
-
-		#0
+		# 0
 		$provider[] = [
 			'Foo',
 			0,
 			[]
 		];
 
-		#1
+		# 1
 		$provider[] = [
 			'Foo/',
 			1,
@@ -80,7 +76,7 @@ class BySubpageLinksFinderTest extends \PHPUnit_Framework_TestCase {
 			]
 		];
 
-		#2
+		# 2
 		$provider[] = [
 			'Foo/Bar/Baz',
 			2,
@@ -90,7 +86,7 @@ class BySubpageLinksFinderTest extends \PHPUnit_Framework_TestCase {
 			]
 		];
 
-		#3
+		# 3
 		$provider[] = [
 			'Foo/Bar/Baz/Yin/Yan',
 			4,
@@ -102,7 +98,7 @@ class BySubpageLinksFinderTest extends \PHPUnit_Framework_TestCase {
 			]
 		];
 
-		#4 /a/b
+		# 4 /a/b
 		$provider[] = [
 			'/a/b',
 			1,
@@ -111,7 +107,7 @@ class BySubpageLinksFinderTest extends \PHPUnit_Framework_TestCase {
 			]
 		];
 
-		#5 /a//b/c
+		# 5 /a//b/c
 		$provider[] = [
 			'/a//b/c',
 			2,
@@ -121,28 +117,28 @@ class BySubpageLinksFinderTest extends \PHPUnit_Framework_TestCase {
 			]
 		];
 
-		#6 (#23 issue)
+		# 6 (#23 issue)
 		$provider[] = [
 			'Foo / Bar',
 			0,
 			[]
 		];
 
-		#7 (#23 issue)
+		# 7 (#23 issue)
 		$provider[] = [
 			'Foo /Bar',
 			0,
 			[]
 		];
 
-		#8 (#23 issue)
+		# 8 (#23 issue)
 		$provider[] = [
 			'Foo /Bar /Foobar',
 			0,
 			[]
 		];
 
-		#9
+		# 9
 		$provider[] = [
 			'Help:Foo/Foobar',
 			1,

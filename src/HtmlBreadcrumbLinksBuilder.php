@@ -2,14 +2,14 @@
 
 namespace SBL;
 
-use SMW\DIWikiPage;
-use SMW\DataValueFactory;
-use Title;
 use Html;
-use DummyLinker;
+use Linker;
+use SMW\DataValueFactory;
+use SMW\DIWikiPage;
+use Title;
 
 /**
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -32,7 +32,7 @@ class HtmlBreadcrumbLinksBuilder {
 	private $dataValueFactory;
 
 	/**
-	 * @var DummyLinker|null
+	 * @var Linker|null
 	 */
 	private $linker = null;
 
@@ -52,17 +52,17 @@ class HtmlBreadcrumbLinksBuilder {
 	private $breadcrumbDividerStyleClass = 'sbl-breadcrumb-arrow';
 
 	/**
-	 * @var boolean
+	 * @var bool
 	 */
 	private $isRTL = false;
 
 	/**
-	 * @var boolean
+	 * @var bool
 	 */
 	private $hasChildren = false;
 
 	/**
-	 * @var boolean
+	 * @var bool
 	 */
 	private $hideSubpageParent = false;
 
@@ -81,9 +81,9 @@ class HtmlBreadcrumbLinksBuilder {
 	/**
 	 * @since 1.0
 	 *
-	 * @param DummyLinker $linker
+	 * @param Linker $linker
 	 */
-	public function setLinker( DummyLinker $linker ) {
+	public function setLinker( Linker $linker ) {
 		$this->linker = $linker;
 	}
 
@@ -117,7 +117,7 @@ class HtmlBreadcrumbLinksBuilder {
 	/**
 	 * @since 1.3
 	 *
-	 * @param boolean $hideSubpageParent
+	 * @param bool $hideSubpageParent
 	 */
 	public function hideSubpageParent( $hideSubpageParent ) {
 		$this->hideSubpageParent = $hideSubpageParent;
@@ -126,7 +126,7 @@ class HtmlBreadcrumbLinksBuilder {
 	/**
 	 * @since 1.0
 	 *
-	 * @param boolean $isRTL
+	 * @param bool $isRTL
 	 */
 	public function isRTL( $isRTL ) {
 		$this->isRTL = $isRTL;
@@ -138,7 +138,6 @@ class HtmlBreadcrumbLinksBuilder {
 	 * @param Title $title
 	 */
 	public function buildBreadcrumbs( Title $title ) {
-
 		if ( $title->isRedirect() ) {
 			return;
 		}
@@ -166,7 +165,6 @@ class HtmlBreadcrumbLinksBuilder {
 	 * @return string
 	 */
 	public function getHtml() {
-
 		if ( $this->breadcrumbs === '' ) {
 			return $this->breadcrumbs;
 		}
@@ -180,7 +178,6 @@ class HtmlBreadcrumbLinksBuilder {
 	}
 
 	private function getSubstituteLinksParentsOnDiscoveryFallback( $subject, $parents ) {
-
 		if ( $parents !== [] || !$this->bySubpageLinksFinder->isDiscoveryFallback() ) {
 			return $parents;
 		}
@@ -191,16 +188,15 @@ class HtmlBreadcrumbLinksBuilder {
 	}
 
 	private function formatToFlatList( DIWikiPage $subject, $parents, $children ) {
-
 		$parent = '';
 
 		foreach ( $parents as $breadcrumb ) {
-			$parent .= $this->wrapHtml( 'parent', $this->getDvShortHtmlText( $breadcrumb, $this->linker ) ) .  $this->wrapHtml( 'right' );
+			$parent .= $this->wrapHtml( 'parent', $this->getDvShortHtmlText( $breadcrumb, $this->linker ) ) . $this->wrapHtml( 'right' );
 		}
 
 		$this->hasChildren = count( $children ) > 1;
 
-		list( $child, $data ) = $this->findElementsForChildren( $children  );
+		[ $child, $data ] = $this->findElementsForChildren( $children );
 
 		if ( $parent !== '' || $child !== '' ) {
 			$this->breadcrumbs = $parent . $this->wrapHtml( 'location', $this->getDvShortHtmlText( $subject ) ) . $child . $this->addHtmlDataElement( $data );
@@ -208,7 +204,6 @@ class HtmlBreadcrumbLinksBuilder {
 	}
 
 	private function getDvShortHtmlText( $subject, $linker = null ) {
-
 		$displayTitle = '';
 
 		$dataValue = $this->dataValueFactory->newDataValueByItem(
@@ -216,7 +211,7 @@ class HtmlBreadcrumbLinksBuilder {
 		);
 
 		// 2.4+
-		if ( method_exists( $dataValue , 'getDisplayTitle' ) ) {
+		if ( method_exists( $dataValue, 'getDisplayTitle' ) ) {
 			$displayTitle = $dataValue->getDisplayTitle();
 		}
 
@@ -242,7 +237,6 @@ class HtmlBreadcrumbLinksBuilder {
 	}
 
 	private function findElementsForChildren( array $children ) {
-
 		$child = '';
 		$data = '';
 
@@ -252,11 +246,11 @@ class HtmlBreadcrumbLinksBuilder {
 			// are added as data-element
 			if ( $child !== '' ) {
 				$this->hasChildren = true;
-				$data .=  $this->addHtmlListElement( $this->getDvShortHtmlText( $breadcrumb, $this->linker ) );
+				$data .= $this->addHtmlListElement( $this->getDvShortHtmlText( $breadcrumb, $this->linker ) );
 				continue;
 			}
 
-			$child .=  $this->wrapHtml( 'left' ) . $this->wrapHtml( 'child', $this->getDvShortHtmlText( $breadcrumb, $this->linker ) );
+			$child .= $this->wrapHtml( 'left' ) . $this->wrapHtml( 'child', $this->getDvShortHtmlText( $breadcrumb, $this->linker ) );
 		}
 
 		return [ $child, $data ];
@@ -267,7 +261,6 @@ class HtmlBreadcrumbLinksBuilder {
 	}
 
 	private function addHtmlDataElement( $data = '' ) {
-
 		if ( $data === '' ) {
 			return '';
 		}

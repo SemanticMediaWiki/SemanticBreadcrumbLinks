@@ -2,13 +2,12 @@
 
 namespace SBL;
 
+use SMW\DIProperty;
 use SMW\DIWikiPage;
 use SMW\ParserData;
-use SMW\DIProperty;
-use Title;
 
 /**
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.3
  *
  * @author mwjames
@@ -21,12 +20,12 @@ class SubpageParentAnnotator {
 	private $parserData;
 
 	/**
-	 * @var boolean
+	 * @var bool
 	 */
 	private $enableSubpageParentAnnotation = true;
 
 	/**
-	 * @var boolean
+	 * @var bool
 	 */
 	private $disableTranslationSubpageAnnotation = false;
 
@@ -42,7 +41,7 @@ class SubpageParentAnnotator {
 	/**
 	 * @since 1.3
 	 *
-	 * @param boolean $enableSubpageParentAnnotation
+	 * @param bool $enableSubpageParentAnnotation
 	 */
 	public function enableSubpageParentAnnotation( $enableSubpageParentAnnotation ) {
 		$this->enableSubpageParentAnnotation = (bool)$enableSubpageParentAnnotation;
@@ -51,7 +50,7 @@ class SubpageParentAnnotator {
 	/**
 	 * @since 1.3
 	 *
-	 * @param boolean $enableSubpageParentAnnotation
+	 * @param bool $disableTranslationSubpageAnnotation
 	 */
 	public function disableTranslationSubpageAnnotation( $disableTranslationSubpageAnnotation ) {
 		$this->disableTranslationSubpageAnnotation = (bool)$disableTranslationSubpageAnnotation;
@@ -61,7 +60,6 @@ class SubpageParentAnnotator {
 	 * @since  1.3
 	 */
 	public function addAnnotation() {
-
 		$title = $this->parserData->getTitle();
 
 		if ( !$this->enableSubpageParentAnnotation || strpos( $title->getText(), '/' ) === false ) {
@@ -96,10 +94,11 @@ class SubpageParentAnnotator {
 		$this->parserData->pushSemanticDataToParserOutput();
 	}
 
-	// Don't rely on Title::getBaseText as it depends on the wgNamespacesWithSubpages
-	// setting and if set false will return the normal text including its subparts
+	/**
+	 * Don't rely on Title::getBaseText as it depends on the wgNamespacesWithSubpages
+	 * setting and if set false will return the normal text including its subparts
+	 */
 	private function getBaseText( $title ) {
-
 		$parts = explode( '/', $title->getText() );
 		# Don't discard the real title if there's no subpage involved
 		if ( count( $parts ) > 1 ) {

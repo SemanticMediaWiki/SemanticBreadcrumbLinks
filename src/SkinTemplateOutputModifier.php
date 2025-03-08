@@ -2,14 +2,12 @@
 
 namespace SBL;
 
-use SMW\ApplicationFactory;
-use SMW\NamespaceExaminer;
 use OutputPage;
-use Action;
+use SMW\NamespaceExaminer;
 use Title;
 
 /**
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
@@ -44,7 +42,6 @@ class SkinTemplateOutputModifier {
 	 * @param &$template
 	 */
 	public function modify( OutputPage $output, &$template ) {
-
 		if ( !$this->canModifyOutput( $output ) ) {
 			return;
 		}
@@ -66,7 +63,6 @@ class SkinTemplateOutputModifier {
 	}
 
 	private function canModifyOutput( OutputPage $output ) {
-
 		if ( !$this->isEnabled( $output->getTitle() ) ) {
 			return false;
 		}

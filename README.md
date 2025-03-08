@@ -1,10 +1,9 @@
 # Semantic Breadcrumb Links
 
-[![Build Status](https://secure.travis-ci.org/SemanticMediaWiki/SemanticBreadcrumbLinks.svg?branch=master)](http://travis-ci.org/SemanticMediaWiki/SemanticBreadcrumbLinks)
-[![Code Coverage](https://scrutinizer-ci.com/g/SemanticMediaWiki/SemanticBreadcrumbLinks/badges/coverage.png?s=f3501ede0bcc98824aa51501eb3647ecf71218c0)](https://scrutinizer-ci.com/g/SemanticMediaWiki/SemanticBreadcrumbLinks/)
-[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/SemanticMediaWiki/SemanticBreadcrumbLinks/badges/quality-score.png?s=d9aac7e68e6554f95b0a89608cbc36985429d819)](https://scrutinizer-ci.com/g/SemanticMediaWiki/SemanticBreadcrumbLinks/)
-[![Latest Stable Version](https://poser.pugx.org/mediawiki/semantic-breadcrumb-links/version.png)](https://packagist.org/packages/mediawiki/semantic-breadcrumb-links)
-[![Packagist download count](https://poser.pugx.org/mediawiki/semantic-breadcrumb-links/d/total.png)](https://packagist.org/packages/mediawiki/semantic-breadcrumb-links)
+[![CI](https://github.com/SemanticMediaWiki/SemanticBreadcrumbLinks/actions/workflows/ci.yml/badge.svg)](https://github.com/SemanticMediaWiki/SemanticBreadcrumbLinks/actions/workflows/ci.yml)
+![Latest Stable Version](https://img.shields.io/packagist/v/mediawiki/semantic-breadcrumb-links.svg)
+![Total Download Count](https://img.shields.io/packagist/dt/mediawiki/semantic-breadcrumb-links.svg)
+[![codecov](https://codecov.io/gh/SemanticMediaWiki/SemanticBreadcrumbLinks/graph/badge.svg?token=yl1GVLwRwo)](https://codecov.io/gh/SemanticMediaWiki/SemanticBreadcrumbLinks)
 
 Semantic Breadcrumb Links (a.k.a. SBL) is a [Semantic Mediawiki][smw] extension
 to aid in-page navigation by building breadcrumb links from an attributive property
@@ -18,9 +17,9 @@ This [video](https://vimeo.com/129347298) demonstrates the functionality of the 
 
 ## Requirements
 
-- PHP 5.6 or later
-- MediaWiki 1.27 or later
-- [Semantic MediaWiki][smw] 2.5 or later
+- PHP 8.1 or later
+- MediaWiki 1.39 or later
+- [Semantic MediaWiki][smw] 4.2 or later
 
 ## Installation
 

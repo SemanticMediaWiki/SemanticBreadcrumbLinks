@@ -10,15 +10,14 @@ use Title;
  * @covers \SBL\HookRegistry
  * @group semantic-breadcrumb-links
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  * @since 1.0
  *
  * @author mwjames
  */
-class HookRegistryTest extends \PHPUnit_Framework_TestCase {
+class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
-
 		$store = $this->getMockBuilder( '\SMW\Store' )
 			->disableOriginalConstructor()
 			->getMockForAbstractClass();
@@ -34,7 +33,6 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testRegister() {
-
 		$title = Title::newFromText( __METHOD__ );
 
 		$outputPage = $this->getMockBuilder( '\OutputPage' )
@@ -43,7 +41,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$outputPage->expects( $this->any() )
 			->method( 'getTitle' )
-			->will( $this->returnValue( $title ) );
+			->willReturn( $title );
 
 		$skin = $this->getMockBuilder( '\Skin' )
 			->disableOriginalConstructor()
@@ -51,7 +49,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$skin->expects( $this->any() )
 			->method( 'getOutput' )
-			->will( $this->returnValue( $outputPage ) );
+			->willReturn( $outputPage );
 
 		$store = $this->getMockBuilder( '\SMW\Store' )
 			->disableOriginalConstructor()
@@ -86,7 +84,6 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	private function doTestInitProperties( $instance ) {
-
 		$handler = 'SMW::Property::initProperties';
 
 		$propertyRegistry = $this->getMockBuilder( '\SMW\PropertyRegistry' )
@@ -104,7 +101,6 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	private function doTestSkinTemplateOutputPageBeforeExec( $instance, $skin ) {
-
 		$handler = 'SkinTemplateOutputPageBeforeExec';
 
 		$this->assertTrue(
@@ -120,7 +116,6 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	private function doTestBeforePageDisplay( $instance, $outputPage, $skin ) {
-
 		$handler = 'BeforePageDisplay';
 
 		$this->assertTrue(
@@ -134,7 +129,6 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	private function doTestParserAfterTidy( $instance ) {
-
 		$handler = 'ParserAfterTidy';
 
 		$this->assertTrue(
@@ -157,15 +151,15 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$parser->expects( $this->any() )
 			->method( 'getTitle' )
-			->will( $this->returnValue( $title ) );
+			->willReturn( $title );
 
 		$parser->expects( $this->any() )
 			->method( 'getOptions' )
-			->will( $this->returnValue( $parserOptions ) );
+			->willReturn( $parserOptions );
 
 		$parser->expects( $this->any() )
 			->method( 'getOutput' )
-			->will( $this->returnValue( $parserOutput ) );
+			->willReturn( $parserOutput );
 
 		$text = '';
 
@@ -176,7 +170,6 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	private function doTestParserAfterTidyToBailOutEarly( $instance ) {
-
 		$handler = 'ParserAfterTidy';
 
 		$this->assertTrue(
@@ -191,7 +184,7 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$parserOptions->expects( $this->any() )
 			->method( 'getInterfaceMessage' )
-			->will( $this->returnValue( true ) );
+			->willReturn( true );
 
 		$parserOutput = $this->getMockBuilder( '\ParserOutput' )
 			->disableOriginalConstructor()
@@ -203,11 +196,11 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 
 		$parser->expects( $this->any() )
 			->method( 'getTitle' )
-			->will( $this->returnValue( $title ) );
+			->willReturn( $title );
 
 		$parser->expects( $this->any() )
 			->method( 'getOptions' )
-			->will( $this->returnValue( $parserOptions ) );
+			->willReturn( $parserOptions );
 
 		$text = '';
 
@@ -218,7 +211,6 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	private function doTestSmwParserBeforeMagicWordsFinder( $instance ) {
-
 		$handler = 'SMW::Parser::BeforeMagicWordsFinder';
 
 		$this->assertTrue(
@@ -239,7 +231,6 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	private function doTestOutputPageParserOutput( $instance, $outputPage ) {
-
 		$handler = 'OutputPageParserOutput';
 
 		$this->assertTrue(
@@ -257,15 +248,15 @@ class HookRegistryTest extends \PHPUnit_Framework_TestCase {
 			[ &$outputPage, $parserOutput ]
 		);
 
-		$this->assertEquals(
-			'',
+		$this->assertSame(
+			null,
 			$outputPage->smwmagicwords
 		);
 	}
 
 	private function assertThatHookIsExcutable( \Closure $handler, $arguments ) {
-		$this->assertInternalType(
-			'boolean',
+		$this->assertIsBool(
+
 			call_user_func_array( $handler, $arguments )
 		);
 	}
