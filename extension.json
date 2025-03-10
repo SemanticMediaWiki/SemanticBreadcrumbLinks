@@ -3,7 +3,7 @@
 	"version": "2.1.0-alpha",
 	"author": [
 		"James Hong Kong",
-		"..."
+		"Youri van den Bogert <yvdbogert@archixl.nl>"
 	],
 	"url": "https://github.com/SemanticMediaWiki/SemanticBreadcrumbLinks/",
 	"descriptionmsg": "sbl-desc",
@@ -11,7 +11,10 @@
 	"license-name": "GPL-2.0-or-later",
 	"type": "semantic",
 	"requires": {
-		"MediaWiki": ">= 1.39"
+		"MediaWiki": ">= 1.39",
+		"extensions": {
+			"SemanticMediaWiki": ">= 4"
+		}
 	},
 	"MessagesDirs": {
 		"SemanticBreadcrumbLinks": [
