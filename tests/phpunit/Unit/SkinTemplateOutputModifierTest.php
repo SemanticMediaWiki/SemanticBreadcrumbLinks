@@ -245,17 +245,13 @@ class SkinTemplateOutputModifierTest extends \PHPUnit\Framework\TestCase {
 			$this->namespaceExaminer
 		);
 
-		$template = new \stdClass;
+		$subtitle = 'Foo';
 
-		$template->data = [
-			'subtitle' => 'Foo'
-		];
-
-		$instance->modify( $output, $template );
+		$instance->modify( $output, $subtitle );
 
 		$this->assertEquals(
 			'Foobar',
-			$template->data['subtitle']
+			$subtitle
 		);
 	}
 

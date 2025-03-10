@@ -75,7 +75,7 @@ class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 		$instance->register();
 
 		$this->doTestInitProperties( $instance );
-		$this->doTestSkinTemplateOutputPageBeforeExec( $instance, $skin );
+		$this->doTestSkinSubPageSubtitle( $instance, $skin );
 		$this->doTestBeforePageDisplay( $instance, $outputPage, $skin );
 		$this->doTestParserAfterTidy( $instance );
 		$this->doTestParserAfterTidyToBailOutEarly( $instance );
@@ -100,18 +100,18 @@ class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 		);
 	}
 
-	private function doTestSkinTemplateOutputPageBeforeExec( $instance, $skin ) {
-		$handler = 'SkinTemplateOutputPageBeforeExec';
+	private function doTestSkinSubPageSubtitle( $instance, $skin ) {
+		$handler = 'SkinSubPageSubtitle';
 
 		$this->assertTrue(
 			$instance->isRegistered( $handler )
 		);
 
-		$template = new \stdClass;
+		$subpages = '';
 
 		$this->assertThatHookIsExcutable(
 			$instance->getHandlerFor( $handler ),
-			[ &$skin, &$template ]
+			[ &$subpages, $skin ]
 		);
 	}
 
