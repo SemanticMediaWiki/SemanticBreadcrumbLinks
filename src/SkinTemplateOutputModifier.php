@@ -36,12 +36,12 @@ class SkinTemplateOutputModifier {
 	}
 
 	/**
-	 * @since 1.5
+	 * @since 2.1
 	 *
 	 * @param OutputPage $output
-	 * @param &$template
+	 * @param &$subpages
 	 */
-	public function modify( OutputPage $output, &$template ) {
+	public function modify( OutputPage $output, &$subpages ) {
 		if ( !$this->canModifyOutput( $output ) ) {
 			return;
 		}
@@ -53,13 +53,7 @@ class SkinTemplateOutputModifier {
 			$title->getPageLanguage()->isRTL()
 		);
 
-		if ( !isset( $template->data['subtitle'] ) ) {
-			$template->data['subtitle'] = '';
-		}
-
-		// We always assume `subtitle` is available!
-		// https://github.com/wikimedia/mediawiki/blob/23ea2e4c2966f381eb7fd69b66a8d738bb24cc60/includes/skins/SkinTemplate.php#L292-L296
-		$template->data['subtitle'] .= $this->htmlBreadcrumbLinksBuilder->getHtml();
+		$subpages .= $this->htmlBreadcrumbLinksBuilder->getHtml();
 	}
 
 	private function canModifyOutput( OutputPage $output ) {

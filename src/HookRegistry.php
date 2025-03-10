@@ -97,9 +97,9 @@ class HookRegistry {
 		};
 
 		/**
-		 * @see https://www.mediawiki.org/wiki/Manual:Hooks/SkinTemplateOutputPageBeforeExec
+		 * @see https://www.mediawiki.org/wiki/Manual:Hooks/SkinSubPageSubtitle
 		 */
-		$this->handlers['SkinTemplateOutputPageBeforeExec'] = static function ( &$skin, &$template ) use( $store, $options ) {
+		$this->handlers['SkinSubPageSubtitle'] = function ( &$subpages, \Skin $skin ) use( $store, $options ) {
 			$bySubpageLinksFinder = new BySubpageLinksFinder();
 			$bySubpageLinksFinder->setSubpageDiscoveryFallback(
 				$options->get( 'useSubpageFinderFallback' )
@@ -137,7 +137,7 @@ class HookRegistry {
 				ApplicationFactory::getInstance()->getNamespaceExaminer()
 			);
 
-			$skinTemplateOutputModifier->modify( $skin->getOutput(), $template );
+			$skinTemplateOutputModifier->modify( $skin->getOutput(), $subpages );
 
 			return true;
 		};
