@@ -4,7 +4,12 @@
 			"Умар"
 		]
 	},
+	"sbl-desc": "[https://www.semantic-mediawiki.org Semantic MediaWiki] шордар атрибутийн башхалла фильтран тӀера навигацин хьажоргаш кхуллуш",
+	"smw-pa-property-predefined-sbl-parentpage": "«$1» — хьалххе билгалйаьккхина башхалла йу, коьрта а, тIейоьзна а духийн йукъаметтиг гойтуш, иза ло [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic Breadcrumb Links] шордаро.",
+	"smw-pa-property-predefined-long-sbl-parentpage": "Шен ден-ненан гергара духан меттиг къасторца иза лело йиш йу навигацин гӀо генераци йан чекхйаьллачу формехь.",
 	"sbl-property-alias-parentpage": "Да-нана агӀо йу",
 	"sbl-admin-deprecation-notice-section": "«Semantic Breadcrumb Links» шордар",
-	"sbl-admin-deprecation-notice-title-replacement": "Хийцина йа цӀе хийцина нисдаран гӀирс"
+	"sbl-admin-deprecation-notice-title-replacement": "Хийцина йа цӀе хийцина нисдаран гӀирс",
+	"sbl-admin-deprecation-notice-title-replacement-explanation": "ХӀокху декъехь бу цӀераш хийцина йа кхечу кепара хийцина нисдаран гӀирс, цундела тӀедуьллу церан цӀераш йа формат карлайаккхар.",
+	"sbl-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links/$1 $1]</code> хийцина <code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links/$2 $2]</code> тӀе"
 }
