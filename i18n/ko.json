@@ -1,11 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"Tensama0415",
 			"YeBoy371",
 			"Ykhwong",
 			"아라"
 		]
 	},
+	"smw-pa-property-predefined-sbl-parentpage": "\"$1\"은 [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links 시맨틱 브레드크럼 링크] 확장 기능에서 제공하는 미리 정의된 속성으로, 부모와 자식 개체간의 관계를 서술할 수 있습니다.",
 	"sbl-property-alias-parentpage": "상위 문서 있음",
 	"sbl-admin-deprecation-notice-title-replacement": "치환되거나 이름이 변경된 설정"
 }
