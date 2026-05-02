@@ -2,6 +2,7 @@
 
 namespace SBL\Tests;
 
+use MediaWiki\Linker\Linker;
 use MediaWiki\Title\Title;
 use SBL\HtmlBreadcrumbLinksBuilder;
 use SMW\DIWikiPage;
@@ -41,7 +42,7 @@ class HtmlBreadcrumbLinksBuilderTest extends \PHPUnit\Framework\TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$linker = $this->getMockBuilder( '\Linker' )
+		$linker = $this->getMockBuilder( Linker::class )
 			->disableOriginalConstructor()
 			->getMock();
 
