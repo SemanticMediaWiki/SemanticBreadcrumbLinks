@@ -2,6 +2,7 @@
 
 namespace SBL\Tests;
 
+use MediaWiki\Title\Title;
 use SBL\PageDisplayOutputModifier;
 
 /**
@@ -42,7 +43,7 @@ class PageDisplayOutputModifierTest extends \PHPUnit\Framework\TestCase {
 		$instance->hideSubpageParent( true );
 		$instance->setSubpageByNamespace( [ NS_MAIN => false ] );
 
-		$title = $this->getMockBuilder( '\Title' )
+		$title = $this->getMockBuilder( Title::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -66,7 +67,7 @@ class PageDisplayOutputModifierTest extends \PHPUnit\Framework\TestCase {
 		$instance->hideSubpageParent( true );
 		$instance->setSubpageByNamespace( [ NS_MAIN => true ] );
 
-		$title = $this->getMockBuilder( '\Title' )
+		$title = $this->getMockBuilder( Title::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -97,7 +98,7 @@ class PageDisplayOutputModifierTest extends \PHPUnit\Framework\TestCase {
 		$instance->hideSubpageParent( true );
 		$instance->setSubpageByNamespace( [ NS_MAIN => true ] );
 
-		$title = $this->getMockBuilder( '\Title' )
+		$title = $this->getMockBuilder( Title::class )
 			->disableOriginalConstructor()
 			->getMock();
 
