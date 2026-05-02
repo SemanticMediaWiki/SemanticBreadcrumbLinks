@@ -2,9 +2,9 @@
 
 namespace SBL\Tests;
 
+use MediaWiki\Title\Title;
 use SBL\BySubpageLinksFinder;
 use SMW\DIWikiPage;
-use Title;
 
 /**
  * @covers \SBL\BySubpageLinksFinder

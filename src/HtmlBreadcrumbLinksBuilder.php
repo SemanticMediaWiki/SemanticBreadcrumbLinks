@@ -2,11 +2,11 @@
 
 namespace SBL;
 
-use Html;
-use Linker;
+use MediaWiki\Html\Html;
+use MediaWiki\Linker\Linker;
+use MediaWiki\Title\Title;
 use SMW\DataValueFactory;
 use SMW\DIWikiPage;
-use Title;
 
 /**
  * @license GPL-2.0-or-later

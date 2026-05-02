@@ -3,7 +3,6 @@
 namespace SBL\Tests;
 
 use SBL\Options;
-use SMW\Tests\PHPUnitCompat;
 
 /**
  * @covers \SBL\Options
@@ -15,8 +14,6 @@ use SMW\Tests\PHPUnitCompat;
  * @author mwjames
  */
 class OptionsTest extends \PHPUnit\Framework\TestCase {
-
-	use PHPUnitCompat;
 
 	public function testCanConstruct() {
 		$this->assertInstanceOf(
@@ -43,7 +40,7 @@ class OptionsTest extends \PHPUnit\Framework\TestCase {
 	public function testUnregisteredKeyThrowsException() {
 		$instance = new Options();
 
-		$this->setExpectedException( 'InvalidArgumentException' );
+		$this->expectException( 'InvalidArgumentException' );
 		$instance->get( 'Foo' );
 	}
 

@@ -2,9 +2,9 @@
 
 namespace SBL\Tests;
 
+use MediaWiki\Title\Title;
 use SBL\HookRegistry;
 use SBL\Options;
-use Title;
 
 /**
  * @covers \SBL\HookRegistry

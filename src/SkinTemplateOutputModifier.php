@@ -2,9 +2,9 @@
 
 namespace SBL;
 
+use MediaWiki\Title\Title;
 use OutputPage;
 use SMW\NamespaceExaminer;
-use Title;
 
 /**
  * @license GPL-2.0-or-later

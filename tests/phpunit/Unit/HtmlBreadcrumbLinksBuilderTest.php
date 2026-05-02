@@ -2,10 +2,10 @@
 
 namespace SBL\Tests;
 
+use MediaWiki\Linker\Linker;
+use MediaWiki\Title\Title;
 use SBL\HtmlBreadcrumbLinksBuilder;
 use SMW\DIWikiPage;
-use SMW\Tests\PHPUnitCompat;
-use Title;
 
 /**
  * @covers \SBL\HtmlBreadcrumbLinksBuilder
@@ -17,8 +17,6 @@ use Title;
  * @author mwjames
  */
 class HtmlBreadcrumbLinksBuilderTest extends \PHPUnit\Framework\TestCase {
-
-	use PHPUnitCompat;
 
 	public function testCanConstruct() {
 		$byPropertyHierarchicalLinksFinder = $this->getMockBuilder( '\SBL\ByPropertyHierarchicalLinksFinder' )
@@ -44,7 +42,7 @@ class HtmlBreadcrumbLinksBuilderTest extends \PHPUnit\Framework\TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$linker = $this->getMockBuilder( '\Linker' )
+		$linker = $this->getMockBuilder( Linker::class )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -100,12 +98,12 @@ class HtmlBreadcrumbLinksBuilderTest extends \PHPUnit\Framework\TestCase {
 			$instance->getHtml()
 		);
 
-		$this->assertContains(
+		$this->assertStringContainsString(
 			'dir="ltr"',
 			$instance->getHtml()
 		);
 
-		$this->assertContains(
+		$this->assertStringContainsString(
 			'DividerStyleClass',
 			$instance->getHtml()
 		);
@@ -248,7 +246,7 @@ class HtmlBreadcrumbLinksBuilderTest extends \PHPUnit\Framework\TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$title = $this->getMockBuilder( '\Title' )
+		$title = $this->getMockBuilder( Title::class )
 			->disableOriginalConstructor()
 			->getMock();
 

@@ -2,10 +2,10 @@
 
 namespace SBL;
 
+use MediaWiki\Title\Title;
 use OutputPage;
 use SMW\DataValueFactory;
 use SMW\DIWikiPage;
-use Title;
 
 /**
  * @license GPL-2.0-or-later
@@ -83,7 +83,7 @@ class PageDisplayOutputModifier {
 	private function getPageTitle( Title $title ) {
 		$displayTitle = '';
 
-		$dataValue = DataValueFactory::getInstance()->newDataItemValue(
+		$dataValue = DataValueFactory::getInstance()->newDataValueByItem(
 			DIWikiPage::newFromTitle( $title )
 		);
 
