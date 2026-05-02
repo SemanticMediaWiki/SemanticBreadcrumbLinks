@@ -2,10 +2,10 @@
 
 namespace SBL\Tests;
 
+use MediaWiki\Title\Title;
 use SBL\HtmlBreadcrumbLinksBuilder;
 use SMW\DIWikiPage;
 use SMW\Tests\PHPUnitCompat;
-use Title;
 
 /**
  * @covers \SBL\HtmlBreadcrumbLinksBuilder
@@ -248,7 +248,7 @@ class HtmlBreadcrumbLinksBuilderTest extends \PHPUnit\Framework\TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$title = $this->getMockBuilder( '\Title' )
+		$title = $this->getMockBuilder( Title::class )
 			->disableOriginalConstructor()
 			->getMock();
 
