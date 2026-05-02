@@ -2,8 +2,8 @@
 
 namespace SBL;
 
+use MediaWiki\Title\Title;
 use SMW\DIWikiPage;
-use Title;
 
 /**
  * @license GPL-2.0-or-later
