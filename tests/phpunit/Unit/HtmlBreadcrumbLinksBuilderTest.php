@@ -5,7 +5,6 @@ namespace SBL\Tests;
 use MediaWiki\Title\Title;
 use SBL\HtmlBreadcrumbLinksBuilder;
 use SMW\DIWikiPage;
-use SMW\Tests\PHPUnitCompat;
 
 /**
  * @covers \SBL\HtmlBreadcrumbLinksBuilder
