@@ -2,8 +2,8 @@
 
 namespace SBL;
 
-use MediaWiki\Title\Html;
-use MediaWiki\Title\Linker;
+use MediaWiki\Html\Html;
+use MediaWiki\Linker\Linker;
 use MediaWiki\Title\Title;
 use SMW\DataValueFactory;
 use SMW\DIWikiPage;
