@@ -83,7 +83,7 @@ class PageDisplayOutputModifier {
 	private function getPageTitle( Title $title ) {
 		$displayTitle = '';
 
-		$dataValue = DataValueFactory::getInstance()->newDataItemValue(
+		$dataValue = DataValueFactory::getInstance()->newDataValueByItem(
 			DIWikiPage::newFromTitle( $title )
 		);
 
