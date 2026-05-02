@@ -2,10 +2,10 @@
 
 namespace SBL\Tests;
 
+use MediaWiki\Title\Title;
 use SBL\SubpageParentAnnotator;
 use SMW\DIProperty;
 use SMW\DIWikiPage;
-use Title;
 
 /**
  * @covers \SBL\SubpageParentAnnotator
