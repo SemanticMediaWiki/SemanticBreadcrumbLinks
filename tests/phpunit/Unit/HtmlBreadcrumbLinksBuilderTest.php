@@ -18,8 +18,6 @@ use SMW\Tests\PHPUnitCompat;
  */
 class HtmlBreadcrumbLinksBuilderTest extends \PHPUnit\Framework\TestCase {
 
-	use PHPUnitCompat;
-
 	public function testCanConstruct() {
 		$byPropertyHierarchicalLinksFinder = $this->getMockBuilder( '\SBL\ByPropertyHierarchicalLinksFinder' )
 			->disableOriginalConstructor()
@@ -100,12 +98,12 @@ class HtmlBreadcrumbLinksBuilderTest extends \PHPUnit\Framework\TestCase {
 			$instance->getHtml()
 		);
 
-		$this->assertContains(
+		$this->assertStringContainsString(
 			'dir="ltr"',
 			$instance->getHtml()
 		);
 
-		$this->assertContains(
+		$this->assertStringContainsString(
 			'DividerStyleClass',
 			$instance->getHtml()
 		);
