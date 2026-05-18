@@ -7,9 +7,12 @@
 			"아라"
 		]
 	},
+	"sbl-desc": "속성적 속성(attributive property) 필터를 사용하여 브레드크럼 링크를 생성하는 [https://www.semantic-mediawiki.org Semantic MediaWiki] 확장 기능입니다.",
 	"smw-pa-property-predefined-sbl-parentpage": "\"$1\"은 [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links 시맨틱 브레드크럼 링크] 확장 기능에서 제공하는 미리 정의된 속성으로, 부모와 자식 개체간의 관계를 서술할 수 있습니다.",
+	"smw-pa-property-predefined-long-sbl-parentpage": "상위 개체를 기준으로 개체의 위치를 파악함으로써, 브레드크럼 자취 형태의 탐색 경로적인 도움을 생성할 수 있습니다.",
 	"sbl-property-alias-parentpage": "상위 문서 있음",
 	"sbl-admin-deprecation-notice-section": "시맨틱 브레드크럼 링크 확장 기능",
 	"sbl-admin-deprecation-notice-title-replacement": "치환되거나 이름이 변경된 설정",
-	"sbl-admin-deprecation-notice-title-replacement-explanation": "다음 섹션에는 이름이 바뀌거나 다른 방식으로 수정된 설정이 포함되어 있으므로 해당 이름이나 형식을 업데이트하는 것이 좋습니다."
+	"sbl-admin-deprecation-notice-title-replacement-explanation": "다음 섹션에는 이름이 바뀌거나 다른 방식으로 수정된 설정이 포함되어 있으므로 해당 이름이나 형식을 업데이트하는 것이 좋습니다.",
+	"sbl-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links/$1 $1]</code>은(는) <code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links/$2 $2]</code>(으)로 대체되었습니다"
 }
