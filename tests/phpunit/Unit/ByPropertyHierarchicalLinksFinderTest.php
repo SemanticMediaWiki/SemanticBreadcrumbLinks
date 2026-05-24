@@ -172,7 +172,7 @@ class ByPropertyHierarchicalLinksFinderTest extends \PHPUnit\Framework\TestCase 
 		$subject = new DIWikiPage( 'Foo', NS_MAIN );
 
 		$property = DIProperty::newFromUserLabel( 'Bar' );
-		$property->setPropertyTypeId( '_wpg' );
+		$property->setPropertyValueType( '_wpg' );
 
 		$store = $this->getMockBuilder( '\SMW\Store' )
 			->disableOriginalConstructor()

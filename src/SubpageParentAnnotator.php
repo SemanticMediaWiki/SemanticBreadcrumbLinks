@@ -91,7 +91,7 @@ class SubpageParentAnnotator {
 			DIWikiPage::newFromText( $base, $title->getNamespace() )
 		);
 
-		$this->parserData->pushSemanticDataToParserOutput();
+		$this->parserData->copyToParserOutput();
 	}
 
 	/**

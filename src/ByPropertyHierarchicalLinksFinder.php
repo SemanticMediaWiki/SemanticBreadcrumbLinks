@@ -173,7 +173,7 @@ class ByPropertyHierarchicalLinksFinder {
 
 		$property = DIProperty::newFromUserLabel( $property );
 
-		if ( $property->findPropertyTypeId() !== '_wpg' ) {
+		if ( $property->findPropertyValueType() !== '_wpg' ) {
 			return;
 		}
 
