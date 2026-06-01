@@ -3,15 +3,16 @@
 		"authors": [
 			"Assoc",
 			"Deathkon",
-			"Kly"
+			"Kly",
+			"LowensteinYang"
 		]
 	},
-	"sbl-desc": "用於從名稱屬性過濾器構造麵包屑鏈接的[https://www.semantic-mediawiki.org Semantic MediaWiki]擴展",
-	"smw-pa-property-predefined-sbl-parentpage": "「$1」是由 [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic Breadcrumb Links] 擴充功能所提供，可用來描述父級與子級實體之間關係的預定義屬性。",
-	"smw-pa-property-predefined-long-sbl-parentpage": "通過識別實體相對於其父母的位置，它可以用於以麵包屑痕蹟的形式生成導航幫助。",
+	"sbl-desc": "一個[https://www.semantic-mediawiki.org Semantic MediaWiki]的擴充功能，用於從某個限定的屬性過濾器來建構造麵包屑(按圖索驥)的鏈接",
+	"smw-pa-property-predefined-sbl-parentpage": "「$1」是由 [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic麵包屑(按圖索驥)連結] 擴充功能所提供，可用來描述父級與子級實體之間關係的預定義屬性。",
+	"smw-pa-property-predefined-long-sbl-parentpage": "通過識別實體相對於其父實體的位置，它可以用於產生麵包屑(按圖索驥)形式的導航協助。",
 	"sbl-property-alias-parentpage": "有父頁面",
-	"sbl-admin-deprecation-notice-section": "Semantic Breadcrumb Links 擴充功能",
-	"sbl-admin-deprecation-notice-title-replacement": "已替換或重新命名的設定",
+	"sbl-admin-deprecation-notice-section": "Semantic麵包屑(按圖索驥)連結擴充功能",
+	"sbl-admin-deprecation-notice-title-replacement": "已替換或已重新命名的設定",
 	"sbl-admin-deprecation-notice-title-replacement-explanation": "以下段落包含已重新命名或或是其它變動的設定，建議立即更新其名稱或格式。",
 	"sbl-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links/$1 $1]</code> 被替換成 <code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links/$2 $2]</code>"
 }
