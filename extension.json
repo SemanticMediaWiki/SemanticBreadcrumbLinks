@@ -24,15 +24,64 @@
 	"ExtensionMessagesFiles": {
 		"SemanticBreadcrumbLinksMagic": "i18n/SemanticBreadcrumbLinks.magic.php"
 	},
-	"callback": "SemanticBreadcrumbLinks::initExtension",
-	"ExtensionFunctions": [
-		"SemanticBreadcrumbLinks::onExtensionFunction"
-	],
-	"AutoloadClasses": {
-		"SemanticBreadcrumbLinks": "SemanticBreadcrumbLinks.php"
-	},
 	"AutoloadNamespaces": {
 		"SBL\\": "src/"
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "res",
+		"remoteExtPath": "SemanticBreadcrumbLinks/res"
+	},
+	"ResourceModules": {
+		"ext.semanticbreadcrumblinks.styles": {
+			"styles": "sbl.styles.css",
+			"group": "ext.smw"
+		},
+		"ext.semanticbreadcrumblinks": {
+			"scripts": "sbl.tooltip.js",
+			"group": "ext.smw",
+			"dependencies": [
+				"ext.semanticbreadcrumblinks.styles",
+				"onoi.qtip"
+			]
+		}
+	},
+	"ExtensionFunctions": [
+		"SBL\\Setup::onExtensionFunction"
+	],
+	"config_prefix": "",
+	"config": {
+		"sblgBreadcrumbTrailStyleClass": {
+			"value": "sbl-breadcrumb-trail-light",
+			"description": "Assigns a styling class to the breadcrumb trail"
+		},
+		"egSBLBreadcrumbDividerStyleClass": {
+			"value": "sbl-breadcrumb-arrow",
+			"description": "Assigns a divider styling class such as sbl-breadcrumb-pipe or sbl-breadcrumb-arrow"
+		},
+		"egSBLPropertySearchPatternByNamespace": {
+			"value": [],
+			"description": "An array of search patterns on a per-namespace basis; if no pattern is declared for a namespace then the search is disabled for it"
+		},
+		"egSBLTryToFindClosestDescendant": {
+			"value": true,
+			"description": "SBL will try to find the closest descendant (this does not work for subpages due to missing annotation information)"
+		},
+		"egSBLUseSubpageFinderFallback": {
+			"value": true,
+			"description": "SBL will try to match a hierarchy based on the Foo/Bar/Baz subpage notation when a property search returns empty results"
+		},
+		"egSBLPageTitleToHideSubpageParent": {
+			"value": true,
+			"description": "SBL will try to hide the parent part of a subpage title from display when a corresponding namespace entry is found in the wgNamespacesWithSubpages setting"
+		},
+		"egSBLEnabledSubpageParentAnnotation": {
+			"value": true,
+			"description": "Supports the auto-generation of Has parent page annotations for subpages"
+		},
+		"egSBLDisableTranslationSubpageAnnotation": {
+			"value": true,
+			"description": "Disables the annotation for a subpage when it is identified as a translation page"
+		}
 	},
 	"load_composer_autoloader": true,
 	"manifest_version": 2
