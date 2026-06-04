@@ -6,14 +6,14 @@ use SMW\Services\ServicesFactory as ApplicationFactory;
 
 /**
  * @license GPL-2.0-or-later
- * @since 7.0.0
+ * @since 3.0.0
  *
  * @author mwjames
  */
 class Setup {
 
 	/**
-	 * @since 7.0.0
+	 * @since 3.0.0
 	 */
 	public static function onExtensionFunction() {
 		// Default values are defined at this point to ensure
