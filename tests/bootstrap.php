@@ -12,11 +12,13 @@ if ( !is_readable( $autoloaderClassPath = __DIR__ . '/../../SemanticMediaWiki/te
 	die( 'The Semantic MediaWiki test autoloader is not available' );
 }
 
-if ( !class_exists( 'SemanticBreadcrumbLinks' ) || ( $version = SemanticBreadcrumbLinks::getVersion() ) === null ) {
+if ( !is_readable( $extensionJson = __DIR__ . '/../extension.json' ) ) {
 	die( "\nSemantic Breadcrumb Links is not available, please check your Composer or LocalSettings.\n" );
 }
 
-print sprintf( "\n%-27s%s\n", "Semantic Breadcrumb Links: ", $version );
+$extensionInfo = json_decode( file_get_contents( $extensionJson ), true );
+
+print sprintf( "\n%-27s%s\n", "Semantic Breadcrumb Links: ", $extensionInfo['version'] ?? 'UNKNOWN' );
 
 $autoloader = require $autoloaderClassPath;
 $autoloader->addPsr4( 'SBL\\Tests\\', __DIR__ . '/phpunit/Unit' );

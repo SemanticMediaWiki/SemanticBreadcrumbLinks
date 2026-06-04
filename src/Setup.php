@@ -1,89 +1,19 @@
 <?php
 
-use SBL\HookRegistry;
-use SBL\Options;
+namespace SBL;
+
 use SMW\Services\ServicesFactory as ApplicationFactory;
 
 /**
- * @see https://github.com/SemanticMediaWiki/SemanticBreadcrumbLinks/
+ * @license GPL-2.0-or-later
+ * @since 7.0.0
  *
- * @defgroup SBL Semantic Breadcrumb Links
+ * @author mwjames
  */
-if ( !defined( 'MEDIAWIKI' ) ) {
-	die( 'This file is part of the Semantic Breadcrumb Links extension. It is not a valid entry point.' );
-}
-
-if ( defined( 'SBL_VERSION' ) ) {
-	// Do not initialize more than once.
-	return 1;
-}
-
-SemanticBreadcrumbLinks::load();
-
-/**
- * @codeCoverageIgnore
- */
-class SemanticBreadcrumbLinks {
+class Setup {
 
 	/**
-	 * @since 1.3
-	 */
-	public static function load() {
-		if ( !defined( 'MEDIAWIKI' ) ) {
-			return;
-		}
-
-		if ( is_readable( __DIR__ . '/vendor/autoload.php' ) ) {
-			include_once __DIR__ . '/vendor/autoload.php';
-		}
-
-		// #56 Ensure the constant is defined before `LocalSettings.php` is
-		// loaded in order to make it available for use in `LocalSettings.php`
-		define( 'SBL_PROP_PARENTPAGE', 'Has parent page' );
-
-		// Load DefaultSettings
-		require_once __DIR__ . '/DefaultSettings.php';
-	}
-
-	/**
-	 * @since 1.3
-	 */
-	public static function initExtension( $credits = [] ) {
-		// See https://phabricator.wikimedia.org/T151136
-		define( 'SBL_VERSION', isset( $credits['version'] ) ? $credits['version'] : 'UNKNOWN' );
-
-		// Register resource files
-		$GLOBALS['wgResourceModules']['ext.semanticbreadcrumblinks.styles'] = [
-			'styles'  => 'res/sbl.styles.css',
-			'localBasePath' => __DIR__,
-			'remoteExtPath' => 'SemanticBreadcrumbLinks',
-			'position' => 'top',
-			'group'    => 'ext.smw',
-			'targets' => [
-				'mobile',
-				'desktop'
-			]
-		];
-
-		$GLOBALS['wgResourceModules']['ext.semanticbreadcrumblinks'] = [
-			'scripts' => 'res/sbl.tooltip.js',
-			'localBasePath' => __DIR__,
-			'remoteExtPath' => 'SemanticBreadcrumbLinks',
-			'position' => 'top',
-			'group'    => 'ext.smw',
-			'dependencies'  => [
-				'ext.semanticbreadcrumblinks.styles',
-				'onoi.qtip'
-			],
-			'targets' => [
-				'mobile',
-				'desktop'
-			]
-		];
-	}
-
-	/**
-	 * @since 1.3
+	 * @since 7.0.0
 	 */
 	public static function onExtensionFunction() {
 		// Default values are defined at this point to ensure
@@ -141,15 +71,6 @@ class SemanticBreadcrumbLinks {
 		);
 
 		$hookRegistry->register();
-	}
-
-	/**
-	 * @since 1.3
-	 *
-	 * @return string|null
-	 */
-	public static function getVersion() {
-		return SBL_VERSION;
 	}
 
 }
