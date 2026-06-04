@@ -2,8 +2,8 @@
 
 namespace SBL;
 
-use SMW\DIProperty;
-use SMW\DIWikiPage;
+use SMW\DataItems\Property;
+use SMW\DataItems\WikiPage;
 use SMW\ParserData;
 
 /**
@@ -72,7 +72,7 @@ class SubpageParentAnnotator {
 			return;
 		}
 
-		$property = DIProperty::newFromUserLabel( SBL_PROP_PARENTPAGE );
+		$property = Property::newFromUserLabel( SBL_PROP_PARENTPAGE );
 
 		// Don't override any "man"-made annotation
 		if ( $this->parserData->getSemanticData()->getPropertyValues( $property ) !== [] ) {
@@ -88,7 +88,7 @@ class SubpageParentAnnotator {
 
 		$this->parserData->getSemanticData()->addPropertyObjectValue(
 			$property,
-			DIWikiPage::newFromText( $base, $title->getNamespace() )
+			WikiPage::newFromText( $base, $title->getNamespace() )
 		);
 
 		$this->parserData->copyToParserOutput();

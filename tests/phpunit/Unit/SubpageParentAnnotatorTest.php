@@ -4,8 +4,8 @@ namespace SBL\Tests;
 
 use MediaWiki\Title\Title;
 use SBL\SubpageParentAnnotator;
-use SMW\DIProperty;
-use SMW\DIWikiPage;
+use SMW\DataItems\Property;
+use SMW\DataItems\WikiPage;
 
 /**
  * @covers \SBL\SubpageParentAnnotator
@@ -49,10 +49,10 @@ class SubpageParentAnnotatorTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testAddAnnotation() {
-		$property = DIProperty::newFromUserLabel( SBL_PROP_PARENTPAGE );
-		$subject = DIWikiPage::newFromText( 'Foo' );
+		$property = Property::newFromUserLabel( SBL_PROP_PARENTPAGE );
+		$subject = WikiPage::newFromText( 'Foo' );
 
-		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+		$semanticData = $this->getMockBuilder( '\SMW\DataModel\SemanticData' )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -90,7 +90,7 @@ class SubpageParentAnnotatorTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testDisabledAnnotationFunctionalityDueToPreexisingValues() {
-		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+		$semanticData = $this->getMockBuilder( '\SMW\DataModel\SemanticData' )
 			->disableOriginalConstructor()
 			->getMock();
 
@@ -124,7 +124,7 @@ class SubpageParentAnnotatorTest extends \PHPUnit\Framework\TestCase {
 			->method( 'getTitle' )
 			->willReturn( $title );
 
-		$semanticData = $this->getMockBuilder( '\SMW\SemanticData' )
+		$semanticData = $this->getMockBuilder( '\SMW\DataModel\SemanticData' )
 			->disableOriginalConstructor()
 			->getMock();
 

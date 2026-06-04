@@ -3,7 +3,7 @@
 namespace SBL;
 
 use MediaWiki\Title\Title;
-use SMW\DIWikiPage;
+use SMW\DataItems\WikiPage;
 
 /**
  * @license GPL-2.0-or-later
@@ -44,9 +44,9 @@ class BySubpageLinksFinder {
 	/**
 	 * @since  1.0
 	 *
-	 * @param DIWikiPage $subject
+	 * @param WikiPage $subject
 	 */
-	public function findLinksBySubject( DIWikiPage $subject ) {
+	public function findLinksBySubject( WikiPage $subject ) {
 		$title = $subject->getTitle();
 
 		// Use the text instead of the prefixedText to avoid a split
@@ -84,7 +84,7 @@ class BySubpageLinksFinder {
 
 			if ( $link !== '' && substr( $link, -1 ) !== ' ' ) {
 				$growinglink .= $link;
-				$this->antecedentHierarchyLinks[] = DIWikiPage::newFromTitle( Title::newFromText( $growinglink, $ns ) );
+				$this->antecedentHierarchyLinks[] = WikiPage::newFromTitle( Title::newFromText( $growinglink, $ns ) );
 			}
 
 			$growinglink .= '/';
