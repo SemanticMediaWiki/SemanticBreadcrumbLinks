@@ -1,6 +1,6 @@
 {
 	"name": "SemanticBreadcrumbLinks",
-	"version": "2.1.0-alpha",
+	"version": "7.0.0-alpha",
 	"author": [
 		"James Hong Kong",
 		"Youri van den Bogert <yvdbogert@archixl.nl>"
@@ -13,7 +13,7 @@
 	"requires": {
 		"MediaWiki": ">= 1.43",
 		"extensions": {
-			"SemanticMediaWiki": ">= 6"
+			"SemanticMediaWiki": ">= 7.0"
 		}
 	},
 	"MessagesDirs": {

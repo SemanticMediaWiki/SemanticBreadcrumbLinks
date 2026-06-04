@@ -2,8 +2,8 @@
 
 namespace SBL;
 
-use SMW\DIProperty;
-use SMW\DIWikiPage;
+use SMW\DataItems\Property;
+use SMW\DataItems\WikiPage;
 use SMW\RequestOptions;
 use SMW\Store;
 
@@ -70,9 +70,9 @@ class ByPropertyHierarchicalLinksFinder {
 	/**
 	 * @since  1.0
 	 *
-	 * @param DIWikiPage $subject
+	 * @param WikiPage $subject
 	 */
-	public function findLinksBySubject( DIWikiPage $subject ) {
+	public function findLinksBySubject( WikiPage $subject ) {
 		if ( !isset( $this->propertySearchPatternByNamespace[ $subject->getNamespace() ] ) ) {
 			return;
 		}
@@ -123,7 +123,7 @@ class ByPropertyHierarchicalLinksFinder {
 		return $this->closestDescendantLinks;
 	}
 
-	private function doResolveAntecedentHierarchyRecursively( DIWikiPage $subject, array $propertySearchPattern, RequestOptions $requestOptions, $currentDepth = 0 ) {
+	private function doResolveAntecedentHierarchyRecursively( WikiPage $subject, array $propertySearchPattern, RequestOptions $requestOptions, $currentDepth = 0 ) {
 		$dataItem = null;
 
 		if ( $propertySearchPattern === [] ) {
@@ -134,7 +134,7 @@ class ByPropertyHierarchicalLinksFinder {
 
 		$propertyValues = $this->store->getPropertyValues(
 			$subject,
-			DIProperty::newFromUserLabel( $property ),
+			Property::newFromUserLabel( $property ),
 			$requestOptions
 		);
 
@@ -144,7 +144,7 @@ class ByPropertyHierarchicalLinksFinder {
 
 		foreach ( $propertyValues as $value ) {
 
-			if ( !$value instanceof DIWikiPage || $subject->equals( $value ) ) {
+			if ( !$value instanceof WikiPage || $subject->equals( $value ) ) {
 				continue;
 			}
 
@@ -168,10 +168,10 @@ class ByPropertyHierarchicalLinksFinder {
 		);
 	}
 
-	private function doFindClosestDescendantByInverseLink( DIWikiPage $subject, array $propertySearchPattern, RequestOptions $requestOptions ) {
+	private function doFindClosestDescendantByInverseLink( WikiPage $subject, array $propertySearchPattern, RequestOptions $requestOptions ) {
 		$property = array_shift( $propertySearchPattern );
 
-		$property = DIProperty::newFromUserLabel( $property );
+		$property = Property::newFromUserLabel( $property );
 
 		if ( $property->findPropertyValueType() !== '_wpg' ) {
 			return;

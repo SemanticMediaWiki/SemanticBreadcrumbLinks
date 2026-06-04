@@ -1,5 +1,13 @@
 This file contains the RELEASE-NOTES of the Semantic Breadcrumb Links (a.k.a. SBL) extension.
 
+### 7.0.0
+
+Not yet released.
+
+* Added support for Semantic MediaWiki 7.0
+* Raised the minimum requirement for Semantic MediaWiki to version 7.0
+* The extension version now tracks the Semantic MediaWiki major version; this release jumps from the 2.x series to 7.0.0, skipping the unused 3.x–6.x version numbers
+
 ### 2.0.1
 
 Released on April 19, 2020.

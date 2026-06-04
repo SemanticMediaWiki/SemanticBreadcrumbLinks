@@ -5,8 +5,8 @@ namespace SBL;
 use MediaWiki\Html\Html;
 use MediaWiki\Linker\Linker;
 use MediaWiki\Title\Title;
+use SMW\DataItems\WikiPage;
 use SMW\DataValueFactory;
-use SMW\DIWikiPage;
 
 /**
  * @license GPL-2.0-or-later
@@ -144,7 +144,7 @@ class HtmlBreadcrumbLinksBuilder {
 
 		// Ensure no subobject is used by replacing the fragment
 		$title->setFragment( '' );
-		$subject = DIWikiPage::newFromTitle( $title );
+		$subject = WikiPage::newFromTitle( $title );
 
 		$this->byPropertyHierarchicalLinksFinder->findLinksBySubject( $subject );
 
@@ -187,7 +187,7 @@ class HtmlBreadcrumbLinksBuilder {
 		return $this->bySubpageLinksFinder->getParents();
 	}
 
-	private function formatToFlatList( DIWikiPage $subject, $parents, $children ) {
+	private function formatToFlatList( WikiPage $subject, $parents, $children ) {
 		$parent = '';
 
 		foreach ( $parents as $breadcrumb ) {

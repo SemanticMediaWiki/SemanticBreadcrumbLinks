@@ -4,7 +4,7 @@ namespace SBL\Tests;
 
 use MediaWiki\Title\Title;
 use SBL\BySubpageLinksFinder;
-use SMW\DIWikiPage;
+use SMW\DataItems\WikiPage;
 
 /**
  * @covers \SBL\BySubpageLinksFinder
@@ -37,7 +37,7 @@ class BySubpageLinksFinderTest extends \PHPUnit\Framework\TestCase {
 	 * @dataProvider titleProvider
 	 */
 	public function testFindParentBreadcrumbs( $title, $count, $expected ) {
-		$subject = DIWikiPage::newFromTitle( Title::newFromText( $title ) );
+		$subject = WikiPage::newFromTitle( Title::newFromText( $title ) );
 
 		$instance = new BySubpageLinksFinder();
 		$instance->setSubpageDiscoveryFallback( true );
@@ -72,7 +72,7 @@ class BySubpageLinksFinderTest extends \PHPUnit\Framework\TestCase {
 			'Foo/',
 			1,
 			[
-				new DIWikiPage( 'Foo', NS_MAIN )
+				new WikiPage( 'Foo', NS_MAIN )
 			]
 		];
 
@@ -81,8 +81,8 @@ class BySubpageLinksFinderTest extends \PHPUnit\Framework\TestCase {
 			'Foo/Bar/Baz',
 			2,
 			[
-				new DIWikiPage( 'Foo', NS_MAIN ),
-				new DIWikiPage( 'Foo/Bar', NS_MAIN )
+				new WikiPage( 'Foo', NS_MAIN ),
+				new WikiPage( 'Foo/Bar', NS_MAIN )
 			]
 		];
 
@@ -91,10 +91,10 @@ class BySubpageLinksFinderTest extends \PHPUnit\Framework\TestCase {
 			'Foo/Bar/Baz/Yin/Yan',
 			4,
 			[
-				new DIWikiPage( 'Foo', NS_MAIN ),
-				new DIWikiPage( 'Foo/Bar', NS_MAIN ),
-				new DIWikiPage( 'Foo/Bar/Baz', NS_MAIN ),
-				new DIWikiPage( 'Foo/Bar/Baz/Yin', NS_MAIN )
+				new WikiPage( 'Foo', NS_MAIN ),
+				new WikiPage( 'Foo/Bar', NS_MAIN ),
+				new WikiPage( 'Foo/Bar/Baz', NS_MAIN ),
+				new WikiPage( 'Foo/Bar/Baz/Yin', NS_MAIN )
 			]
 		];
 
@@ -103,7 +103,7 @@ class BySubpageLinksFinderTest extends \PHPUnit\Framework\TestCase {
 			'/a/b',
 			1,
 			[
-				new DIWikiPage( '/a', NS_MAIN )
+				new WikiPage( '/a', NS_MAIN )
 			]
 		];
 
@@ -112,8 +112,8 @@ class BySubpageLinksFinderTest extends \PHPUnit\Framework\TestCase {
 			'/a//b/c',
 			2,
 			[
-				new DIWikiPage( '/a', NS_MAIN ),
-				new DIWikiPage( '/a//b', NS_MAIN )
+				new WikiPage( '/a', NS_MAIN ),
+				new WikiPage( '/a//b', NS_MAIN )
 			]
 		];
 
@@ -143,7 +143,7 @@ class BySubpageLinksFinderTest extends \PHPUnit\Framework\TestCase {
 			'Help:Foo/Foobar',
 			1,
 			[
-				new DIWikiPage( 'Foo', NS_HELP ),
+				new WikiPage( 'Foo', NS_HELP ),
 			]
 		];
 

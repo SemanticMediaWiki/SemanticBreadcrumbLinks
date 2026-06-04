@@ -5,7 +5,7 @@ namespace SBL\Tests;
 use MediaWiki\Linker\Linker;
 use MediaWiki\Title\Title;
 use SBL\HtmlBreadcrumbLinksBuilder;
-use SMW\DIWikiPage;
+use SMW\DataItems\WikiPage;
 
 /**
  * @covers \SBL\HtmlBreadcrumbLinksBuilder
@@ -68,13 +68,13 @@ class HtmlBreadcrumbLinksBuilderTest extends \PHPUnit\Framework\TestCase {
 
 		$byPropertyHierarchicalLinksFinder->expects( $this->once() )
 			->method( 'getParents' )
-			->willReturn( [ new DIWikiPage( 'Foo', NS_MAIN ) ] );
+			->willReturn( [ new WikiPage( 'Foo', NS_MAIN ) ] );
 
 		$byPropertyHierarchicalLinksFinder->expects( $this->once() )
 			->method( 'getChildren' )
 			->willReturn( [
-				new DIWikiPage( 'Bar', NS_MAIN ),
-				new DIWikiPage( 'Foobar', NS_MAIN ) ] );
+				new WikiPage( 'Bar', NS_MAIN ),
+				new WikiPage( 'Foobar', NS_MAIN ) ] );
 
 		$bySubpageLinksFinder = $this->getMockBuilder( '\SBL\BySubpageLinksFinder' )
 			->disableOriginalConstructor()
@@ -132,7 +132,7 @@ class HtmlBreadcrumbLinksBuilderTest extends \PHPUnit\Framework\TestCase {
 
 		$bySubpageLinksFinder->expects( $this->once() )
 			->method( 'getParents' )
-			->willReturn( [ new DIWikiPage( 'Foo', NS_MAIN ) ] );
+			->willReturn( [ new WikiPage( 'Foo', NS_MAIN ) ] );
 
 		$instance = new HtmlBreadcrumbLinksBuilder(
 			$byPropertyHierarchicalLinksFinder,
@@ -152,7 +152,7 @@ class HtmlBreadcrumbLinksBuilderTest extends \PHPUnit\Framework\TestCase {
 	 * a fragment
 	 */
 	public function testBuildBreadcrumbsToNeverUseFragmentedPartOfTitle() {
-		$subject = new DIWikiPage( __METHOD__, NS_MAIN, '', '' );
+		$subject = new WikiPage( __METHOD__, NS_MAIN, '', '' );
 
 		$byPropertyHierarchicalLinksFinder = $this->getMockBuilder( '\SBL\ByPropertyHierarchicalLinksFinder' )
 			->disableOriginalConstructor()
@@ -186,7 +186,7 @@ class HtmlBreadcrumbLinksBuilderTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testBuildBreadcrumbsToUseDisplayTitle() {
-		$subject = new DIWikiPage( __METHOD__, NS_MAIN, '', '' );
+		$subject = new WikiPage( __METHOD__, NS_MAIN, '', '' );
 
 		$byPropertyHierarchicalLinksFinder = $this->getMockBuilder( '\SBL\ByPropertyHierarchicalLinksFinder' )
 			->disableOriginalConstructor()
@@ -208,7 +208,7 @@ class HtmlBreadcrumbLinksBuilderTest extends \PHPUnit\Framework\TestCase {
 			->disableOriginalConstructor()
 			->getMock();
 
-		$dataValue = $this->getMockBuilder( '\SMWWikiPageValue' )
+		$dataValue = $this->getMockBuilder( '\SMW\DataValues\WikiPageValue' )
 			->disableOriginalConstructor()
 			->getMock();
 
