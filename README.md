@@ -17,9 +17,9 @@ This [video](https://vimeo.com/129347298) demonstrates the functionality of the 
 
 ## Requirements
 
-- PHP 7.4 or later
-- MediaWiki 1.39 or later
-- [Semantic MediaWiki][smw] 4.2 or later
+- PHP 8.1 or later
+- MediaWiki 1.43 or later
+- [Semantic MediaWiki][smw] 7.0 or later
 
 ## Installation
 
@@ -37,7 +37,7 @@ create one and add the following content to it:
 ```
 {
 	"require": {
-		"mediawiki/semantic-breadcrumb-links": "~2.0"
+		"mediawiki/semantic-breadcrumb-links": "~3.0"
 	}
 }
 ```
@@ -45,7 +45,7 @@ create one and add the following content to it:
 If you already have a "composer.local.json" file add the following line to the end of the "require"
 section in your file:
 
-    "mediawiki/semantic-breadcrumb-links": "~2.0"
+    "mediawiki/semantic-breadcrumb-links": "~3.0"
 
 Remember to add a comma to the end of the preceding line in this section.
 
@@ -80,7 +80,7 @@ at the contribution guideline.
 
 ## Tests
 
-This extension provides unit and integration tests that are run by a [continues integration platform][travis]
+This extension provides unit and integration tests that are run by a [continues integration platform][GitHub Actions]
 but can also be executed using `composer phpunit` from the extension base directory.
 
 ## License
@@ -89,6 +89,6 @@ but can also be executed using `composer phpunit` from the extension base direct
 
 [smw]: https://github.com/SemanticMediaWiki/SemanticMediaWiki
 [contributors]: https://github.com/SemanticMediaWiki/SemanticBreadcrumbLinks/graphs/contributors
-[travis]: https://travis-ci.org/SemanticMediaWiki/SemanticBreadcrumbLinks
+[GitHub Actions]: https://docs.github.com/en/actions
 [gpl-licence]: https://www.gnu.org/copyleft/gpl.html
 [composer]: https://getcomposer.org/
