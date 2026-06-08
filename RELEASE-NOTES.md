@@ -2,11 +2,12 @@ This file contains the RELEASE-NOTES of the Semantic Breadcrumb Links (a.k.a. SB
 
 ### 3.0.0
 
-Not yet released.
+Released on June 8, 2026.
 
 * Added support for Semantic MediaWiki 7.0
 * Raised the minimum requirement for Semantic MediaWiki to version 7.0
 * Registration now happens declaratively in `extension.json`: the settings, resource modules and extension setup moved into the manifest, so configuration defaults set in `LocalSettings.php` are honoured reliably
+* Localization updates from https://translatewiki.net
 
 ### 2.0.1
 
