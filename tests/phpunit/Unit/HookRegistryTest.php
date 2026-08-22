@@ -2,6 +2,7 @@
 
 namespace SBL\Tests;
 
+use MediaWiki\Parser\ParserOutput;
 use MediaWiki\Title\Title;
 use SBL\HookRegistry;
 use SBL\Options;
@@ -42,6 +43,10 @@ class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 		$outputPage->expects( $this->any() )
 			->method( 'getTitle' )
 			->willReturn( $title );
+
+		$outputPage->expects( $this->any() )
+			->method( 'getMetadata' )
+			->willReturn( new ParserOutput() );
 
 		$skin = $this->getMockBuilder( '\Skin' )
 			->disableOriginalConstructor()
@@ -237,11 +242,8 @@ class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 			$instance->isRegistered( $handler )
 		);
 
-		$parserOutput = $this->getMockBuilder( '\ParserOutput' )
-			->disableOriginalConstructor()
-			->getMock();
-
-		$magicWords = [];
+		$parserOutput = new ParserOutput();
+		$parserOutput->setExtensionData( 'smwmagicwords', [ 'SBL_NOBREADCRUMBLINKS' ] );
 
 		$this->assertThatHookIsExcutable(
 			$instance->getHandlerFor( $handler ),
@@ -249,8 +251,8 @@ class HookRegistryTest extends \PHPUnit\Framework\TestCase {
 		);
 
 		$this->assertSame(
-			null,
-			$outputPage->smwmagicwords
+			[ 'SBL_NOBREADCRUMBLINKS' ],
+			$outputPage->getMetadata()->getExtensionData( 'smwmagicwords' )
 		);
 	}
 
