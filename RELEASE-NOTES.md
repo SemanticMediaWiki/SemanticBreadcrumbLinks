@@ -1,5 +1,11 @@
 This file contains the RELEASE-NOTES of the Semantic Breadcrumb Links (a.k.a. SBL) extension.
 
+### 3.0.1
+
+Not yet released.
+
+* #92 Fixes the "Creation of dynamic property MediaWiki\Output\OutputPage::$smwmagicwords is deprecated" warning by carrying the magic words over on the OutputPage's metadata instead of a dynamic property
+
 ### 3.0.0
 
 Released on June 8, 2026.

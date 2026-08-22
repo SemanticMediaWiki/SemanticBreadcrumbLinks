@@ -87,12 +87,17 @@ class HookRegistry {
 
 		/**
 		 * @note This is bit of a hack but there is no other way to get access to
-		 * the ParserOutput
+		 * the ParserOutput. The words are carried over on the OutputPage's own
+		 * metadata, since OutputPage does not merge extension data itself.
 		 *
 		 * @see https://www.mediawiki.org/wiki/Manual:Hooks/OutputPageParserOutput
 		 */
 		$this->handlers['OutputPageParserOutput'] = static function ( &$outputPage, $parserOutput ) {
-			$outputPage->smwmagicwords = $parserOutput->getExtensionData( 'smwmagicwords' );
+			$outputPage->getMetadata()->setExtensionData(
+				'smwmagicwords',
+				$parserOutput->getExtensionData( 'smwmagicwords' )
+			);
+
 			return true;
 		};
 

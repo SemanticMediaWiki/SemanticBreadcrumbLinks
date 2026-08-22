@@ -61,7 +61,9 @@ class SkinTemplateOutputModifier {
 			return false;
 		}
 
-		if ( isset( $output->smwmagicwords ) && in_array( 'SBL_NOBREADCRUMBLINKS', $output->smwmagicwords ) ) {
+		$magicWords = $output->getMetadata()->getExtensionData( 'smwmagicwords' ) ?? [];
+
+		if ( in_array( 'SBL_NOBREADCRUMBLINKS', $magicWords ) ) {
 			return false;
 		}
 

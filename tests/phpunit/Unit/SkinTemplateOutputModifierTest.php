@@ -2,6 +2,7 @@
 
 namespace SBL\Tests;
 
+use MediaWiki\Parser\ParserOutput;
 use MediaWiki\Title\Title;
 use SBL\SkinTemplateOutputModifier;
 
@@ -151,9 +152,16 @@ class SkinTemplateOutputModifierTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testTryPrependHtmlOnNOBREADCRUMBLINKS() {
+		$this->namespaceExaminer->expects( $this->once() )
+			->method( 'isSemanticEnabled' )
+			->willReturn( true );
+
 		$htmlBreadcrumbLinksBuilder = $this->getMockBuilder( '\SBL\HtmlBreadcrumbLinksBuilder' )
 			->disableOriginalConstructor()
 			->getMock();
+
+		$htmlBreadcrumbLinksBuilder->expects( $this->never() )
+			->method( 'buildBreadcrumbs' );
 
 		$title = $this->getMockBuilder( Title::class )
 			->disableOriginalConstructor()
@@ -184,7 +192,12 @@ class SkinTemplateOutputModifierTest extends \PHPUnit\Framework\TestCase {
 			$this->namespaceExaminer
 		);
 
-		$output->smwmagicwords = [ 'SBL_NOBREADCRUMBLINKS' ];
+		$metadata = new ParserOutput();
+		$metadata->setExtensionData( 'smwmagicwords', [ 'SBL_NOBREADCRUMBLINKS' ] );
+
+		$output->expects( $this->any() )
+			->method( 'getMetadata' )
+			->willReturn( $metadata );
 
 		$template = new \stdClass;
 		$template->data = [];
