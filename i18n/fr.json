@@ -8,8 +8,8 @@
 		]
 	},
 	"sbl-desc": "Une extension [https://www.semantic-mediawiki.org MediaWiki Sémantique] pour construire des liens de navigation guidée par un fil d’Ariane depuis un filtre de propriété attributive",
-	"sbl-property-predefined-parentpage": "« $1 » est une propriété prédéfinie qui peut décrire une relation entre une entité parent et une entité enfant ; elle est fournie par l’extension [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Liens de retraçage sémantique].",
-	"sbl-property-predefined-parentpage-long": "Identifier l’emplacement d’une entité par rapport à son parent peut être utilisé pour générer une aide à la navigation sous forme de fil d’Ariane.",
+	"smw-pa-property-predefined-sbl-parentpage": "« $1 » est une propriété prédéfinie qui peut décrire une relation entre une entité parent et une entité enfant ; elle est fournie par l’extension [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Liens de retraçage sémantique].",
+	"smw-pa-property-predefined-long-sbl-parentpage": "Identifier l’emplacement d’une entité par rapport à son parent peut être utilisé pour générer une aide à la navigation sous forme de fil d’Ariane.",
 	"sbl-property-alias-parentpage": "A une page parent",
 	"sbl-admin-deprecation-notice-section": "Extension de Liens de retraçage sémantique",
 	"sbl-admin-deprecation-notice-title-replacement": "Paramètres remplacés ou renommés",

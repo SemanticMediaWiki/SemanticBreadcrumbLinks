@@ -8,8 +8,8 @@
 		]
 	},
 	"sbl-desc": "Пашырэньне [https://www.semantic-mediawiki.org Semantic MediaWiki] для пабудовы навігацыйных спасылак зь фільтру атрыбутыўных уласьцівасьцяў",
-	"sbl-property-predefined-parentpage": "«$1» — перадвызначаная ўласьцівасьць, якая можа апісваць стасункі паміж бацькоўскімі й дачыннымі існасьцямі й забясьпечваецца пашырэньнем [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic Breadcrumb Links].",
-	"sbl-property-predefined-parentpage-long": "Вызначаючы лякацыю існасьці рэлятыўна ейнай крыніцы, яна можа быць скарыстаная для стварэньня навіґацыйнай дапамогі ў форме пройдзенага шляху.",
+	"smw-pa-property-predefined-sbl-parentpage": "«$1» — перадвызначаная ўласьцівасьць, якая можа апісваць стасункі паміж бацькоўскімі й дачыннымі існасьцямі й забясьпечваецца пашырэньнем [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic Breadcrumb Links].",
+	"smw-pa-property-predefined-long-sbl-parentpage": "Вызначаючы лякацыю існасьці рэлятыўна ейнай крыніцы, яна можа быць скарыстаная для стварэньня навіґацыйнай дапамогі ў форме пройдзенага шляху.",
 	"sbl-property-alias-parentpage": "Мае бацькоўскую старонку",
 	"sbl-admin-deprecation-notice-section": "Пашырэньне Semantic Breadcrumb Links",
 	"sbl-admin-deprecation-notice-title-replacement": "Замененыя ці перайменаваныя налады",

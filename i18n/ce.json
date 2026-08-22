@@ -5,8 +5,8 @@
 		]
 	},
 	"sbl-desc": "[https://www.semantic-mediawiki.org Semantic MediaWiki] шордар атрибутийн башхалла фильтран тӀера навигацин хьажоргаш кхуллуш",
-	"sbl-property-predefined-parentpage": "«$1» — хьалххе билгалйаьккхина башхалла йу, коьрта а, тIейоьзна а духийн йукъаметтиг гойтуш, иза ло [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic Breadcrumb Links] шордаро.",
-	"sbl-property-predefined-parentpage-long": "Шен ден-ненан гергара духан меттиг къасторца иза лело йиш йу навигацин гӀо генераци йан чекхйаьллачу формехь.",
+	"smw-pa-property-predefined-sbl-parentpage": "«$1» — хьалххе билгалйаьккхина башхалла йу, коьрта а, тIейоьзна а духийн йукъаметтиг гойтуш, иза ло [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic Breadcrumb Links] шордаро.",
+	"smw-pa-property-predefined-long-sbl-parentpage": "Шен ден-ненан гергара духан меттиг къасторца иза лело йиш йу навигацин гӀо генераци йан чекхйаьллачу формехь.",
 	"sbl-property-alias-parentpage": "Да-нана агӀо йу",
 	"sbl-admin-deprecation-notice-section": "«Semantic Breadcrumb Links» шордар",
 	"sbl-admin-deprecation-notice-title-replacement": "Хийцина йа цӀе хийцина нисдаран гӀирс",

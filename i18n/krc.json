@@ -5,8 +5,8 @@
 		]
 	},
 	"sbl-desc": "Атрибут энчилик фильтринден breadcrumb джибериулерини болдурур ючюн [https://www.semantic-mediawiki.org Semantik bir MediaWiki] кенгериу",
-	"sbl-property-predefined-parentpage": "\"$1\" - ана бла бала барлыкъ арасындагъы илешкилени таныталгъан, аллындан танытылгъан энчиликди эмда [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic Breadcrumb Links] кенгириу къошуу бла баджарылыр.",
-	"sbl-property-predefined-parentpage-long": "Барлыкъны анасына кёре темасыны белгилеб ётмек умурну (breadcrumb) ызы шекелде навигация болушлулкъ болдурур ючюн хайырланыргъа боллукъду.",
+	"smw-pa-property-predefined-sbl-parentpage": "\"$1\" - ана бла бала барлыкъ арасындагъы илешкилени таныталгъан, аллындан танытылгъан энчиликди эмда [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic Breadcrumb Links] кенгириу къошуу бла баджарылыр.",
+	"smw-pa-property-predefined-long-sbl-parentpage": "Барлыкъны анасына кёре темасыны белгилеб ётмек умурну (breadcrumb) ызы шекелде навигация болушлулкъ болдурур ючюн хайырланыргъа боллукъду.",
 	"sbl-property-alias-parentpage": "Ана бети барды",
 	"sbl-admin-deprecation-notice-section": "«Semantic Breadcrumb Links» кенгериу",
 	"sbl-admin-deprecation-notice-title-replacement": "Ауушдурулгъан неда атын тюрлендирген джарашдырыула",

@@ -3,6 +3,6 @@
 		"authors": []
 	},
 	"sbl-desc": "Proširenje [https://www.semantic-mediawiki.org Semantic MediaWiki] za stvaranje bredkramb linkova od filtera atributivnih svojstava",
-	"sbl-property-predefined-parentpage-long": "Identifikovanjem lokacije entiteta u odnosu na njegovog roditelja može se generisati navigaciona pomoć u formi bredgramb traga.",
+	"smw-pa-property-predefined-long-sbl-parentpage": "Identifikovanjem lokacije entiteta u odnosu na njegovog roditelja može se generisati navigaciona pomoć u formi bredgramb traga.",
 	"sbl-property-alias-parentpage": "Ima roditeljsku stranicu"
 }
