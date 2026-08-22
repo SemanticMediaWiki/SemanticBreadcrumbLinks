@@ -18,6 +18,14 @@ displayed due to the nature of the breadcrumb trail.
 Note that the display of these aforementioned decendants is limited to 20 (1 shown directly and 19 via
 the dropdown) for best experience even though more may exist. This limit cannot be changed.
 
+`SBL_PROP_PARENTPAGE` stands for the `Has parent page` property label. It is available in
+`LocalSettings.php` when the extension is installed via Composer at the root of the wiki, as the
+installation instructions describe, because Composer's autoloader defines it before
+`LocalSettings.php` is read. With a git checkout whose dependencies are installed inside the
+extension directory, the constant is only defined after `LocalSettings.php` has been processed, and
+using it there fails with `Undefined constant "SBL_PROP_PARENTPAGE"`. In that case write the label
+as a string, `'Has parent page'`, instead.
+
 ### Styling
 
 The output can easily be adjusted using the deployed styles (in `res/sbl.styles.css`) together with
