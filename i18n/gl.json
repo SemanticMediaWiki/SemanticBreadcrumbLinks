@@ -6,8 +6,8 @@
 		]
 	},
 	"sbl-desc": "Unha extensión de [https://www.semantic-mediawiki.org Semantic MediaWiki] para crear ligazóns de ruta de navegación a partir dun filtro de propiedades atributivas",
-	"smw-pa-property-predefined-sbl-parentpage": "«$1» é unha propiedade predefinida que pode describir unha relación entre unha entidade principal e unha entidade secundaria; proporcionada pola extensión de [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links ligazóns de ruta de navegación semántica].",
-	"smw-pa-property-predefined-long-sbl-parentpage": "Identificar a localización dunha entidade en relación coa súa entidade principal pódese usar para xerar unha axuda de navegación en forma de ruta de navegación.",
+	"sbl-property-predefined-parentpage": "«$1» é unha propiedade predefinida que pode describir unha relación entre unha entidade principal e unha entidade secundaria; proporcionada pola extensión de [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links ligazóns de ruta de navegación semántica].",
+	"sbl-property-predefined-parentpage-long": "Identificar a localización dunha entidade en relación coa súa entidade principal pódese usar para xerar unha axuda de navegación en forma de ruta de navegación.",
 	"sbl-property-alias-parentpage": "Ten unha páxina principal",
 	"sbl-admin-deprecation-notice-section": "Extensión de ligazóns de ruta de navegación semántica",
 	"sbl-admin-deprecation-notice-title-replacement": "Parámetros substituídos ou renomeados",
