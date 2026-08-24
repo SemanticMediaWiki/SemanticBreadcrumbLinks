@@ -49,6 +49,24 @@ class PropertyRegistryTest extends \PHPUnit\Framework\TestCase {
 		$instance->register( $propertyRegistry );
 	}
 
+	public function testRegisteredDescriptionMessagesExist() {
+		$propertyRegistry = $this->newSmwPropertyRegistry();
+
+		$registeredKey = null;
+		$propertyRegistry->method( 'registerPropertyDescriptionByMsgKey' )
+			->willReturnCallback( static function ( $id, $msgKey ) use ( &$registeredKey ) {
+				$registeredKey = $msgKey;
+			} );
+
+		$instance = new PropertyRegistry();
+		$instance->register( $propertyRegistry );
+
+		$this->assertTrue( wfMessage( $registeredKey )->exists() );
+
+		// SMW derives the second paragraph's key by appending `-long`; no code references it.
+		$this->assertTrue( wfMessage( $registeredKey . '-long' )->exists() );
+	}
+
 	private function newSmwPropertyRegistry() {
 		return $this->getMockBuilder( SmwPropertyRegistry::class )
 			->disableOriginalConstructor()
