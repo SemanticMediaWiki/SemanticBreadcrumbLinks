@@ -24,6 +24,7 @@ class PropertyRegistry {
 				'label' => SBL_PROP_PARENTPAGE,
 				'type'  => '_wpg',
 				'alias' => 'sbl-property-alias-parentpage',
+				'description' => 'sbl-property-predefined-parentpage',
 				'visbility' => true
 			]
 		];
@@ -42,13 +43,18 @@ class PropertyRegistry {
 				wfMessage( $definition['alias'] )->text()
 			);
 
-			// 2.4+
-			if ( method_exists( $propertyRegistry, 'registerPropertyAliasByMsgKey' ) ) {
-				$propertyRegistry->registerPropertyAliasByMsgKey(
-					$propertyId,
-					$definition['alias']
-				);
-			}
+			$propertyRegistry->registerPropertyAliasByMsgKey(
+				$propertyId,
+				$definition['alias']
+			);
+
+			// Without this, SMW derives the key from the property id, which
+			// for `__sbl_parentpage` is `smw-property-predefined--sbl-parentpage`;
+			// the long text is looked up under the registered key plus `-long`.
+			$propertyRegistry->registerPropertyDescriptionByMsgKey(
+				$propertyId,
+				$definition['description']
+			);
 		}
 
 		return true;

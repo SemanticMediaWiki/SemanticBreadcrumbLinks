@@ -39,4 +39,17 @@ class PropertyRegistryTest extends \PHPUnit\Framework\TestCase {
 		$instance->register( $propertyRegistry );
 	}
 
+	public function testRegistersTheDescriptionUnderTheKeySmwLooksUp() {
+		$propertyRegistry = $this->getMockBuilder( '\SMW\PropertyRegistry' )
+			->disableOriginalConstructor()
+			->getMock();
+
+		$propertyRegistry->expects( $this->once() )
+			->method( 'registerPropertyDescriptionByMsgKey' )
+			->with( PropertyRegistry::SBL_PARENTPAGE, 'sbl-property-predefined-parentpage' );
+
+		$instance = new PropertyRegistry();
+		$instance->register( $propertyRegistry );
+	}
+
 }
