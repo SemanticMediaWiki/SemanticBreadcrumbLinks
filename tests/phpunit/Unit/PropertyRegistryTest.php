@@ -3,6 +3,7 @@
 namespace SBL\Tests;
 
 use SBL\PropertyRegistry;
+use SMW\PropertyRegistry as SmwPropertyRegistry;
 
 /**
  * @covers \SBL\PropertyRegistry
@@ -17,15 +18,13 @@ class PropertyRegistryTest extends \PHPUnit\Framework\TestCase {
 
 	public function testCanConstruct() {
 		$this->assertInstanceOf(
-			'\SBL\PropertyRegistry',
+			PropertyRegistry::class,
 			new PropertyRegistry()
 		);
 	}
 
 	public function testRegister() {
-		$propertyRegistry = $this->getMockBuilder( '\SMW\PropertyRegistry' )
-			->disableOriginalConstructor()
-			->getMock();
+		$propertyRegistry = $this->newSmwPropertyRegistry();
 
 		$propertyRegistry->expects( $this->atLeastOnce() )
 			->method( 'registerProperty' )
@@ -40,9 +39,7 @@ class PropertyRegistryTest extends \PHPUnit\Framework\TestCase {
 	}
 
 	public function testRegistersTheDescriptionUnderTheKeySmwLooksUp() {
-		$propertyRegistry = $this->getMockBuilder( '\SMW\PropertyRegistry' )
-			->disableOriginalConstructor()
-			->getMock();
+		$propertyRegistry = $this->newSmwPropertyRegistry();
 
 		$propertyRegistry->expects( $this->once() )
 			->method( 'registerPropertyDescriptionByMsgKey' )
@@ -50,6 +47,12 @@ class PropertyRegistryTest extends \PHPUnit\Framework\TestCase {
 
 		$instance = new PropertyRegistry();
 		$instance->register( $propertyRegistry );
+	}
+
+	private function newSmwPropertyRegistry() {
+		return $this->getMockBuilder( SmwPropertyRegistry::class )
+			->disableOriginalConstructor()
+			->getMock();
 	}
 
 }
