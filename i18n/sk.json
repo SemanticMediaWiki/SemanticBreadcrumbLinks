@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Wizzard"
+		]
+	},
+	"sbl-desc": "Rozšírenie [https://www.semantic-mediawiki.org Semantic MediaWiki] na vytváranie drobčekovej navigácie z atribútového filtra vlastností",
+	"smw-pa-property-predefined-sbl-parentpage": "„$1“ je preddefinovaná vlastnosť, ktorá môže opisovať vzťah medzi nadradenou a podradenou entitou, a poskytuje ju rozšírenie [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic Breadcrumb Links].",
+	"smw-pa-property-predefined-long-sbl-parentpage": "Určením umiestnenia entity vo vzťahu k jej nadradenej entite ju možno použiť na vytvorenie navigačnej pomôcky v podobe drobčekovej navigácie.",
+	"sbl-property-alias-parentpage": "Má nadradenú stránku",
+	"sbl-admin-deprecation-notice-section": "Rozšírenie Semantic Breadcrumb Links",
+	"sbl-admin-deprecation-notice-title-replacement": "Nahradené alebo premenované nastavenia",
+	"sbl-admin-deprecation-notice-title-replacement-explanation": "Nasledujúca sekcia obsahuje nastavenia, ktoré boli premenované alebo inak zmenené; odporúča sa bezodkladne aktualizovať ich názov alebo formát.",
+	"sbl-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links/$1 $1]</code> bolo nahradené za <code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links/$2 $2]</code>"
+}
