@@ -5,8 +5,8 @@
 		]
 	},
 	"sbl-desc": "Rozšírenie [https://www.semantic-mediawiki.org Semantic MediaWiki] na vytváranie drobčekovej navigácie z atribútového filtra vlastností",
-	"smw-pa-property-predefined-sbl-parentpage": "„$1“ je preddefinovaná vlastnosť, ktorá môže opisovať vzťah medzi nadradenou a podradenou entitou, a poskytuje ju rozšírenie [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic Breadcrumb Links].",
-	"smw-pa-property-predefined-long-sbl-parentpage": "Určením umiestnenia entity vo vzťahu k jej nadradenej entite ju možno použiť na vytvorenie navigačnej pomôcky v podobe drobčekovej navigácie.",
+	"sbl-property-predefined-parentpage": "„$1“ je preddefinovaná vlastnosť, ktorá môže opisovať vzťah medzi nadradenou a podradenou entitou, a poskytuje ju rozšírenie [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic Breadcrumb Links].",
+	"sbl-property-predefined-parentpage-long": "Určením umiestnenia entity vo vzťahu k jej nadradenej entite ju možno použiť na vytvorenie navigačnej pomôcky v podobe drobčekovej navigácie.",
 	"sbl-property-alias-parentpage": "Má nadradenú stránku",
 	"sbl-admin-deprecation-notice-section": "Rozšírenie Semantic Breadcrumb Links",
 	"sbl-admin-deprecation-notice-title-replacement": "Nahradené alebo premenované nastavenia",

@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"AhmedG612"
+		]
+	},
+	"sbl-desc": "Kordhin [https://www.semantic-mediawiki.org Semantic MediaWiki] ah oo lagu dhiso xiriiriyeyaasha raadraaca iyadoo la adeegsanayo shaandhaynta hantiyeed",
+	"sbl-property-predefined-parentpage": "\"$1\" waa hanti hore loo sii qeexay oo qeexi karta xiriirka u dhexeeya qayb waalid iyo qayb ilmo ah, waxaana bixiya kordhinta [https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links Semantic Breadcrumb Links]",
+	"sbl-property-predefined-parentpage-long": "Marka la aqoonsado goobta qayb ka mid ah marka loo eego qaybteeda waalidka, waxaa loo adeegsan karaa in lagu abuuro caawimo hagitaan oo qaab silsilad raadraac ah.",
+	"sbl-property-alias-parentpage": "Waxay leedahay bog waalid",
+	"sbl-admin-deprecation-notice-section": "Kordhinta Semantic Breadcrumb Links",
+	"sbl-admin-deprecation-notice-title-replacement": "Dejimo la beddelay ama dib loo magacaabay",
+	"sbl-admin-deprecation-notice-title-replacement-explanation": "Qaybta soo socota waxay ka kooban tahay dejimo dib loo magacaabay ama si kale loo beddelay, waxaana lagu talinayaa in isla markiiba la cusboonaysiiyo magacooda ama qaabkooda.",
+	"sbl-admin-deprecation-notice-config-replacement": "<code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links/$1 $1]</code> waxaa lagu beddelay <code>[https://www.semantic-mediawiki.org/wiki/Extension:Semantic_Breadcrumb_Links/$2 $2]</code>"
+}
