@@ -2,9 +2,12 @@ This file contains the RELEASE-NOTES of the Semantic Breadcrumb Links (a.k.a. SB
 
 ### 3.0.1
 
-Not yet released.
+Released on August 30, 2026.
 
 * #92 Fixes the "Creation of dynamic property MediaWiki\Output\OutputPage::$smwmagicwords is deprecated" warning by carrying the magic words over on the OutputPage's metadata instead of a dynamic property
+* #95 Fixes the description of the predefined property "Has parent page" not being shown on its property page
+* #82 Documents when `SBL_PROP_PARENTPAGE` can be used in `LocalSettings.php`, and what to use instead when it cannot
+* Localization updates from https://translatewiki.net
 
 ### 3.0.0
 
